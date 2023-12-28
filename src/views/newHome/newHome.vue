@@ -151,6 +151,15 @@
     padding: 0px 10px;
   }
 
+  .box-div .line1 .searchBtn{
+    display: block;
+    border: 1px solid #00ff00;
+    border-radius: 10px;
+    width: 300px;
+    height: 40px;
+    opacity: 0.5;
+  }
+
 
 
 </style>
@@ -163,10 +172,16 @@
       <p style="font-family: Montserrat;color:white;font-size: 40px;text-align:left;margin-top: 50px">The Turn Network<br/>Blockchain Explorer</p>
 <!--      <p style="font-family: Montserrat;font-size: 40px">The Turn Network<br/>Blockchain Explorer</p>-->
 <!--      <img style="display:inline-block;transform: scale(0.3);" src="../../assets/imagesV2/Retro Glass Material 2.png">-->
+
+
+      <div class="searchBtn">
+        <el-input  v-model="input" placeholder="请输入内容"></el-input>
+      </div>
 <!--      <el-input v-model="input" placeholder="请输入内容"></el-input>-->
 <!--      <el-button type="primary" class="el-btn el-searchs"  @click="searchFn"-->
 <!--                 >查询</el-button>-->
     </div>
+
     <div class="line1-2">
 <!--      <img style="transform: scale(0.3);" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />-->
       <img style="margin-left: 100px;max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />
@@ -536,7 +551,7 @@
     name: 'newHome',
     data() {
       return {
-
+        input:""
       };
     },
     props: {},
