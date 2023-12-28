@@ -1,0 +1,16 @@
+{
+  "chainList":[
+    {
+      "cid": "100",
+      "en": "MainNet",
+      "zh": "MainNet(主网络)",
+      "http": "http://192.168.9.190:10000/web3-mainnet"
+    },
+    {
+      "cid": "1",
+      "en": "TestNet",
+      "zh": "TestNet(测试网络)",
+      "http": "http://192.168.9.190:10000/web3-testnet"
+    }
+  ]
+}

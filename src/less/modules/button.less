@@ -1,0 +1,54 @@
+//按钮
+.el-button.el-button--primary{
+    color: #fff;
+    border: 1px solid @blue;
+    &:not(.is-disabled):hover{
+      background: @lightblue;
+      border-color:@lightblue;
+    }
+    &:not(.is-disabled):active{
+      background: #0189CA;
+      border-color:#0189CA;
+    }
+    &.is-disabled{
+      color:#eee;
+      background: #D8D8D8;
+    }
+    &:focus{
+      background: #0D6CDA;
+    }
+  }
+  
+  .el-button--default{
+    color: @blue;
+    border: 1px solid @blue;
+    &:not(.is-disabled):hover{
+        background: #5CB2DB;
+        border-color:#5CB2DB;
+    }
+    &:not(.is-disabled):active{
+        background: #0E52AC;
+        border-color:#0E52AC;
+    }
+    &.is-disabled{
+      border: 1px solid #D8D8D8;
+      color: #D8D8D8;
+    }
+  }
+  .el-button--text{
+    color: @blue;
+  }
+
+  .detail-arrow .el-button.el-button--default:hover{
+    background: #fff;
+    &.is-disabled{
+      border: 1px solid #F5F5F5 !important;
+    }
+  }
+
+  .search-index .el-button.el-button--primary{
+    &:not(.is-disabled):hover{
+      background: @white !important;
+      // border-left: 1px solid #fff;
+    }
+  }
