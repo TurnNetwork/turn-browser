@@ -1,5 +1,8 @@
 <template>
   <div class="footer-wrap">
+    <div class="guang">
+      <img src="./../../assets/imagesV2/Rectangle 19.png" style="width: 100%;height: 50px;margin-top: -14px" />
+    </div>
     <div class="footer-main-top">
       <div>
         <img src="./../../assets/imagesV2/Logo-Black.png" width="100px" height="30px" />
@@ -130,6 +133,12 @@
   };
 </script>
 <style lang="less" scoped>
+  .guang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: top;
+  }
   .footer-flex{
     display: flex;
     justify-content: flex-end;
@@ -155,8 +164,8 @@
     align-items: center;
     justify-content: space-between;
     //border-bottom: 1px solid #6e6e6e;
-    padding-bottom: 14px;
-    margin-bottom: 14px;
+    /*padding-bottom: 14px;*/
+    /*margin-bottom: 14px;*/
   }
 
   .download-btn {

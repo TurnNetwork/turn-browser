@@ -3,7 +3,7 @@
         <div class="title" v-if="title">
             {{title}}
         </div>
-        <div class="item-wrap" :class="{'flex-inline':inline,'flex-vertical':!inline}">
+        <div class="item-wrap kuang" :class="{'flex-inline':inline,'flex-vertical':!inline}">
             <slot></slot>
         </div>
     </div>
@@ -30,7 +30,7 @@
 
         },
 		watch: {
-		
+
 		},
         components: {
 
@@ -44,22 +44,23 @@
         },
         mounted() {
 
-        }    
+        }
     }
 </script>
 <style lang="less" scoped>
     .list-wrap{
         &.border{
             border: 1px solid #F5F5F5;
-        }       
+        }
         .title{
             font-size: 20px;
             color: #000;
             line-height: 24px;
-            padding: 9px 20px;
-            border-top:2px solid #000;
+            /*padding: 9px 20px;*/
+            padding: 9px 0;
+            //border-top:2px solid #000;
             border-bottom: 1px solid #F5F5F5;
-            margin-bottom: 30px;
+            //margin-bottom: 30px;
             font-family: Gilroy-Medium;
         }
     }
@@ -72,6 +73,14 @@
             flex-flow: row wrap;
         }
     }
-    
+
+  .kuang{
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+  }
+
 </style>
 

@@ -5,6 +5,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items:flex-start;
+      /*height: 1500px;*/
       height: 1500px;
       width: 100%;
       background-color: #1d1e1f;
@@ -161,6 +162,25 @@
   }
 
 
+  .search-container {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 400px; /* 根据需要调整宽度 */
+    padding-right: 30px; /* 为图标留出空间 */
+    height: 40px;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 100px; /* 根据需要调整图标位置 */
+    top:10px;
+    cursor: pointer; /* 鼠标悬停时显示为手形光标 */
+  }
+
+
 
 </style>
 
@@ -174,13 +194,23 @@
 <!--      <img style="display:inline-block;transform: scale(0.3);" src="../../assets/imagesV2/Retro Glass Material 2.png">-->
 
 
-      <div class="searchBtn">
-        <el-input  v-model="input" placeholder="请输入内容"></el-input>
+<!--      <div class="searchBtn">-->
+<!--        <el-input  v-model="input" placeholder="The Turn Network Blockchain Explorer"></el-input>-->
+<!--        <i class="search-icon" aria-hidden="true">🔍</i>-->
+<!--      </div>-->
+
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="The Turn Network Blockchain Explorer">
+        <i class="search-icon" aria-hidden="true">🔍</i>
       </div>
+
+
 <!--      <el-input v-model="input" placeholder="请输入内容"></el-input>-->
 <!--      <el-button type="primary" class="el-btn el-searchs"  @click="searchFn"-->
 <!--                 >查询</el-button>-->
     </div>
+
+
 
     <div class="line1-2">
 <!--      <img style="transform: scale(0.3);" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />-->

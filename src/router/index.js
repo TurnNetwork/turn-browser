@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './map/index'
 import newHome from './map/newHome'
-import { faucet } from './map/faucet'
+import { faucet,faucetV2 } from './map/faucet'
 import { tradeList, tradeDetail } from './map/trade'
 import { contractDetail } from './map/contract'
 import { addressDetail, restrictingInfo, frozenDelegateInfo } from './map/address'
-import { blockDetail, blockList } from './map/block'
+import { blockDetail,blockDetailV2, blockList } from './map/block'
 import {
   nodeDetail, nodeList, historyNode, zeroNode,
   micro_node_List, micro_nodeDetail
@@ -35,6 +35,7 @@ export default new Router({
     restrictingInfo,
     frozenDelegateInfo,
     blockDetail,
+    blockDetailV2,
     blockList,
     DownLoad,
     proposalList,
@@ -44,6 +45,7 @@ export default new Router({
     addToExtension,
     tokensList,
     faucet,
+    faucetV2,
     ...tokensDetail,
     ...Redirect // 路由重定向(访问不存在的页面时，重定向到这个页面) 放最后面
   ]
