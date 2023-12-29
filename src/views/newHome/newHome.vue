@@ -29,6 +29,8 @@
     height: 226px;
     width: 400px;
     /*overflow:hidden;*/
+    background:  url("../../assets/imagesV2/Vector 3.png") no-repeat center;
+    background-size: 350px;
   }
   .box-div .line2{
     display: block;
@@ -214,7 +216,7 @@
 
     <div class="line1-2">
 <!--      <img style="transform: scale(0.3);" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />-->
-      <img style="margin-left: 100px;max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />
+      <img style="margin-left: 130px;max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />
     </div>
 
     <div class="line2">
