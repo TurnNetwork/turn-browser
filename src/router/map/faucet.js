@@ -4,7 +4,7 @@ const FaucetV2 = () => import('@/views/faucet/IndexV2.vue')
 
 export const faucet = {
     path: '/faucet',
-    component: Faucet,
+    component: FaucetV2,
     name: 'faucet'
 }
 

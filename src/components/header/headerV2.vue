@@ -8,7 +8,7 @@
       </template>
       <img v-else class="iconAlaya" :src="logoURL" alt="SCAN" title="SCAN" /> -->
 
-      <img style="width: 120px;height: 33.68px;margin-left: 10px" src="@/assets/imagesV2/Logo-Black.png" />
+      <img style="width: 120px;height: 33.68px;margin-left: 180px" src="@/assets/imagesV2/Logo-Black.png" />
     </div>
 
 

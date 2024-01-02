@@ -18,7 +18,7 @@
             ©2023 TurnScan.All rights reserved.
           </p>
         </el-col>
-        <el-col :span="12" style="display:flex;flex-direction:column;align-items: flex-end">
+        <el-col :span="12" style="display:flex;flex-direction:column;align-items: flex-end;padding-right: 140px">
           <div>
             <img src="./../../assets/imagesV2/Frame 36.png" width="80px" height="30px" />
           </div>
@@ -143,6 +143,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding-left: 140px;
   }
   .footer-wrap {
     background: #000000;
@@ -163,6 +164,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 140px;
     //border-bottom: 1px solid #6e6e6e;
     /*padding-bottom: 14px;*/
     /*margin-bottom: 14px;*/

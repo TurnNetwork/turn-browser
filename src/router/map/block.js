@@ -8,7 +8,7 @@ const emptyComponent = () => import("@/components/common/empty-router.vue")
 
 export const blockDetail = {
     path: '/block-detail',
-    component: blockDetailComponent,
+    component: blockDetailComponentV2,
     name: 'blockDetailComponent'
 }
 
@@ -25,7 +25,7 @@ export const blockList = {
     children: [
         {
             path: 'index',
-            component: blockListComponent,
+            component: blockListComponentV2,
             name: 'blockListComponent',
             meta: {
                 keepAlive: true
