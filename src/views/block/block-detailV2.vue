@@ -1,6 +1,6 @@
 <template>
   <div class="block-detail-wrap">
-    <div class="page-title fontSize34">{{ $t('blockAbout.blockDetail') }}12312312312312312312</div>
+    <div class="page-title fontSize34">{{ $t('blockAbout.blockDetail') }}</div>
     <div class="detail-change">
       <div class="detail-copy">
         <span>{{ $t('tradeAbout.block') }}</span>
