@@ -212,6 +212,7 @@
     </div>
 
     <div class="line2">
+
       <!--靠左新增3个框浮动左-->
       <div class="line2-1">
         <table>
@@ -244,6 +245,7 @@
         </table>
         <br/>
       </div>
+      <img style="float:right;max-width:100%;max-height: 100%" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
     </div>
 
     <div class="line3">
