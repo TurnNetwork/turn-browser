@@ -72,7 +72,10 @@
 
       <!-- 下分页 -->
       <div class="pagination-box">
-        <el-pagination background @size-change="handleBlanceSizeChange" @current-change="handleBlancePageChange" :current-page.sync="blanceCurPage" :page-sizes="[10, 20, 50, 100]" :page-size="blancePageSize" layout="sizes,total,  prev, pager, next" :total="balancePageTotal > 5000 ? 5000 : balancePageTotal" :pager-count="9"></el-pagination>
+        <el-pagination background @size-change="handleBlanceSizeChange" @current-change="handleBlancePageChange"
+          :current-page.sync="blanceCurPage" :page-sizes="[10, 20, 50, 100]" :page-size="blancePageSize"
+          layout="sizes,total,  prev, pager, next" :total="balancePageTotal > 5000 ? 5000 : balancePageTotal"
+          :pager-count="9"></el-pagination>
       </div>
     </div>
     <div v-show="selectIndex === 2" class="table">
@@ -88,12 +91,13 @@
             </div>
           </template>
         </el-table-column>
-        
+
         <template v-if="pageType === 'contract'">
           <!-- 块高 -->
           <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" width="120">
             <template slot-scope="scope">
-              <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber }}</router-link>
+              <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+              }}</router-link>
             </template>
           </el-table-column>
 
@@ -122,7 +126,8 @@
               <!-- 操作地址：即签名交易的地址，显示0x+14 -->
               <icon-contract v-if="isContract(scope.row.fromType)" :active="scope.row.type !== 'OUT'"></icon-contract>
               <span class="ellipsis adr-width" v-if="scope.row.type === 'OUT'">{{ scope.row.txFrom }}</span>
-              <router-link v-else class="cursor normal ellipsis adr-width" :to="getAddressUrl(scope.row.txFrom, scope.row.fromType)">{{ scope.row.txFrom }}</router-link>
+              <router-link v-else class="cursor normal ellipsis adr-width"
+                :to="getAddressUrl(scope.row.txFrom, scope.row.fromType)">{{ scope.row.txFrom }}</router-link>
             </div>
           </template>
         </el-table-column>
@@ -130,7 +135,8 @@
         <!-- 交易方向type, INPUT 进账，OUT 出账，NONE 无方向 -->
         <el-table-column label="" width="70px">
           <template slot-scope="scope">
-            <span v-if="['INPUT', 'OUT'].includes(scope.row.type)" class="tokens-type" :class="'tokens-type--' + getTokenType(scope.row.type)">{{ getTokenType(scope.row.type, false) }}</span>
+            <span v-if="['INPUT', 'OUT'].includes(scope.row.type)" class="tokens-type"
+              :class="'tokens-type--' + getTokenType(scope.row.type)">{{ getTokenType(scope.row.type, false) }}</span>
             <div v-else class="tokens-arrow fr">
               <img class="arrow-icon" src="@/assets/images/arrow-right.svg" />
             </div>
@@ -138,34 +144,30 @@
         </el-table-column>
 
         <!--To 操作地址（Operator_Address） -->
-        <el-table-column :label="$t('tokens.to')"  min-width="140">
+        <el-table-column :label="$t('tokens.to')" min-width="140">
           <template slot-scope="scope">
             <div class="flex-special">
               <!-- 操作地址：即签名交易的地址，显示0x+14 -->
               <icon-contract v-if="isContract(scope.row.toType)" :active="scope.row.type !== 'INPUT'"></icon-contract>
               <span class="ellipsis adr-width" v-if="scope.row.type === 'INPUT'">{{ scope.row.transferTo }}</span>
-              <router-link v-else class="cursor normal ellipsis adr-width" :to="getAddressUrl(scope.row.transferTo, scope.row.toType)">{{ scope.row.transferTo }}</router-link>
+              <router-link v-else class="cursor normal ellipsis adr-width"
+                :to="getAddressUrl(scope.row.transferTo, scope.row.toType)">{{ scope.row.transferTo }}</router-link>
             </div>
           </template>
         </el-table-column>
         <template v-if="pageType === 'contract'">
           <el-table-column :label="$t('tokens.tokenID')">
             <template slot-scope="scope">
-              <router-link 
-                class="cursor normal ellipsis ellipsisWidth"
-                :to="get721IdUrl(scope.row)"
-                >{{ scope.row.tokenId }}</router-link>
+              <router-link class="cursor normal ellipsis ellipsisWidth" :to="get721IdUrl(scope.row)">{{ scope.row.tokenId
+              }}</router-link>
             </template>
           </el-table-column>
 
           <!-- todo tokens 名称+单位 -->
           <el-table-column :label="$t('tokens.tokens')">
             <template slot-scope="scope">
-              <router-link
-                class="cursor normal ellipsis"
-                :to="getTokenUrl(scope.row.contract, 'erc721')"
-                >{{ `${scope.row.name} (${scope.row.symbol})` }}</router-link
-              >
+              <router-link class="cursor normal ellipsis" :to="getTokenUrl(scope.row.contract, 'erc721')">{{
+                `${scope.row.name} (${scope.row.symbol})` }}</router-link>
             </template>
           </el-table-column>
         </template>
@@ -173,7 +175,10 @@
 
       <!-- 下分页 -->
       <div class="pagination-box">
-        <el-pagination background @size-change="handleTradeSizeChange" @current-change="handleTradePageChange" :current-page.sync="tradeCurPage" :page-sizes="[10, 20, 50, 100]" :page-size="tradePageSize" layout="sizes,total,  prev, pager, next" :total="tradePageTotal > 5000 ? 5000 : tradePageTotal" :pager-count="9"></el-pagination>
+        <el-pagination background @size-change="handleTradeSizeChange" @current-change="handleTradePageChange"
+          :current-page.sync="tradeCurPage" :page-sizes="[10, 20, 50, 100]" :page-size="tradePageSize"
+          layout="sizes,total,  prev, pager, next" :total="tradePageTotal > 5000 ? 5000 : tradePageTotal"
+          :pager-count="9"></el-pagination>
       </div>
     </div>
   </div>
@@ -237,8 +242,8 @@ export default {
     $route(to, from) {
       this.$router.go(0);
     },
-    'tradeCount.erc721TxQty': function() {
-      !this.noTradeData && (this.tradePageTotal =  this.tradeTotalDisplay = this.tradeCount.erc721TxQty);
+    'tradeCount.erc721TxQty': function () {
+      !this.noTradeData && (this.tradePageTotal = this.tradeTotalDisplay = this.tradeCount.erc721TxQty);
     },
   },
   components: { IconContract },
@@ -307,7 +312,7 @@ export default {
             // this.tradePageTotal = totalCount;
             // this.tradeTotalDisplay = displayTotalCount;
             // 返回的总条数不能用
-            this.tradePageTotal =  this.tradeTotalDisplay = txCount; // || displayTotalCount;
+            this.tradePageTotal = this.tradeTotalDisplay = txCount; // || displayTotalCount;
           } else {
             this.$message.error(errMsg);
           }
@@ -346,11 +351,11 @@ export default {
             // this.tradeTotalDisplay = displayTotalCount;
             if (data.length < 1) {
               this.noTradeData = true;
-              this.tradePageTotal =  this.tradeTotalDisplay = 0;
+              this.tradePageTotal = this.tradeTotalDisplay = 0;
               return
             }
             // 返回的总条数不能用, (bug: 接口并行调用问题, 放一份到watch里面)
-            this.tradePageTotal =  this.tradeTotalDisplay = this.tradeCount.erc721TxQty; // || displayTotalCount;
+            this.tradePageTotal = this.tradeTotalDisplay = this.tradeCount.erc721TxQty; // || displayTotalCount;
           } else {
             this.$message.error(errMsg);
           }
@@ -398,7 +403,7 @@ export default {
     },
 
     typeChange(index, type) {
-      if(this.selectIndex === index) { return; }
+      if (this.selectIndex === index) { return; }
       this.selectIndex = index;
       this.tradeType = type;
       if (index === 1) {
@@ -445,13 +450,14 @@ export default {
       this.getBlanceList();
     }
   },
-  mounted() {},
+  mounted() { },
 };
 </script>
 <style lang="less" scoped>
 .common-trade {
   position: relative;
 }
+
 .download-btn {
   border: 1px solid #0798de;
   border-radius: 2px;
@@ -460,28 +466,31 @@ export default {
   color: #0798de;
   letter-spacing: 0;
   cursor: pointer;
-  font-family: Gilroy-Medium;
+
   &:hover {
     color: #5cb2db;
     border: 1px solid #5cb2db;
   }
+
   &:active {
     color: #0e52ac;
     border: 1px solid #0e52ac;
   }
 }
+
 .download-btn.abs {
   position: absolute;
   top: 0;
   right: 0;
 }
-.active {
-  font-family: Gilroy-Medium;
-}
+
+.active {}
+
 .iconxinxi {
   font-size: 14px;
   margin-right: 5px;
 }
+
 .title-warning {
   color: #ffc017;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="contract-detail-wrap">
-    <div class="content-top-white contract-detail-top content-padding">
+    <div class=" content-top-blackk contract-detail-top content-padding">
       <div class="page-title fontSize34" style="margin-bottom: 22px">
         {{ $t('tokens.tokenDetail') }}
       </div>
@@ -60,13 +60,8 @@
                     {{ detailInfo.address }}
                   </router-link>
                   <div class="detail-copy" style="margin-left: 10px">
-                    <b
-                      class="cursor"
-                      :class="{ copy: !isCopy }"
-                      v-clipboard:copy="address"
-                      v-clipboard:success="onCopy"
-                      v-clipboard:error="onError"
-                    >
+                    <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="address" v-clipboard:success="onCopy"
+                      v-clipboard:error="onError">
                       <p v-show="isCopy">
                         <i class="el-icon-circle-check-outline"></i>
                         <span>{{ copyText }}</span>
@@ -102,12 +97,8 @@
           {{ $t('tokens.inventory') }}
         </el-button>
       </div>
-      <tokens-trade-list
-        v-show="activeTab == 1"
-        :address="address"
-        :tradeCount="detailInfo"
-        table-type="erc1155"
-      ></tokens-trade-list>
+      <tokens-trade-list v-show="activeTab == 1" :address="address" :tradeCount="detailInfo"
+        table-type="erc1155"></tokens-trade-list>
       <tokens-holder :address="address" v-show="activeTab == 2" table-type="erc1155"></tokens-holder>
       <tokens-inventory v-show="activeTab == 3" :address="address"></tokens-inventory>
     </div>
@@ -195,7 +186,7 @@ export default {
       this.getDetail()
     }
   },
-  mounted() {}
+  mounted() { }
 }
 </script>
 <style lang="less" scoped>
@@ -204,17 +195,21 @@ export default {
   color: #999;
   line-height: 16px;
 }
+
 .money {
   color: #000;
+
   &.contract-create-info {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     .normal {
       cursor: pointer;
     }
   }
 }
+
 .token-type-name {
   padding-left: 6px;
   font-size: 16px;
@@ -224,20 +219,25 @@ export default {
 .contract-detail-top {
   padding-bottom: 30px;
 }
+
 @media (max-width: 750px) {
   .overview-wrap {
     flex-direction: column;
+
     .overview-gap {
       height: 20px;
     }
+
     .el-col {
       width: 100%;
+
       .others.overview {
         ul {
           li {
             .money.contract-create-info {
               word-break: break-all;
               margin-left: 20px;
+
               .detail-copy {
                 min-width: 55px;
               }

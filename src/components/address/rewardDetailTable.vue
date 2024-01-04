@@ -116,14 +116,14 @@ export default {
     line-height: 40px;
 
     .hash {
-      font-family: Gilroy-Regular;
+      font-family: ;
       font-size: 14px;
       letter-spacing: 0;
       padding-left: 10px;
     }
 
     .date {
-      font-family: Gilroy-Regular;
+      font-family: ;
       font-size: 12px;
       color: #000000;
       letter-spacing: 0;
@@ -145,7 +145,6 @@ export default {
     }
 
     .total>.label {
-      font-family: Gilroy-Medium;
       font-size: 14px;
       color: #666666;
       letter-spacing: 0;
@@ -162,7 +161,6 @@ export default {
       padding: 0 20px 0 20px;
       position: relative;
       margin-left: 10px;
-      font-family: Gilroy-Medium;
       font-size: 16px;
       color: #000000;
       letter-spacing: 0;
@@ -190,7 +188,6 @@ export default {
         .td-title {
           width: 215px;
           margin-right: 100px;
-          font-family: Gilroy-Medium;
           font-size: 13px;
           letter-spacing: 0;
         }
@@ -198,7 +195,6 @@ export default {
         .td-content {
           text-align: right;
           min-width: 170px;
-          font-family: Gilroy-Medium;
           font-size: 13px;
           color: #000000;
           letter-spacing: 0;
@@ -220,12 +216,11 @@ export default {
 
 .address-trade-last {
   color: #333;
-  font-family: Gilroy-Regular;
+  font-family: ;
   font-size: 14px;
   line-height: 16px;
 
   span {
-    font-family: Gilroy-Medium;
     font-size: 16px;
     line-height: 19px;
   }

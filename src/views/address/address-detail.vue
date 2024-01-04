@@ -1,6 +1,6 @@
 <template>
   <div class="contract-detail-wrap">
-    <div class="content-top-white contract-detail-top content-padding">
+    <div class=" content-top-black contract-detail-top content-padding">
       <!-- 地址详情 -->
       <div class="page-title fontSize34">
         {{ $t('contract.addressDetail') }}
@@ -315,7 +315,6 @@ export default {
   }
 
   font-size: 15px;
-  font-family: Gilroy-Regular;
   letter-spacing: 0;
 }
 

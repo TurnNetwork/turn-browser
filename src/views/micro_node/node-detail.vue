@@ -1,6 +1,6 @@
 <template>
   <div class="contract-detail-wrap">
-    <div class="content-top-white content-padding">
+    <div class=" content-top-black content-padding">
       <div class="page-title fontSize34">
         {{ $t('microNode.microDetails') }}
       </div>
@@ -642,7 +642,7 @@ export default {
 
       b {
         font-size: 20px;
-        font-family: Gilroy-Medium;
+
       }
 
       span {
@@ -682,7 +682,7 @@ export default {
       padding: 10px;
 
       .value {
-        font-family: Gilroy-Medium;
+
         font-size: 40px;
         color: #000000;
         letter-spacing: 0;
@@ -690,7 +690,7 @@ export default {
 
       .text {
         margin-top: 6px;
-        font-family: Gilroy-Medium;
+
         font-size: 14px;
         color: #666666;
         letter-spacing: 0;
@@ -771,7 +771,7 @@ export default {
 
   .nodeInfo {
     margin-bottom: 21px;
-    font-family: Gilroy-Medium;
+
     font-size: 14px;
   }
 
@@ -800,7 +800,7 @@ export default {
     position: absolute;
     right: 0;
     top: -8px;
-    font-family: Gilroy-Medium;
+
     background: #fbfbfc;
     color: #0798de;
 
@@ -824,9 +824,7 @@ export default {
     }
   }
 
-  b {
-    font-family: Gilroy-Medium;
-  }
+  b {}
 
   .limit-number {
     @media screen and (max-width: 750px) {
@@ -848,9 +846,7 @@ export default {
 }
 
 // 粗字体
-.node-header-right {
-  font-family: Gilroy-Bold;
-}
+.node-header-right {}
 
 // 饼图百分比
 .imgRatio {

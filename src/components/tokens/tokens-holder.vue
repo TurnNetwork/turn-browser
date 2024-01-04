@@ -13,21 +13,12 @@
       }}</span>
     </div>
     <div class="table">
-      <el-table
-        :data="tableData"
-        style="width: 100%"
-        key="firstTable"
-        size="mini"
-        v-loading="loading"
-      >
+      <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
         <!-- 地址 -->
         <el-table-column :label="$t('contract.address')">
           <template slot-scope="scope">
-            <router-link
-              class="cursor normal ellipsis adr-width"
-              :to="getAddressUrl(scope.row.address)"
-              >{{ scope.row.address }}</router-link
-            >
+            <router-link class="cursor normal ellipsis adr-width" :to="getAddressUrl(scope.row.address)">{{
+              scope.row.address }}</router-link>
           </template>
         </el-table-column>
         <el-table-column :label="$t('tokens.number')">
@@ -44,17 +35,10 @@
 
       <!-- 下分页 -->
       <div class="pagination-box">
-        <el-pagination
-          background
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage"
-          :page-sizes="[10, 20, 50, 100]"
-          :page-size="pageSize"
-          layout="sizes,total,  prev, pager, next"
-          :total="pageTotal > 5000 ? 5000 : pageTotal"
-          :pager-count="windowWidth < 750 ? 5 : 9"
-        ></el-pagination>
+        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" :page-size="pageSize"
+          layout="sizes,total,  prev, pager, next" :total="pageTotal > 5000 ? 5000 : pageTotal"
+          :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
       </div>
     </div>
   </div>
@@ -170,7 +154,7 @@ export default {
   created() {
     this.getTradeList();
   },
-  mounted() {},
+  mounted() { },
 };
 </script>
 <style lang="less" scoped>
@@ -179,6 +163,7 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+
 .download-btn {
   border: 1px solid #0798de;
   border-radius: 2px;
@@ -187,23 +172,25 @@ export default {
   color: #0798de;
   letter-spacing: 0;
   cursor: pointer;
-  font-family: Gilroy-Medium;
+
   &:hover {
     color: #5cb2db;
     border: 1px solid #5cb2db;
   }
+
   &:active {
     color: #0e52ac;
     border: 1px solid #0e52ac;
   }
 }
-.active {
-  font-family: Gilroy-Medium;
-}
+
+.active {}
+
 .iconxinxi {
   font-size: 14px;
   margin-right: 5px;
 }
+
 .title-warning {
   color: #ffc017;
 }

@@ -2,9 +2,9 @@ html,body{
 	margin: 0;
 	height: 100%;
 	width: 100%;
-	font-family: "微软雅黑","PingFangSC-Regular","PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,sans-serif;
+	font-family: "Montserrat-Regular","微软雅黑","PingFangSC-Regular","PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,sans-serif;
 	font-size: 14px;
-	color: #000;
+	color: #fff;
 }
 
 p,ul,li,h1,h2,h3,h4,h5,h6{

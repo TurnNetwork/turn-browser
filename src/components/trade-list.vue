@@ -49,7 +49,7 @@
                   <span class="title-warning"></span>
                   {{scope.row.failReason?scope.row.failReason:$t("tradeAbout.transactionFailure")}}
                 </div>
-                <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
+                <i class="  iconxinxi cursor yellow">&#xe63f;</i>
               </el-tooltip>
               <p
                 class="cursor blue ellipsis percent60"
@@ -119,7 +119,7 @@
                 scope.row.txType == '5000' ||
                 scope.row.txType == '3000' ||
                 (scope.row.txType == '0' && scope.row.from != address),
-            }" class="red Gilroy-Bold">
+            }" class="red  ">
               <!-- 接受还是发送 todo -->
               <template v-if="type != 'block' && scope.row.txType == '0'">{{
                 scope.row.from == address
@@ -300,7 +300,6 @@ export default {
   color: #0798de;
   letter-spacing: 0;
   cursor: pointer;
-  font-family: Gilroy-Medium;
   white-space: nowrap;
   height: 37px;
 
@@ -315,9 +314,7 @@ export default {
   }
 }
 
-.active {
-  font-family: Gilroy-Medium;
-}
+.active {}
 
 .iconxinxi {
   font-size: 14px;

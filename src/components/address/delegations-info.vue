@@ -210,7 +210,6 @@ export default {
 
       span {
         font-size: 18px;
-        font-family: Gilroy-Medium;
       }
 
       p {

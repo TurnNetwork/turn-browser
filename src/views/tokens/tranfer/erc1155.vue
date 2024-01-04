@@ -48,10 +48,7 @@
         <div class="flex-special">
           <!-- 操作地址：即签名交易的地址，显示0x+14 -->
           <icon-contract v-if="isContract(scope.row.fromType)"></icon-contract>
-          <router-link
-            class="cursor normal ellipsis adr-width"
-            :to="getAddressUrl(scope.row.txFrom, scope.row.fromType)"
-          >
+          <router-link class="cursor normal ellipsis adr-width" :to="getAddressUrl(scope.row.txFrom, scope.row.fromType)">
             {{ scope.row.txFrom }}
           </router-link>
         </div>
@@ -73,10 +70,8 @@
         <div class="flex-special">
           <icon-contract v-if="isContract(scope.row.toType)"></icon-contract>
           <!-- 操作地址：即签名交易的地址，显示0x+14 -->
-          <router-link
-            class="cursor normal ellipsis adr-width"
-            :to="getAddressUrl(scope.row.transferTo, scope.row.toType)"
-          >
+          <router-link class="cursor normal ellipsis adr-width"
+            :to="getAddressUrl(scope.row.transferTo, scope.row.toType)">
             {{ scope.row.transferTo }}
           </router-link>
         </div>

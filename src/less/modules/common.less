@@ -12,7 +12,6 @@
 body {
   // background: #fff;
   // font-family: MicrosoftYaHei;
-  font-family: Gilroy-Regular;
 }
 
 .trade-wrap,
@@ -36,27 +35,29 @@ body {
   position: relative;
   margin: 0 auto;
   box-sizing: border-box;
-  // width:1400px;
   height: auto;
   padding: 0 5.2%;
-  // padding-top:100px;
   min-height: calc(100vh - 110px);
   padding-top: 102px;
+  background-color: #000;
 }
 
 .content-area.gray-area {
   padding-left: 0;
   padding-right: 0;
-  background: #fbfbfc;
+  background: #000;
   min-height: calc(100vh - 110px);
 
-  .content-top-white {
-    background: #fff;
+  // .content-top-black {
+  //   background: #fff;
+  // }
+  .content-top-black {
+    background: #000;
   }
 
   .gray-content {
     padding-top: 20px;
-    background: #fbfbfc;
+    background: #000;
   }
 
   .content-padding {
@@ -99,7 +100,7 @@ body {
 
 .blue {
   color: @blue;
-  font-family: Gilroy-Medium;
+   
 }
 
 .black {
@@ -136,7 +137,7 @@ body {
 
 .normal {
   color: @blue;
-  font-family: Gilroy-Medium;
+   
 }
 
 .blue:hover,
@@ -202,10 +203,10 @@ body {
   margin-right: 1em;
 }
 
-.colorMixin(@bg; @color) {
-  background: @bg;
-  color: @color;
-}
+// .colorMixin(@bg; @color) {
+//   background: @bg;
+//   color: @color;
+// }
 
 // 定位相关
 .positiontlMixin(@position; @top; @left) {
@@ -300,7 +301,7 @@ body {
 ::-webkit-scrollbar-track-piece {
   //滚动条凹槽的颜色，还可以设置边框属性
   // background-color:#f7f8fa;
-  background-color: #f0f0f0;
+  background: rgba(0,0,0, 1);
 }
 
 ::-webkit-scrollbar {
@@ -312,7 +313,7 @@ body {
 ::-webkit-scrollbar-thumb {
   //滚动条的设置
   // background-color:#dddddd;
-  background-color: #dddddd;
+  background: rgba(255,255,255, .6);
   background-clip: padding-box;
   min-height: 28px;
 }
@@ -322,12 +323,12 @@ body {
 // }
 
 .el-loading-spinner i {
-  color: #d7dde9;
+  color: #D5D8DD;
 }
 
 .el-loading-spinner .el-loading-text {
   margin: 14px 3px 0;
-  color: #d7dde9;
+  color: #D5D8DD;
 }
 
 .flex-special {
@@ -472,7 +473,7 @@ body {
 
 .page-title {
   padding-top: 25px;
-  font-family: Gilroy-Medium;
+   
 }
 
 // 交易详情头部
@@ -489,7 +490,7 @@ body {
   i {
     color: #0798de;
     font-style: normal;
-    font-family: Gilroy-Medium;
+     
     padding: 0 6px;
   }
 
@@ -576,8 +577,8 @@ body {
   .el-button {
     width: 28px;
     height: 28px;
-    background: #ffffff;
-    color: #000;
+    background: #000;
+    color: #fff;
     border: 1px solid #f5f5f5;
     padding: 0;
   }
@@ -650,13 +651,13 @@ body {
 
 .el-button--default {
   &:hover {
-    background: #fff !important;
+    background: #000 !important;
     color: #5cb2db;
     border: 1px solid #5cb2db !important;
   }
 
   &.active {
-    background: #fff !important;
+    background: #000 !important;
     color: #0e52ac;
   }
 }
@@ -664,31 +665,30 @@ body {
 // tabs
 .tabs {
   .el-button--default {
-    font-family: Gilroy-Regular;
     border: 1px solid #e6e6e6;
     border-radius: 2px;
     font-size: 18px;
     min-width: 60px;
     padding: 10px 10px;
-    color: #666666;
-    background: #fbfbfc;
+    color: #fff;
+    background: #000;
 
     &:hover {
-      background: #fbfbfc !important;
-      color: #666;
+      background: #000 !important;
+      color: #e6e6e6;
       border: 1px solid #e6e6e6 !important;
     }
 
     &.active {
       background: #000000 !important;
       color: #fff;
-      font-family: Gilroy-Medium;
+       
     }
   }
 }
 
 .address-trade {
-  background: #fbfbfc;
+  background: #fff;
   // margin-top: 50px;
   padding: 20px 0 0px;
 }

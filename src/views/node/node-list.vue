@@ -1,6 +1,6 @@
 <template>
   <div class="node-list-wrap">
-    <div class="content-top-white content-padding">
+    <div class=" content-top-black content-padding">
       <div class="page-title fontSize34">{{ $t('menu.validator') }}</div>
       <div class="node-list-header">
         <List class="statistic-info">
@@ -8,7 +8,7 @@
           <Item :label="$t('nodeInfo.totalStakePower')" :tips="$t('tips.totalStakePower')">
             <p class="Gilroy-Medium">
               {{ ValidatorStatisticData.stakingDelegationValue | unit }}
-              <span class="fontSize13 Gilroy-Regular" style="padding-right: 1px">TURN</span>
+              <span class="fontSize13  " style="padding-right: 1px">TURN</span>
             </p>
           </Item>
           <Item :label="$t('nodeInfo.totalDelegations')">

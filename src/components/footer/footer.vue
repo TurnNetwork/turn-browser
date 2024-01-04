@@ -277,7 +277,6 @@ export default {
   color: #0798de;
   letter-spacing: 0;
   cursor: pointer;
-  font-family: Gilroy-Medium;
   white-space: nowrap;
   height: 37px;
 

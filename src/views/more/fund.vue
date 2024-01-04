@@ -1,5 +1,6 @@
 <template>
-  <div class="fund trade-list-wrap"><div class="top">
+  <div class="fund trade-list-wrap">
+    <div class="top">
       <h3 class="title">{{ $t('fund.title') }}</h3>
     </div>
     <div class="main table">
@@ -12,16 +13,9 @@
         </el-table-column>
       </el-table>
       <div class="pagination-box">
-        <el-pagination
-          background
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage"
-          :page-sizes="[10, 20, 50, 100]"
-          :page-size="pageSize"
-          layout="sizes,total,  prev, pager, next"
-          :total="pageTotal"
-        ></el-pagination>
+        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" :page-size="pageSize"
+          layout="sizes,total,  prev, pager, next" :total="pageTotal"></el-pagination>
       </div>
     </div>
   </div>
@@ -83,36 +77,42 @@ export default {
 <style lang="less" scoped>
 .fund {
   .title {
-    font-family: Gilroy-Medium;
+
     font-size: 34px;
     color: #000000;
     letter-spacing: 0;
     line-height: 64px;
     margin: 25px 0 10px 0;
   }
+
   .h3 {
-    font-family: Gilroy-Medium;
+
     font-size: 24px;
     color: #000000;
     letter-spacing: 0;
     line-height: 24px;
   }
+
   .total {
     display: flex;
     flex-wrap: wrap;
+
     .t-li {
       width: 400px;
       margin: 10px 20px 0 0;
       padding: 18px 30px;
       border-radius: 2px;
       box-shadow: 4px 3px 8px rgba(0, 0, 0, 0.3);
+
       .h3 {
         margin-bottom: 10px;
       }
     }
   }
+
   .main {
     user-select: none;
+
     .main-title {
       margin: 20px 0;
     }

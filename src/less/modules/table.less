@@ -1,28 +1,52 @@
 .el-table{
-    color: #000;
+    color: #D5D8DD;
+    background-color: transparent;
 }
 .table{
     margin-top: 30px;
+    .el-table{
+        background: rgba(255,255,255, 0.1);
+        padding-left: 12px;
+        padding-right: 12px;
+        border:1px solid #535A65;
+        border-radius: 12px;
+    }
     .el-table td{
-        // padding: 10px 0;
-        border-bottom:1px solid #F5F5F5;
+        border-bottom:none;
         font-size: 13px;
     }
+ 
     .el-table th{
         color:@gray;
         font-size:14px;
         font-weight: normal;
-        border-bottom:1px solid #F5F5F5;
-        font-family: Gilroy-Medium;
+        background: transparent;
+        border-bottom:1px solid #535A65;
+       
     }
+    .el-table td div{
+      padding: 6px 0;
+    }
+    .el-table th div{
+        padding:12px 0;
+    }
+    .el-table tbody tr{
+        background:transparent;
+    }
+    .el-table tr{
+        background:transparent;
+    }
+    
     .el-table tbody tr:hover>td {
-        background: #FBFBFC
+        background: rgba(255,255,255, .1);
+        color:#D5D8DD;
     }
+    
     .blue:hover{
-        color: #0E52AC;
+        color: #0075FF;
     }
     .normal:hover{
-        color: #0E52AC;
+        color: #0075FF;
     }
     .el-table::before{
         height: 0;
@@ -33,21 +57,49 @@
 }
 .gray-area{
     .table{
+        margin-top: 30px;
         .el-table{
-            background: #FBFBFC;
+            background: rgba(255,255,255, 0.1);
+            padding-left: 12px;
+            padding-right: 12px;
+            border:1px solid #535A65;
+            border-radius: 12px;
         }
         .el-table td{
-            background: #FBFBFC;
+            border-bottom:none;
+            font-size: 13px;
+        }
+        .el-table tr{
+            background:transparent;
+        }
+
+        .el-table tbody tr{
+            background:transparent;
         }
         .el-table th{
-            background: #FBFBFC;
+            color:@gray;
+            font-size:14px;
+            font-weight: normal;
+            background: transparent;
+            border-bottom:1px solid #535A65;
         }
+        
+        .el-table td div{
+            padding: 6px 0;
+          }
+          .el-table th div{
+              padding:12px 0;
+          }
+
+     
         .el-table tbody tr:hover>td {
-            background: #f5f5f5
+            background: rgba(255,255,255, .1);
+            color:#D5D8DD;
         }
     }
     .el-table__empty-block{
-        background: #FBFBFC;
+        background:rgba(255,255,255, 0.03);
+        color: #D5D8DD;
     }
 }
 .el-table__body{

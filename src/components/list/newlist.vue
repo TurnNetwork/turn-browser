@@ -1,14 +1,11 @@
 <template>
   <div class="list-item">
     <p>{{ label }}：</p>
-    <p
-      v-if="prop || prop == 0"
-      :class="{
-        red: type == 'fail',
-        blue: type == 'link',
-        green: type == 'success'
-      }"
-    >
+    <p v-if="prop || prop == 0" :class="{
+      red: type == 'fail',
+      blue: type == 'link',
+      green: type == 'success'
+    }">
       {{ prop }}
     </p>
     <slot></slot>
@@ -52,8 +49,8 @@ export default {
     // }
   },
   //生命周期函数
-  created() {},
-  mounted() {}
+  created() { },
+  mounted() { }
 };
 </script>
 <style lang="less" scoped>
@@ -61,17 +58,20 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   margin-bottom: 15px;
+
   label {
     font-size: 13px;
     color: #666;
     line-height: 15px;
     width: 135px;
-    font-family: Gilroy-Medium;
+
   }
+
   p {
     word-break: break-all;
     width: 85%;
   }
+
   .blue:hover {
     color: #0e52ac;
   }
@@ -80,6 +80,7 @@ export default {
 <style lang="less">
 .extra-data.list-item {
   margin-bottom: 10px;
+
   p {
     width: 474px;
     min-height: 86px;

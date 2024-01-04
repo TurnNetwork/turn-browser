@@ -6,7 +6,7 @@
         <span>{{ $t('tradeAbout.block') }}</span>
         <i>#{{ detailInfo.number }}</i>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.number" v-clipboard:success="onCopy"
-           v-clipboard:error="onError">
+          v-clipboard:error="onError">
           <p v-show="isCopy">
             <i class="el-icon-circle-check-outline"></i><span>{{ copyText }}</span>
           </p>
@@ -54,7 +54,7 @@
         <Item :label="$t('tradeAbout.gasUsed')">
           <p>
             {{ detailInfo.gasUsed | formatNumber }}&nbsp;({{
-            detailInfo.gasUsed | percentage(detailInfo.gasLimit)
+              detailInfo.gasUsed | percentage(detailInfo.gasLimit)
             }}%)
           </p>
         </Item>
@@ -71,193 +71,193 @@
         {{ $t('tradeAbout.transactions') }}({{ detailInfo.txQty }})
       </div>
       <trade-list ref="blockTrade" class="common-trade" :address="height + ''" :tradeCount="detailInfo" type="block"
-                  :key="height"></trade-list>
+        :key="height"></trade-list>
     </div>
   </div>
 </template>
 <script>
-  import apiService from '@/services/API-services';
-  import { timeDiff } from '@/services/time-services';
+import apiService from '@/services/API-services';
+import { timeDiff } from '@/services/time-services';
 
-  import List from '@/components/list/list';
-  import Item from '@/components/list/item';
+import List from '@/components/list/list';
+import Item from '@/components/list/item';
 
-  import tradeList from '@/components/trade-list';
+import tradeList from '@/components/trade-list';
 
-  export default {
-    name: 'block-detail',
-    data() {
-      return {
-        height: 0,
-        detailInfo: {},
-        disabledLeft: false,
-        disabledRight: false,
-        isCopy: false,
-        copyText: '',
+export default {
+  name: 'block-detail',
+  data() {
+    return {
+      height: 0,
+      detailInfo: {},
+      disabledLeft: false,
+      disabledRight: false,
+      isCopy: false,
+      copyText: '',
+    };
+  },
+  props: {},
+  computed: {},
+  watch: {},
+  components: {
+    List,
+    Item,
+    tradeList,
+  },
+  methods: {
+    //切割
+    splitFn(text) {
+      if (!text) return;
+      return text.replace(/\n/g, '\n\n');
+    },
+    //获取地址信息详情
+    getDetail() {
+      let param = {
+        number: this.height,
       };
-    },
-    props: {},
-    computed: {},
-    watch: {},
-    components: {
-      List,
-      Item,
-      tradeList,
-    },
-    methods: {
-      //切割
-      splitFn(text) {
-        if (!text) return;
-        return text.replace(/\n/g, '\n\n');
-      },
-      //获取地址信息详情
-      getDetail() {
-        let param = {
-          number: this.height,
-        };
-        apiService.block
-          .blockDetails(param)
-          .then((res) => {
-            let { errMsg, code, data } = res;
-            if (code == 0) {
-              this.detailInfo = data;
-              //是否第一条记录
-              if (data.first) {
-                this.disabledLeft = true;
-              } else {
-                this.disabledLeft = false;
-              }
-              //是否最后一条数据
-              if (data.last) {
-                this.disabledRight = true;
-              } else {
-                this.disabledRight = false;
-              }
+      apiService.block
+        .blockDetails(param)
+        .then((res) => {
+          let { errMsg, code, data } = res;
+          if (code == 0) {
+            this.detailInfo = data;
+            //是否第一条记录
+            if (data.first) {
+              this.disabledLeft = true;
             } else {
-              this.detailInfo = {};
-              this.$message.error(errMsg);
+              this.disabledLeft = false;
             }
-          })
-          .catch((error) => {
-            this.$message.error(error);
-          });
-      },
-      timeDiffFn(beginTime, endTime) {
-        return timeDiff(beginTime, endTime);
-      },
-      onCopy() {
-        this.copyText = this.$t('modalInfo.copysuccess');
-        this.isCopy = true;
-        setTimeout(() => {
-          this.isCopy = false;
-          this.copyText = '';
-        }, 2000);
-      },
-      onError() {
-        this.copyText = this.$t('modalInfo.copyfail');
-        this.isCopy = true;
-        setTimeout(() => {
-          this.isCopy = false;
-          this.copyText = '';
-        }, 2000);
-      },
-
-      // 区块列表
-      handleCurrentChange(val) {
-        this.currentPage = val;
-        this.getBlockList();
-      },
-      handleSizeChange(val) {
-        this.currentPage = 1;
-        this.pageSize = val;
-        this.getBlockList();
-      },
-      goDetail(height) {
-        this.height = height;
-        this.$router.replace({
-          path: '/block-detail',
-          query: {
-            height: height,
-          },
+            //是否最后一条数据
+            if (data.last) {
+              this.disabledRight = true;
+            } else {
+              this.disabledRight = false;
+            }
+          } else {
+            this.detailInfo = {};
+            this.$message.error(errMsg);
+          }
+        })
+        .catch((error) => {
+          this.$message.error(error);
         });
-
-        this.disabledLeft = true;
-        this.disabledRight = true;
-
-        this.getDetail();
-        this.$nextTick(() => {
-          this.$refs.blockTrade.getTradeList(1);
-        });
-      },
     },
-    //生命周期函数
-    created() {
-      this.height = this.$route.query.height;
+    timeDiffFn(beginTime, endTime) {
+      return timeDiff(beginTime, endTime);
+    },
+    onCopy() {
+      this.copyText = this.$t('modalInfo.copysuccess');
+      this.isCopy = true;
+      setTimeout(() => {
+        this.isCopy = false;
+        this.copyText = '';
+      }, 2000);
+    },
+    onError() {
+      this.copyText = this.$t('modalInfo.copyfail');
+      this.isCopy = true;
+      setTimeout(() => {
+        this.isCopy = false;
+        this.copyText = '';
+      }, 2000);
+    },
+
+    // 区块列表
+    handleCurrentChange(val) {
+      this.currentPage = val;
+      this.getBlockList();
+    },
+    handleSizeChange(val) {
+      this.currentPage = 1;
+      this.pageSize = val;
+      this.getBlockList();
+    },
+    goDetail(height) {
+      this.height = height;
+      this.$router.replace({
+        path: '/block-detail',
+        query: {
+          height: height,
+        },
+      });
+
+      this.disabledLeft = true;
+      this.disabledRight = true;
+
       this.getDetail();
+      this.$nextTick(() => {
+        this.$refs.blockTrade.getTradeList(1);
+      });
     },
-    mounted() { },
-  };
+  },
+  //生命周期函数
+  created() {
+    this.height = this.$route.query.height;
+    this.getDetail();
+  },
+  mounted() { },
+};
 </script>
 <style lang="less" scoped>
-  .block-trade {
-    border: 1px solid #f5f5f5;
-    margin: 31px 0 50px;
+.block-trade {
+  border: 1px solid #f5f5f5;
+  margin: 31px 0 50px;
 
-    .block-trade-title {
-      font-size: 20px;
-      color: #000;
-      line-height: 24px;
-      padding: 9px 20px;
-      border-top: 2px solid #000;
-      //border-bottom: 1px solid #f5f5f5;
-      margin-bottom: 20px;
-      font-family: Gilroy-Medium;
-    }
+  .block-trade-title {
+    font-size: 20px;
+    color: #000;
+    line-height: 24px;
+    padding: 9px 20px;
+    border-top: 2px solid #000;
+    //border-bottom: 1px solid #f5f5f5;
+    margin-bottom: 20px;
 
-    .common-trade {
-      padding-left: 30px;
-    }
   }
 
-  @media (max-width: 750px) {
-    .information {
-      .list-wrap {
-        .list-item {
-          width: 100%;
+  .common-trade {
+    padding-left: 30px;
+  }
+}
 
-          label {
-            min-width: 120px;
-          }
+@media (max-width: 750px) {
+  .information {
+    .list-wrap {
+      .list-item {
+        width: 100%;
 
-          p {
-            flex: 1;
-            width: auto;
-          }
+        label {
+          min-width: 120px;
+        }
 
-          *:not(:first-child) {
-            word-break: break-all;
-          }
+        p {
+          flex: 1;
+          width: auto;
+        }
 
-          span+span {
-            margin-left: 8px;
-          }
+        *:not(:first-child) {
+          word-break: break-all;
+        }
+
+        span+span {
+          margin-left: 8px;
         }
       }
     }
   }
+}
 </style>
 <style lang="less">
-  .block-detail-wrap {
-    padding-bottom: 1px;
+.block-detail-wrap {
+  padding-bottom: 1px;
 
-    .item-wrap {
-      // padding-left: 50px;
-      /*margin: 0 30px 5px 30px;*/
-      //margin: 0 0 0 0;
-    }
+  .item-wrap {
+    // padding-left: 50px;
+    /*margin: 0 30px 5px 30px;*/
+    //margin: 0 0 0 0;
   }
+}
 
-  .blockHeight p {
-    width: auto !important;
-  }
+.blockHeight p {
+  width: auto !important;
+}
 </style>

@@ -29,7 +29,7 @@ import routeJump from './mixins';
 import '../public/static/css/reset.css';
 import '../public/static/css/element-ui.css';
 import '../public/static/css/iconfont.css';
-import '../public/static/css/gilroy.css';
+import '../public/static/css/Montserrat.css';
 // less
 import '@/less/index.less';
 
@@ -56,10 +56,10 @@ Vue.config.productionTip = false;
 // let lang = GetQueryString('lang')
 // if (lang =='zh'){
 //     //中文
-localStorage.setItem('i18nLocale', 'zh-cn')
+// localStorage.setItem('i18nLocale', 'zh-cn')
 // } else if (lang == 'en'){
 //     //英文
-// localStorage.setItem('i18nLocale', 'en')
+localStorage.setItem('i18nLocale', 'en')
 // localStorage.setItem('i18nLocale', 'zh-cn')
 // }
 const language = navigator.language || window.navigator['browserLanguage'];

@@ -6,9 +6,7 @@
     <el-row class="row-info">
       <el-col :span="18">
         <div class="proposal-box">
-          <a class="proposal-id" :href="detailData.url" target="_blank"
-            ># {{ detailData.pipNum }}</a
-          >
+          <a class="proposal-id" :href="detailData.url" target="_blank"># {{ detailData.pipNum }}</a>
           <br v-if="windowWidth < 751" />
           <a class="github" :href="detailData.url" target="_blank">
             <i></i>
@@ -17,21 +15,12 @@
         </div>
       </el-col>
       <el-col :span="6">
-        <div
-          class="proposal-status grid-content bg-purple-light Gilroy-Bold"
-          style="float: right; margin-top: -50px"
-          v-if="detailData.status"
-        >
-          <span
-            class="yellow vote-status yellow-status"
-            v-if="detailData.status == 1"
-            >{{ $t('proposalStatus.' + [detailData.status]) }}</span
-          >
-          <span
-            class="red vote-status red-status"
-            v-else-if="detailData.status == 3 || detailData.status == 6"
-            >{{ $t('proposalStatus.' + [detailData.status]) }}</span
-          >
+        <div class="proposal-status grid-content bg-purple-light  " style="float: right; margin-top: -50px"
+          v-if="detailData.status">
+          <span class="yellow vote-status yellow-status" v-if="detailData.status == 1">{{ $t('proposalStatus.' +
+            [detailData.status]) }}</span>
+          <span class="red vote-status red-status" v-else-if="detailData.status == 3 || detailData.status == 6">{{
+            $t('proposalStatus.' + [detailData.status]) }}</span>
           <span class="green vote-status" v-else>{{
             $t('proposalStatus.' + [detailData.status])
           }}</span>
@@ -99,10 +88,7 @@
               <div class="desc">{{ $t('tradeAbout.cancellID') }}：</div>
             </el-col>
             <el-col :span="16">
-              <div
-                class="content fontSize13"
-                :style="{ wordBreak: 'break-all' }"
-              >
+              <div class="content fontSize13" :style="{ wordBreak: 'break-all' }">
                 {{ detailData.canceledPipId }}
               </div>
             </el-col>
@@ -124,10 +110,7 @@
               <div class="desc">{{ $t('tradeAbout.proposer') }}：</div>
             </el-col>
             <el-col :span="15">
-              <div
-                class="content proposer cursor"
-                @click="goNodeDetail(detailData.nodeId)"
-              >
+              <div class="content proposer cursor" @click="goNodeDetail(detailData.nodeId)">
                 {{ detailData.nodeName }}
               </div>
             </el-col>
@@ -139,10 +122,7 @@
               <div class="desc">{{ $t('tradeAbout.proposalID') }}：</div>
             </el-col>
             <el-col :span="16">
-              <div
-                class="content fontSize13"
-                :style="{ wordBreak: 'break-all' }"
-              >
+              <div class="content fontSize13" :style="{ wordBreak: 'break-all' }">
                 {{ detailData.proposalHash }}
               </div>
             </el-col>
@@ -156,8 +136,8 @@
             <el-col :span="15">
               <!-- {{detailData.timestamp | formatTime}}[{{detailData.inBlock}}] -->
               <div class="content fontSize13">
-                <span>{{ detailData.timestamp | formatTime }}</span
-                ><span class="Gilroy-Medium">[{{ detailData.inBlock }}]</span>
+                <span>{{ detailData.timestamp | formatTime }}</span><span class="Gilroy-Medium">[{{ detailData.inBlock
+                }}]</span>
               </div>
             </el-col>
           </el-row>
@@ -169,10 +149,7 @@
             </el-col>
             <el-col :span="15">
               <div class="content progress">
-                <div
-                  class="percentage"
-                  :style="{ width: endVotingPercentage }"
-                ></div>
+                <div class="percentage" :style="{ width: endVotingPercentage }"></div>
                 <div class="progress-text">
                   Block {{ detailData.endVotingBlock | formatNumber }}
                 </div>
@@ -222,33 +199,26 @@
             {{ $t('tradeAbout.parameterDetails') }}：
           </div>
           <div class="fontSize15 Gilroy-Medium">
-            <span class="parame-name">{{ detailData.paramName }}:</span
-            ><span class="parame-new-value"
-              >{{ detailData.newValue }}&nbsp;</span
-            ><span class="parame-value"
-              >({{ $t('tradeAbout.originalValue') }}：{{
-                detailData.currentValue
-              }})</span
-            >
+            <span class="parame-name">{{ detailData.paramName }}:</span><span class="parame-new-value">{{
+              detailData.newValue }}&nbsp;</span><span class="parame-value">({{ $t('tradeAbout.originalValue') }}：{{
+    detailData.currentValue
+  }})</span>
           </div>
         </div>
         <div class="item">
-          <div
-            class="desc"
-            :style="{
-              margin:
-                detailData.type == 3
-                  ? '35px 0px 10px 0px'
-                  : '41px 0px 10px 0px',
-            }"
-          >
+          <div class="desc" :style="{
+                margin:
+                  detailData.type == 3
+                    ? '35px 0px 10px 0px'
+                    : '41px 0px 10px 0px',
+              }">
             {{ $t('tradeAbout.propasalDescription') }}：
           </div>
           <div class="fontSize15">
             {{
               detailData.description
-                ? detailData.description
-                : $t('tradeAbout.noDescription')
+              ? detailData.description
+              : $t('tradeAbout.noDescription')
             }}
           </div>
         </div>
@@ -273,15 +243,10 @@
           <span>{{ yesPercentage }}%</span>
         </div>
       </div>
-      <div
-        class="big-progress-pass"
-        :style="{ left: detailData.supportRateThreshold }"
-      >
-        <span
-          >{{ $t('tradeAbout.passCondition') }}>={{
-            detailData.supportRateThreshold
-          }}</span
-        >
+      <div class="big-progress-pass" :style="{ left: detailData.supportRateThreshold }">
+        <span>{{ $t('tradeAbout.passCondition') }}>={{
+          detailData.supportRateThreshold
+        }}</span>
       </div>
     </div>
     <!-- 其他提案进度 -->
@@ -290,19 +255,11 @@
         {{ $t('tradeAbout.currentParticipationrate') }}：
         <span class="Gilroy-Medium fontSize13">
           {{ curRatio }}% ({{ $t('tradeAbout.participationRate')
-          }}{{ detailData.participationRate }})</span
-        >
+          }}{{ detailData.participationRate }})</span>
       </div>
-      <div
-        class="voteYes"
-        :style="{ width: yesPercentage == 0 ? '0%' : yesPercentage + 1 + '%' }"
-        @mouseover="mouseoverQuit(yesPercentage, 'yes')"
-        @mouseleave="mouseleaveQuit()"
-      >
-        <div
-          class="voteYesText"
-          :style="{ display: yesPercentage < 4 ? 'none' : 'block' }"
-        >
+      <div class="voteYes" :style="{ width: yesPercentage == 0 ? '0%' : yesPercentage + 1 + '%' }"
+        @mouseover="mouseoverQuit(yesPercentage, 'yes')" @mouseleave="mouseleaveQuit()">
+        <div class="voteYesText" :style="{ display: yesPercentage < 4 ? 'none' : 'block' }">
           <div class="vote-text">
             {{ $t('tradeAbout.yes') }}&nbsp;({{
               detailData.yeas | formatNumber
@@ -312,66 +269,39 @@
             <span>{{ yesPercentage }}%</span>
           </div>
         </div>
-        <div
-          class="otherVoteYesText"
-          :style="{ display: voteDisplayStyle.yes ? 'block' : 'none' }"
-        >
+        <div class="otherVoteYesText" :style="{ display: voteDisplayStyle.yes ? 'block' : 'none' }">
           <div class="vote-text">
-            {{ $t('tradeAbout.yes') }}&nbsp;<span
-              >({{ detailData.yeas | formatNumber }})</span
-            >
+            {{ $t('tradeAbout.yes') }}&nbsp;<span>({{ detailData.yeas | formatNumber }})</span>
           </div>
           <div class="vote-number">
             <span>{{ yesPercentage }}%</span>
           </div>
         </div>
       </div>
-      <div
-        class="voteNo"
-        :style="{ width: noPercentage == 0 ? '0%' : noPercentage + 1 + '%' }"
-        @mouseover="mouseoverQuit(noPercentage, 'no')"
-        @mouseleave="mouseleaveQuit()"
-      >
-        <div
-          class="voteNoText"
-          :style="{ display: noPercentage < 4 ? 'none' : 'block' }"
-        >
+      <div class="voteNo" :style="{ width: noPercentage == 0 ? '0%' : noPercentage + 1 + '%' }"
+        @mouseover="mouseoverQuit(noPercentage, 'no')" @mouseleave="mouseleaveQuit()">
+        <div class="voteNoText" :style="{ display: noPercentage < 4 ? 'none' : 'block' }">
           <div class="vote-text">
-            {{ $t('tradeAbout.no') }}&nbsp;<span
-              >({{ detailData.nays | formatNumber }})</span
-            >
+            {{ $t('tradeAbout.no') }}&nbsp;<span>({{ detailData.nays | formatNumber }})</span>
           </div>
           <div class="vote-number">
             <span>{{ noPercentage }}%</span>
           </div>
         </div>
-        <div
-          class="otherVoteNoText"
-          :style="{ display: voteDisplayStyle.not ? 'block' : 'none' }"
-        >
+        <div class="otherVoteNoText" :style="{ display: voteDisplayStyle.not ? 'block' : 'none' }">
           <div class="vote-text">
-            {{ $t('tradeAbout.no') }}&nbsp;<span
-              >({{ detailData.nays | formatNumber }})</span
-            >
+            {{ $t('tradeAbout.no') }}&nbsp;<span>({{ detailData.nays | formatNumber }})</span>
           </div>
           <div class="vote-number">
             <span>{{ noPercentage }}%</span>
           </div>
         </div>
       </div>
-      <div
-        class="voteQuit"
-        :style="{
-          width: quitPercentage == 0 ? '0%' : quitPercentage + 1 + '%',
-        }"
-        @mouseover="mouseoverQuit(quitPercentage, 'quit')"
-        @mouseleave="mouseleaveQuit()"
-      >
-        <div
-          class="voteQuitText"
-          :class="{ voteQuitDisplay: 'true' }"
-          :style="{ display: quitPercentage < 4 ? 'none' : 'block' }"
-        >
+      <div class="voteQuit" :style="{
+        width: quitPercentage == 0 ? '0%' : quitPercentage + 1 + '%',
+      }" @mouseover="mouseoverQuit(quitPercentage, 'quit')" @mouseleave="mouseleaveQuit()">
+        <div class="voteQuitText" :class="{ voteQuitDisplay: 'true' }"
+          :style="{ display: quitPercentage < 4 ? 'none' : 'block' }">
           <div class="vote-text">
             {{ $t('tradeAbout.abstain') }}&nbsp;({{
               detailData.abstentions | formatNumber
@@ -381,84 +311,42 @@
             <span>{{ quitPercentage }}%</span>
           </div>
         </div>
-        <div
-          class="otherVoteQuitText"
-          :style="{ display: voteDisplayStyle.quit ? 'block' : 'none' }"
-        >
+        <div class="otherVoteQuitText" :style="{ display: voteDisplayStyle.quit ? 'block' : 'none' }">
           <div class="vote-text">
-            {{ $t('tradeAbout.abstain') }}&nbsp;<span
-              >({{ detailData.abstentions | formatNumber }})</span
-            >
+            {{ $t('tradeAbout.abstain') }}&nbsp;<span>({{ detailData.abstentions | formatNumber }})</span>
           </div>
           <div class="vote-number">
             <span>{{ quitPercentage }}%</span>
           </div>
         </div>
       </div>
-      <div
-        class="big-progress-pass"
-        :style="{ left: detailData.supportRateThreshold }"
-      >
-        <span
-          >{{ $t('tradeAbout.passCondition') }}>={{
-            detailData.supportRateThreshold
-          }}</span
-        >
+      <div class="big-progress-pass" :style="{ left: detailData.supportRateThreshold }">
+        <span>{{ $t('tradeAbout.passCondition') }}>={{
+          detailData.supportRateThreshold
+        }}</span>
       </div>
     </div>
-    <div style="color: #333; font-family: Gilroy-Regular; font-size: 14px">
+    <div style="color: #333;  font-size: 14px">
       {{
         detailData.type == 2
-          ? $t('tradeAbout.voteUpgradeNumber')
-          : $t('tradeAbout.NumberOfVotes')
+        ? $t('tradeAbout.voteUpgradeNumber')
+        : $t('tradeAbout.NumberOfVotes')
       }}: {{ pageTotal }}
     </div>
-    <div
-      class="voteOption Gilroy-Medium"
-      v-if="
-        detailData.type == 1 || detailData.type == 3 || detailData.type == 4
-      "
-    >
-      <a
-        class="cursor"
-        :class="{ active: selectIndex == 0 }"
-        @click="selectVoteOption(0, '')"
-        >{{ $t('contract.all') }}</a
-      >
-      <a
-        class="cursor"
-        :class="{ active: selectIndex == 1 }"
-        @click="selectVoteOption(1, '1')"
-        >YES</a
-      >
-      <a
-        class="cursor"
-        :class="{ active: selectIndex == 2 }"
-        @click="selectVoteOption(2, '2')"
-        >NO</a
-      >
-      <a
-        class="cursor"
-        :class="{ active: selectIndex == 3 }"
-        @click="selectVoteOption(3, '3')"
-        >ABSTAIN</a
-      >
+    <div class="voteOption Gilroy-Medium" v-if="detailData.type == 1 || detailData.type == 3 || detailData.type == 4
+      ">
+      <a class="cursor" :class="{ active: selectIndex == 0 }" @click="selectVoteOption(0, '')">{{ $t('contract.all')
+      }}</a>
+      <a class="cursor" :class="{ active: selectIndex == 1 }" @click="selectVoteOption(1, '1')">YES</a>
+      <a class="cursor" :class="{ active: selectIndex == 2 }" @click="selectVoteOption(2, '2')">NO</a>
+      <a class="cursor" :class="{ active: selectIndex == 3 }" @click="selectVoteOption(3, '3')">ABSTAIN</a>
     </div>
     <div class="table">
       <div class="table-content">
-        <el-table
-          :data="tableData"
-          style="width: 100%"
-          key="firstTable"
-          size="mini"
-          v-loading="loading"
-        >
+        <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
           <el-table-column :label="$t('tradeAbout.voter')" min-width="20%">
             <template slot-scope="scope">
-              <router-link
-                class="cursor blue ellipsis"
-                :to="getNodeUrl(scope.row.voter)"
-              >
+              <router-link class="cursor blue ellipsis" :to="getNodeUrl(scope.row.voter)">
                 {{ scope.row.voterName }}
               </router-link>
             </template>
@@ -466,8 +354,9 @@
           <el-table-column :label="$t('tradeAbout.voteOption')" min-width="20%">
             <template slot-scope="scope">
               <span>
-                <span v-if="detailData.type == 2">{{$t('voteStatus.1')}}</span>
-                <span v-else>{{$te('voteStatus.' + scope.row.option) ? $t('voteStatus.' + scope.row.option) : $t('voteStatus.other')}}</span>
+                <span v-if="detailData.type == 2">{{ $t('voteStatus.1') }}</span>
+                <span v-else>{{ $te('voteStatus.' + scope.row.option) ? $t('voteStatus.' + scope.row.option) :
+                  $t('voteStatus.other') }}</span>
                 <!-- <span
                   class="grey"
                   v-if="
@@ -481,24 +370,14 @@
               </span>
             </template>
           </el-table-column>
-          <el-table-column
-            :label="$t('tradeAbout.trasactionHash')"
-            min-width="40%"
-          >
+          <el-table-column :label="$t('tradeAbout.trasactionHash')" min-width="40%">
             <template slot-scope="scope">
-              <router-link
-                class="cursor blue hash-width ellipsis"
-                :to="getTradeUrl(scope.row.txHash)"
-              >
+              <router-link class="cursor blue hash-width ellipsis" :to="getTradeUrl(scope.row.txHash)">
                 {{ scope.row.txHash }}
               </router-link>
             </template>
           </el-table-column>
-          <el-table-column
-            :label="$t('tradeAbout.trasactionTime')"
-            show-overflow-tooltip
-            min-width="20%"
-          >
+          <el-table-column :label="$t('tradeAbout.trasactionTime')" show-overflow-tooltip min-width="20%">
             <template slot-scope="scope">
               <span>{{ scope.row.timestamp | formatTime }}</span>
             </template>
@@ -506,17 +385,9 @@
         </el-table>
       </div>
       <div class="pagination-box" v-if="paginationFlag">
-        <el-pagination
-          background
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage"
-          :page-sizes="[10, 20, 50, 100]"
-          :page-size="pageSize"
-          layout="sizes,total,  prev, pager, next"
-          :total="searchTotal"
-          :pager-count="9"
-        ></el-pagination>
+        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" :page-size="pageSize"
+          layout="sizes,total,  prev, pager, next" :total="searchTotal" :pager-count="9"></el-pagination>
       </div>
     </div>
   </div>
@@ -622,9 +493,9 @@ export default {
           data.curBlock - 0 > data.endVotingBlock - 0
             ? '100%'
             : ((data.curBlock - data.inBlock) /
-                (data.endVotingBlock - data.inBlock)) *
-                100 +
-              '%';
+              (data.endVotingBlock - data.inBlock)) *
+            100 +
+            '%';
         // debugger
         this.endVotingPercentage = tmpEndVotingPercentage;
         if (tmpQuitPercentage > 0) {
@@ -700,18 +571,20 @@ export default {
     this.getVoteList();
   },
   computed: {},
-  mounted() {},
+  mounted() { },
 };
 </script>
 <style lang="less" scoped>
 .grey {
   color: #999;
 }
+
 .active-block {
-  font-family: Gilroy-Medium;
+
   font-size: 13px;
   line-height: 20px;
 }
+
 .parame-name {
   background: #eeeeee;
   border-radius: 4px;
@@ -719,11 +592,12 @@ export default {
   padding: 5px 8px;
   margin-right: 12px;
 }
+
 .parame-new-value {
   display: inline-block;
 }
+
 .parame-value {
-  font-family: Gilroy-Regular;
   font-size: 13px;
   color: #999999;
   display: inline-block;
@@ -731,29 +605,35 @@ export default {
   word-break: break-all;
   // line-height: 28px;
 }
+
 .sub-title {
   display: flex;
   justify-content: space-between;
 }
+
 .trade-count {
   color: #333;
 }
+
 .proposal-box {
   margin: 23px 0 10px;
 }
+
 .proposal-id {
   margin-right: 16px;
-  font-family: Gilroy-Medium;
+
   font-size: 20px;
   color: #0798de;
   letter-spacing: 0;
   line-height: 24px;
 }
+
 .github {
   font-family: PingFangSC-Regular;
   font-size: 14px;
   color: #999999;
   letter-spacing: 0;
+
   i {
     background: url(../../assets/images/icon-link.svg) no-repeat;
     display: inline-block;
@@ -761,81 +641,99 @@ export default {
     height: 14px;
   }
 }
+
 .vote-status {
   // opacity: 0.15;
   background: rgba(59, 176, 18, 0.15);
   border-radius: 2px;
   line-height: 26px;
   padding: 7px 10px;
+
   @media screen and (max-width: 750px) {
     min-width: 64px;
   }
 }
+
 .new-version {
   color: #000000;
   font-size: 18px;
   line-height: 21px;
-  font-family: Gilroy-Medium;
+
 }
+
 .yellow-status {
   background: rgba(255, 192, 23, 0.15);
 }
+
 .red-status {
   background: rgba(207, 50, 110, 0.15);
 }
+
 .join-progress {
   position: absolute;
   top: -28px;
   right: 0px;
   color: #666;
+
   span {
     color: #000000;
   }
+
   @media screen and (max-width: 750px) {
     top: -40px;
   }
 }
+
 .voteOption {
   margin-top: 15px;
+
   a {
     margin-right: 20px;
     font-size: 16px;
     line-height: 19px;
     color: #999999;
+
     &.active {
       color: #0798de;
     }
   }
 }
+
 .update {
-  font-family: Gilroy-Medium;
+
   font-size: 20px;
   color: #000000;
   letter-spacing: 0;
   line-height: 24px;
+
   &.item {
     margin-top: 10px;
   }
 }
+
 .desc {
-  font-family: Gilroy-Medium;
+
   font-size: 14px;
   color: #666666;
   letter-spacing: 0;
   width: 200px;
 }
+
 .item {
   margin: 17px 0px;
 }
+
 .proposer {
-  font-family: Gilroy-Medium;
+
   font-size: 13px;
   color: #0798de;
   letter-spacing: 0;
+
   &:hover {
     color: #0e52ac;
   }
 }
+
 .progress {
   position: relative;
   width: 188px;
@@ -843,6 +741,7 @@ export default {
   background: #d5d5d5;
   border-radius: 1px;
 }
+
 .percentage {
   position: absolute;
   top: 0;
@@ -850,11 +749,12 @@ export default {
   height: 100%;
   background: #000000;
 }
+
 .progress-text {
   position: absolute;
   margin: 2px 0px 0px 20px;
   top: 0;
-  font-family: Gilroy-Medium;
+
   font-size: 12px;
   color: white;
   letter-spacing: 0;
@@ -868,32 +768,38 @@ export default {
   background: #eee;
   border-radius: 1px;
 }
+
 .estimatedTime {
   margin-top: 6px;
   font-size: 12px;
   color: #999;
 }
+
 .big-percentage {
   position: absolute;
   top: 0;
   //   width: 30%;
   height: 100%;
   background: #e2f3dc;
+
   .otherVoteYesText {
     position: absolute;
     left: 5px;
     top: 10px;
     z-index: 999;
+
     .vote-text {
       color: #3bb012;
       font-size: 12px;
       line-height: 24px;
     }
+
     .vote-number {
       font-size: 16px;
       color: #3bb012;
       line-height: 16px;
       position: relative;
+
       span {
         font-size: 14px;
         color: #7dcb63;
@@ -901,86 +807,99 @@ export default {
     }
   }
 }
+
 .big-progress-text {
   position: absolute;
   top: 3px;
-  font-family: Gilroy-Regular;
   font-size: 12px;
   color: #3bb012;
   letter-spacing: 0;
   line-height: 24px;
   padding: 3px 0 0 5px;
+
   .vote-text {
     color: #3bb012;
     font-size: 12px;
     line-height: 24px;
   }
+
   .vote-number {
     font-size: 16px;
     color: #3bb012;
     line-height: 24px;
+
     span {
       font-size: 14px;
       color: #7dcb63;
       line-height: 24px;
-      font-family: Gilroy-Bold;
+
     }
   }
 }
+
 .big-progress-pass {
   position: absolute;
   height: 100%;
   // width:1px;
   border-left: 1px solid #999;
-  font-family: Gilroy-Regular;
   font-size: 12px;
   color: #999999;
   line-height: 24px;
   width: 0;
   white-space: nowrap;
+
   // right: 24%;
   span {
     display: inline-block;
     margin: 48px 0 0 6px;
   }
 }
+
 .other-progress {
   margin: 15px 0px 30px 0px;
+
   @media screen and (max-width: 750px) {
     margin: 20px 0px 30px 0px;
   }
+
   width: 100%;
   height: 70px;
   display: flex;
   background: #eeeeee;
   border-radius: 1px;
   position: relative;
+
   .voteYes {
     height: 100%;
     background: #e2f3dc;
     float: left;
     padding: 3px 0 0 5px;
     position: relative;
+
     .voteYesText {
       margin-top: 4px;
+
       .vote-text {
         color: #3bb012;
         font-size: 12px;
         line-height: 24px;
       }
+
       .vote-number {
         font-size: 16px;
         color: #3bb012;
         line-height: 24px;
         position: relative;
+
         span {
           font-size: 14px;
           color: #7dcb63;
           line-height: 24px;
-          font-family: Gilroy-Bold;
+
         }
       }
     }
+
     .otherVoteYesText {
       position: absolute;
       left: 2px;
@@ -992,23 +911,27 @@ export default {
       box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
       border-radius: 4px;
       line-height: 18px;
+
       .vote-text {
         color: #3bb012;
         font-size: 12px;
+
         // line-height: 24px;
         span {
           color: #7dcb63;
         }
       }
+
       .vote-number {
         font-size: 16px;
         color: #3bb012;
         // line-height: 24px;
         position: relative;
+
         span {
           font-size: 14px;
           color: #3bb012;
-          font-family: Gilroy-Bold;
+
         }
       }
     }
@@ -1020,28 +943,33 @@ export default {
     float: left;
     padding: 3px 0 0 5px;
     position: relative;
+
     .voteNoText {
       //  display: none;
       // margin-left: 28px;
       margin-top: 4px;
+
       .vote-text {
         color: #cf326e;
         font-size: 12px;
         line-height: 24px;
       }
+
       .vote-number {
         font-size: 16px;
         color: #cf326e;
         line-height: 24px;
         position: relative;
+
         span {
           font-size: 14px;
           color: #e798b6;
           line-height: 24px;
-          font-family: Gilroy-Bold;
+
         }
       }
     }
+
     .otherVoteNoText {
       position: absolute;
       left: 6px;
@@ -1052,54 +980,64 @@ export default {
       box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
       border-radius: 4px;
       line-height: 18px;
+
       .vote-text {
         color: #cf326e;
         font-size: 12px;
+
         // line-height: 24px;
         span {
           color: #e798b6;
         }
       }
+
       .vote-number {
         font-size: 16px;
         color: #cf326e;
         // line-height: 24px;
         position: relative;
+
         span {
           font-size: 14px;
-          font-family: Gilroy-Bold;
+
         }
       }
     }
   }
+
   .voteQuit {
     height: 100%;
     background: #d9d9d9;
     float: left;
     padding: 3px 0 0 5px;
     position: relative;
+
     .voteQuitText {
       // display:none;
       margin-top: 4px;
+
       .vote-text {
         color: #000000;
         font-size: 12px;
         line-height: 24px;
       }
+
       .vote-number {
         font-size: 16px;
         color: #000000;
         line-height: 24px;
         position: relative;
+
         span {
           font-size: 14px;
           color: #888888;
           line-height: 24px;
           width: 200px;
-          font-family: Gilroy-Bold;
+
         }
       }
     }
+
     .otherVoteQuitText {
       // margin-top: 4px;
       position: absolute;
@@ -1111,19 +1049,22 @@ export default {
       box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
       border-radius: 4px;
       line-height: 18px;
+
       .vote-text {
         color: #000000;
         font-size: 12px;
+
         span {
           color: #888888;
         }
       }
+
       .vote-number {
         font-size: 16px;
         color: #000000;
         // line-height: 24px;
         position: relative;
-        font-family: Gilroy-Bold;
+
       }
     }
   }
@@ -1136,6 +1077,7 @@ export default {
     color: #999999;
     font-size: 12px;
     border: 1px solid #999;
+
     span {
       position: absolute;
       bottom: 0;
@@ -1151,26 +1093,31 @@ export default {
       margin-top: 0 !important;
     }
   }
+
   .row-details {
-    & > .el-col {
+    &>.el-col {
       width: 100%;
       float: unset;
     }
   }
 }
+
 .table-content {
   width: 100%;
   overflow-x: auto;
 }
+
 @media (max-width: 500px) {
   .row-details {
     .item {
       .el-row {
         display: flex;
+
         .el-col {
           float: unset;
           width: auto;
           flex: 1;
+
           &:first-child {
             flex: 0;
             min-width: 130px;

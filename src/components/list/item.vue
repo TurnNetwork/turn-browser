@@ -89,7 +89,6 @@ export default {
     // line-height: 15px;
     width: auto;
     min-width: 169px;
-    font-family: Gilroy-Medium;
   }
 
   p {
@@ -111,7 +110,6 @@ export default {
     font-size: 13px;
     color: #666;
     line-height: 15px;
-    font-family: Gilroy-Medium;
   }
 
   p {
@@ -152,4 +150,5 @@ export default {
   .zero-block {
     width: auto !important;
   }
-}</style>
+}
+</style>

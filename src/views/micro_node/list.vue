@@ -51,7 +51,7 @@
                       $t('nodeInfo.nodeMsg')
                     }}</span>
                   </div>
-                  <!-- <i class="iconfont iconxinxi cursor" style="margin-left:8px;color:#D5D5D5;font-size:12px;">&#xe63f;</i> -->
+                  <!-- <i class="  iconxinxi cursor" style="margin-left:8px;color:#D5D5D5;font-size:12px;">&#xe63f;</i> -->
                   <i class="el-icon-info cursor" style="
                       color: #d5d5d5;
                       font-size: 12px;
@@ -67,12 +67,12 @@
           </el-table-column>
           <el-table-column :label="'BubbleID'">
             <template slot-scope="scope">
-              <span class="Gilroy-Bold">{{ scope.row.bubbleId || '0' }}</span>
+              <span class=" ">{{ scope.row.bubbleId || '0' }}</span>
             </template>
           </el-table-column>
           <el-table-column :label="$t('tradeAbout.status')">
             <template slot-scope="scope">
-              <span class="Gilroy-Bold" :class="{
+              <span class=" " :class="{
                 green: scope.row.status == 2 || scope.row.status == 6,
                 yellow: scope.row.status == 3 || scope.row.status == 4,
                 red: scope.row.status == 1,

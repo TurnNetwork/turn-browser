@@ -14,21 +14,12 @@
       }}</span>
     </div>
     <div class="table">
-      <el-table
-        :data="tradeTableData"
-        style="width: 100%"
-        key="secondTable"
-        size="mini"
-        v-loading="loading"
-      >
+      <el-table :data="tradeTableData" style="width: 100%" key="secondTable" size="mini" v-loading="loading">
         <!-- 交易哈希值 -->
         <el-table-column :label="$t('tradeAbout.hash')" min-width="180">
           <template slot-scope="scope">
             <div class="flex-special">
-              <router-link
-                class="cursor normal ellipsis hash-width"
-                :to="getTradeUrl(scope.row.txHash)"
-              >
+              <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
                 <!-- txHash 显示0x + 18 -->
                 {{ scope.row.txHash }}
               </router-link>
@@ -52,21 +43,10 @@
           <template slot-scope="scope">
             <div class="flex-special">
               <!-- 操作地址：即签名交易的地址，显示0x+14 -->
-              <icon-contract
-                v-if="isContract(scope.row.fromType)"
-                :active="scope.row.type !== 'OUT'"
-              ></icon-contract>
-              <span
-                class="ellipsis adr-width"
-                v-if="scope.row.type === 'OUT'"
-                >{{ scope.row.txFrom }}</span
-              >
-              <router-link
-                v-else
-                class="cursor normal ellipsis adr-width"
-                :to="getAddressUrl(scope.row.txFrom, scope.row.fromType)"
-                >{{ scope.row.txFrom }}</router-link
-              >
+              <icon-contract v-if="isContract(scope.row.fromType)" :active="scope.row.type !== 'OUT'"></icon-contract>
+              <span class="ellipsis adr-width" v-if="scope.row.type === 'OUT'">{{ scope.row.txFrom }}</span>
+              <router-link v-else class="cursor normal ellipsis adr-width"
+                :to="getAddressUrl(scope.row.txFrom, scope.row.fromType)">{{ scope.row.txFrom }}</router-link>
             </div>
           </template>
         </el-table-column>
@@ -74,12 +54,8 @@
         <!-- 交易方向type, INPUT 进账，OUT 出账，NONE 无方向 -->
         <af-table-column label="" width="70px">
           <template slot-scope="scope">
-            <span
-              v-if="['INPUT', 'OUT'].includes(scope.row.type)"
-              class="tokens-type"
-              :class="'tokens-type--' + getTokenType(scope.row.type)"
-              >{{ getTokenType(scope.row.type, false) }}</span
-            >
+            <span v-if="['INPUT', 'OUT'].includes(scope.row.type)" class="tokens-type"
+              :class="'tokens-type--' + getTokenType(scope.row.type)">{{ getTokenType(scope.row.type, false) }}</span>
             <div v-else class="tokens-arrow fr">
               <img class="arrow-icon" src="@/assets/images/arrow-right.svg" />
             </div>
@@ -91,21 +67,10 @@
           <template slot-scope="scope">
             <div class="flex-special">
               <!-- 操作地址：即签名交易的地址，显示0x+14 -->
-              <icon-contract
-                v-if="isContract(scope.row.toType)"
-                :active="scope.row.type !== 'INPUT'"
-              ></icon-contract>
-              <span
-                class="ellipsis adr-width"
-                v-if="scope.row.type === 'INPUT'"
-                >{{ scope.row.transferTo }}</span
-              >
-              <router-link
-                v-else
-                class="cursor normal ellipsis adr-width"
-                :to="getAddressUrl(scope.row.transferTo, scope.row.toType)"
-                >{{ scope.row.transferTo }}</router-link
-              >
+              <icon-contract v-if="isContract(scope.row.toType)" :active="scope.row.type !== 'INPUT'"></icon-contract>
+              <span class="ellipsis adr-width" v-if="scope.row.type === 'INPUT'">{{ scope.row.transferTo }}</span>
+              <router-link v-else class="cursor normal ellipsis adr-width"
+                :to="getAddressUrl(scope.row.transferTo, scope.row.toType)">{{ scope.row.transferTo }}</router-link>
             </div>
           </template>
         </el-table-column>
@@ -119,14 +84,10 @@
         </template>
         <template v-else-if="tableType === 'erc721'">
           <!-- 令牌ID -->
-          <el-table-column :label="$t('tokens.tokenID')"  min-width="120">
+          <el-table-column :label="$t('tokens.tokenID')" min-width="120">
             <template slot-scope="scope">
-              <router-link
-                class="cursor normal ellipsis ellipsisWidth"
-                :title="scope.row.tokenId"
-                :to="get721IdUrl(scope.row.contract, scope.row.tokenId)"
-                >{{ scope.row.tokenId }}</router-link
-              >
+              <router-link class="cursor normal ellipsis ellipsisWidth" :title="scope.row.tokenId"
+                :to="get721IdUrl(scope.row.contract, scope.row.tokenId)">{{ scope.row.tokenId }}</router-link>
             </template>
           </el-table-column>
         </template>
@@ -142,41 +103,28 @@
           <!-- 令牌ID -->
           <el-table-column :label="$t('tokens.tokenID')" min-width="120">
             <template slot-scope="scope">
-              <router-link
-                class="cursor normal ellipsis ellipsisWidth"
-                :title="scope.row.tokenId"
-                :to="get1155IdUrl(scope.row.contract, scope.row.tokenId)"
-              >
+              <router-link class="cursor normal ellipsis ellipsisWidth" :title="scope.row.tokenId"
+                :to="get1155IdUrl(scope.row.contract, scope.row.tokenId)">
                 {{ scope.row.tokenId }}
               </router-link>
             </template>
           </el-table-column>
         </template>
-        
-        <el-table-column v-else-if="tableType === 'erc721Id' || tableType === 'erc1155Id'" :label="$t('tokens.tokenID')" prop="tokenId"  min-width="120">
+
+        <el-table-column v-else-if="tableType === 'erc721Id' || tableType === 'erc1155Id'" :label="$t('tokens.tokenID')"
+          prop="tokenId" min-width="120">
           <template slot-scope="scope">
-              <span
-                class="ellipsis ellipsisWidth"
-                :title="scope.row.tokenId"
-                >{{ scope.row.tokenId | sliceStr(16) }}</span
-              >
-            </template>
+            <span class="ellipsis ellipsisWidth" :title="scope.row.tokenId">{{ scope.row.tokenId | sliceStr(16) }}</span>
+          </template>
         </el-table-column>
       </el-table>
 
       <!-- 下分页 -->
       <div class="pagination-box">
-        <el-pagination
-          background
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage"
-          :page-sizes="[10, 20, 50, 100]"
-          :page-size="pageSize"
-          layout="sizes,total,  prev, pager, next"
-          :total="pageTotal > 5000 ? 5000 : pageTotal"
-          :pager-count="windowWidth < 750 ? 5 : 9"
-        ></el-pagination>
+        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" :page-size="pageSize"
+          layout="sizes,total,  prev, pager, next" :total="pageTotal > 5000 ? 5000 : pageTotal"
+          :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
       </div>
     </div>
   </div>
@@ -304,7 +252,7 @@ export default {
   created() {
     this.getTradeList();
   },
-  mounted() {},
+  mounted() { },
 };
 </script>
 <style lang="less" scoped>
@@ -313,6 +261,7 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+
 .download-btn {
   border: 1px solid #0798de;
   border-radius: 2px;
@@ -321,26 +270,29 @@ export default {
   color: #0798de;
   letter-spacing: 0;
   cursor: pointer;
-  font-family: Gilroy-Medium;
+
   &:hover {
     color: #5cb2db;
     border: 1px solid #5cb2db;
   }
+
   &:active {
     color: #0e52ac;
     border: 1px solid #0e52ac;
   }
 }
-.active {
-  font-family: Gilroy-Medium;
-}
+
+.active {}
+
 .iconxinxi {
   font-size: 14px;
   margin-right: 5px;
 }
+
 .title-warning {
   color: #ffc017;
 }
+
 .lineheight-with-btn {
   line-height: 37px;
 }

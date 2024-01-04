@@ -211,7 +211,7 @@ export default {
     border-top: 2px solid #000;
     border-bottom: 1px solid #f5f5f5;
     margin-bottom: 20px;
-    font-family: Gilroy-Medium;
+
   }
 
   .common-trade {

@@ -679,7 +679,7 @@ export default {
 
     .active {
       color: #fff !important;
-      font-family: Gilroy-Bold;
+
     }
   }
 
@@ -724,7 +724,6 @@ export default {
   }
 
   p {
-    font-family: Gilroy-Regular;
     font-size: 12px;
     color: #b3b3b3;
     letter-spacing: 0;
@@ -748,7 +747,6 @@ export default {
   justify-content: flex-end;
 
   div {
-    font-family: Gilroy-Medium;
     font-size: 14px;
     color: #fff;
     letter-spacing: 0;
@@ -845,7 +843,6 @@ export default {
 }
 
 .more-title {
-  font-family: Gilroy-Regular;
   font-size: 14px;
   color: inherit;
   letter-spacing: 0;

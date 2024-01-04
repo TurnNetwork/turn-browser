@@ -1,6 +1,6 @@
 <template>
   <div class="contract-detail-wrap">
-    <div class="content-top-white contract-detail-top content-padding">
+    <div class=" content-top-black contract-detail-top content-padding">
       <div class="page-title fontSize34">
         {{ $t('contract.contractDetail') }}
       </div>

@@ -18,24 +18,17 @@
     </div>
 
     <!-- 系统合约 -->
-    <div
-      v-if="!detailInfo.isDestroy && detailInfo.type == '2'"
-      class="warn-info"
-    >
+    <div v-if="!detailInfo.isDestroy && detailInfo.type == '2'" class="warn-info">
       <img src="../../assets/images/icon-contract.svg" alt="" />
       <span class="yellow">{{ $t('contract.systemBuilt') }}</span>
     </div>
 
     <b>Contract Bytecode</b>
 
-    <div
-      class="contract-bin"
-      v-if="
-        detailInfo.isDestroy == 1 ||
-        detailInfo.type == '2' ||
-        !detailInfo.contractBin
-      "
-    >
+    <div class="contract-bin" v-if="detailInfo.isDestroy == 1 ||
+      detailInfo.type == '2' ||
+      !detailInfo.contractBin
+      ">
       0x
     </div>
     <div class="contract-bin" v-else>{{ detailInfo.contractBin }}</div>
@@ -76,16 +69,18 @@ export default {
   p {
     margin-bottom: 20px;
   }
+
   .contract-name {
-    font-family: Gilroy-Medium;
     font-size: 14px;
     color: #151515;
   }
+
   b {
     font-size: 16px;
     display: block;
     margin-bottom: 20px;
   }
+
   .contract-bin {
     margin-bottom: 0;
     width: 100%;
@@ -102,6 +97,7 @@ export default {
     word-wrap: break-word;
     word-break: break-all;
   }
+
   .warn-info {
     display: flex;
     justify-content: flex-start;
@@ -114,12 +110,14 @@ export default {
     border-radius: 4px;
     padding: 10px 15px;
     line-height: 20px;
+
     img {
       width: 16px;
       height: 16px;
       margin-right: 6px;
     }
   }
+
   .trad-hash {
     cursor: pointer;
   }

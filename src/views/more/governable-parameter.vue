@@ -969,7 +969,7 @@ export default {
 
 <style lang="less" scoped>
 .title {
-  font-family: Gilroy-Medium;
+
   font-size: 34px;
   color: #000000;
   letter-spacing: 0;
@@ -983,7 +983,7 @@ export default {
 }
 
 .h3 {
-  font-family: Gilroy-Medium;
+
   font-size: 24px;
   color: #000000;
   letter-spacing: 0;
@@ -1010,7 +1010,7 @@ export default {
 }
 
 .h4 {
-  font-family: Gilroy-Medium;
+
   font-size: 20px;
   color: #000000;
   letter-spacing: 0;
@@ -1019,7 +1019,6 @@ export default {
 
 .exp {
   min-height: 48px;
-  font-family: Gilroy-Regular;
   font-size: 14px;
   color: #666666;
   letter-spacing: 0;
@@ -1044,7 +1043,7 @@ export default {
     justify-content: space-between;
 
     .medium {
-      font-family: Gilroy-Medium;
+
       font-size: 12px;
       color: #666666;
       letter-spacing: 0;
@@ -1052,7 +1051,6 @@ export default {
     }
 
     .regular {
-      font-family: Gilroy-Regular;
       font-size: 12px;
       color: #666666;
       letter-spacing: 0;
@@ -1063,7 +1061,7 @@ export default {
 }
 
 .lable {
-  font-family: Gilroy-Medium;
+
   font-size: 14px;
   color: #666666;
   letter-spacing: 0;
@@ -1081,14 +1079,14 @@ export default {
 }
 
 .green {
-  font-family: Gilroy-Medium;
+
   font-size: 13px;
   color: #3bb012;
   letter-spacing: 0;
 }
 
 .black {
-  font-family: Gilroy-Medium;
+
   font-size: 13px;
   color: #000000;
   letter-spacing: 0;
