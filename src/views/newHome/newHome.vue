@@ -7,10 +7,11 @@
       align-items:flex-start;
       /*height: 1500px;*/
       //height: 1800px;
-      width: 80%;
-      background-color: #1d1e1f;
+      width: 1224px;
+      overflow: auto;
+      background-color: black;
       //border: 1px solid #00ff00;
-      margin-left: 10%;
+      margin: auto;
   }
 
   .tou{
@@ -33,7 +34,7 @@
   .box-div .line1{
     float: top;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 10%;
     //border: 2px solid #0D6CDA;
     height: 500px;
     width: 60%;
@@ -45,7 +46,7 @@
     align-items: center;
     float: top;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 10%;
     //border: 2px solid #0D6CDA;
     height: 500px;
     width: 35%;
@@ -64,23 +65,56 @@
   .box-div .line2{
     display: block;
     //border: 1px solid #5DC572;
-    height: 200px;
+    height: 243px;
     width: 100%;
     //margin-top:-300px
-    background: url("../../assets/imagesV2/div.GridItem_asset___ix8N.png") no-repeat ;
-    background-size: 400px 200px;
-    background-position: right;
+    /*background: url("../../assets/imagesV2/div.GridItem_asset___ix8N.png") no-repeat ;*/
+    /*background-size: 454px 243px;*/
+    /*background-position: right;*/
+
+    /*border-radius: var(--Number20, 20px);*/
+    /*border: 1px solid rgba(255, 255, 255, 0.18);*/
+    /*background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);*/
   }
+
+  .kuangBg{
+    border-radius: var(--Number20, 20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+  }
+
+  .box-div .line2 .rightImgBg{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    //border: 1px solid #5DC572;
+    height: 243px;
+    width: 454px;
+    max-width: 100%;
+    max-height: 100%;
+    float: right;
+    //margin-top:-300px
+
+    /*background: url("../../assets/imagesV2/div.GridItem_asset___ix8N.png") no-repeat ;*/
+    /*background-size: 454px 243px;*/
+    /*background-position: right;*/
+
+    /*border-radius: var(--Number20, 20px);*/
+    /*border: 1px solid rgba(255, 255, 255, 0.18);*/
+    /*background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);*/
+  }
+
+
 
   .border-kuang{
     border-radius: var(--Number20, 20px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    //border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .line-title{
     display: block;
     //border: 1px solid #5DC572;
-    height: 50px;
+    height: 32px;
     width: 100%;
     float: left;
     color: #C1C6CD;
@@ -89,6 +123,8 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: -1.04px;
+    margin-top: 40px;
+    margin-bottom: 32px;
     /*margin-top: 100px;*/
   }
 
@@ -101,8 +137,8 @@
   .box-div .line2 .line2-1{
     display: block;
     //border: 1px solid #094296;
-    height: 200px;
-    width: 200px;
+    height: 243px;
+    width: 17%;
     float: left;
     margin-right: 20px;
     text-align: center;
@@ -115,7 +151,7 @@
     justify-content: space-between;
     align-items: center;
     //border: 1px solid #a027ad;
-    height: 200px;
+    height: 302px;
     width: 100%;
     //margin-top:-100px
   }
@@ -124,16 +160,16 @@
     display: block;
     //border: 1px solid #0D6CDA;
     border-radius: 10px;
-    height: 200px;
-    width: 500px;
+    height: 302px;
+    width: 600px;
     float: left;
     //margin-top:-100px
 
-    /*display: flex;*/
+    display: flex;
     /*width: 600px;*/
     /*height: 302px;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+    justify-content: center;
+    align-items: center;
   }
 
   table, td, th {
@@ -169,7 +205,7 @@
     display: block;
     //border: 1px solid #0D6CDA;
     border-radius: 10px;
-    height: 150px;
+    height: 156px;
     width: 100%;
     float: bottom;
     //margin-top:-100px
@@ -177,11 +213,12 @@
 
 
   .box-div .line5{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /*display: flex;*/
+    display: block;
+    //justify-content: space-between;
+    //align-items: center;
     //border: 1px solid #a027ad;
-    height: 300px;
+    //height: 579px;
     width: 100%;
     //margin-top:-100px
   }
@@ -189,25 +226,71 @@
     display: block;
     //border: 1px solid #0D6CDA;
     border-radius: 10px;
-    height: 300px;
+    height: 579px;
     width: 100%;
     float: bottom;
+    overflow: auto;
     //margin-top:-100px
+  }
+
+  .tableHead{
+    display: block;
+    float: right;
+    height: 64px;
+    width: 100%;
+    /*border: 1px solid #0000ff;*/
+    /*border-top-left-radius: 10px;*/
+    /*border-top-right-radius: 10px;*/
+
+    border-radius: var(--Number20, 20px) var(--Number20, 20px) 0px 0px;
+    border-bottom: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+    /*background: var(--Transparency-100, rgba(255, 255, 255, 0.03));*/
+    background-color: #18191a;
+  }
+
+  .tableHead .fontCss{
+    color: var(--Gray-900, #D5D8DD);
+    /* P1S */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    float: left;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+  .tableHead .viewAll{
+    color: var(--Blue-600, #0075FF);
+
+    /* P3 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    text-align: center;
+    float: right;
+    margin-top: 20px;
+    padding-right: 10px;
   }
 
   .box-div .line6{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    //border: 1px solid #a027ad;
-    height: 300px;
+    //: 1px solid #a027ad;
+    height: 480px;
     width: 100%;
+    margin-top: 24px;
   }
 
   .box-div .line6 .line6-1{
     display: block;
     //border: 1px solid #094296;
-    height: 300px;
+    height: 480px;
     width: 600px;
     float: left;
     /*margin-right: 20px;*/
@@ -215,12 +298,17 @@
     text-align: center;
     padding-top: 50px;
     color:white;
-    padding: 10px 10px;
+    padding: 1px 0px;
   }
+
+  .box-div .line6 .twoLi img{
+    margin-left: 14px;
+  }
+
 
   .box-div .line1 .searchBtn{
     display: block;
-    //border: 1px solid #00ff00;
+    border: 1px solid #00ff00;
     border-radius: 10px;
     width: 300px;
     height: 40px;
@@ -230,35 +318,71 @@
 
   .search-container {
     position: relative;
-    margin-top: 10px;
+    margin-top: 40px;
+
+    /*border-radius: var(--Number8, 8px);*/
+    /*border: 1px solid var(--Gray-600, #6C7584);*/
+    /*background: var(--Transparency-100, rgba(255, 255, 255, 0.03));*/
+
+    display: flex;
+    width: 508px;
+    height: 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 
   .search-input {
-    width: 80%; /* 根据需要调整宽度 */
+    width: 100%; /* 根据需要调整宽度 */
     padding-right: 30px; /* 为图标留出空间 */
-    height: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: var(--Number20, 20px);
+    /*background-color: black;*/
+    color: var(--Gray-500, #535A65);
+    /* P2 */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: var(--Number8, 8px);
+    border: 1px solid var(--Gray-600, #6C7584);
+    background: var(--Transparency-100, rgba(255, 255, 255, 0.03));
   }
 
   .search-icon {
     position: absolute;
-    right: 22%; /* 根据需要调整图标位置 */
-    top:10px;
+    right: 1%; /* 根据需要调整图标位置 */
+    //top:10px;
     cursor: pointer; /* 鼠标悬停时显示为手形光标 */
   }
 
   .box-div .line-end{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    //border: 1px solid #4b3350;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border: 1px solid #4b3350;
     height: 200px;
     width: 100%;
     background:  url("../../assets/imagesV2/Footer img.png") repeat center;
     background-size: 100%;
-
     opacity: 0.4;
-    //background: url("../../assets/imagesV2/Footer img.png"), lightgray 0% 0% / 60.90909242630005px 60.90909242630005px repeat;
-    mix-blend-mode: overlay;
+  }
+
+  .line-end2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border: 1px solid #4b3350;
+    height: 200px;
+    width: 100%;
+    background:  url("../../assets/imagesV2/Footer img.png") repeat center;
+    background-size: 100%;
+    opacity: 0.4;
   }
 
    .myTh{
@@ -284,6 +408,90 @@
     letter-spacing: -0.8px;
   }
 
+  .tableTh1{
+    color: var(--Gray-900, #D5D8DD);
+    /* P3 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    //line-height: 140%; /* 19.6px */
+  }
+
+  .line5-1 table tr th:first-child {
+      width: 130px;
+  }
+  .line5-1 table tr th:nth-child(2) {
+    text-align: left;
+  }
+  .line5-1 table tr td:nth-child(2) {
+    text-align: left;
+  }
+
+  /*.line5-1 .table .tr td:first-child {*/
+  /*  text-align: left;*/
+  /*}*/
+
+  .fangIcon{
+    width: 64px;
+    height: 64px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 24px;
+  }
+
+  .activeBubble-1{
+    width: 64px;
+    height: 64px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .activeBubble-2{
+    width: 327px;
+    height: 44px;
+    text-align: left;
+    line-height: 2;
+  }
+  .activeBubble-3{
+    width: 30%;
+    height: 44px;
+    text-align: right;
+    line-height: 2;
+  }
+
+  .twoLi{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    width: 100%;
+    height: 64px;
+  }
+
+  .activeBubbleFont-1{
+    display: block;
+    color: var(--Gray-1000, #F1F2F4);
+    /* P3 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    /*font-weight: 400;*/
+    /*line-height: 140%; !* 19.6px *!*/
+  }
+
+  .activeBubbleFont-2{
+    display: block;
+    color: var(--Gray-700, #9AA1AC);
+    /*text-align: right;*/
+    /* P3 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    /*font-weight: 400;*/
+    /*line-height: 140%; !* 19.6px *!*/
+  }
+
+
 
 </style>
 
@@ -295,7 +503,9 @@
       <p class="tou" >The Turn Network<br/>Blockchain Explorer</p>
       <div class="search-container">
         <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer" @keyup.enter.native="searchFn">
-        <i class="search-icon" aria-hidden="true" v-model="searchKey"  @click="searchFn">🔍</i>
+        <i class="search-icon" aria-hidden="true" v-model="searchKey"  @click="searchFn">
+          <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
+        </i>
       </div>
     </div>
     <div class="line1-2">
@@ -306,36 +516,36 @@
       <b>Utrecht Symptoom Dagboek</b>
     </div>
 
-    <div class="line2 border-kuang">
-
+    <div class="line2 border-kuang kuangBg">
+      <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
       <!--靠左新增3个框浮动左-->
       <div class="line2-1">
         <table>
           <tr>
-            <th>Active Bubbles</th>
+            <th class="myTh">Active Bubbles</th>
           </tr>
           <tr>
-            <td>1.11K</td>
-          </tr>
-        </table>
-      </div>
-      <div class="line2-1">
-        <table>
-          <tr>
-            <th>Active Micro-Nodes</th>
-          </tr>
-          <tr>
-            <td>50.12K</td>
+            <td class="myTd">1.11K</td>
           </tr>
         </table>
       </div>
       <div class="line2-1">
         <table>
           <tr>
-            <th>L1/L2 Peak Instantaneous TPS</th>
+            <th class="myTh">Active Micro-Nodes</th>
           </tr>
           <tr>
-            <td>110/300</td>
+            <td class="myTd">50.12K</td>
+          </tr>
+        </table>
+      </div>
+      <div class="line2-1">
+        <table>
+          <tr>
+            <th class="myTh">L1/L2 Peak Instantaneous TPS</th>
+          </tr>
+          <tr>
+            <td class="myTd">110/300</td>
           </tr>
         </table>
         <br/>
@@ -349,43 +559,43 @@
       <b>Epilepsieregistratie ILAE 2017 classificatie</b>
     </div>
     <div class="line3" >
-        <div class="line3-1 border-kuang">
+        <div class="line3-1 border-kuang kuangBg">
           <table>
             <tr>
               <th class="myTh">Current Block Height</th>
               <th class="myTh">Real-time Block Generation uration(s)</th>
             </tr>
             <tr>
-              <td>19978</td>
-              <td>1.0032</td>
+              <td class="myTd">19978</td>
+              <td class="myTd">1.0032</td>
             </tr>
             <tr>
               <th class="myTh">Address count</th>
               <th class="myTh">Total number of L1 transactions</th>
             </tr>
             <tr>
-              <td>100M</td>
-              <td>12.18M</td>
+              <td class="myTd">100M</td>
+              <td class="myTd">12.18M</td>
             </tr>
           </table>
         </div>
-        <div class="line3-1 border-kuang">
+        <div class="line3-1 border-kuang kuangBg">
           <table>
             <tr>
               <th class="myTh">Real-Time Block Trade Count</th>
               <th class="myTh">Mining Node</th>
             </tr>
             <tr>
-              <td>10</td>
-              <td>ABC007</td>
+              <td class="myTd">10</td>
+              <td class="myTd">ABC007</td>
             </tr>
             <tr>
               <th class="myTh">Total Number Of L2 Transactions</th>
               <th class="myTh">Ongoing/Overall Proposal</th>
             </tr>
             <tr>
-              <td>120.18M</td>
-              <td>1/4</td>
+              <td class="myTd">120.18M</td>
+              <td class="myTd">1/4</td>
             </tr>
           </table>
         </div>
@@ -393,7 +603,7 @@
     <div class="line-title">
       <b>Catherine Bergego Schaal</b>
     </div>
-    <div class="line4 border-kuang">
+    <div class="line4 border-kuang kuangBg">
       <div class="line4-1">
         <table>
           <tr>
@@ -404,10 +614,10 @@
           </tr>
 
           <tr>
-            <td>900.58M</td>
-            <td>125.09M</td>
-            <td>86.11%</td>
-            <td>3.17%</td>
+            <td class="myTd">900.58M</td>
+            <td class="myTd">125.09M</td>
+            <td class="myTd">86.11%</td>
+            <td class="myTd">3.17%</td>
           </tr>
         </table>
       </div>
@@ -415,71 +625,100 @@
     <div class="line-title">
       <b>Catherine Bergego Schaal</b>
     </div>
-    <div class="line5 border-kuang">
+    <div class="line5 border-kuang kuangBg">
+      <div class="tableHead">
+        <span class="fontCss">Latest Blocks(L1)</span>
+        <a class="viewAll" href="" >View All ></a>
+      </div>
       <div class="line5-1">
           <table>
             <tr>
-              <th>Block</th>
-              <th>Producer</th>
-              <th>Txn</th>
-              <th>Block Reward(TURN)</th>
-              <th>Age</th>
+              <th class="tableTh1"></th>
+              <th class="tableTh1">Block</th>
+              <th class="tableTh1">Producer</th>
+              <th class="tableTh1">Txn</th>
+              <th class="tableTh1">Block Reward(TURN)</th>
+              <th class="tableTh1">Age</th>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
-              <td>18466814</td>
-              <td>ABC007</td>
-              <td>2 Txns</td>
-              <td>4.483294189788</td>
-              <td>6s ago</td>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
             </tr>
 
           </table>
@@ -487,101 +726,91 @@
     </div>
 
     <div class="line6">
-      <div class="line6-1 border-kuang">
-        <div class="line-title" style="text-align: left">
-          <b>Active Bubbles(L2)</b>
+      <div class="line6-1 border-kuang kuangBg">
+<!--        <div class="line-title" style="text-align: left">-->
+<!--          <b>Active Bubbles(L2)</b>-->
+<!--        </div>-->
+        <div class="tableHead">
+          <span class="fontCss">Active Bubbles(L2)</span>
+          <a class="viewAll" href="" >View All ></a>
         </div>
-        <ul style="margin-top: 50px">
-          <li>
+        <ul style="margin-top: 50px;padding:0 10px">
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
             </div>
-            <br/>
-            <div class="borderDiv">
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-2">
+               <span class="activeBubbleFont-1">ABC007</span>
+               <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
             </div>
-          </li>
-          <br/>
-          <li>
-            <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
-            </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-3">
+              <span class="activeBubbleFont-1">100.11% Yield</span>
+              <span class="activeBubbleFont-2">6 Rank</span>
             </div>
           </li>
-          <br/>
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
             </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-2">
+              <span class="activeBubbleFont-1">ABC007</span>
+              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
             </div>
-          </li>
-          <br/>
-          <li>
-            <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
-            </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-3">
+              <span class="activeBubbleFont-1">100.11% Yield</span>
+              <span class="activeBubbleFont-2">6 Rank</span>
             </div>
           </li>
-          <br/>
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
             </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-2">
+              <span class="activeBubbleFont-1">ABC007</span>
+              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
             </div>
-          </li>
-          <br/>
-          <li>
-            <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
-            </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-3">
+              <span class="activeBubbleFont-1">100.11% Yield</span>
+              <span class="activeBubbleFont-2">6 Rank</span>
             </div>
           </li>
-          <br/>
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
             </div>
-            <br/>
+            <div class="activeBubble-2">
+              <span class="activeBubbleFont-1">ABC007</span>
+              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+            </div>
+            <div class="activeBubble-3">
+              <span class="activeBubbleFont-1">100.11% Yield</span>
+              <span class="activeBubbleFont-2">6 Rank</span>
+            </div>
+          </li>
+          <li class="twoLi">
             <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+            </div>
+            <div class="activeBubble-2">
+              <span class="activeBubbleFont-1">ABC007</span>
+              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+            </div>
+            <div class="activeBubble-3">
+              <span class="activeBubbleFont-1">100.11% Yield</span>
+              <span class="activeBubbleFont-2">6 Rank</span>
             </div>
           </li>
         </ul>
       </div>
-      <div class="line6-1 border-kuang">
-        <div class="line-title" style="text-align: left">
-          <b>Active Bubbles(L2)</b>
+      <div class="line6-1 border-kuang kuangBg">
+<!--        <div class="line-title" style="text-align: left">-->
+<!--          <b>Active Bubbles(L2)</b>-->
+<!--        </div>-->
+        <div class="tableHead">
+          <span class="fontCss">Active Bubbles(L2)</span>
+          <a class="viewAll" href="" >View All ></a>
         </div>
-        <ul style="margin-top: 50px">
+        <ul style="margin-top: 50px;padding:0 10px">
           <li>
             <div>
               <b style="float: left">ABC007</b>
@@ -670,9 +899,13 @@
     </div>
 
     <div class="line-end">
-<!--        <b style="font-size: 150px;color: white">TURN</b>-->
+
     </div>
   </div>
+
+<!--  <div class="line-end2">-->
+
+<!--  </div>-->
 
 </template>
 <script>
