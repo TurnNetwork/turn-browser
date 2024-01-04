@@ -6,39 +6,96 @@
       justify-content: space-between;
       align-items:flex-start;
       /*height: 1500px;*/
-      height: 1800px;
+      //height: 1800px;
       width: 80%;
       background-color: #1d1e1f;
-      border: 1px solid #00ff00;
+      //border: 1px solid #00ff00;
       margin-left: 10%;
+  }
+
+  .tou{
+    text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+    /* H1 */
+    font-family: Montserrat;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 98.437%; /* 63px */
+    letter-spacing: -2.56px;
+    background: linear-gradient(117deg, #CCE3FF 24.62%, #414A56 66.88%);
+    /*background-clip: text;*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align:left;
+    margin-top: 100px
   }
 
   .box-div .line1{
     float: top;
     margin-left: 10px;
     margin-top: 10px;
-    border: 2px solid #0D6CDA;
-    height: 400px;
-    width: 500px;
+    //border: 2px solid #0D6CDA;
+    height: 500px;
+    width: 60%;
   }
 
   .box-div .line1-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float: top;
     margin-right: 10px;
     margin-top: 10px;
-    border: 2px solid #0D6CDA;
-    height: 400px;
-    width: 400px;
+    //border: 2px solid #0D6CDA;
+    height: 500px;
+    width: 35%;
     /*overflow:hidden;*/
     background:  url("../../assets/imagesV2/Vector 3.png") no-repeat center;
-    background-size: 500px;
+    background-size: 600px;
+
+    /*background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),*/
+    /*linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),*/
+    /*linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),*/
+    /*linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));*/
+    /*//background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;*/
+    /*background-position: center center, center center, center center, center center;*/
+    /*background-repeat: repeat, repeat, repeat, repeat;*/
   }
   .box-div .line2{
     display: block;
-    border: 1px solid #5DC572;
+    //border: 1px solid #5DC572;
     height: 200px;
     width: 100%;
     //margin-top:-300px
+    background: url("../../assets/imagesV2/div.GridItem_asset___ix8N.png") no-repeat ;
+    background-size: 400px 200px;
+    background-position: right;
+  }
+
+  .border-kuang{
+    border-radius: var(--Number20, 20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .line-title{
+    display: block;
+    //border: 1px solid #5DC572;
+    height: 50px;
+    width: 100%;
+    float: left;
+    color: #C1C6CD;
+    font-family: Montserrat;
+    font-size: 26px;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.04px;
+    /*margin-top: 100px;*/
+  }
+
+  .box-div .line2 .imgRight{
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   .box-div .line2 .line2-1{
@@ -57,7 +114,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #a027ad;
+    //border: 1px solid #a027ad;
     height: 200px;
     width: 100%;
     //margin-top:-100px
@@ -71,6 +128,12 @@
     width: 500px;
     float: left;
     //margin-top:-100px
+
+    /*display: flex;*/
+    /*width: 600px;*/
+    /*height: 302px;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
   }
 
   table, td, th {
@@ -96,7 +159,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #a027ad;
+    //border: 1px solid #a027ad;
     height: 150px;
     width: 100%;
     //margin-top:-100px
@@ -104,7 +167,7 @@
 
   .box-div .line4 .line4-1{
     display: block;
-    border: 1px solid #0D6CDA;
+    //border: 1px solid #0D6CDA;
     border-radius: 10px;
     height: 150px;
     width: 100%;
@@ -117,14 +180,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #a027ad;
+    //border: 1px solid #a027ad;
     height: 300px;
     width: 100%;
     //margin-top:-100px
   }
   .box-div .line5 .line5-1{
     display: block;
-    border: 1px solid #0D6CDA;
+    //border: 1px solid #0D6CDA;
     border-radius: 10px;
     height: 300px;
     width: 100%;
@@ -136,14 +199,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #a027ad;
+    //border: 1px solid #a027ad;
     height: 300px;
     width: 100%;
   }
 
   .box-div .line6 .line6-1{
     display: block;
-    border: 1px solid #094296;
+    //border: 1px solid #094296;
     height: 300px;
     width: 600px;
     float: left;
@@ -157,7 +220,7 @@
 
   .box-div .line1 .searchBtn{
     display: block;
-    border: 1px solid #00ff00;
+    //border: 1px solid #00ff00;
     border-radius: 10px;
     width: 300px;
     height: 40px;
@@ -171,14 +234,14 @@
   }
 
   .search-input {
-    width: 400px; /* 根据需要调整宽度 */
+    width: 80%; /* 根据需要调整宽度 */
     padding-right: 30px; /* 为图标留出空间 */
     height: 40px;
   }
 
   .search-icon {
     position: absolute;
-    right: 100px; /* 根据需要调整图标位置 */
+    right: 22%; /* 根据需要调整图标位置 */
     top:10px;
     cursor: pointer; /* 鼠标悬停时显示为手形光标 */
   }
@@ -187,12 +250,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #4b3350;
+    //border: 1px solid #4b3350;
     height: 200px;
     width: 100%;
-    background:  url("../../assets/imagesV2/Noise.png") no-repeat center;
-    background-size: 500px;
+    background:  url("../../assets/imagesV2/Footer img.png") repeat center;
+    background-size: 100%;
+
+    opacity: 0.4;
+    //background: url("../../assets/imagesV2/Footer img.png"), lightgray 0% 0% / 60.90909242630005px 60.90909242630005px repeat;
+    mix-blend-mode: overlay;
   }
+
+   .myTh{
+     color: var(--Gray-700, #9AA1AC);
+     /* P2 */
+     font-family: Montserrat;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+     letter-spacing: -0.32px;
+   }
+
+  .myTd{
+    color: var(--Blue-1000, #CCE3FF);
+
+    /* NumberL */
+    font-family: Bebas Neue;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.8px;
+  }
+
 
 </style>
 
@@ -201,17 +292,21 @@
   <div class="box-div">
     <!--定义个框，左边是文字，右边是图片，同一行-->
     <div class="line1">
-      <p style="font-family: Montserrat;color:white;font-size: 40px;text-align:left;margin-top: 100px">The Turn Network<br/>Blockchain Explorer</p>
+      <p class="tou" >The Turn Network<br/>Blockchain Explorer</p>
       <div class="search-container">
         <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer" @keyup.enter.native="searchFn">
         <i class="search-icon" aria-hidden="true" v-model="searchKey"  @click="searchFn">🔍</i>
       </div>
     </div>
     <div class="line1-2">
-      <img style="margin-left: 70px;max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />
+      <img style="max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />
     </div>
 
-    <div class="line2">
+    <div class="line-title">
+      <b>Utrecht Symptoom Dagboek</b>
+    </div>
+
+    <div class="line2 border-kuang">
 
       <!--靠左新增3个框浮动左-->
       <div class="line2-1">
@@ -245,23 +340,28 @@
         </table>
         <br/>
       </div>
-      <img style="float:right;max-width:100%;max-height: 100%" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
-    </div>
+<!--      <div class="imgRight">-->
+<!--        <img style="float:right;max-width:100%;max-height: 100%" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />-->
+<!--      </div>-->
 
-    <div class="line3">
-        <div class="line3-1">
+    </div>
+    <div class="line-title">
+      <b>Epilepsieregistratie ILAE 2017 classificatie</b>
+    </div>
+    <div class="line3" >
+        <div class="line3-1 border-kuang">
           <table>
             <tr>
-              <th>Current Block Height</th>
-              <th>Real-time Block Generation uration(s)</th>
+              <th class="myTh">Current Block Height</th>
+              <th class="myTh">Real-time Block Generation uration(s)</th>
             </tr>
             <tr>
               <td>19978</td>
               <td>1.0032</td>
             </tr>
             <tr>
-              <th>Address count</th>
-              <th>Total number of L1 transactions</th>
+              <th class="myTh">Address count</th>
+              <th class="myTh">Total number of L1 transactions</th>
             </tr>
             <tr>
               <td>100M</td>
@@ -269,19 +369,19 @@
             </tr>
           </table>
         </div>
-        <div class="line3-1">
+        <div class="line3-1 border-kuang">
           <table>
             <tr>
-              <th>Real-Time Block Trade Count</th>
-              <th>Mining Node</th>
+              <th class="myTh">Real-Time Block Trade Count</th>
+              <th class="myTh">Mining Node</th>
             </tr>
             <tr>
               <td>10</td>
               <td>ABC007</td>
             </tr>
             <tr>
-              <th>Total Number Of L2 Transactions</th>
-              <th>Ongoing/Overall Proposal</th>
+              <th class="myTh">Total Number Of L2 Transactions</th>
+              <th class="myTh">Ongoing/Overall Proposal</th>
             </tr>
             <tr>
               <td>120.18M</td>
@@ -290,15 +390,17 @@
           </table>
         </div>
     </div>
-
-    <div class="line4">
+    <div class="line-title">
+      <b>Catherine Bergego Schaal</b>
+    </div>
+    <div class="line4 border-kuang">
       <div class="line4-1">
         <table>
           <tr>
-            <th>Total Circulation</th>
-            <th>Circulation</th>
-            <th>Pledge Rate</th>
-            <th>Inflation Rate</th>
+            <th class="myTh">Total Circulation</th>
+            <th class="myTh">Circulation</th>
+            <th class="myTh">Pledge Rate</th>
+            <th class="myTh">Inflation Rate</th>
           </tr>
 
           <tr>
@@ -310,8 +412,10 @@
         </table>
       </div>
     </div>
-
-    <div class="line5">
+    <div class="line-title">
+      <b>Catherine Bergego Schaal</b>
+    </div>
+    <div class="line5 border-kuang">
       <div class="line5-1">
           <table>
             <tr>
@@ -382,11 +486,12 @@
       </div>
     </div>
 
-
-
     <div class="line6">
-      <div class="line6-1">
-        <ul>
+      <div class="line6-1 border-kuang">
+        <div class="line-title" style="text-align: left">
+          <b>Active Bubbles(L2)</b>
+        </div>
+        <ul style="margin-top: 50px">
           <li>
             <div>
               <b style="float: left">ABC007</b>
@@ -472,8 +577,11 @@
           </li>
         </ul>
       </div>
-      <div class="line6-1">
-        <ul>
+      <div class="line6-1 border-kuang">
+        <div class="line-title" style="text-align: left">
+          <b>Active Bubbles(L2)</b>
+        </div>
+        <ul style="margin-top: 50px">
           <li>
             <div>
               <b style="float: left">ABC007</b>
@@ -562,7 +670,7 @@
     </div>
 
     <div class="line-end">
-        <b style="font-size: 150px;color: white">TURN</b>
+<!--        <b style="font-size: 150px;color: white">TURN</b>-->
     </div>
   </div>
 
