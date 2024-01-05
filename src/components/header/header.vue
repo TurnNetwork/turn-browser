@@ -669,7 +669,7 @@ export default {
   z-index: 2000;
   padding: 0 5.2%;
   margin: 0 auto;
-  background: #000;
+  background: #030911;
   align-items: center; //居中对齐
   justify-content: space-between; //两端对齐
   user-select: none;
@@ -1061,7 +1061,7 @@ export default {
 
 .search-header .el-button.el-button--primary.is-disabled {
   color: #8e8e8e;
-  background: #000;
+  background: #030911;
 }
 
 .menu {
@@ -1144,7 +1144,7 @@ export default {
 
   &:hover {
     color: #0798de;
-    background: #000 !important;
+    background: #030911 !important;
     border-left: 1px solid #333;
   }
 

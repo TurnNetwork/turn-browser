@@ -218,7 +218,7 @@ export default {
     position: relative;
 
     span:nth-of-type(1) {
-      background: #000;
+      background: #030911;
       color: #fff;
       text-align: right;
     }
@@ -254,7 +254,7 @@ export default {
       li {
         width: 30px;
         height: 38px;
-        background: #000;
+        background: #030911;
         color: #fff;
         margin-right: 9px;
         border-radius: 1px;

@@ -824,7 +824,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .index-wrap {
-  // background: #000;
+  // background: #030911911911911911;
   position: relative;
 
   .tip {
@@ -1066,7 +1066,7 @@ export default {
     height: 0px;
     z-index: 9999;
     // display: none;
-    background: #000;
+    background: #030911;
 
     &.active {
       transition: top 0.5s linear;
@@ -1421,7 +1421,7 @@ export default {
       background: #6e6e6e;
       margin-right: -1px;
       border-left: none;
-      color: #000;
+      color: #030911;
 
       &:hover {
         color: #666;
@@ -1461,7 +1461,7 @@ export default {
 }
 
 .sub-foot .tabs .el-button {
-  background: #000;
+  background: #030911;
   margin-right: 8%;
   border: 1px solid #979797;
   border-radius: 4px;
@@ -1472,7 +1472,7 @@ export default {
     background: #fff;
 
     a {
-      color: #000;
+      color: #030911;
     }
   }
 

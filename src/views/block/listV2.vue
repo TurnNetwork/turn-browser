@@ -212,7 +212,7 @@ export default {
 .table-content {
   width: 100%;
   overflow-x: auto;
-  border: 1px solid #000000;
+  border: 1px solid #030911;
   border-radius: 10px;
 }
 </style>

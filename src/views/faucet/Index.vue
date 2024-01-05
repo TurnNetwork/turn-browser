@@ -220,12 +220,12 @@ export default {
   }
 
   .label {
-    color: #000;
+    color: #030911;
   }
 }
 
 /deep/ .el-dialog__title {
-  color: #000;
+  color: #030911;
   font-weight: 800;
 }
 </style>

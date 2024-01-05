@@ -123,9 +123,8 @@ export default {
     }
 
     .date {
-      font-family: ;
       font-size: 12px;
-      color: #000000;
+      color: #030911;
       letter-spacing: 0;
       padding-right: 30px;
       float: right;
@@ -162,7 +161,7 @@ export default {
       position: relative;
       margin-left: 10px;
       font-size: 16px;
-      color: #000000;
+      color: #030911;
       letter-spacing: 0;
 
       &::after {
@@ -196,7 +195,7 @@ export default {
           text-align: right;
           min-width: 170px;
           font-size: 13px;
-          color: #000000;
+          color: #030911;
           letter-spacing: 0;
           margin-right: 30px;
         }

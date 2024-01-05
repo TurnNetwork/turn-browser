@@ -1017,7 +1017,7 @@ export default {
       this.cxt.clearRect(0, 0, 88, 88);
       this.cxt.beginPath();
       this.cxt.moveTo(44, 44);
-      this.cxt.fillStyle = '#000';
+      this.cxt.fillStyle = '#030911';
       this.cxt.arc(44, 44, 44, 0, -Math.PI * dag * 2, true);
       this.cxt.fill();
     },
@@ -1165,7 +1165,7 @@ export default {
       .value {
 
         font-size: 40px;
-        color: #000000;
+        color: #030911;
         letter-spacing: 0;
       }
 

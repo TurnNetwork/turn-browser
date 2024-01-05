@@ -172,7 +172,7 @@ export default {
 }
 
 .money {
-  color: #000;
+  color: #030911;
 
   &.contract-create-info {
     display: flex;

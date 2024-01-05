@@ -330,7 +330,7 @@ export default {
   }
 
   /deep/ .el-step__icon {
-    background: #000;
+    background: #030911;
     width: 48px;
     height: 48px;
     border-width: 1px;

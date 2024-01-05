@@ -69,7 +69,7 @@ class ChartService {
                     axisLabel: {
                         formatter: '{value}s',
                         textStyle: {
-                            color: '#000',
+                            color: '#030911',
                             fontSize: '16'
                         }
                     },
@@ -172,7 +172,7 @@ class ChartService {
                     axisLabel: {
                         formatter: '{value}s',
                         textStyle: {
-                            color: '#000',
+                            color: '#030911',
                             fontSize: '16'
                         }
                     },

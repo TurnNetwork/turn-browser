@@ -149,7 +149,7 @@ export default {
 }
 
 .footer-wrap {
-  background: #000000;
+  background: #030911;
   color: rgb(153, 153, 153);
 
   padding: 14px 5.2%;
@@ -241,7 +241,7 @@ export default {
     justify-content: center;
 
     span {
-      background: #000;
+      background: #030911;
       margin: 0 4%;
       width: 218px;
       height: 69px;
@@ -261,7 +261,7 @@ export default {
         border: 1px solid #fff;
 
         a {
-          color: #000;
+          color: #030911;
           -webkit-animation-duration: 0.75s;
           animation-duration: 0.75s;
           -webkit-animation-name: bounceIn;
@@ -695,7 +695,7 @@ export default {
 }
 
 .sub-foot .tabs .el-button {
-  background: #000;
+  background: #030911;
   position: relative;
   margin-right: 8%;
   padding: 0;
@@ -710,7 +710,7 @@ export default {
     background: #fff;
 
     a {
-      color: #000;
+      color: #030911;
       //  -webkit-animation-fill-mode: both;
       // animation-fill-mode: both;
       -webkit-animation-duration: 0.75s;

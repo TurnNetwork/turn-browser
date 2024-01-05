@@ -55,11 +55,11 @@ export default {
 
     .title {
         font-size: 20px;
-        color: #000;
+        color: #030911;
         line-height: 24px;
         /*padding: 9px 20px;*/
         padding: 9px 0;
-        //border-top:2px solid #000;
+        //border-top:2px solid #030911;
         border-bottom: 1px solid #F5F5F5;
         //margin-bottom: 30px;
 
@@ -78,10 +78,10 @@ export default {
 }
 
 .kuang {
-    border: 1px solid #000000;
+    border: 1px solid #030911;
     border-radius: 10px;
     padding: 10px;
-    background-color: #000000;
+    background-color: #030911;
     color: white;
 }
 </style>

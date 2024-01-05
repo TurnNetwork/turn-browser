@@ -195,7 +195,7 @@ export default {
   position: absolute;
   top: 0;
   height: 100%;
-  background: #000000;
+  background: #030911;
 }
 
 .progress-text {

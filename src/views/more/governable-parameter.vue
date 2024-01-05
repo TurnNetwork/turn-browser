@@ -32,7 +32,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.stakeThreshold, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -83,7 +83,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.operatingThreshold, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -134,7 +134,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.maxValidators, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -185,7 +185,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.unStakeFreezeDuration, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -236,7 +236,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.unDelegateFreezeDuration, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -287,7 +287,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.rewardPerMaxChangeRange, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -340,7 +340,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.staking.rewardPerChangeInterval, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -401,7 +401,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.slashBlocksReward, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -454,7 +454,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.slashFractionDuplicateSign, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -507,7 +507,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.duplicateSignReportReward, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -560,7 +560,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.maxEvidenceAge, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -611,7 +611,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.zeroProduceCumulativeTime, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -662,7 +662,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.zeroProduceNumberThreshold, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -713,7 +713,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.slashing.zeroProduceFreezeDuration, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -774,7 +774,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.block.maxBlockGasLimit, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -829,7 +829,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.reward.increaseIssuanceRatio, 2)
-                    " :show-text="false" :stroke-width="20" color="#000000"></el-progress>
+                    " :show-text="false" :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -886,7 +886,7 @@
               </div>
               <div class="progress-box">
                 <el-progress :percentage="getPercentage(lis.restricting.minimumRelease, 2)" :show-text="false"
-                  :stroke-width="20" color="#000000"></el-progress>
+                  :stroke-width="20" color="0309110"></el-progress>
               </div>
             </div>
             <!-- 底部数字 -->
@@ -971,7 +971,7 @@ export default {
 .title {
 
   font-size: 34px;
-  color: #000000;
+  color: #030911;
   letter-spacing: 0;
   line-height: 64px;
   margin: 25px 0 20px 0;
@@ -985,7 +985,7 @@ export default {
 .h3 {
 
   font-size: 24px;
-  color: #000000;
+  color: #030911;
   letter-spacing: 0;
   line-height: 24px;
 }
@@ -1012,7 +1012,7 @@ export default {
 .h4 {
 
   font-size: 20px;
-  color: #000000;
+  color: #030911;
   letter-spacing: 0;
   line-height: 24px;
 }
@@ -1088,7 +1088,7 @@ export default {
 .black {
 
   font-size: 13px;
-  color: #000000;
+  color: #030911;
   letter-spacing: 0;
 }
 

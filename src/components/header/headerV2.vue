@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-wrap" :style="{ background: scrollTop > 80 ? '#030911' : 'transparent' }">
     <div class="header-main">
       <div class="logo cursor">
         <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
@@ -280,6 +280,7 @@ export default {
   name: '',
   data() {
     return {
+      scrollTop: 0,
       searchShow: true,
       mobileMenuOpenend: false,
       netDropdownShow: false,
@@ -578,7 +579,12 @@ export default {
     this.language = this.$i18n.locale.indexOf('zh') !== -1 ? 'zh-cn' : 'en';
     this.getConfig();
   },
-  mounted() { },
+  mounted() {
+    window.addEventListener('scroll', (e) => {
+      this.scrollTop = document.documentElement.scrollTop
+      // console.log(document.documentElement.scrollTop);
+    })
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -595,8 +601,6 @@ export default {
   height: 102px;
   width: 100%;
   z-index: 2000;
-  // padding: 0 5.2%;
-  background: #000;
   user-select: none;
 
   .header-main {
@@ -1017,7 +1021,7 @@ export default {
 
 .search-header .el-button.el-button--primary.is-disabled {
   color: #8e8e8e;
-  background: #000;
+  background: #030911;
 }
 
 .menu {
@@ -1100,7 +1104,7 @@ export default {
 
   &:hover {
     color: #0798de;
-    background: #000 !important;
+    background: #030911 !important;
     border-left: 1px solid #333;
   }
 

@@ -134,7 +134,7 @@ export default {
 
         span {
             margin-left: 6px;
-            color: #000000;
+            color: #030911;
             font-size: 15px;
         }
     }
@@ -168,7 +168,7 @@ export default {
     h3 {
         margin-bottom: 17px;
         font-size: 20px;
-        color: #000000;
+        color: #030911;
         line-height: 24px;
     }
 

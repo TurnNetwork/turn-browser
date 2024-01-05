@@ -963,7 +963,7 @@ export default {
 }
 
 /deep/.el-tabs__item {
-  color: #000;
+  color: #030911;
 }
 
 .warn-info {
@@ -1207,10 +1207,10 @@ export default {
 
   .title {
     font-size: 20px;
-    color: #000;
+    color: #030911;
     line-height: 24px;
     padding: 9px 20px;
-    border-top: 2px solid #000;
+    border-top: 2px solid #030911;
     border-bottom: 1px solid #F5F5F5;
     margin-bottom: 30px;
     font-family: Gilroy-Medium;

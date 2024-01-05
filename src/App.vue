@@ -9,10 +9,11 @@
     <com-header></com-header>
     <div class="content-area" v-if="isRouterAlive" :class="{
       'index-area': $route.path == '/' || $route.path == '/add-to-extension',
+      'content-bg': $route.path == '/',
       'gray-area': needGrayArea,
     }">
       <!-- <router-view></router-view> -->
-      <div class="_content">
+      <div :class="`_content ${$route.path == '/' ? '_bg_top' : ''}`">
         <keep-alive>
           <router-view v-if="$route.meta.keepAlive"> </router-view>
         </keep-alive>
@@ -97,7 +98,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .index-area {
-  background: #000;
+  // background: #030911;
   overflow: hidden;
 
   @media (max-width: 750px) {

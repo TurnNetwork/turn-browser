@@ -655,7 +655,7 @@ export default {
 }
 
 .new-version {
-  color: #000000;
+  color: #030911;
   font-size: 18px;
   line-height: 21px;
 
@@ -676,7 +676,7 @@ export default {
   color: #666;
 
   span {
-    color: #000000;
+    color: #030911;
   }
 
   @media screen and (max-width: 750px) {
@@ -702,7 +702,7 @@ export default {
 .update {
 
   font-size: 20px;
-  color: #000000;
+  color: #030911;
   letter-spacing: 0;
   line-height: 24px;
 
@@ -747,7 +747,7 @@ export default {
   top: 0;
   //   width: 90px;
   height: 100%;
-  background: #000000;
+  background: #030911;
 }
 
 .progress-text {
@@ -1017,14 +1017,14 @@ export default {
       margin-top: 4px;
 
       .vote-text {
-        color: #000000;
+        color: #030911;
         font-size: 12px;
         line-height: 24px;
       }
 
       .vote-number {
         font-size: 16px;
-        color: #000000;
+        color: #030911;
         line-height: 24px;
         position: relative;
 
@@ -1051,7 +1051,7 @@ export default {
       line-height: 18px;
 
       .vote-text {
-        color: #000000;
+        color: #030911;
         font-size: 12px;
 
         span {
@@ -1061,7 +1061,7 @@ export default {
 
       .vote-number {
         font-size: 16px;
-        color: #000000;
+        color: #030911;
         // line-height: 24px;
         position: relative;
 
