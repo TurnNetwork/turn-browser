@@ -16,6 +16,20 @@
   // background-color: black;
   //border: 1px solid #00ff00;
   margin: auto;
+
+  &::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1660px;
+    height: 721px;
+    background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;
+    background-size: 100%;
+    bottom: 0px;
+    left:calc(50% - 830px);
+    z-index: 1;
+    opacity:0.5;
+  }
 }
 
 .tou {
@@ -537,400 +551,392 @@ td {
   width: 100%;
   height: 660px;
   background: url("../../assets/imagesV2/bg_icon.png") no-repeat;
-
 }
+
+.box_content{
+  z-index: 2;
+}
+
 </style>
 
 <template>
   <!--写一个大框，定义长宽高-->
   <div class="box-div">
-    <!--定义个框，左边是文字，右边是图片，同一行-->
-    <div class="line1-div">
-      <div class="line1">
-        <p class="tou">The Turn Network<br />Blockchain Explorer</p>
-        <div class="search-container">
-          <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer"
-            @keyup.enter.native="searchFn">
-          <i class="search-icon" aria-hidden="true" v-model="searchKey" @click="searchFn">
-            <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
-          </i>
+
+    <div class="box_content">
+      <!--定义个框，左边是文字，右边是图片，同一行-->
+      <div class="line1-div">
+        <div class="line1">
+          <p class="tou">The Turn Network<br />Blockchain Explorer</p>
+          <div class="search-container">
+            <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer"
+                   @keyup.enter.native="searchFn">
+            <i class="search-icon" aria-hidden="true" v-model="searchKey" @click="searchFn">
+              <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
+            </i>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="line-title">
+        <b>Utrecht Symptoom Dagboek</b>
+      </div>
 
-    <!--    <div class="line1-2">-->
-    <!--      <img style="max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />-->
-    <!--    </div>-->
+      <div class="line2 border-kuang kuangBg">
+        <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
+        <!--靠左新增3个框浮动左-->
+        <div class="line2-1">
+          <table>
+            <tr>
+              <th class="myTh">Active Bubbles</th>
+            </tr>
+            <tr>
+              <td class="myTd">1.11K</td>
+            </tr>
+          </table>
+        </div>
+        <div class="line2-1">
+          <table>
+            <tr>
+              <th class="myTh">Active Micro-Nodes</th>
+            </tr>
+            <tr>
+              <td class="myTd">50.12K</td>
+            </tr>
+          </table>
+        </div>
+        <div class="line2-1">
+          <table>
+            <tr>
+              <th class="myTh">L1/L2 Peak Instantaneous TPS</th>
+            </tr>
+            <tr>
+              <td class="myTd">110/300</td>
+            </tr>
+          </table>
+          <br />
+        </div>
+      </div>
+      <div class="line-title">
+        <b>Epilepsieregistratie ILAE 2017 classificatie</b>
+      </div>
+      <div class="line3">
+        <div class="line3-1 border-kuang kuangBg">
+          <table>
+            <tr>
+              <th class="myTh">Current Block Height</th>
+              <th class="myTh">Real-time Block Generation uration(s)</th>
+            </tr>
+            <tr>
+              <td class="myTd">19978</td>
+              <td class="myTd">1.0032</td>
+            </tr>
+            <tr>
+              <th class="myTh">Address count</th>
+              <th class="myTh">Total number of L1 transactions</th>
+            </tr>
+            <tr>
+              <td class="myTd">100M</td>
+              <td class="myTd">12.18M</td>
+            </tr>
+          </table>
+        </div>
+        <div class="line3-1 border-kuang kuangBg">
+          <table>
+            <tr>
+              <th class="myTh">Real-Time Block Trade Count</th>
+              <th class="myTh">Mining Node</th>
+            </tr>
+            <tr>
+              <td class="myTd">10</td>
+              <td class="myTd">ABC007</td>
+            </tr>
+            <tr>
+              <th class="myTh">Total Number Of L2 Transactions</th>
+              <th class="myTh">Ongoing/Overall Proposal</th>
+            </tr>
+            <tr>
+              <td class="myTd">120.18M</td>
+              <td class="myTd">1/4</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="line-title">
+        <b>Catherine Bergego Schaal</b>
+      </div>
+      <div class="line4 border-kuang kuangBg">
+        <div class="line4-1">
+          <table>
+            <tr>
+              <th class="myTh">Total Circulation</th>
+              <th class="myTh">Circulation</th>
+              <th class="myTh">Pledge Rate</th>
+              <th class="myTh">Inflation Rate</th>
+            </tr>
 
-    <div class="line-title">
-      <b>Utrecht Symptoom Dagboek</b>
-    </div>
-
-    <div class="line2 border-kuang kuangBg">
-      <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
-      <!--靠左新增3个框浮动左-->
-      <div class="line2-1">
-        <table>
-          <tr>
-            <th class="myTh">Active Bubbles</th>
-          </tr>
-          <tr>
-            <td class="myTd">1.11K</td>
-          </tr>
-        </table>
+            <tr>
+              <td class="myTd">900.58M</td>
+              <td class="myTd">125.09M</td>
+              <td class="myTd">86.11%</td>
+              <td class="myTd">3.17%</td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div class="line2-1">
-        <table>
-          <tr>
-            <th class="myTh">Active Micro-Nodes</th>
-          </tr>
-          <tr>
-            <td class="myTd">50.12K</td>
-          </tr>
-        </table>
+      <div class="line-title">
+        <b>Catherine Bergego Schaal</b>
       </div>
-      <div class="line2-1">
-        <table>
-          <tr>
-            <th class="myTh">L1/L2 Peak Instantaneous TPS</th>
-          </tr>
-          <tr>
-            <td class="myTd">110/300</td>
-          </tr>
-        </table>
-        <br />
-      </div>
-      <!--      <div class="imgRight">-->
-      <!--        <img style="float:right;max-width:100%;max-height: 100%" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />-->
-      <!--      </div>-->
-
-    </div>
-    <div class="line-title">
-      <b>Epilepsieregistratie ILAE 2017 classificatie</b>
-    </div>
-    <div class="line3">
-      <div class="line3-1 border-kuang kuangBg">
-        <table>
-          <tr>
-            <th class="myTh">Current Block Height</th>
-            <th class="myTh">Real-time Block Generation uration(s)</th>
-          </tr>
-          <tr>
-            <td class="myTd">19978</td>
-            <td class="myTd">1.0032</td>
-          </tr>
-          <tr>
-            <th class="myTh">Address count</th>
-            <th class="myTh">Total number of L1 transactions</th>
-          </tr>
-          <tr>
-            <td class="myTd">100M</td>
-            <td class="myTd">12.18M</td>
-          </tr>
-        </table>
-      </div>
-      <div class="line3-1 border-kuang kuangBg">
-        <table>
-          <tr>
-            <th class="myTh">Real-Time Block Trade Count</th>
-            <th class="myTh">Mining Node</th>
-          </tr>
-          <tr>
-            <td class="myTd">10</td>
-            <td class="myTd">ABC007</td>
-          </tr>
-          <tr>
-            <th class="myTh">Total Number Of L2 Transactions</th>
-            <th class="myTh">Ongoing/Overall Proposal</th>
-          </tr>
-          <tr>
-            <td class="myTd">120.18M</td>
-            <td class="myTd">1/4</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="line-title">
-      <b>Catherine Bergego Schaal</b>
-    </div>
-    <div class="line4 border-kuang kuangBg">
-      <div class="line4-1">
-        <table>
-          <tr>
-            <th class="myTh">Total Circulation</th>
-            <th class="myTh">Circulation</th>
-            <th class="myTh">Pledge Rate</th>
-            <th class="myTh">Inflation Rate</th>
-          </tr>
-
-          <tr>
-            <td class="myTd">900.58M</td>
-            <td class="myTd">125.09M</td>
-            <td class="myTd">86.11%</td>
-            <td class="myTd">3.17%</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <div class="line-title">
-      <b>Catherine Bergego Schaal</b>
-    </div>
-    <div class="line5 border-kuang kuangBg">
-      <div class="tableHead">
-        <span class="fontCss">Latest Blocks(L1)</span>
-        <a class="viewAll" href="/block">View All ></a>
-      </div>
-      <div class="line5-1">
-        <table>
-          <tr>
-            <th class="tableTh1"></th>
-            <th class="tableTh1">Block</th>
-            <th class="tableTh1">Producer</th>
-            <th class="tableTh1">Txn</th>
-            <th class="tableTh1">Block Reward(TURN)</th>
-            <th class="tableTh1">Age</th>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-          <tr>
-            <td>
-              <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-            </td>
-            <td class="tableTh1">18466814</td>
-            <td class="tableTh1">ABC007</td>
-            <td class="tableTh1">2 Txns</td>
-            <td class="tableTh1">4.483294189788</td>
-            <td class="tableTh1">6s ago</td>
-          </tr>
-
-        </table>
-      </div>
-    </div>
-
-    <div class="line6">
-      <div class="line6-1 border-kuang kuangBg">
-        <!--        <div class="line-title" style="text-align: left">-->
-        <!--          <b>Active Bubbles(L2)</b>-->
-        <!--        </div>-->
+      <div class="line5 border-kuang kuangBg">
         <div class="tableHead">
-          <span class="fontCss">Active Bubbles(L2)</span>
-          <a class="viewAll" href="">View All ></a>
+          <span class="fontCss">Latest Blocks(L1)</span>
+          <a class="viewAll" href="/block">View All ></a>
         </div>
-        <ul style="margin-top: 50px;padding:0 10px">
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-            </div>
-            <div class="activeBubble-2">
-              <span class="activeBubbleFont-1">ABC007</span>
-              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-            </div>
-            <div class="activeBubble-3">
-              <span class="activeBubbleFont-1">100.11% Yield</span>
-              <span class="activeBubbleFont-2">6 Rank</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-            </div>
-            <div class="activeBubble-2">
-              <span class="activeBubbleFont-1">ABC007</span>
-              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-            </div>
-            <div class="activeBubble-3">
-              <span class="activeBubbleFont-1">100.11% Yield</span>
-              <span class="activeBubbleFont-2">6 Rank</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-            </div>
-            <div class="activeBubble-2">
-              <span class="activeBubbleFont-1">ABC007</span>
-              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-            </div>
-            <div class="activeBubble-3">
-              <span class="activeBubbleFont-1">100.11% Yield</span>
-              <span class="activeBubbleFont-2">6 Rank</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-            </div>
-            <div class="activeBubble-2">
-              <span class="activeBubbleFont-1">ABC007</span>
-              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-            </div>
-            <div class="activeBubble-3">
-              <span class="activeBubbleFont-1">100.11% Yield</span>
-              <span class="activeBubbleFont-2">6 Rank</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-            </div>
-            <div class="activeBubble-2">
-              <span class="activeBubbleFont-1">ABC007</span>
-              <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-            </div>
-            <div class="activeBubble-3">
-              <span class="activeBubbleFont-1">100.11% Yield</span>
-              <span class="activeBubbleFont-2">6 Rank</span>
-            </div>
-          </li>
-        </ul>
+        <div class="line5-1">
+          <table>
+            <tr>
+              <th class="tableTh1"></th>
+              <th class="tableTh1">Block</th>
+              <th class="tableTh1">Producer</th>
+              <th class="tableTh1">Txn</th>
+              <th class="tableTh1">Block Reward(TURN)</th>
+              <th class="tableTh1">Age</th>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+            <tr>
+              <td>
+                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              </td>
+              <td class="tableTh1">18466814</td>
+              <td class="tableTh1">ABC007</td>
+              <td class="tableTh1">2 Txns</td>
+              <td class="tableTh1">4.483294189788</td>
+              <td class="tableTh1">6s ago</td>
+            </tr>
+
+          </table>
+        </div>
       </div>
-      <div class="line6-1 border-kuang kuangBg">
-        <!--        <div class="line-title" style="text-align: left">-->
-        <!--          <b>Active Bubbles(L2)</b>-->
-        <!--        </div>-->
-        <div class="tableHead">
-          <span class="fontCss">Active Bubbles(L2)</span>
-          <a class="viewAll" href="">View All ></a>
+
+      <div class="line6">
+        <div class="line6-1 border-kuang kuangBg">
+          <div class="tableHead">
+            <span class="fontCss">Active Bubbles(L2)</span>
+            <a class="viewAll" href="">View All ></a>
+          </div>
+          <ul style="margin-top: 50px;padding:0 10px">
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+              </div>
+              <div class="activeBubble-2">
+                <span class="activeBubbleFont-1">ABC007</span>
+                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+              </div>
+              <div class="activeBubble-3">
+                <span class="activeBubbleFont-1">100.11% Yield</span>
+                <span class="activeBubbleFont-2">6 Rank</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+              </div>
+              <div class="activeBubble-2">
+                <span class="activeBubbleFont-1">ABC007</span>
+                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+              </div>
+              <div class="activeBubble-3">
+                <span class="activeBubbleFont-1">100.11% Yield</span>
+                <span class="activeBubbleFont-2">6 Rank</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+              </div>
+              <div class="activeBubble-2">
+                <span class="activeBubbleFont-1">ABC007</span>
+                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+              </div>
+              <div class="activeBubble-3">
+                <span class="activeBubbleFont-1">100.11% Yield</span>
+                <span class="activeBubbleFont-2">6 Rank</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+              </div>
+              <div class="activeBubble-2">
+                <span class="activeBubbleFont-1">ABC007</span>
+                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+              </div>
+              <div class="activeBubble-3">
+                <span class="activeBubbleFont-1">100.11% Yield</span>
+                <span class="activeBubbleFont-2">6 Rank</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+              </div>
+              <div class="activeBubble-2">
+                <span class="activeBubbleFont-1">ABC007</span>
+                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+              </div>
+              <div class="activeBubble-3">
+                <span class="activeBubbleFont-1">100.11% Yield</span>
+                <span class="activeBubbleFont-2">6 Rank</span>
+              </div>
+            </li>
+          </ul>
         </div>
-        <ul style="margin-top: 50px;padding:0 10px">
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-            </div>
-            <div class="activeBubble-2-right">
-              <span class="activeBubbleFont-1">1234567890</span>
-              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-            </div>
-            <div class="activeBubble-3-right">
-              <span class="activeBubbleFont-1">Active</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-            </div>
-            <div class="activeBubble-2-right">
-              <span class="activeBubbleFont-1">1234567890</span>
-              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-            </div>
-            <div class="activeBubble-3-right">
-              <span class="activeBubbleFont-1">Active</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-            </div>
-            <div class="activeBubble-2-right">
-              <span class="activeBubbleFont-1">1234567890</span>
-              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-            </div>
-            <div class="activeBubble-3-right">
-              <span class="activeBubbleFont-1">Active</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-            </div>
-            <div class="activeBubble-2-right">
-              <span class="activeBubbleFont-1">1234567890</span>
-              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-            </div>
-            <div class="activeBubble-3-right">
-              <span class="activeBubbleFont-1">Active</span>
-            </div>
-          </li>
-          <li class="twoLi">
-            <div>
-              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-            </div>
-            <div class="activeBubble-2-right">
-              <span class="activeBubbleFont-1">1234567890</span>
-              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-            </div>
-            <div class="activeBubble-3-right">
-              <span class="activeBubbleFont-1">Active</span>
-            </div>
-          </li>
-        </ul>
+        <div class="line6-1 border-kuang kuangBg">
+          <div class="tableHead">
+            <span class="fontCss">Active Bubbles(L2)</span>
+            <a class="viewAll" href="">View All ></a>
+          </div>
+          <ul style="margin-top: 50px;padding:0 10px">
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
+              </div>
+              <div class="activeBubble-2-right">
+                <span class="activeBubbleFont-1">1234567890</span>
+                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+              </div>
+              <div class="activeBubble-3-right">
+                <span class="activeBubbleFont-1">Active</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
+              </div>
+              <div class="activeBubble-2-right">
+                <span class="activeBubbleFont-1">1234567890</span>
+                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+              </div>
+              <div class="activeBubble-3-right">
+                <span class="activeBubbleFont-1">Active</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
+              </div>
+              <div class="activeBubble-2-right">
+                <span class="activeBubbleFont-1">1234567890</span>
+                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+              </div>
+              <div class="activeBubble-3-right">
+                <span class="activeBubbleFont-1">Active</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
+              </div>
+              <div class="activeBubble-2-right">
+                <span class="activeBubbleFont-1">1234567890</span>
+                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+              </div>
+              <div class="activeBubble-3-right">
+                <span class="activeBubbleFont-1">Active</span>
+              </div>
+            </li>
+            <li class="twoLi">
+              <div>
+                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
+              </div>
+              <div class="activeBubble-2-right">
+                <span class="activeBubbleFont-1">1234567890</span>
+                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+              </div>
+              <div class="activeBubble-3-right">
+                <span class="activeBubbleFont-1">Active</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--    <div class="line-end">-->
+
+      <!--    </div>-->
+      <div style="width: 100%;height: 400px">
+
       </div>
     </div>
-
-    <div class="line-end">
-
-    </div>
-    <!--    <div style="width: 100%;height: 300px">-->
-
-    <!--    </div>-->
   </div>
 </template>
 <script>
