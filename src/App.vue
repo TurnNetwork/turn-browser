@@ -10,6 +10,7 @@
     <div class="content-area" v-if="isRouterAlive" :class="{
       'index-area': $route.path == '/' || $route.path == '/add-to-extension',
       'content-bg': $route.path == '/',
+      'content-top': $route.path !== '/',
       'gray-area': needGrayArea,
     }">
       <!-- <router-view></router-view> -->

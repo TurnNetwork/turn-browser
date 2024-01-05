@@ -1,42 +1,32 @@
 <template>
   <div class="footer-wrap">
-    <div class="guang">
-      <img src="./../../assets/imagesV2/Rectangle 19.png" style="width: 100%;height: 50px;margin-top: -14px" />
-    </div>
-    <div class="footer-main-top">
-      <div>
-        <img src="./../../assets/imagesV2/Logo-Black.png" width="100px" height="30px" />
+    <div class="footer-main">
+      <div class="footer-main-top">
+        <img src="./../../assets/imagesV2/Logo-Black.png" />
       </div>
-    </div>
-    <div>
       <el-row class="footer-flex">
         <el-col :span="12">
-          <p>
+          <p class="relates-info">
             Powered by Turn Network
           </p>
-          <p>
+          <p class="relates-info">
             ©2023 TurnScan.All rights reserved.
           </p>
         </el-col>
-        <el-col :span="12" style="display:flex;flex-direction:column;align-items: flex-end;padding-right: 11%">
+        <el-col :span="12" style="display:flex;flex-direction:column;align-items: flex-end;">
           <div>
-            <img src="./../../assets/imagesV2/Frame 36.png" width="80px" height="30px" />
+            <img src="./../../assets/imagesV2/Frame 36.png" width="72px" />
           </div>
           <div class="download-btn" @click="connect">
-            <img src="./../../assets/images/metamask.png" width="20px" height="20px" />
+            <img src="./../../assets/images/metamask.png" width="24px" />
             Add Turn Network
           </div>
         </el-col>
       </el-row>
-
-
-
     </div>
-
   </div>
 </template>
 <script>
-import apiService from '@/services/API-services';
 import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
   name: '',
@@ -145,32 +135,46 @@ export default {
   /*justify-content: flex-end;*/
   justify-content: space-between;
   align-items: flex-end;
-  padding-left: 10%;
 }
 
 .footer-wrap {
   background: #030911;
   color: rgb(153, 153, 153);
+  height: 330px;
 
-  padding: 14px 5.2%;
+  // @media (max-width: 750px) {
+  //   padding: 0 5.2%;
+  // }
 
-  @media (max-width: 750px) {
-    padding: 0 5.2%;
-  }
+  // @media (max-width: 500px) {
+  //   padding: 0 5.2%;
+  // }
+}
 
-  @media (max-width: 500px) {
-    padding: 0 5.2%;
-  }
+.footer-main {
+  width: 1224px;
+  height: 100%;
+  margin: 0 auto;
+  background: url('./../../assets/imagesV2/Rectangle 19.png') no-repeat;
+  background-size: 100% 100%;
+  padding-top: 70px;
 }
 
 .footer-main-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 10%;
-  //border-bottom: 1px solid #6e6e6e;
-  /*padding-bottom: 14px;*/
-  /*margin-bottom: 14px;*/
+  padding-bottom: 50px;
+
+  img {
+    width: 175px;
+  }
+}
+
+.relates-info {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .download-btn {
@@ -701,18 +705,10 @@ export default {
   padding: 0;
 
   &:hover {
-    // .bounceIn{
-    //     -webkit-animation-duration: 0.75s;
-    //     animation-duration: 0.75s;
-    //     -webkit-animation-name: bounceIn;
-    //     animation-name: bounceIn;
-    // }
     background: #fff;
 
     a {
       color: #030911;
-      //  -webkit-animation-fill-mode: both;
-      // animation-fill-mode: both;
       -webkit-animation-duration: 0.75s;
       animation-duration: 0.75s;
       -webkit-animation-name: bounceIn;
@@ -725,9 +721,6 @@ export default {
     width: 100%;
     height: 100%;
     line-height: 67px;
-    // position: absolute;
-    // width: 100%;
-    // z-index: 9999;
   }
 
   a {

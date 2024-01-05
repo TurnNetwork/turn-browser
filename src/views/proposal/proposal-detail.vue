@@ -612,7 +612,7 @@ export default {
 }
 
 .trade-count {
-  color: #333;
+  color: #D5D8DD;
 }
 
 .proposal-box {

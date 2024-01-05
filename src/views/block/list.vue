@@ -11,7 +11,7 @@
         <template v-else>
           {{ $t('tradeAbout.morethen2') }}
         </template>
-        <b class="black">{{ pageTotal }}</b>
+        <b>{{ pageTotal }}</b>
         {{ $t('blockAbout.blocks') }}
         <span v-if="pageTotal > 500000">{{
           $t('tradeAbout.showingLast')
@@ -206,7 +206,7 @@ export default {
 }
 
 .trade-count {
-  color: #333;
+  color: #D5D8DD;
 }
 
 .table-content {

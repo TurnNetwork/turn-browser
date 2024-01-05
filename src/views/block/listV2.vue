@@ -206,7 +206,7 @@ export default {
 }
 
 .trade-count {
-  color: #333333;
+  color: #D5D8DD;
 }
 
 .table-content {

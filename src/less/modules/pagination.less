@@ -29,10 +29,15 @@
     // border-left: 1px solid #F5F5F5;
 }
 .el-pagination.is-background .el-pager li:not(.disabled).active{
-    background: rgba(255,255,255,0.1);
-    color: #F1F2F4;
+    // background: rgba(255,255,255,0.1);
+    background: transparent;
+    color: #0075FF;
     border: 0;
 
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover{
+    background: rgba(255,255,255,0.1);
+    color: #fff;
 }
 .el-pagination span:not([class*=suffix]), .el-pagination button{
     font-size:12px;
@@ -57,7 +62,7 @@
     color: #F1F2F4;
 }
 .el-pagination.is-background .btn-next:disabled, .el-pagination.is-background .btn-prev:disabled{
-    color:#F1F2F4;
+    color:rgba(255, 255, 255, 0.19);
     background: transparent;
 }
 .el-pagination{
