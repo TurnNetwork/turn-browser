@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './map/index'
-// import newHome from './map/newHome'
+import newHome from './map/newHome'
 import { faucet,faucetV2 } from './map/faucet'
 import { tradeList, tradeDetail } from './map/trade'
 import { contractDetail } from './map/contract'
@@ -21,7 +21,7 @@ export default new Router({
   mode: 'history',
   routes: [
     Index, // 主页
-    // newHome,//新主页
+    newHome,//新主页
     tradeList,
     tradeDetail,
     contractDetail,
