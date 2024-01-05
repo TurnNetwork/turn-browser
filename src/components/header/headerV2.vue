@@ -1,41 +1,25 @@
 <template>
   <div class="header-wrap">
     <div class="logo cursor">
-      <!-- <template v-if="configData.siteName === 'PlatScan'"> -->
-      <!-- <img class="icon1" src="@/assets/images/herder-logo-a.svg" /> -->
-      <!-- <img class="icon2" src="@/assets/images/herder-logo-b.svg" /> -->
-      <!-- <p class="text">The Blockchain Explorer</p>
-      </template>
-      <img v-else class="iconAlaya" :src="logoURL" alt="SCAN" title="SCAN" /> -->
-
       <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
     </div>
-
-
     <div class="menu">
       <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal"
         background-color="transparent" text-color="#999" active-text-color="#FFF">
         <el-menu-item index="/" :class="{ active: $route.path == '/' }">
           <span>{{ $t('menu.home') }}</span>
         </el-menu-item>
-        <!-- <el-menu-item index="/node" :class="{
-          active: $route.path.indexOf('node') > -1,
-        }">
-          <span>{{ $t('menu.validator') }} </span>
-        </el-menu-item> -->
-
         <el-menu-item class="more-item">
-          <!-- index="/governable-parameter" -->
           <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
-            @visible-change="blockDropdownChangHandle">
+            @visible-change="nodeDropdownChangHandle">
             <span class="el-dropdown-link more-title" :class="{
               active:
                 $route.path.indexOf('/node') > -1 ||
                 $route.path.indexOf('/micro_node') > -1
             }">{{ $t('menu.nodes') }}
               <i :class="{
-                arrowDown: blockDropdownShow == false,
-                arrowUp: blockDropdownShow == true,
+                arrowDown: nodeDropdownShow == false,
+                arrowUp: nodeDropdownShow == true,
               }" class="arrow el-icon-arrow-down arrowUp"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -48,10 +32,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </el-menu-item>
-
-
         <el-menu-item class="more-item">
-          <!-- index="/governable-parameter" -->
           <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
             @visible-change="blockDropdownChangHandle">
             <span class="el-dropdown-link more-title" :class="{
@@ -76,7 +57,6 @@
           </el-dropdown>
         </el-menu-item>
         <el-menu-item class="more-item">
-          <!-- index="/governable-parameter" -->
           <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
             @visible-change="tokensDropdownChangHandle">
             <span class="el-dropdown-link more-title" :class="{
@@ -88,32 +68,17 @@
               }" class="arrow el-icon-arrow-down arrowUp"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <!-- <el-dropdown-item command="/tokens/tokensList/prc20">{{
-                $t('menu.erc20Tokens')
-              }}</el-dropdown-item> -->
               <el-dropdown-item command="/tokens/tokensTranfer/prc20">{{
                 $t('menu.erc20Transfer')
               }}</el-dropdown-item>
               <div class="dividing-line"></div>
-              <!-- <el-dropdown-item command="/tokens/tokensList/prc721">{{
-                $t('menu.erc721Tokens')
-              }}</el-dropdown-item> -->
               <el-dropdown-item command="/tokens/tokensTranfer/prc721">{{
                 $t('menu.erc721Transfer')
               }}</el-dropdown-item>
-              <!-- <div class="dividing-line"></div> -->
-              <!-- <el-dropdown-item command="/tokens/tokensList/prc1155">{{
-                $t('menu.erc1155Tokens')
-              }}</el-dropdown-item>
-              <el-dropdown-item command="/tokens/tokensTranfer/prc1155">{{
-                $t('menu.erc1155Transfer')
-              }}</el-dropdown-item> -->
             </el-dropdown-menu>
           </el-dropdown>
         </el-menu-item>
-
         <el-menu-item class="more-item">
-          <!-- index="/governable-parameter" -->
           <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
             @visible-change="moreDropdownChangHandle">
             <span class="el-dropdown-link more-title" :class="{
@@ -132,50 +97,48 @@
               <el-dropdown-item command="/governable-parameter">{{
                 $t('more.governableParameter')
               }}</el-dropdown-item>
-              <!-- <el-dropdown-item command="/foundation-address">{{
-                $t('more.foundationAddress')
-              }}</el-dropdown-item> -->
               <el-dropdown-item command="/add-to-extension">{{
                 $t('more.addToExtension')
               }}</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-menu-item>
+
         <el-menu-item index="/faucet" :class="{ active: $route.path.indexOf('faucet') > -1 }">
           <router-link to="/faucet">FAUCET</router-link>
         </el-menu-item>
+        <el-menu-item class="more-item">
+          <el-dropdown placement="bottom-start" class="more-dropdown" @command="handleCommandLangage"
+            @visible-change="LangVisibleChange">
+            <span class="el-dropdown-link _dropdown-link-active">
+              {{ networkObj[network] }}
+              <i :class="{
+                arrowDown: langDropdownShow == false,
+                arrowUp: langDropdownShow == true,
+              }" class="arrow el-icon-arrow-down arrowUp"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item v-for="(item, index) in options" :key="index" :command="item.value">{{ item.label
+              }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </el-menu-item>
       </el-menu>
+      <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch"
+        @mousemove="searchShow = false" @mouseleave="searchShow = true">
+        <span v-show="searchShow" class="el-icon-search"></span>
+        <!-- v-else -->
+        <div v-show="!searchShow" class="search search-header" :class="{
+          'search-active': isFocus
+        }">
+          <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
+            v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
+          <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
+            @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
+        </div>
+      </div>
     </div>
 
-    <div class="right-most">
-      <el-dropdown @command="handleCommandLangage" placement="bottom-start" @visible-change="LangVisibleChange">
-        <span class="el-dropdown-link">
-          {{ networkObj[network] }}
-          <i :class="{
-            arrowDown: langDropdownShow == false,
-            arrowUp: langDropdownShow == true,
-          }" class="arrow el-icon-arrow-down arrowUp"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item v-for="(item, index) in options" :key="index" :command="item.value">{{ item.label
-          }}</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-
-
-      <span class="mobile-menu-btn">
-        <img src="/static/images/icon_menu.svg" @click="toggleMobileMenuOpenend" />
-      </span>
-    </div>
-    <div class="search search-header" :class="{
-      'search-active': isFocus,
-      'search-hide': !hideSearch || $route.path != '/',
-    }" v-if="windowWidth >= 750">
-      <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
-        v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
-      <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }" @click="searchFn"
-        :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
-    </div>
     <div class="search search-header mobile-search" :class="{
       'search-active': isFocus,
     }" v-if="windowWidth < 750 && $route.path != '/'">
@@ -313,10 +276,12 @@ export default {
   name: '',
   data() {
     return {
+      searchShow: true,
       mobileMenuOpenend: false,
       netDropdownShow: false,
       langDropdownShow: false,
       blockDropdownShow: false,
+      nodeDropdownShow: false,
       moreDropdownShow: false,
       tokensDropdownShow: false,
       iconClass1: 'el-icon-arrow-down',
@@ -342,7 +307,7 @@ export default {
         // },
       ],
       networkObj: {
-        'test': 'Bubble Test',
+        'test': 'TURN TEST',
         // 'main': 'Bubble Mainnet',
       },
       // options: [
@@ -406,6 +371,9 @@ export default {
     },
     blockDropdownChangHandle(boolean) {
       this.blockDropdownShow = boolean;
+    },
+    nodeDropdownChangHandle(boolean) {
+      this.nodeDropdownShow = boolean;
     },
     tokensDropdownChangHandle(boolean) {
       this.tokensDropdownShow = boolean;
@@ -618,7 +586,8 @@ export default {
   display: flex;
   height: 102px;
   z-index: 2000;
-  padding: 0 5.2%;
+  max-width: 1224px;
+  // padding: 0 5.2%;
   margin: 0 auto;
   background: #000;
   align-items: center; //居中对齐
@@ -627,6 +596,9 @@ export default {
 
   .menu {
     margin-right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .active {
       color: #fff !important;
@@ -635,14 +607,18 @@ export default {
   }
 
   .search {
-    display: none;
-    opacity: 0;
+    display: flex;
+    opacity: 1;
     transition: opacity 0.3s ease;
 
-    &.search-hide {
-      opacity: 1;
-      display: inherit;
-    }
+    // &.search-hide {
+    //   opacity: 1;
+    //   display: flex;
+    // }
+  }
+
+  .search-wrap {
+    margin-left: 12px;
   }
 }
 
@@ -758,12 +734,16 @@ export default {
 
 @media only screen and (max-width: 1680px) {
   .header-wrap {
-    padding: 0 3.2%;
+    // padding: 0 3.2%;
   }
 
   .el-menu-demo {
     .el-menu-item {
-      padding: 0 16px;
+      padding: 0 13px;
+
+      &:last-child {
+        padding-right: 0px;
+      }
     }
   }
 }
@@ -913,7 +893,7 @@ export default {
     flex-wrap: wrap;
     min-height: 102px;
     height: auto;
-    padding: 30px 0;
+    // padding: 30px 0;
     z-index: 9999;
 
     .logo.cursor {
