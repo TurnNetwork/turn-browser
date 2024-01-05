@@ -9,12 +9,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  /*height: 1500px;*/
-  //height: 1800px;
   width: 1224px;
   overflow: auto;
-  // background-color: black;
-  //border: 1px solid #00ff00;
   margin: auto;
 
   &::after{
@@ -84,17 +80,9 @@
 
 .box-div .line2 {
   display: block;
-  //border: 1px solid #5DC572;
   height: 243px;
   width: 100%;
-  //margin-top:-300px
-  /*background: url("../../assets/imagesV2/div.GridItem_asset___ix8N.png") no-repeat ;*/
-  /*background-size: 454px 243px;*/
-  /*background-position: right;*/
-
-  /*border-radius: var(--Number20, 20px);*/
-  /*border: 1px solid rgba(255, 255, 255, 0.18);*/
-  /*background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);*/
+  //margin-top:200px
 }
 
 .kuangBg {
@@ -554,6 +542,13 @@ td {
 }
 
 .box_content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1224px;
+  overflow: auto;
+  margin: auto;
   z-index: 2;
 }
 
