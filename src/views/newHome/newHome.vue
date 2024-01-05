@@ -372,6 +372,7 @@
     background:  url("../../assets/imagesV2/Footer img.png") repeat center;
     background-size: 100%;
     opacity: 0.4;
+    margin-top: 30px;
   }
 
   .line-end2{
@@ -512,6 +513,13 @@
     /*line-height: 140%; !* 19.6px *!*/
   }
 
+  .line1-div{
+    width: 100%;
+    height: 660px;
+    background: url("../../assets/imagesV2/bg_icon.png") no-repeat;
+
+  }
+
 
 
 </style>
@@ -520,18 +528,21 @@
   <!--写一个大框，定义长宽高-->
   <div class="box-div">
     <!--定义个框，左边是文字，右边是图片，同一行-->
-    <div class="line1">
-      <p class="tou" >The Turn Network<br/>Blockchain Explorer</p>
-      <div class="search-container">
-        <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer" @keyup.enter.native="searchFn">
-        <i class="search-icon" aria-hidden="true" v-model="searchKey"  @click="searchFn">
-          <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
-        </i>
+    <div class="line1-div">
+      <div class="line1">
+        <p class="tou" >The Turn Network<br/>Blockchain Explorer</p>
+        <div class="search-container">
+          <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer" @keyup.enter.native="searchFn">
+          <i class="search-icon" aria-hidden="true" v-model="searchKey"  @click="searchFn">
+            <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
+          </i>
+        </div>
       </div>
     </div>
-    <div class="line1-2">
-      <img style="max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />
-    </div>
+
+<!--    <div class="line1-2">-->
+<!--      <img style="max-width:100%;max-height: 100%" src="../../assets/imagesV2/Retro Glass Material 2.png" alt="" />-->
+<!--    </div>-->
 
     <div class="line-title">
       <b>Utrecht Symptoom Dagboek</b>
@@ -649,7 +660,7 @@
     <div class="line5 border-kuang kuangBg">
       <div class="tableHead">
         <span class="fontCss">Latest Blocks(L1)</span>
-        <a class="viewAll" href="" >View All ></a>
+        <a class="viewAll" href="/block" >View All ></a>
       </div>
       <div class="line5-1">
           <table>
@@ -899,11 +910,10 @@
     <div class="line-end">
 
     </div>
+<!--    <div style="width: 100%;height: 300px">-->
+
+<!--    </div>-->
   </div>
-
-<!--  <div class="line-end2">-->
-
-<!--  </div>-->
 
 </template>
 <script>
