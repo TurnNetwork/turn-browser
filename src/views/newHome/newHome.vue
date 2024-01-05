@@ -303,6 +303,7 @@
 
   .box-div .line6 .twoLi img{
     margin-left: 14px;
+    margin-right: 10px;
   }
 
 
@@ -457,6 +458,26 @@
     height: 44px;
     text-align: right;
     line-height: 2;
+  }
+
+  .activeBubble-1-right{
+    width: 64px;
+    height: 64px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .activeBubble-2-right{
+    width: 327px;
+    height: 44px;
+    text-align: left;
+    line-height: 2;
+  }
+  .activeBubble-3-right{
+    width: 30%;
+    height: 44px;
+    text-align: right;
+    line-height: 2;
+    padding-top: 17px;
   }
 
   .twoLi{
@@ -811,87 +832,64 @@
           <a class="viewAll" href="" >View All ></a>
         </div>
         <ul style="margin-top: 50px;padding:0 10px">
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
             </div>
-            <br/>
-            <div class="borderDiv">
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-2-right">
+              <span class="activeBubbleFont-1">1234567890</span>
+              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
             </div>
-          </li>
-          <br/>
-          <li>
-            <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
-            </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-3-right">
+              <span class="activeBubbleFont-1">Active</span>
             </div>
           </li>
-          <br/>
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
             </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-2-right">
+              <span class="activeBubbleFont-1">1234567890</span>
+              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
             </div>
-          </li>
-          <br/>
-          <li>
-            <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
-            </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-3-right">
+              <span class="activeBubbleFont-1">Active</span>
             </div>
           </li>
-          <br/>
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
             </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-2-right">
+              <span class="activeBubbleFont-1">1234567890</span>
+              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
             </div>
-          </li>
-          <br/>
-          <li>
-            <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
-            </div>
-            <br/>
-            <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+            <div class="activeBubble-3-right">
+              <span class="activeBubbleFont-1">Active</span>
             </div>
           </li>
-          <br/>
-          <li>
+          <li class="twoLi">
             <div>
-              <b style="float: left">ABC007</b>
-              <b style="float:right">100.11% Yield</b>
+              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
             </div>
-            <br/>
+            <div class="activeBubble-2-right">
+              <span class="activeBubbleFont-1">1234567890</span>
+              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+            </div>
+            <div class="activeBubble-3-right">
+              <span class="activeBubbleFont-1">Active</span>
+            </div>
+          </li>
+          <li class="twoLi">
             <div>
-              <span style="float: left">Total Stakes 10000123123123123123 TURN</span>
-              <span style="float: right">6 Rank</span>
+              <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
+            </div>
+            <div class="activeBubble-2-right">
+              <span class="activeBubbleFont-1">1234567890</span>
+              <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+            </div>
+            <div class="activeBubble-3-right">
+              <span class="activeBubbleFont-1">Active</span>
             </div>
           </li>
         </ul>
