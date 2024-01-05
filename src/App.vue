@@ -12,10 +12,12 @@
       'gray-area': needGrayArea,
     }">
       <!-- <router-view></router-view> -->
-      <keep-alive>
-        <router-view v-if="$route.meta.keepAlive"> </router-view>
-      </keep-alive>
-      <router-view v-if="!$route.meta.keepAlive"></router-view>
+      <div class="_content">
+        <keep-alive>
+          <router-view v-if="$route.meta.keepAlive"> </router-view>
+        </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
+      </div>
     </div>
     <com-footer></com-footer>
   </div>

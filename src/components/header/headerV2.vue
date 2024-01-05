@@ -1,265 +1,269 @@
 <template>
   <div class="header-wrap">
-    <div class="logo cursor">
-      <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
-    </div>
-    <div class="menu">
-      <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal"
-        background-color="transparent" text-color="#999" active-text-color="#FFF">
-        <el-menu-item index="/" :class="{ active: $route.path == '/' }">
-          <span>{{ $t('menu.home') }}</span>
-        </el-menu-item>
-        <el-menu-item class="more-item">
-          <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
-            @visible-change="nodeDropdownChangHandle">
-            <span class="el-dropdown-link more-title" :class="{
-              active:
-                $route.path.indexOf('/node') > -1 ||
-                $route.path.indexOf('/micro_node') > -1
-            }">{{ $t('menu.nodes') }}
-              <i :class="{
-                arrowDown: nodeDropdownShow == false,
-                arrowUp: nodeDropdownShow == true,
-              }" class="arrow el-icon-arrow-down arrowUp"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="/node">{{
-                $t('menu.validator')
-              }}</el-dropdown-item>
-              <el-dropdown-item command="/micro_node">{{
-                $t('menu.microNode')
-              }}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </el-menu-item>
-        <el-menu-item class="more-item">
-          <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
-            @visible-change="blockDropdownChangHandle">
-            <span class="el-dropdown-link more-title" :class="{
-              active:
-                $route.path.indexOf('block') > -1 ||
-                $route.path.indexOf('trade') > -1 ||
-                $route.path.indexOf('/address') > -1,
-            }">{{ $t('menu.blockChain') }}
-              <i :class="{
-                arrowDown: blockDropdownShow == false,
-                arrowUp: blockDropdownShow == true,
-              }" class="arrow el-icon-arrow-down arrowUp"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="/block/index">{{
-                $t('menu.block')
-              }}</el-dropdown-item>
-              <el-dropdown-item command="/block/trade">{{
-                $t('menu.transaction')
-              }}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </el-menu-item>
-        <el-menu-item class="more-item">
-          <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
-            @visible-change="tokensDropdownChangHandle">
-            <span class="el-dropdown-link more-title" :class="{
-              active: $route.path.indexOf('tokens') > -1,
-            }">{{ $t('menu.tokens') }}
-              <i :class="{
-                arrowDown: tokensDropdownShow == false,
-                arrowUp: tokensDropdownShow == true,
-              }" class="arrow el-icon-arrow-down arrowUp"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="/tokens/tokensTranfer/prc20">{{
-                $t('menu.erc20Transfer')
-              }}</el-dropdown-item>
-              <div class="dividing-line"></div>
-              <el-dropdown-item command="/tokens/tokensTranfer/prc721">{{
-                $t('menu.erc721Transfer')
-              }}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </el-menu-item>
-        <el-menu-item class="more-item">
-          <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
-            @visible-change="moreDropdownChangHandle">
-            <span class="el-dropdown-link more-title" :class="{
-              active:
-                ['/proposal', '/governable-parameter', '/foundation-address', '/add-to-extension'].includes($route.path)
-            }">{{ $t('menu.more') }}
-              <i :class="{
-                arrowDown: moreDropdownShow == false,
-                arrowUp: moreDropdownShow == true,
-              }" class="arrow el-icon-arrow-down arrowUp"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="/proposal">{{
-                $t('menu.proposal')
-              }}</el-dropdown-item>
-              <el-dropdown-item command="/governable-parameter">{{
-                $t('more.governableParameter')
-              }}</el-dropdown-item>
-              <el-dropdown-item command="/add-to-extension">{{
-                $t('more.addToExtension')
-              }}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </el-menu-item>
-
-        <el-menu-item index="/faucet" :class="{ active: $route.path.indexOf('faucet') > -1 }">
-          <router-link to="/faucet">FAUCET</router-link>
-        </el-menu-item>
-        <el-menu-item class="more-item">
-          <el-dropdown placement="bottom-start" class="more-dropdown" @command="handleCommandLangage"
-            @visible-change="LangVisibleChange">
-            <span class="el-dropdown-link _dropdown-link-active">
-              {{ networkObj[network] }}
-              <i :class="{
-                arrowDown: langDropdownShow == false,
-                arrowUp: langDropdownShow == true,
-              }" class="arrow el-icon-arrow-down arrowUp"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item v-for="(item, index) in options" :key="index" :command="item.value">{{ item.label
-              }}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </el-menu-item>
-      </el-menu>
-      <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch"
-        @mousemove="searchShow = false" @mouseleave="searchShow = true">
-        <span v-show="searchShow" class="el-icon-search"></span>
-        <!-- v-else -->
-        <div v-show="!searchShow" class="search search-header" :class="{
-          'search-active': isFocus
-        }">
-          <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
-            v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
-          <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
-            @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
-        </div>
+    <div class="header-main">
+      <div class="logo cursor">
+        <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
       </div>
-    </div>
-
-    <div class="search search-header mobile-search" :class="{
-      'search-active': isFocus,
-    }" v-if="windowWidth < 750 && $route.path != '/'">
-      <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
-        v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
-      <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }" @click="searchFn"
-        :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
-    </div>
-    <div :class="{ mobileMenuWrapper: true, opened: mobileMenuOpenend }" v-if="windowWidth < 750">
-      <div class="mobile-menu-back" @click="toggleMobileMenuOpenend"></div>
-      <div class="mobile-menu-content">
-        <el-menu :default-active="$route.pth" :router="true" class="mobile-menu" background-color="#FFF"
-          text-color="#121f38" active-text-color="#121f38">
-          <el-menu-item @click="toggleMobileMenuOpenend" index="/" :class="{ active: $route.path == '/' }">
-            <router-link to="/">{{ $t('menu.home') }}</router-link>
+      <div class="menu">
+        <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal"
+          background-color="transparent" text-color="#999" active-text-color="#FFF">
+          <el-menu-item index="/" :class="{ active: $route.path == '/' }">
+            <span>{{ $t('menu.home') }}</span>
           </el-menu-item>
-          <el-submenu index="/nodes">
-            <template slot="title">
-              <span>{{ $t('menu.nodes') }}</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="/node" @click="toggleMobileMenuOpenend" :class="{ active: $route.path == '/node' }">
-                <router-link to="/node">{{
+          <el-menu-item class="more-item">
+            <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
+              @visible-change="nodeDropdownChangHandle">
+              <span class="el-dropdown-link more-title" :class="{
+                active:
+                  $route.path.indexOf('/node') > -1 ||
+                  $route.path.indexOf('/micro_node') > -1
+              }">{{ $t('menu.nodes') }}
+                <i :class="{
+                  arrowDown: nodeDropdownShow == false,
+                  arrowUp: nodeDropdownShow == true,
+                }" class="arrow el-icon-arrow-down arrowUp"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="/node">{{
                   $t('menu.validator')
-                }}</router-link>
-              </el-menu-item>
-              <el-menu-item index="/micro_node" @click="toggleMobileMenuOpenend"
-                :class="{ active: $route.path == '/micro_node' }">
-                <router-link to="/micro_node">{{
+                }}</el-dropdown-item>
+                <el-dropdown-item command="/micro_node">{{
                   $t('menu.microNode')
-                }}</router-link>
-              </el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="1">
-            <template slot="title">
-              <span>{{ $t('menu.blockChain') }}</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="/block/index" @click="toggleMobileMenuOpenend"
-                :class="{ active: $route.path == '/block/index' }">
-                <router-link to="/block/index">{{
+                }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-menu-item>
+          <el-menu-item class="more-item">
+            <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
+              @visible-change="blockDropdownChangHandle">
+              <span class="el-dropdown-link more-title" :class="{
+                active:
+                  $route.path.indexOf('block') > -1 ||
+                  $route.path.indexOf('trade') > -1 ||
+                  $route.path.indexOf('/address') > -1,
+              }">{{ $t('menu.blockChain') }}
+                <i :class="{
+                  arrowDown: blockDropdownShow == false,
+                  arrowUp: blockDropdownShow == true,
+                }" class="arrow el-icon-arrow-down arrowUp"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="/block/index">{{
                   $t('menu.block')
-                }}</router-link>
-              </el-menu-item>
-              <el-menu-item index="/block/trade" @click="toggleMobileMenuOpenend"
-                :class="{ active: $route.path == '/block/trade' }">
-                <router-link to="/block/trade">{{
+                }}</el-dropdown-item>
+                <el-dropdown-item command="/block/trade">{{
                   $t('menu.transaction')
-                }}</router-link>
-              </el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="2">
-            <template slot="title">
-              <span>{{ $t('menu.tokens') }}</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="/tokens/tokensTranfer/prc20" @click="toggleMobileMenuOpenend" :class="{
-                active: $route.path == '/tokens/tokensTranfer/prc20',
-              }">
-                <router-link to="/tokens/tokensTranfer/prc20">{{
+                }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-menu-item>
+          <el-menu-item class="more-item">
+            <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
+              @visible-change="tokensDropdownChangHandle">
+              <span class="el-dropdown-link more-title" :class="{
+                active: $route.path.indexOf('tokens') > -1,
+              }">{{ $t('menu.tokens') }}
+                <i :class="{
+                  arrowDown: tokensDropdownShow == false,
+                  arrowUp: tokensDropdownShow == true,
+                }" class="arrow el-icon-arrow-down arrowUp"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="/tokens/tokensTranfer/prc20">{{
                   $t('menu.erc20Transfer')
-                }}</router-link>
-              </el-menu-item>
-              <el-menu-item index="/tokens/tokensTranfer/prc721" @click="toggleMobileMenuOpenend" :class="{
-                    active: $route.path == '/tokens/tokensTranfer/prc721',
-                  }">
-                <router-link to="/tokens/tokensTranfer/prc721">{{
+                }}</el-dropdown-item>
+                <div class="dividing-line"></div>
+                <el-dropdown-item command="/tokens/tokensTranfer/prc721">{{
                   $t('menu.erc721Transfer')
-                }}</router-link>
-
-              </el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="3">
-            <template slot="title">
-              <span>{{ $t('menu.more') }}</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item @click="toggleMobileMenuOpenend" index="/proposal"
-                :class="{ active: $route.path == '/proposal' }">
-                <router-link to="/proposal">{{
+                }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-menu-item>
+          <el-menu-item class="more-item">
+            <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
+              @visible-change="moreDropdownChangHandle">
+              <span class="el-dropdown-link more-title" :class="{
+                active:
+                  ['/proposal', '/governable-parameter', '/foundation-address', '/add-to-extension'].includes($route.path)
+              }">{{ $t('menu.more') }}
+                <i :class="{
+                  arrowDown: moreDropdownShow == false,
+                  arrowUp: moreDropdownShow == true,
+                }" class="arrow el-icon-arrow-down arrowUp"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="/proposal">{{
                   $t('menu.proposal')
-                }}</router-link>
-              </el-menu-item>
-              <el-menu-item @click="toggleMobileMenuOpenend" index="/governable-parameter"
-                :class="{ active: $route.path == '/governable-parameter' }">
-                <router-link to="/governable-parameter">{{
+                }}</el-dropdown-item>
+                <el-dropdown-item command="/governable-parameter">{{
                   $t('more.governableParameter')
-                }}</router-link>
-              </el-menu-item>
-              <el-menu-item @click="toggleMobileMenuOpenend" index="/add-to-extension"
-                :class="{ active: $route.path == '/add-to-extension' }">
-                <router-link to="/add-to-extension">{{
+                }}</el-dropdown-item>
+                <el-dropdown-item command="/add-to-extension">{{
                   $t('more.addToExtension')
-                }}</router-link>
-              </el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-menu-item index="/faucet" :class="{
-                active: $route.path.indexOf('faucet') > -1,
-              }">
+                }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-menu-item>
+
+          <el-menu-item index="/faucet" :class="{ active: $route.path.indexOf('faucet') > -1 }">
             <router-link to="/faucet">FAUCET</router-link>
           </el-menu-item>
+          <el-menu-item class="more-item">
+            <el-dropdown placement="bottom-start" class="more-dropdown" @command="handleCommandLangage"
+              @visible-change="LangVisibleChange">
+              <span class="el-dropdown-link _dropdown-link-active">
+                {{ networkObj[network] }}
+                <i :class="{
+                  arrowDown: langDropdownShow == false,
+                  arrowUp: langDropdownShow == true,
+                }" class="arrow el-icon-arrow-down arrowUp"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item v-for="(item, index) in options" :key="index" :command="item.value">{{ item.label
+                }}</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-menu-item>
         </el-menu>
-
-
-        <div class="language-section">
-
-          <div v-for="(item, index) in options" :key="index" :class="{
-            languageItem: true,
-            active: network == item.value,
-          }">
-            <span class="language-text" @click="handleCommandLangage(item.value)">{{ item.value == 'test'
-              ? 'TEST' : 'MAINNET' }}</span>
-            <span class="language-divider">/</span>
+        <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch"
+          @mousemove="searchShow = false">
+          <!-- @mouseleave="searchShow = true" -->
+          <span v-show="searchShow" class="el-icon-search text-size"></span>
+          <!-- v-else -->
+          <div @mousemove="searchShow = false" @mouseleave="searchShow = true" v-show="!searchShow"
+            class="search search-header" :class="{
+              'search-active': isFocus
+            }" :style="{ width: searchShow ? '0px' : '50vw' }">
+            <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
+              v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
+            <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
+              @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
           </div>
         </div>
+      </div>
+
+      <div class="search search-header mobile-search" :class="{
+        'search-active': isFocus,
+      }" v-if="windowWidth < 750 && $route.path != '/'">
+        <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
+          v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
+        <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
+          @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
+      </div>
+      <div :class="{ mobileMenuWrapper: true, opened: mobileMenuOpenend }" v-if="windowWidth < 750">
+        <div class="mobile-menu-back" @click="toggleMobileMenuOpenend"></div>
+        <div class="mobile-menu-content">
+          <el-menu :default-active="$route.pth" :router="true" class="mobile-menu" background-color="#FFF"
+            text-color="#121f38" active-text-color="#121f38">
+            <el-menu-item @click="toggleMobileMenuOpenend" index="/" :class="{ active: $route.path == '/' }">
+              <router-link to="/">{{ $t('menu.home') }}</router-link>
+            </el-menu-item>
+            <el-submenu index="/nodes">
+              <template slot="title">
+                <span>{{ $t('menu.nodes') }}</span>
+              </template>
+              <el-menu-item-group>
+                <el-menu-item index="/node" @click="toggleMobileMenuOpenend" :class="{ active: $route.path == '/node' }">
+                  <router-link to="/node">{{
+                    $t('menu.validator')
+                  }}</router-link>
+                </el-menu-item>
+                <el-menu-item index="/micro_node" @click="toggleMobileMenuOpenend"
+                  :class="{ active: $route.path == '/micro_node' }">
+                  <router-link to="/micro_node">{{
+                    $t('menu.microNode')
+                  }}</router-link>
+                </el-menu-item>
+              </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="1">
+              <template slot="title">
+                <span>{{ $t('menu.blockChain') }}</span>
+              </template>
+              <el-menu-item-group>
+                <el-menu-item index="/block/index" @click="toggleMobileMenuOpenend"
+                  :class="{ active: $route.path == '/block/index' }">
+                  <router-link to="/block/index">{{
+                    $t('menu.block')
+                  }}</router-link>
+                </el-menu-item>
+                <el-menu-item index="/block/trade" @click="toggleMobileMenuOpenend"
+                  :class="{ active: $route.path == '/block/trade' }">
+                  <router-link to="/block/trade">{{
+                    $t('menu.transaction')
+                  }}</router-link>
+                </el-menu-item>
+              </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="2">
+              <template slot="title">
+                <span>{{ $t('menu.tokens') }}</span>
+              </template>
+              <el-menu-item-group>
+                <el-menu-item index="/tokens/tokensTranfer/prc20" @click="toggleMobileMenuOpenend" :class="{
+                  active: $route.path == '/tokens/tokensTranfer/prc20',
+                }">
+                  <router-link to="/tokens/tokensTranfer/prc20">{{
+                    $t('menu.erc20Transfer')
+                  }}</router-link>
+                </el-menu-item>
+                <el-menu-item index="/tokens/tokensTranfer/prc721" @click="toggleMobileMenuOpenend" :class="{
+                      active: $route.path == '/tokens/tokensTranfer/prc721',
+                    }">
+                  <router-link to="/tokens/tokensTranfer/prc721">{{
+                    $t('menu.erc721Transfer')
+                  }}</router-link>
+
+                </el-menu-item>
+              </el-menu-item-group>
+            </el-submenu>
+            <el-submenu index="3">
+              <template slot="title">
+                <span>{{ $t('menu.more') }}</span>
+              </template>
+              <el-menu-item-group>
+                <el-menu-item @click="toggleMobileMenuOpenend" index="/proposal"
+                  :class="{ active: $route.path == '/proposal' }">
+                  <router-link to="/proposal">{{
+                    $t('menu.proposal')
+                  }}</router-link>
+                </el-menu-item>
+                <el-menu-item @click="toggleMobileMenuOpenend" index="/governable-parameter"
+                  :class="{ active: $route.path == '/governable-parameter' }">
+                  <router-link to="/governable-parameter">{{
+                    $t('more.governableParameter')
+                  }}</router-link>
+                </el-menu-item>
+                <el-menu-item @click="toggleMobileMenuOpenend" index="/add-to-extension"
+                  :class="{ active: $route.path == '/add-to-extension' }">
+                  <router-link to="/add-to-extension">{{
+                    $t('more.addToExtension')
+                  }}</router-link>
+                </el-menu-item>
+              </el-menu-item-group>
+            </el-submenu>
+            <el-menu-item index="/faucet" :class="{
+                  active: $route.path.indexOf('faucet') > -1,
+                }">
+              <router-link to="/faucet">FAUCET</router-link>
+            </el-menu-item>
+          </el-menu>
 
 
+          <div class="language-section">
+
+            <div v-for="(item, index) in options" :key="index" :class="{
+              languageItem: true,
+              active: network == item.value,
+            }">
+              <span class="language-text" @click="handleCommandLangage(item.value)">{{ item.value == 'test'
+                ? 'TEST' : 'MAINNET' }}</span>
+              <span class="language-divider">/</span>
+            </div>
+          </div>
+
+
+        </div>
       </div>
     </div>
   </div>
@@ -578,21 +582,31 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.text-size {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
 .header-wrap {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  display: flex;
   height: 102px;
+  width: 100%;
   z-index: 2000;
-  max-width: 1224px;
   // padding: 0 5.2%;
-  margin: 0 auto;
   background: #000;
-  align-items: center; //居中对齐
-  justify-content: space-between; //两端对齐
   user-select: none;
+
+  .header-main {
+    max-width: 1224px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; //居中对齐
+    justify-content: space-between; //两端对齐
+  }
 
   .menu {
     margin-right: 18px;
@@ -619,6 +633,15 @@ export default {
 
   .search-wrap {
     margin-left: 12px;
+    position: relative;
+
+    .search-header {
+      position: absolute;
+      // left: 0;
+      transition: 3s;
+      right: 0px;
+      top: -20px;
+    }
   }
 }
 
@@ -716,7 +739,9 @@ export default {
 
 .search-header {
   min-width: 355px;
-  max-width: 600px;
+  width: 50vw;
+
+  // max-width: 80%;
   flex: 1;
 
   @media only screen and (max-width: 1366px) {
