@@ -9,12 +9,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  /*height: 1500px;*/
-  //height: 1800px;
   width: 1224px;
   overflow: auto;
-  // background-color: black;
-  //border: 1px solid #00ff00;
   margin: auto;
 
   &::after{
@@ -28,7 +24,7 @@
     bottom: 0px;
     left:calc(50% - 830px);
     z-index: 1;
-    opacity:0.5;
+    opacity:0.3;
   }
 }
 
@@ -84,17 +80,9 @@
 
 .box-div .line2 {
   display: block;
-  //border: 1px solid #5DC572;
   height: 243px;
   width: 100%;
-  //margin-top:-300px
-  /*background: url("../../assets/imagesV2/div.GridItem_asset___ix8N.png") no-repeat ;*/
-  /*background-size: 454px 243px;*/
-  /*background-position: right;*/
-
-  /*border-radius: var(--Number20, 20px);*/
-  /*border: 1px solid rgba(255, 255, 255, 0.18);*/
-  /*background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);*/
+  //margin-top:200px
 }
 
 .kuangBg {
@@ -249,10 +237,10 @@ td {
   display: block;
   //border: 1px solid #0D6CDA;
   border-radius: 10px;
-  height: 579px;
+  height: 650px;
   width: 100%;
   float: bottom;
-  overflow: auto;
+  /*overflow: auto;*/
   //margin-top:-100px
 }
 
@@ -445,24 +433,22 @@ td {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  width: 20%;
   //line-height: 140%; /* 19.6px */
 }
 
-.line5-1 table tr th:first-child {
-  width: 130px;
-}
+/*.line5-1 table tr th:first-child {*/
+/*  width: 130px;*/
+/*}*/
 
-.line5-1 table tr th:nth-child(2) {
-  text-align: left;
-}
-
-.line5-1 table tr td:nth-child(2) {
-  text-align: left;
-}
-
-/*.line5-1 .table .tr td:first-child {*/
+/*.line5-1 table tr th:nth-child(2) {*/
 /*  text-align: left;*/
 /*}*/
+
+/*.line5-1 table tr td:nth-child(2) {*/
+/*  text-align: left;*/
+/*}*/
+
 
 .fangIcon {
   width: 64px;
@@ -554,7 +540,18 @@ td {
 }
 
 .box_content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1224px;
+  overflow: auto;
+  margin: auto;
   z-index: 2;
+}
+
+.hoverTd:hover{
+  color: blue;
 }
 
 </style>
@@ -577,11 +574,11 @@ td {
           </div>
         </div>
       </div>
-      <div class="line-title">
+      <div class="line-title" style="display: none">
         <b>Utrecht Symptoom Dagboek</b>
       </div>
 
-      <div class="line2 border-kuang kuangBg">
+      <div class="line2 border-kuang kuangBg" style="display: none">
         <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
         <!--靠左新增3个框浮动左-->
         <div class="line2-1">
@@ -623,19 +620,21 @@ td {
         <div class="line3-1 border-kuang kuangBg">
           <table>
             <tr>
-              <th class="myTh">Current Block Height</th>
-              <th class="myTh">Real-time Block Generation uration(s)</th>
+              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKHEIGHT') }}</th>
+              <th class="myTh">Real-time Block Generation uration(s)/实时出块时长</th>
             </tr>
             <tr>
-              <td class="myTd">19978</td>
-              <td class="myTd">1.0032</td>
+              <td class="myTd"><a class="cursor" @click="goBlockDetail(blockStatisticData.currentNumber)">{{ blockStatisticData.currentNumber
+                }}</a></td>
+<!--              <td class="myTd">1.0032</td>-->
+              <td class="myTd">{{ tooltipData.time }}s</td>
             </tr>
             <tr>
-              <th class="myTh">Address count</th>
+              <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
               <th class="myTh">Total number of L1 transactions</th>
             </tr>
             <tr>
-              <td class="myTd">100M</td>
+              <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
               <td class="myTd">12.18M</td>
             </tr>
           </table>
@@ -643,12 +642,12 @@ td {
         <div class="line3-1 border-kuang kuangBg">
           <table>
             <tr>
-              <th class="myTh">Real-Time Block Trade Count</th>
-              <th class="myTh">Mining Node</th>
+              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</th>
+              <th class="myTh">{{ $t('blockAbout.producer').toUpperCase() }}</th>
             </tr>
             <tr>
-              <td class="myTd">10</td>
-              <td class="myTd">ABC007</td>
+              <td class="myTd">{{ tooltipData.txs }}</td>
+              <td class="myTd"><a class="cursor" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>
             </tr>
             <tr>
               <th class="myTh">Total Number Of L2 Transactions</th>
@@ -671,14 +670,14 @@ td {
               <th class="myTh">Total Circulation</th>
               <th class="myTh">Circulation</th>
               <th class="myTh">Pledge Rate</th>
-              <th class="myTh">Inflation Rate</th>
+<!--              <th class="myTh">Inflation Rate</th>-->
             </tr>
 
             <tr>
               <td class="myTd">900.58M</td>
               <td class="myTd">125.09M</td>
               <td class="myTd">86.11%</td>
-              <td class="myTd">3.17%</td>
+<!--              <td class="myTd">3.17%</td>-->
             </tr>
           </table>
         </div>
@@ -698,17 +697,20 @@ td {
               <th class="tableTh1">Block</th>
               <th class="tableTh1">Producer</th>
               <th class="tableTh1">Txn</th>
-              <th class="tableTh1">Block Reward(TURN)</th>
+<!--              <th class="tableTh1">Block Reward(TURN)</th>-->
               <th class="tableTh1">Age</th>
             </tr>
             <tr>
               <td>
                 <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
               </td>
-              <td class="tableTh1">18466814</td>
+              <td class="tableTh1 cursor hoverTd">
+                <a href="#" target="_blank">18466814</a>
+<!--                18466814-->
+              </td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -718,7 +720,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -728,7 +730,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -738,7 +740,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -748,7 +750,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -758,7 +760,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -768,7 +770,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
             <tr>
@@ -778,7 +780,7 @@ td {
               <td class="tableTh1">18466814</td>
               <td class="tableTh1">ABC007</td>
               <td class="tableTh1">2 Txns</td>
-              <td class="tableTh1">4.483294189788</td>
+<!--              <td class="tableTh1">4.483294189788</td>-->
               <td class="tableTh1">6s ago</td>
             </tr>
 

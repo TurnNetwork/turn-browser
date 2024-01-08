@@ -14,7 +14,7 @@
       'gray-area': needGrayArea,
     }">
       <!-- <router-view></router-view> -->
-      <div :class="`_content ${$route.path == '/' ? '_bg_top' : ''}`">
+      <div :class="`_content ${($route.path == '/' || $route.path == '/newHome') ? '_bg_top' : ''}`">
         <keep-alive>
           <router-view v-if="$route.meta.keepAlive"> </router-view>
         </keep-alive>
