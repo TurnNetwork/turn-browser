@@ -152,8 +152,8 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: #333333 url("../../assets/imagesV2/Vector 7.png") no-repeat center;
-  background-size: 580px;
+  background: url("../../assets/imagesV2/Vector 7.png") no-repeat center;
+  background-size: 100%;
   color: white;
 
   h2 {

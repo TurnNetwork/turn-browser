@@ -372,10 +372,10 @@ export default {
 
   &.node-validators-search {
     .el-searchs {
-      background: #fbfbfc;
+      background: #030911;
 
       &:hover {
-        background: #fbfbfc;
+        background: #030911;
       }
     }
   }
@@ -476,12 +476,14 @@ export default {
   .el-input--mini .el-input__inner {
     height: 40px;
     line-height: 40px;
-    background: #fff;
+    color: #FFF;
+    background: #030911;
   }
 
   &.node-validators-search {
     .el-input--mini .el-input__inner {
-      background: #fbfbfc;
+      color: #FFF;
+      background: #030911;
     }
   }
 }

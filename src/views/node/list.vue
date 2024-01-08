@@ -749,15 +749,15 @@ export default {
   margin-left: 30px;
 
   .el-searchs {
-    background: #fff;
     font-size: 14px;
     border: none;
     border-radius: 0px 4px 4px 0px;
     border-left: 1px solid #e6e6e6;
     color: #0798de;
+    background: #030911;
 
     &:hover {
-      background: #fff;
+      background: #454545;
       color: #5cb2db;
       border-left: 1px solid #e6e6e6;
     }
@@ -769,10 +769,10 @@ export default {
 
   &.node-validators-search {
     .el-searchs {
-      background: #fbfbfc;
+      background: #030911;
 
       &:hover {
-        background: #fbfbfc;
+        background: #454545;
       }
     }
   }
@@ -878,7 +878,8 @@ export default {
 
   &.node-validators-search {
     .el-input--mini .el-input__inner {
-      background: #fbfbfc;
+      color: #FFF;
+      background: #030911;
     }
   }
 }

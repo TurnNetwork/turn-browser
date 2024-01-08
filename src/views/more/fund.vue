@@ -79,7 +79,7 @@ export default {
   .title {
 
     font-size: 34px;
-    color: #030911;
+    color: #F5F5F5;
     letter-spacing: 0;
     line-height: 64px;
     margin: 25px 0 10px 0;
@@ -88,7 +88,7 @@ export default {
   .h3 {
 
     font-size: 24px;
-    color: #030911;
+    color: #F5F5F5;
     letter-spacing: 0;
     line-height: 24px;
   }

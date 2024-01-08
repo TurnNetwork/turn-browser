@@ -1452,7 +1452,7 @@ export default {
   }
 
   .el-progress-bar__outer {
-    background: #3e3e3e;
+    background: var(--Gray-300, #22252B);
   }
 
   .el-progress-bar__inner {

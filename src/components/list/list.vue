@@ -55,7 +55,7 @@ export default {
 
     .title {
         font-size: 20px;
-        color: #030911;
+        color: #F5F5F5;
         line-height: 24px;
         /*padding: 9px 20px;*/
         padding: 9px 0;

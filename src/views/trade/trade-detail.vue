@@ -1207,7 +1207,7 @@ export default {
 
   .title {
     font-size: 20px;
-    color: #030911;
+    color: #F5F5F5;
     line-height: 24px;
     padding: 9px 20px;
     border-top: 2px solid #030911;
