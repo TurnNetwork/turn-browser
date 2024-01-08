@@ -334,7 +334,7 @@ td {
   margin-top: 40px;
 
   /*border-radius: var(--Number8, 8px);*/
-  /*border: 1px solid var(--Gray-600, #6C7584);*/
+  /*border: 1px solid var(--Gray-600, #0e5bdb);*/
   /*background: var(--Transparency-100, rgba(255, 255, 255, 0.03));*/
 
   display: flex;
@@ -344,12 +344,24 @@ td {
   justify-content: center;
   align-items: center;
   gap: 10px;
+
+  /*&::before{*/
+  /*  display: inline-block;*/
+  /*  border: 1px solid #0000ff;*/
+  /*  position: relative;*/
+  /*  width: 55px;*/
+  /*  height: 20px;*/
+  /*  top: 0;*/
+  /*  right: 0;*/
+  /*  background: url("../../assets/imagesV2/Rectangle 4.png") no-repeat;*/
+  /*}*/
 }
 
 .search-input {
   width: 100%;
   /* 根据需要调整宽度 */
   padding-right: 30px;
+  padding-left: 75px;
   /* 为图标留出空间 */
   height: 60px;
   display: flex;
@@ -554,6 +566,43 @@ td {
   color: blue;
 }
 
+.changeType{
+  /*display: inline-block;*/
+  width: 55px;
+  height: 24px;
+  /*border: 1px solid #cf326e;*/
+  /*float: left;*/
+  position: absolute;
+  left: 2%;
+
+  .changeLayer{
+    color: var(--Gray-900, white);
+    /* P2 */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    width: 50px;
+  }
+  img{
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+  /deep/.selectLayerHover{
+  font-size: 16px;
+
+  &:hover{
+    color: #cf326e;
+  }
+}
+
 </style>
 
 <template>
@@ -566,11 +615,24 @@ td {
         <div class="line1">
           <p class="tou">The Turn Network<br />Blockchain Explorer</p>
           <div class="search-container">
+            <div class="changeType">
+<!--              <span>Layer1</span>-->
+              <el-tooltip placement="top" class="changeLayer">
+                <div slot="content">
+                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>
+                  <br/>
+                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>
+                </div>
+                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>
+              </el-tooltip>
+              <img src="../../assets/imagesV2/Rectangle 4.png" alt="">
+            </div>
+
             <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer"
                    @keyup.enter.native="searchFn">
-            <i class="search-icon" aria-hidden="true" v-model="searchKey" @click="searchFn">
+            <div class="search-icon" aria-hidden="true" v-model="searchKey" @click="searchFn">
               <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
-            </i>
+            </div>
           </div>
         </div>
       </div>
@@ -651,11 +713,16 @@ td {
             </tr>
             <tr>
               <th class="myTh">Total Number Of L2 Transactions</th>
-              <th class="myTh">Ongoing/Overall Proposal</th>
+              <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
             </tr>
             <tr>
               <td class="myTd">120.18M</td>
-              <td class="myTd">1/4</td>
+              <td class="myTd">
+                <a>
+                  {{ blockStatisticData.doingProposalQty | formatNumber }}
+                  <span>/ {{ blockStatisticData.proposalQty | formatNumber }}</span>
+                </a>
+              </td>
             </tr>
           </table>
         </div>
@@ -667,16 +734,25 @@ td {
         <div class="line4-1">
           <table>
             <tr>
-              <th class="myTh">Total Circulation</th>
-              <th class="myTh">Circulation</th>
-              <th class="myTh">Pledge Rate</th>
+              <th class="myTh">{{ $t('indexInfo.totalSupply') }}</th>
+              <th class="myTh">{{ $t('indexInfo.circulatingSupply') }}</th>
+              <th class="myTh">{{ $t('nodeInfo.stakeRate').toUpperCase() }}</th>
 <!--              <th class="myTh">Inflation Rate</th>-->
             </tr>
 
             <tr>
-              <td class="myTd">900.58M</td>
-              <td class="myTd">125.09M</td>
-              <td class="myTd">86.11%</td>
+              <td class="myTd">{{ blockStatisticData.issueValue | unit }}</td>
+              <td class="myTd">{{ blockStatisticData.turnValue | unit }}</td>
+              <td class="myTd">
+                {{
+                blockStatisticData.stakingDelegationValue
+                | percentage(blockStatisticData.stakingDenominator)
+                }}%&nbsp;
+                <b class="tip">
+                  ({{ blockStatisticData.stakingDelegationValue | formatNumber }})
+                </b>
+
+              </td>
 <!--              <td class="myTd">3.17%</td>-->
             </tr>
           </table>
@@ -687,7 +763,7 @@ td {
       </div>
       <div class="line5 border-kuang kuangBg">
         <div class="tableHead">
-          <span class="fontCss">Latest Blocks(L1)</span>
+          <span class="fontCss">{{ $t('blockAbout.Block') }}</span>
           <a class="viewAll" href="/block">View All ></a>
         </div>
         <div class="line5-1">
@@ -700,90 +776,34 @@ td {
 <!--              <th class="tableTh1">Block Reward(TURN)</th>-->
               <th class="tableTh1">Age</th>
             </tr>
-            <tr>
+
+            <tr v-for="(item, index) in blockData" :key="index">
               <td>
                 <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
               </td>
-              <td class="tableTh1 cursor hoverTd">
-                <a href="#" target="_blank">18466814</a>
+<!--              <td class="tableTh1 cursor hoverTd">-->
+                <td class="tableTh1"><span class="item-number cursor" @click="goBlockDetail(item.number)">{{ item.number }}</span>
+<!--                <a href="#" target="_blank"></a>-->
 <!--                18466814-->
               </td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              <td class="tableTh1">
+                <p>
+                  {{ $t('blockAbout.producer') }}
+                  <a class="cursor" @click="goNodeDetail(item.nodeId)">{{
+                    item.nodeName
+                    }}</a>
+                </p>
               </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              <td class="tableTh1">
+                <span class="item-txns">{{ item.statTxQty }}&nbsp;{{ $t('indexInfo.txns') }}</span>
               </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
 <!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
+              <td class="tableTh1">
+                <span class="item-time">{{ timeDiffFn(item.serverTime, item.timestamp) }}&nbsp;{{
+                  $t('tradeAbout.before')
+                }}</span>
               </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
             </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-              </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-              </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-              </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-            <tr>
-              <td>
-                <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
-              </td>
-              <td class="tableTh1">18466814</td>
-              <td class="tableTh1">ABC007</td>
-              <td class="tableTh1">2 Txns</td>
-<!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">6s ago</td>
-            </tr>
-
           </table>
         </div>
       </div>
@@ -791,73 +811,21 @@ td {
       <div class="line6">
         <div class="line6-1 border-kuang kuangBg">
           <div class="tableHead">
-            <span class="fontCss">Active Bubbles(L2)</span>
-            <a class="viewAll" href="">View All ></a>
+            <span class="fontCss">{{ $t('indexInfo.currentValidators') }}</span>
+            <a class="viewAll" href="/node">View All ></a>
           </div>
           <ul style="margin-top: 50px;padding:0 10px">
-            <li class="twoLi">
+            <li class="twoLi" v-for="(item, index) in ValidatorData.dataList" :key="index">
               <div>
                 <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
               </div>
               <div class="activeBubble-2">
-                <span class="activeBubbleFont-1">ABC007</span>
-                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
+                <span class="activeBubbleFont-1">{{ item.nodeName }}</span>
+                <span class="activeBubbleFont-2">{{ $t('nodeInfo.totalStakePower') }} {{ item.totalValue | formatMoney }} TURN</span>
               </div>
               <div class="activeBubble-3">
-                <span class="activeBubbleFont-1">100.11% Yield</span>
-                <span class="activeBubbleFont-2">6 Rank</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-              </div>
-              <div class="activeBubble-2">
-                <span class="activeBubbleFont-1">ABC007</span>
-                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-              </div>
-              <div class="activeBubble-3">
-                <span class="activeBubbleFont-1">100.11% Yield</span>
-                <span class="activeBubbleFont-2">6 Rank</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-              </div>
-              <div class="activeBubble-2">
-                <span class="activeBubbleFont-1">ABC007</span>
-                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-              </div>
-              <div class="activeBubble-3">
-                <span class="activeBubbleFont-1">100.11% Yield</span>
-                <span class="activeBubbleFont-2">6 Rank</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-              </div>
-              <div class="activeBubble-2">
-                <span class="activeBubbleFont-1">ABC007</span>
-                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-              </div>
-              <div class="activeBubble-3">
-                <span class="activeBubbleFont-1">100.11% Yield</span>
-                <span class="activeBubbleFont-2">6 Rank</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
-              </div>
-              <div class="activeBubble-2">
-                <span class="activeBubbleFont-1">ABC007</span>
-                <span class="activeBubbleFont-2">Total Stakes 10000123123123123123 TURN</span>
-              </div>
-              <div class="activeBubble-3">
-                <span class="activeBubbleFont-1">100.11% Yield</span>
-                <span class="activeBubbleFont-2">6 Rank</span>
+                <span class="activeBubbleFont-1">{{ item.expectedIncome }} {{ $t('nodeInfo.yield2') }}</span>
+                <span class="activeBubbleFont-2">{{item.ranking}} {{ $t('nodeInfo.rank') }}</span>
               </div>
             </li>
           </ul>
@@ -868,7 +836,7 @@ td {
             <a class="viewAll" href="">View All ></a>
           </div>
           <ul style="margin-top: 50px;padding:0 10px">
-            <li class="twoLi">
+            <li class="twoLi" >
               <div>
                 <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
               </div>
@@ -962,7 +930,8 @@ export default {
   name: 'newHome',
   data() {
     return {
-      input: "",
+      selectLayer:'Layer1',//默认选中的layer
+      searchLayer:null,//1 Layer1 ;2 Layer2
       searchKey: '',
       disabledBtn: false,
       isFocus: false,
@@ -1075,6 +1044,15 @@ export default {
     comHeader,
   },
   methods: {
+    selectLayerInput(type){
+      if (type == 1){
+        this.searchLayer = 1;
+        this.selectLayer = "Layer1";
+      }else if (type == 2){
+        this.searchLayer = 2;
+        this.selectLayer = "Layer2";
+      }
+    },
     ...mapMutations({
       hide: 'HIDE_SEARCH',
       updateIsMove: 'UPDATE_IS_MOVE',
