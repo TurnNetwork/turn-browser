@@ -836,64 +836,16 @@ td {
             <a class="viewAll" href="">View All ></a>
           </div>
           <ul style="margin-top: 50px;padding:0 10px">
-            <li class="twoLi" >
+            <li class="twoLi" v-for="(item, index) in bubbleList" :key="index" >
               <div>
                 <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
               </div>
               <div class="activeBubble-2-right">
-                <span class="activeBubbleFont-1">1234567890</span>
-                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
+                <span class="activeBubbleFont-1">{{item.bubbleId}}</span>
+                <span class="activeBubbleFont-2">{{item.createTime | formatTime}}</span>
               </div>
               <div class="activeBubble-3-right">
-                <span class="activeBubbleFont-1">Active</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-              </div>
-              <div class="activeBubble-2-right">
-                <span class="activeBubbleFont-1">1234567890</span>
-                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-              </div>
-              <div class="activeBubble-3-right">
-                <span class="activeBubbleFont-1">Active</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-              </div>
-              <div class="activeBubble-2-right">
-                <span class="activeBubbleFont-1">1234567890</span>
-                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-              </div>
-              <div class="activeBubble-3-right">
-                <span class="activeBubbleFont-1">Active</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-              </div>
-              <div class="activeBubble-2-right">
-                <span class="activeBubbleFont-1">1234567890</span>
-                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-              </div>
-              <div class="activeBubble-3-right">
-                <span class="activeBubbleFont-1">Active</span>
-              </div>
-            </li>
-            <li class="twoLi">
-              <div>
-                <img class="activeBubble-1-right" src="../../assets/imagesV2/svg.png" alt="" />
-              </div>
-              <div class="activeBubble-2-right">
-                <span class="activeBubbleFont-1">1234567890</span>
-                <span class="activeBubbleFont-2">2023-11-01 12:12:12</span>
-              </div>
-              <div class="activeBubble-3-right">
-                <span class="activeBubbleFont-1">Active</span>
+                <span class="activeBubbleFont-1">{{item.status | formatBubbleStatus}}</span>
               </div>
             </li>
           </ul>
@@ -930,6 +882,7 @@ export default {
   name: 'newHome',
   data() {
     return {
+      bubbleList:null,
       selectLayer:'Layer1',//默认选中的layer
       searchLayer:null,//1 Layer1 ;2 Layer2
       searchKey: '',
@@ -1113,6 +1066,21 @@ export default {
         .then((res) => {
           let { errMsg, code, data } = res;
           this.updateValidators(data);
+        })
+        .catch((error) => {
+          this.$message.error(error);
+        });
+    },
+    getBubbleList() {
+      console.log("请求bubbleList接口")
+      let param = {pageNo:1,pageSize:10,queryStatus:'all'};
+      apiService.search
+        .bubbleList(param)
+        .then((res) => {
+          let { errMsg, code, data } = res;
+          this.bubbleList = data;
+          console.log("bubbleList是:",this.bubbleList);
+          //this.updateValidators(data);
         })
         .catch((error) => {
           this.$message.error(error);
@@ -1414,7 +1382,8 @@ export default {
     // indexService = new IndexService();
     //当选验证节点
     this.getStaking();
-
+    //bubbleList接口
+    this.getBubbleList();
     //统计数据
     this.getStatistic();
     //图标数据

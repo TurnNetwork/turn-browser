@@ -53,6 +53,7 @@ const BASE = process.env.VUE_APP_API_ROOT,
   SEARCH = {
     query: `${HOME_URL}/queryNavigation`,
     stakingOnIndex: `${HOME_URL}/stakingList`,
+    bubbleList: `${BASE}/bubble/list`,
     blockOnIndex: `${HOME_URL}/blockList`,
     blockStatistic: `${HOME_URL}/blockStatistic`,
     chainStatistic: `${HOME_URL}/chainStatistic`

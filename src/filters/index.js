@@ -129,13 +129,28 @@ const dealTokenName = Vue.filter("tokenName", (row, attrMap = ['name', 'symbol']
   let name, symbol;
   name = row[attrMap[0]]
   if (!name) {
-   return emptyStr 
+   return emptyStr
   }
   symbol = row[attrMap[1]]
   if (!symbol) {
     return name
   }
   return `${name} (${symbol})`
+});
+
+// bubble记录状态
+const formatBubbleStatus = Vue.filter("formatBubbleStatus", data => {
+  if (data) {
+    if (data == 1){
+      return "Active";
+    }else if (data == 2){
+      return "Releasing";
+    }else if (data == 3){
+      return "Released";
+    }else{
+      return "None";
+    }
+  }
 });
 
 export default [
@@ -147,5 +162,6 @@ export default [
   sliceStr,
   formatTime,
   sliceFloat,
-  dealTokenName 
+  dealTokenName,
+  formatBubbleStatus
 ];
