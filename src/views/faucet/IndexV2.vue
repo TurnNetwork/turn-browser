@@ -1,43 +1,30 @@
 <template>
-  <div class="faucet-wrap" v-loading="loading">
-
-    <!--    <div class="tou">-->
-    <!--      <img src="../../assets/imagesV2/Vector 7.png" alt="" />-->
-    <!--    </div>-->
-
-    <h2>Bubble Network Faucet</h2>
-    <span class="title-em">
-      Drops are limited to 1 request in 24 hours / Token .
-    </span>
-    <el-form>
-      <el-form-item label="Select Token:">
-        <el-select class="_faucet_form" placeholder="please select token" v-model="token">
-          <el-option v-for="item in tokenList" :key="item.type" :value="item.type" :label="item.label"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="Wallet:">
-        <el-input class="_faucet_form" placeholder="Enter your wallet address(0x...)" v-model="address"> </el-input>
-      </el-form-item>
-    </el-form>
-    <!-- <el-button :loading="loading" class="_button" type="primary" @click="request">Request</el-button> -->
-    <!--    <span :loading="loading" class="download-btn _button" @click="request">Request</span>-->
-    <img class="download-btn _button" src="../../assets/imagesV2/blue.png" alt="" />
-
-    <el-dialog title="Success" :visible.sync="centerDialogVisible" width="50%" center>
-      <div>
-        <div class="info-wrap">
-          <span class="label">Address:</span><span @click="link(address, 'address')">
-            <!-- @click="link(window.location.href = `/address-detail?address=${tHash}`)"> -->
-            {{
-              address }}</span>
-        </div>
-        <div class="info-wrap">
-          <span class="label">txHash:</span><span @click="link(tHash, 'hash')">{{
-            tHash }}</span>
-        </div>
-      </div>
+  <div class="faucet-wrap" v-loading.fullscreen="loading">
+    <div class="faucet-main">
+      <h2>Turn Network Faucet</h2>
+      <span class="title-em">
+        Drops are limited to 1 request in 24 hours / Token .
+      </span>
+      <el-form>
+        <el-form-item label="Select Token:">
+          <el-select class="_faucet_form" :popper-append-to-body="false" placeholder="please select token"
+            v-model="token">
+            <el-option v-for="item in tokenList" :key="item.type" :value="item.type" :label="item.label"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="Wallet:">
+          <el-input class="_faucet_form" placeholder="Enter your wallet address(0x...)" v-model="address"> </el-input>
+        </el-form-item>
+      </el-form>
+      <button class="_request" @click="request">Request</button>
+    </div>
+    <el-dialog title=" " :visible.sync="centerDialogVisible" width="494px" center>
+      <template>
+        <div class="_request_title">Request successful</div>
+        <div class="info-title">Transaction Hash</div>
+        <div class="info-wrap" @click="link(tHash, 'hash')">{{ tHash | filterHash }}</div>
+      </template>
       <span slot="footer" class="dialog-footer">
-        <!-- <el-button @click="centerDialogVisible = false">取 消</el-button> -->
         <el-button type="primary" @click="centerDialogVisible = false">OK</el-button>
       </span>
     </el-dialog>
@@ -132,6 +119,11 @@ export default {
   //生命周期函数
   created() {
   },
+  filters: {
+    filterHash(str) {
+      return str && (`${str.substr(0, 10)}...${str.substr(str.length - 10,)}`)
+    }
+  },
   mounted() {
 
 
@@ -148,61 +140,149 @@ export default {
 }
 
 .faucet-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: url("../../assets/imagesV2/Vector 7.png") no-repeat center;
-  background-size: 100%;
   color: white;
+  min-height: calc(100vh - 102px);
+  margin-top: -102px;
+  padding-bottom: 109px;
+  position: relative;
+
+  /deep/.el-form-item__label {
+    color: rgba(#F1F2F4, .6);
+  }
+
+  /deep/.el-form {
+    padding-top: 20px;
+
+    .el-form-item {
+      &:first-child {
+        margin-bottom: 12px;
+      }
+
+      .el-input,
+      .el-select {
+        background: transparent;
+
+        input {
+          color: rgba(#F1F2F4, .8);
+          background: transparent;
+        }
+
+        //输入框
+        input::-webkit-input-placeholder {
+          color: #6C7584;
+        }
+
+        input:-ms-input-placeholder {
+          color: #6C7584;
+        }
+
+        input::-ms-input-placeholder {
+          color: #6C7584;
+        }
+
+        input::placeholder {
+          color: #6C7584;
+        }
+      }
+    }
+  }
+
+  .faucet-main {
+    padding-top: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+  }
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../../assets/imagesV2/Frame98.png") no-repeat;
+    background-size: 100% 115%;
+    z-index: 0;
+    opacity: .8;
+  }
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../../assets/imagesV2/Vector 7.png") no-repeat;
+    background-size: 100vh;
+    background-position-x: 50%;
+    opacity: .45;
+    z-index: 0;
+  }
 
   h2 {
-    margin-top: 100px;
-    margin-bottom: 20px;
-    font-size: 40px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 700;
+    color: #CCE3FF;
   }
 
   .title-em {
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 50px;
+    color: #CCE3FF;
   }
 }
 
-/deep/ ._faucet_form {
+._faucet_form {
   border: 1px solid #999;
   border-radius: 4px;
   width: 380px;
+
+  /deep/.el-select-dropdown {
+    width: 380px;
+    background: rgba(21, 25, 30, .9);
+    margin-left: -5px;
+  }
 }
 
-.download-btn {
-  //border: 1px solid #0798de;
-  border-radius: 2px;
-  padding: 8px 50px;
-  font-size: 14px;
-  color: #0798de;
-  letter-spacing: 0;
-  cursor: pointer;
+.faucet-wrap {
+  /deep/.el-dialog {
+    border-radius: var(--Number12, 12px);
+    border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+    background: var(--Gray-200, #15191E);
 
-  white-space: nowrap;
-  //height: 37px;
+    ._request_title {
+      font-size: 26px;
+      color: var(--Gray-900, #D5D8DD);
+    }
+  }
+}
+
+
+._request {
+  margin-top: 30px;
+  width: 380px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--Gray-900, #D5D8DD);
+  border-radius: var(--Number6, 6px);
+  border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), var(--Blue-600, #0075FF);
+  box-shadow: 0px 3px 6px 0px var(--Blue-300, #002F66);
 
   &:hover {
-    color: #5cb2db;
-    //border: 1px solid #5cb2db;
+    color: #fff;
   }
 
   &:active {
     color: #0e52ac;
-    //border: 1px solid #0e52ac;
   }
-}
-
-._button {
-  margin-top: 50px;
-  width: 380px;
-  display: flex;
-  justify-content: center;
 }
 
 ._transactionHash {
@@ -216,34 +296,21 @@ export default {
   width: 500px;
 }
 
-.info-wrap {
-  display: flex;
-  // align-items: center;
+.info-title {
+  color: var(--Gray-900, #D5D8DD);
+  font-size: 14px;
   margin-top: 20px;
-
-  .label {
-    flex: 0 0 120px;
-    width: 120px;
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  span {
-    cursor: pointer;
-    color: #0798de;
-    word-wrap: break-word;
-    word-break: break-all;
-    line-height: 20px;
-  }
-
-  .label {
-    color: #030911;
-  }
+  margin-bottom: 10px;
 }
 
-/deep/ .el-dialog__title {
-  color: #030911;
-  font-weight: 800;
+.info-wrap {
+  color: var(--Blue-600, #0075FF);
+  font-size: 14px;
+  opacity: .8;
+}
+
+/deep/.el-dialog__footer {
+  text-align: end;
 }
 </style>
 

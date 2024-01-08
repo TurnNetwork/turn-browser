@@ -141,6 +141,18 @@ export default {
   background: #030911;
   color: rgb(153, 153, 153);
   height: 330px;
+  position: relative;
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 510px);
+    background: linear-gradient(90deg, rgba(146, 190, 255, 0.00) 0%, #92BEFF 50.52%, rgba(146, 190, 255, 0.00) 100%);
+    height: 1px;
+    width: 1040px;
+    opacity: .6;
+  }
 
   // @media (max-width: 750px) {
   //   padding: 0 5.2%;

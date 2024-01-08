@@ -1,0 +1,39 @@
+<svg width="1240" height="855" viewBox="0 0 1240 855" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M213 -2V838" stroke="url(#paint0_linear_80_7372)" stroke-opacity="0.3"/>
+<path d="M1021 -2V838" stroke="url(#paint1_linear_80_7372)" stroke-opacity="0.3"/>
+<path d="M1240 138L4.52995e-06 138" stroke="url(#paint2_linear_80_7372)" stroke-opacity="0.3"/>
+<path d="M1240 276L4.52995e-06 276" stroke="url(#paint3_linear_80_7372)" stroke-opacity="0.3"/>
+<path d="M1240 598L4.52995e-06 598" stroke="url(#paint4_linear_80_7372)" stroke-opacity="0.3"/>
+<defs>
+<linearGradient id="paint0_linear_80_7372" x1="213.5" y1="-2" x2="213.5" y2="838" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.171875" stop-color="white"/>
+<stop offset="0.854167" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_80_7372" x1="1021.5" y1="-2" x2="1021.5" y2="838" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.171875" stop-color="white"/>
+<stop offset="0.854167" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_80_7372" x1="1240" y1="138.5" x2="-3.22602e-08" y2="138.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.171875" stop-color="white"/>
+<stop offset="0.854167" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear_80_7372" x1="1240" y1="276.5" x2="-3.22602e-08" y2="276.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.171875" stop-color="white"/>
+<stop offset="0.854167" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint4_linear_80_7372" x1="1240" y1="598.5" x2="-3.22602e-08" y2="598.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0"/>
+<stop offset="0.171875" stop-color="white"/>
+<stop offset="0.854167" stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
