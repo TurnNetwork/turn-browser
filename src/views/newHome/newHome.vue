@@ -714,7 +714,7 @@ td {
               <th class="myTh">{{ $t('blockAbout.producer').toUpperCase() }}</th>
             </tr>
             <tr>
-              <td class="myTd">{{ tooltipData.txs }}</td>
+              <td class="myTd cursor hoverBlue" @click="$router.push('/trade')">{{ tooltipData.txs }}</td>
               <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>
             </tr>
             <tr>
@@ -723,8 +723,8 @@ td {
             </tr>
             <tr>
               <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
-              <td class="myTd">
-                <a>
+              <td class="myTd cursor hoverBlue">
+                <a @click="goProposal">
                   {{ blockStatisticData.doingProposalQty | formatNumber }}
                   <span>/ {{ blockStatisticData.proposalQty | formatNumber }}</span>
                 </a>
