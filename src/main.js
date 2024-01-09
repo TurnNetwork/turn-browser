@@ -59,8 +59,8 @@ Vue.config.productionTip = false;
 // localStorage.setItem('i18nLocale', 'zh-cn')
 // } else if (lang == 'en'){
 //     //英文
-localStorage.setItem('i18nLocale', 'en')
-// localStorage.setItem('i18nLocale', 'zh-cn')
+// localStorage.setItem('i18nLocale', 'en')
+localStorage.setItem('i18nLocale', 'zh-cn')
 // }
 const language = navigator.language || window.navigator['browserLanguage'];
 let browserLanguage = localStorage.getItem('i18nLocale')

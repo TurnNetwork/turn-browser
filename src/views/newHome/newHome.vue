@@ -3,6 +3,11 @@
   margin: 0;
   padding: 0
 }
+.hoverBlue{
+  &:hover {
+    color: #66b7de;
+  }
+}
 
 .box-div {
   display: flex;
@@ -687,7 +692,7 @@ td {
               <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTIME') }}</th>
             </tr>
             <tr>
-              <td class="myTd"><a class="cursor" @click="goBlockDetail(blockStatisticData.currentNumber)">{{ blockStatisticData.currentNumber
+              <td class="myTd"><a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">{{ blockStatisticData.currentNumber
                 }}</a></td>
 <!--              <td class="myTd">1.0032</td>-->
               <td class="myTd">{{ tooltipData.time }}s</td>
@@ -710,7 +715,7 @@ td {
             </tr>
             <tr>
               <td class="myTd">{{ tooltipData.txs }}</td>
-              <td class="myTd"><a class="cursor" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>
+              <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>
             </tr>
             <tr>
               <th class="myTh">Total Number Of L2 Transactions</th>
@@ -783,14 +788,14 @@ td {
                 <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
               </td>
 <!--              <td class="tableTh1 cursor hoverTd">-->
-                <td class="tableTh1"><span class="item-number cursor" @click="goBlockDetail(item.number)">{{ item.number }}</span>
+                <td class="tableTh1 hoverBlue"><span class="item-number cursor" @click="goBlockDetail(item.number)">{{ item.number }}</span>
 <!--                <a href="#" target="_blank"></a>-->
 <!--                18466814-->
               </td>
               <td class="tableTh1">
                 <p>
                   {{ $t('blockAbout.producer') }}
-                  <a class="cursor" @click="goNodeDetail(item.nodeId)">{{
+                  <a class="cursor hoverBlue" @click="goNodeDetail(item.nodeId)">{{
                     item.nodeName
                     }}</a>
                 </p>
@@ -816,13 +821,13 @@ td {
             <a class="viewAll" href="/node">View All ></a>
           </div>
           <ul style="margin-top: 50px;padding:0 10px">
-            <li class="twoLi" v-for="(item, index) in ValidatorData.dataList" :key="index">
+            <li class="twoLi cursor" v-for="(item, index) in ValidatorData.dataList" :key="index" @click="goNodeDetail(item.nodeId)">
               <div>
                 <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
               </div>
               <div class="activeBubble-2">
-                <span class="activeBubbleFont-1">{{ item.nodeName }}</span>
-                <span class="activeBubbleFont-2">{{ $t('nodeInfo.totalStakePower') }} {{ item.totalValue | formatMoney }} TURN</span>
+                <span class="activeBubbleFont-1 hoverBlue">{{ item.nodeName }}</span>
+                <span class="activeBubbleFont-2 hoverBlue">{{ $t('nodeInfo.totalStakePower') }} {{ item.totalValue | formatMoney }} TURN</span>
               </div>
               <div class="activeBubble-3">
                 <span class="activeBubbleFont-1">{{ item.expectedIncome }} {{ $t('nodeInfo.yield2') }}</span>
