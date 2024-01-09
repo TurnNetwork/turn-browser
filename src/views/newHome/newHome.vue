@@ -302,9 +302,10 @@ td {
 .box-div .line6 .line6-1 {
   display: block;
   //border: 1px solid #094296;
-  height: 480px;
-  width: 600px;
-  float: left;
+  //height: 480px;
+  /*width: 600px;*/
+  width: 100%;
+  //float: left;
   /*margin-right: 20px;*/
   border-radius: 10px;
   text-align: center;
@@ -683,7 +684,7 @@ td {
           <table>
             <tr>
               <th class="myTh">{{ $t('indexInfo.LIVEBLOCKHEIGHT') }}</th>
-              <th class="myTh">Real-time Block Generation uration(s)/实时出块时长</th>
+              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTIME') }}</th>
             </tr>
             <tr>
               <td class="myTd"><a class="cursor" @click="goBlockDetail(blockStatisticData.currentNumber)">{{ blockStatisticData.currentNumber
@@ -697,7 +698,7 @@ td {
             </tr>
             <tr>
               <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
-              <td class="myTd">12.18M</td>
+              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
             </tr>
           </table>
         </div>
@@ -716,7 +717,7 @@ td {
               <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
             </tr>
             <tr>
-              <td class="myTd">120.18M</td>
+              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
               <td class="myTd">
                 <a>
                   {{ blockStatisticData.doingProposalQty | formatNumber }}
@@ -830,7 +831,7 @@ td {
             </li>
           </ul>
         </div>
-        <div class="line6-1 border-kuang kuangBg">
+        <div class="line6-1 border-kuang kuangBg" style="display: none">
           <div class="tableHead">
             <span class="fontCss">Active Bubbles(L2)</span>
             <a class="viewAll" href="">View All ></a>
@@ -1382,8 +1383,8 @@ export default {
     // indexService = new IndexService();
     //当选验证节点
     this.getStaking();
-    //bubbleList接口
-    this.getBubbleList();
+    //bubbleList接口,等待layer2开发好
+    //this.getBubbleList();
     //统计数据
     this.getStatistic();
     //图标数据
