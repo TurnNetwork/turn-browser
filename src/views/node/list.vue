@@ -279,8 +279,8 @@
     <div v-else class="table" v-loading="tLoading" :class="{ 'node-table': windowWidth < 750 || windowWidth > 1800 }">
       <div class="table-content">
         <!-- <div class="table-content" :style="{height: windowWidth < 750 ? 'auto' : 'calc(100vh - 280px)'}"> -->
-        <el-table :data="tableData"
-          :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'">
+        <el-table :data="tableData">
+<!--          :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'"-->
           <el-table-column fixed :label="$t('nodeInfo.rank')" :width="50" align="center" prop="ranking">
           </el-table-column>
           <el-table-column :min-width="issafariBrowser ? 158 : 180">
@@ -885,7 +885,7 @@ export default {
 }
 
 .node-table .el-table {
-  overflow: visible;
+  /*overflow: visible;*/
 
   .cell {
     overflow: visible;
@@ -916,7 +916,7 @@ export default {
   overflow-x: auto;
 
   .el-table__header-wrapper {
-    overflow: visible;
+    /*overflow: visible;*/
   }
 }
 

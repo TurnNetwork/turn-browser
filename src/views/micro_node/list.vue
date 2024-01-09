@@ -489,7 +489,7 @@ export default {
 }
 
 .node-table .el-table {
-  overflow: visible;
+  /*overflow: visible;*/
 
   .cell {
     overflow: visible;
@@ -520,7 +520,7 @@ export default {
   overflow-x: auto;
 
   .el-table__header-wrapper {
-    overflow: visible;
+    /*overflow: visible;*/
   }
 }
 

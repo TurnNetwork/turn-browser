@@ -15356,8 +15356,8 @@
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  width: 100%;
-  max-width: 100%;
+  /*width: 100%;*/
+  /*max-width: 100%;*/
   background-color: #fff;
   font-size: 14px;
   color: #030303; }
