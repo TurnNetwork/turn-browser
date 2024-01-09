@@ -742,7 +742,7 @@ export default {
 
 .validators-search {
   width: 400px;
-  height: 42px;
+  height: 44px;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
   display: flex;
