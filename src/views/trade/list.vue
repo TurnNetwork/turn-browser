@@ -18,12 +18,12 @@
         }}</span>
       </div>
       <!-- 上部分页标签 -->
-      <div class="pagination-box1">
-        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
-          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" layout="prev, pager, next"
-          :page-size="pageSize" :total="pageTotal > 500000 ? 500000 : pageTotal"
-          :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
-      </div>
+<!--      <div class="pagination-box1">-->
+<!--        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"-->
+<!--          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" layout="prev, pager, next"-->
+<!--          :page-size="pageSize" :total="pageTotal > 500000 ? 500000 : pageTotal"-->
+<!--          :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>-->
+<!--      </div>-->
     </div>
     <!-- 主表格区域 -->
     <div class="table">
@@ -101,7 +101,7 @@
         </el-table-column>
 
         <!-- 交易费用（TxFee） -->
-        <el-table-column show-overflow-tooltip width="120">
+        <el-table-column show-overflow-tooltip width="150">
           <template slot="header">
             {{ $t('tradeAbout.fee') }}
             <span style="color: #999999">(TURN)</span>
