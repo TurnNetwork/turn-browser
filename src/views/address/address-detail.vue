@@ -2,14 +2,14 @@
   <div class="contract-detail-wrap">
     <div class=" content-top-black contract-detail-top content-padding">
       <!-- 地址详情 -->
-      <div class="page-title fontSize34">
+      <div class="page-title">
         {{ $t('contract.addressDetail') }}
       </div>
 
       <div class="detail-change">
         <div class="detail-copy">
           <div>
-            <span>{{ $t('contract.address') }}</span>
+            <span class="title">{{ $t('contract.address') }}</span>
             <i>#{{ showAdr }}</i>
             <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="showAdr" v-clipboard:success="onCopy"
               v-clipboard:error="onError">
@@ -139,20 +139,13 @@
 
     <div class="address-trade gray-content content-padding">
       <!-- 地址tab -->
-      <div class="tabs">
+      <div class="_tabs">
         <el-button size="medium" :class="{ active: tabIndex == 1 }" @click="tabChange(1)">{{ $t('contract.transactions')
         }}</el-button>
         <el-button size="medium" :class="{ active: tabIndex == 2 }" @click="tabChange(2)">{{ $t('tokens.erc20Tokens')
         }}</el-button>
         <el-button size="medium" :class="{ active: tabIndex == 3 }" @click="tabChange(3)">{{ $t('tokens.erc721Tokens')
         }}</el-button>
-        <!-- <el-button
-          size="medium"
-          :class="{ active: tabIndex == 4 }"
-          @click="tabChange(4)"
-
-          >{{ $t('tokens.erc1155Tokens') }}</el-button
-        > -->
         <el-button size="medium" :class="{ active: tabIndex == 5 }" @click="tabChange(5)"
           v-if="isAddressDetailsDelegation">{{ $t('contract.delegations') }}</el-button>
         <el-button size="medium" :class="{ active: tabIndex == 6 }" @click="tabChange(6)" v-if="isAddressDetailsReward">{{
@@ -330,6 +323,39 @@ export default {
   }
 }
 
+.overview-wrap {
+  border-radius: 12px;
+  border: 1px solid var(--Gray-500, #535A65);
+  background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+  padding: 25px 27px;
+
+  .Gilroy-Medium {
+    color: var(--Gray-900, #D5D8DD);
+    font-size: 16px;
+  }
+
+  .overview ul li {
+    border-bottom: none;
+    color: rgba(#D5D8DD, .6);
+    padding-left: 0;
+    justify-content: flex-start;
+
+    .money {
+      color: rgba(#D5D8DD, .6);
+      font-size: 14px;
+    }
+
+    .Gilroy-Medium {
+      color: rgba(#D5D8DD, .6);
+      font-size: 14px;
+    }
+
+    label {
+      width: 200px;
+    }
+  }
+}
+
 @media (max-width: 750px) {
   .detail-change {
     .detail-copy {
@@ -350,6 +376,9 @@ export default {
 
   .overview-wrap {
     flex-direction: column;
+    border-radius: 0px var(--Number12, 12px) var(--Number12, 12px) var(--Number12, 12px);
+    border: 1px solid var(--Gray-500, #535A65);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
 
     .el-col {
       width: 100%;
@@ -370,14 +399,32 @@ export default {
     }
   }
 
-  .address-trade {
-    .tabs {
-      button {
-        margin-right: 12px;
-        margin-left: 0 !important;
-        margin-bottom: 15px;
-      }
-    }
+  .address-trade {}
+}
+
+._tabs {
+  border-radius: var(--Number8, 8px);
+  border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+  background: var(--Gray-200, #15191E);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--Gray-1000, #F1F2F4);
+    font-size: 16px;
+  }
+
+  .active {
+    color: #F1F2F4;
+    border-radius: var(--Number4, 4px);
+    border: 1px solid var(--Transparency-200, rgba(255, 255, 255, 0.06));
+    background: var(--Gray-400, #32373E) !important;
+    box-shadow: 0px 1px 4px 0px var(--Gray-100, #030911);
   }
 }
 </style>

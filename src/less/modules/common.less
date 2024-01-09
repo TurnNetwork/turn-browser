@@ -565,12 +565,13 @@ body {
 
   .code {
     display: inline-block;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     margin-bottom: -6px;
-    border: 1px solid #f5f5f5;
+    margin-left: 16px;
+    // border: 1px solid #f5f5f5;
     border-radius: 2px;
-    background: url(../../assets/images/icon-code.svg) no-repeat center center;
+    background: url(../../assets/imagesV2/qr-code-round.png) no-repeat center center;
   }
 }
 
@@ -1067,10 +1068,6 @@ body {
     }
   }
 
-  .page-title {
-    font-size: 30px;
-    line-height: 50px;
-  }
 
   .trade-wrap,
   .pend-wrap,
@@ -1136,4 +1133,61 @@ table {
 
 .validators-search  {
   background: #030911;
+}
+
+
+.table {
+  position: relative;
+
+  .download-btn {
+    position: absolute;
+    right: 0;
+    top: 0px;
+  }
+
+  .el-tabs {
+    .el-tabs__header {
+      margin-bottom: 0px;
+      border-bottom: none;
+
+      .el-tabs__nav {
+        border: none;
+      }
+
+      .el-tabs__item {
+        border: 1px solid #535A65;
+        padding: 0px 24px;
+        border-radius: 12px 12px 0px 0px;
+        margin-left: -1px;
+        &:first-child {
+          margin-left: 0px;
+        }
+
+      }
+      .el-tabs__item.is-active {
+        border-bottom: 1px solid #1d2229;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .el-table {
+      border-radius: 0px 12px 12px 12px !important;
+    }
+  }
+}
+
+.page-title {
+  color: var(--Gray-900, #D5D8DD);
+  text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.detail-copy {
+  .title {
+    color: var(--Gray-600, #6C7584);
+    font-size: 26px;
+  }
 }

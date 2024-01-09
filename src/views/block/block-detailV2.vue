@@ -3,8 +3,11 @@
     <div class="page-title fontSize34">{{ $t('blockAbout.blockDetail') }}</div>
     <div class="detail-change">
       <div class="detail-copy">
-        <span>{{ $t('tradeAbout.block') }}</span>
-        <i>#{{ detailInfo.number }}</i>
+        <div class="detail-title">Block Details</div>
+        <span class="detail-layer">
+          <span>Block L1</span>
+          <i>#{{ detailInfo.number }}</i>
+        </span>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.number" v-clipboard:success="onCopy"
           v-clipboard:error="onError">
           <p v-show="isCopy">
@@ -12,15 +15,15 @@
           </p>
         </b>
       </div>
-      <div class="detail-arrow">
-        <el-tooltip class="item" effect="dark" placement="top" :content="$t('blockAbout.viewPrev')">
+      <!-- <div class="detail-arrow"> -->
+      <!-- <el-tooltip class="item" effect="dark" placement="top" :content="$t('blockAbout.viewPrev')">
           <el-button icon="el-icon-arrow-left" @click="goDetail(height - 1)" :disabled="disabledLeft"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" placement="top" :content="$t('blockAbout.viewNext')">
           <el-button icon="el-icon-arrow-right" @click="goDetail(height - 0 + 1)" :disabled="disabledRight"></el-button>
-        </el-tooltip>
-        <!-- <el-button icon="el-icon-arrow-right"></el-button> -->
-      </div>
+        </el-tooltip> -->
+      <!-- <el-button icon="el-icon-arrow-right"></el-button> -->
+      <!-- </div> -->
     </div>
     <div class="information">
       <!-- 基础交易 -->
@@ -146,6 +149,8 @@ export default {
       return timeDiff(beginTime, endTime);
     },
     onCopy() {
+      console.log(123123);
+
       this.copyText = this.$t('modalInfo.copysuccess');
       this.isCopy = true;
       setTimeout(() => {
@@ -154,6 +159,7 @@ export default {
       }, 2000);
     },
     onError() {
+      console.log(121233123);
       this.copyText = this.$t('modalInfo.copyfail');
       this.isCopy = true;
       setTimeout(() => {
@@ -199,17 +205,43 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.detail-title {
+  color: var(--Gray-900, #D5D8DD);
+  text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+  font-family: Montserrat-Bold;
+  font-size: 48px;
+  font-style: normal;
+}
+
+.detail-layer {
+
+  span {
+    color: var(--Gray-600, #6C7584);
+    font-family: Montserrat-SemiBold;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  i {
+    font-size: 26px;
+    color: #D5D8DD;
+    font-family: Montserrat-SemiBold;
+  }
+}
+
+.detail-copy {
+  line-height: normal;
+}
+
 .block-trade {
-  border: 1px solid #f5f5f5;
   margin: 31px 0 50px;
 
   .block-trade-title {
     font-size: 20px;
-    color: #030911;
+    color: #fff;
     line-height: 24px;
     padding: 9px 20px;
-    border-top: 2px solid #030911;
-    //border-bottom: 1px solid #f5f5f5;
     margin-bottom: 20px;
 
   }
@@ -249,12 +281,6 @@ export default {
 <style lang="less">
 .block-detail-wrap {
   padding-bottom: 1px;
-
-  .item-wrap {
-    // padding-left: 50px;
-    /*margin: 0 30px 5px 30px;*/
-    //margin: 0 0 0 0;
-  }
 }
 
 .blockHeight p {

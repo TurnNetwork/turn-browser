@@ -1,15 +1,15 @@
 <template>
   <div class="trade-detail-wrap">
-    <div class="page-title fontSize34">{{ $t('tradeAbout.tradeDetail') }}</div>
+    <div class="page-title">{{ $t('tradeAbout.tradeDetail') }}</div>
     <div class="detail-change">
       <div class="detail-copy">
-        <span>{{ $t('tradeAbout.transactions') }}</span>
+        <span class="title">L1 {{ $t('tradeAbout.transactions') }}</span>
         <i>#{{ detailInfo.txHash }}</i>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.txHash" v-clipboard:success="onCopy"
           v-clipboard:error="onError">
           <p v-show="isCopy">
             <i class="el-icon-circle-check-outline"></i>
-            <span>{{ copyText }}</span>
+            <span style="color: #ccc;">{{ copyText }}</span>
           </p>
         </b>
       </div>
@@ -41,7 +41,7 @@
 
       <!-- 基础交易 -->
       <!-- 0：转账  4：其他  5：MPC交易 4000: 创建锁仓计划(创建锁仓) -->
-      <List :title="detailTitle(detailInfo.txType)" :border="true" v-if="detailInfo.txType == '0' ||
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '0' ||
         detailInfo.txType == '4' ||
         detailInfo.txType == '5' ||
         detailInfo.txType == '4000'
@@ -112,7 +112,7 @@
       </List>
 
       <!--1：合约发布(合约创建)  2：合约调用(合约执行)  -->
-      <List :title="detailTitle(detailInfo.txType)" :border="true" v-if="detailInfo.txType == '1' ||
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '1' ||
         detailInfo.txType == '2' ||
         detailInfo.txType == '6' ||
         detailInfo.txType == '7' ||
@@ -278,8 +278,7 @@
 
       <!-- 委托交易-->
       <!-- 1004: 发起委托 (委托) 1005: 减持/撤销委托(赎回委托) -->
-      <List :title="detailTitle(detailInfo.txType)" :border="true"
-        v-if="detailInfo.txType == '1005' || detailInfo.txType == '1004'">
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '1005' || detailInfo.txType == '1004'">
         <!-- 委托人 -->
         <Item :label="$t('tradeAbout.delegator')">
           <router-link class="cursor normal ellipsis" :to="getAddressUrl(detailInfo.from)">{{ detailInfo.from
@@ -328,7 +327,7 @@
       </List>
 
       <!-- 提取委托-->
-      <List :title="detailTitle(detailInfo.txType)" :border="true" v-if="detailInfo.txType == '1006'">
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '1006'">
         <!-- 委托人 -->
         <Item :label="$t('tradeAbout.delegator')">
           <router-link class="cursor normal ellipsis" :to="getAddressUrl(detailInfo.from)">{{ detailInfo.from
@@ -347,7 +346,7 @@
 
       <!-- 领取奖励 TODO  -->
       <!-- 5000: 领取奖励 -->
-      <List :title="detailTitle(detailInfo.txType)" :border="true" v-if="detailInfo.txType == '5000'">
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '5000'">
         <!-- 委托人 -->
         <Item :label="$t('tradeAbout.delegator')">
           <router-link class="cursor normal ellipsis" :to="getAddressUrl(detailInfo.from)">{{ detailInfo.from
@@ -385,7 +384,7 @@
         2003: 给提案投票(提案投票)
         2004: 版本声明
         2005: 取消提案 -->
-      <List :title="detailTitle(detailInfo.txType)" :border="true" v-if="detailInfo.txType == '2000' ||
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '2000' ||
         detailInfo.txType == '2001' ||
         detailInfo.txType == '2002' ||
         detailInfo.txType == '2003' ||
@@ -499,7 +498,7 @@
         1002: 增持质押(增持自由质押)
         1003: 撤销质押(退出验证人)
         3000: 举报多签(举报验证人)-->
-      <List :title="detailTitle(detailInfo.txType)" :border="true" v-if="detailInfo.txType == '1000' ||
+      <List :title="detailTitle(detailInfo.txType)" v-if="detailInfo.txType == '1000' ||
         detailInfo.txType == '1001' ||
         detailInfo.txType == '1002' ||
         detailInfo.txType == '1003' ||
@@ -623,7 +622,7 @@
       <!-- 基础交易end -->
 
       <!-- 交易信息information -->
-      <div class="list-wrap common-info" :class="{ 'border': true }">
+      <div class="list-wrap common-info table">
         <el-tabs type="card">
           <el-tab-pane :label="$t('tradeAbout.information')">
             <div class="item-wrap" :class="{ 'flex-inline': false, 'flex-vertical': !false }">
@@ -940,6 +939,21 @@ export default {
   width: 600px;
 }
 
+.page-title {
+  color: var(--Gray-900, #D5D8DD);
+  text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.detail-copy {
+  .title {
+    color: var(--Gray-600, #6C7584);
+    font-size: 26px;
+  }
+}
+
 .logs_wrap {
   display: flex;
 
@@ -962,15 +976,16 @@ export default {
   margin: 31px 0 50px;
 }
 
-/deep/.el-tabs__item {
-  color: #030911;
-}
+// /deep/.el-tabs__item {
+//   color: #030911;
+// }
 
 .warn-info {
   background: #fff7e3;
   border: 1px solid #ffc017;
   max-width: 900px;
   width: 100%;
+  color: #ffc017;
   margin-bottom: 20px;
   border-radius: 4px;
   padding: 10px 15px;
@@ -1153,7 +1168,10 @@ export default {
   }
 
   .item-wrap {
-    padding-left: 50px;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--Gray-500, #535A65);
+    background: #1d2229;
   }
 }
 
@@ -1201,18 +1219,18 @@ export default {
 
 
 .list-wrap {
-  &.border {
-    border: 1px solid #F5F5F5;
-  }
+  // &.border {
+  //   border: 1px solid #F5F5F5;
+  // }
 
   .title {
     font-size: 20px;
     color: #F5F5F5;
     line-height: 24px;
-    padding: 9px 20px;
-    border-top: 2px solid #030911;
-    border-bottom: 1px solid #F5F5F5;
-    margin-bottom: 30px;
+    padding: 9px 10px !important;
+    // border-top: 2px solid #030911;
+    // border-bottom: 1px solid #F5F5F5;
+    // margin-bottom: 30px;
     font-family: Gilroy-Medium;
   }
 }

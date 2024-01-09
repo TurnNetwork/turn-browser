@@ -82,9 +82,9 @@ export default {
   margin-bottom: 10px;
 
   p {
-    width: 474px;
+    // width: 474px;
     min-height: 86px;
-    border: 1px solid #f5f5f5;
+    // border: 1px solid #f5f5f5;
     word-break: break-all;
     border-radius: 1px;
     padding: 6px;

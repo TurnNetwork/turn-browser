@@ -60,7 +60,7 @@ export default {
         /*padding: 9px 20px;*/
         padding: 9px 0;
         //border-top:2px solid #030911;
-        border-bottom: 1px solid #F5F5F5;
+        // border-bottom: 1px solid #F5F5F5;
         //margin-bottom: 30px;
 
     }
@@ -70,19 +70,14 @@ export default {
     display: flex;
     flex-flow: column wrap;
     // padding-left: 50px;
-    padding-bottom: 15px;
+    padding: 24px;
+    border-radius: var(--Number12, 12px);
+    border: 1px solid var(--Gray-500, #535A65);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
 
     &.flex-inline {
         flex-flow: row wrap;
     }
-}
-
-.kuang {
-    border: 1px solid #030911;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #030911;
-    color: white;
 }
 </style>
 

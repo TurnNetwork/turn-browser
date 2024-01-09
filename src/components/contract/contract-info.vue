@@ -103,6 +103,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     background: #fff7e3;
+    color: #ffc017;
     border: 1px solid #ffc017;
     max-width: 837px;
     width: 100%;

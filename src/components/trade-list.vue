@@ -9,7 +9,7 @@
     </div>
 
     <!-- 分类筛选tab -->
-    <div class="trade-tab-wrap">
+    <!-- <div class="trade-tab-wrap">
       <ul class="trade-tab">
         <li :class="{ active: selectIndex == 1 }" index="1" @click="typeChange(1, '')">
           {{ $t('contract.all') }}
@@ -24,134 +24,496 @@
           {{ $t('contract.validatorTxns') }}({{ tradeCount.stakingQty }})
         </li>
         <li :class="{ active: selectIndex == 5 }" index="5" @click="typeChange(5, 'proposal')">
-          {{ $t('contract.governanceTxns') }}({{ tradeCount.proposalQty }})
+
         </li>
-      </ul>
-      <!-- <el-button size="medium" v-if="type!='block'" @click="exportFn">{{$t('common.export')}}</el-button> -->
+      </ul>-->
+    <!-- <el-button size="medium" v-if="type!='block'" @click="exportFn">{{$t('common.export')}}</el-button> -->
+
+    <!-- </div> -->
+
+    <div class="table">
+      <!-- v-if="type != 'block'" -->
       <span class="download-btn" v-if="type != 'block'" @click="exportFn">{{
         $t('common.export')
       }}</span>
-    </div>
-
-    <div class="table">
-      <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
-        <!-- 交易哈希值 -->
-        <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
-          <template slot-scope="scope">
-            <!-- <div class="flex-special">
-              <el-tooltip
-                class="item"
-                effect="dark"
-                placement="bottom"
-                v-if="scope.row.txReceiptStatus==0"
-              >
-                <div slot="content">
-                  <span class="title-warning"></span>
-                  {{scope.row.failReason?scope.row.failReason:$t("tradeAbout.transactionFailure")}}
+      <el-tabs v-model="selectIndex" type="card" @tab-click="typeChange">
+        <el-tab-pane :label="`${$t('contract.all')}`" name="1">
+          <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
+            <!-- 交易哈希值 -->
+            <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <el-tooltip class="item" effect="dark" placement="bottom-start" v-if="scope.row.txReceiptStatus == 0">
+                    <div slot="content">
+                      <span class="title-warning">{{ $t('tradeAbout.warn') }}：</span>
+                      {{
+                        scope.row.failReason
+                        ? scope.row.failReason
+                        : $t('tradeAbout.transactionFailure')
+                      }}
+                    </div>
+                    <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
+                  </el-tooltip>
+                  <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
+                    {{ scope.row.txHash }}
+                  </router-link>
                 </div>
-                <i class="  iconxinxi cursor yellow">&#xe63f;</i>
-              </el-tooltip>
-              <p
-                class="cursor blue ellipsis percent60"
-                @click="goTradeDetail(scope.row.txHash)"
-              >&nbsp;{{scope.row.txHash}}</p>
-            </div> -->
-            <div class="flex-special">
-              <el-tooltip class="item" effect="dark" placement="bottom-start" v-if="scope.row.txReceiptStatus == 0">
-                <div slot="content">
-                  <span class="title-warning">{{ $t('tradeAbout.warn') }}：</span>
-                  {{
-                    scope.row.failReason
-                    ? scope.row.failReason
-                    : $t('tradeAbout.transactionFailure')
-                  }}
-                </div>
-                <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
-              </el-tooltip>
-              <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
-                <!-- txHash 显示0x + 18 -->
-                {{ scope.row.txHash }}
-              </router-link>
-            </div>
-          </template>
-        </el-table-column>
-
-        <!-- 操作地址 -->
-        <el-table-column :label="$t('blockAbout.operatorAddress')" min-width="150" v-if="type == 'block'">
-          <!-- <template slot-scope="scope">
-            <p
-              class="cursor blue ellipsis percent60"
-              @click="goAddressDetail(scope.row.from)"
-            >{{scope.row.from}}</p>
-          </template> -->
-          <template slot-scope="scope">
-            <div class="flex-special">
-              <!-- 操作地址显示 0x + 14 -->
-              <router-link class="cursor blue ellipsis adr-width" :to="getAddressUrl(scope.row.from)">{{ scope.row.from
-              }}</router-link>
-            </div>
-          </template>
-        </el-table-column>
-
-        <!-- 块高 -->
-        <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" v-if="type != 'block'">
-          <template slot-scope="scope">
-            <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
-            }}</router-link>
-          </template>
-        </el-table-column>
-
-        <!-- 确认时间 -->
-        <el-table-column :label="$t('tradeAbout.confirmTime')" v-if="type != 'block'" min-width="200">
-          <template slot-scope="scope">
-            <span>{{ scope.row.timestamp | formatTime }}</span>
-          </template>
-        </el-table-column>
-
-        <!-- 交易类型 -->
-        <el-table-column :label="$t('tradeAbout.type')" min-width="100">
-          <template slot-scope="scope">
-            <span :class="{
-              green:
-                scope.row.txType == '1005' ||
-                scope.row.txType == '1006' ||
-                scope.row.txType == '1003' ||
-                scope.row.txType == '5000' ||
-                scope.row.txType == '3000' ||
-                (scope.row.txType == '0' && scope.row.from != address),
-            }" class="red  ">
-              <!-- 接受还是发送 todo -->
-              <template v-if="type != 'block' && scope.row.txType == '0'">{{
-                scope.row.from == address
-                ? $t('tradeAbout.sender2')
-                : $t('tradeAbout.recipient2')
-              }}</template>
-              <template v-else>
-                {{ $t('TxType.' + [scope.row.txType]) }}
               </template>
-            </span>
-          </template>
-        </el-table-column>
+            </el-table-column>
 
-        <!-- 价值 -->
-        <el-table-column :label="$t('tradeAbout.value')">
-          <template slot-scope="scope">
-            <span>{{ scope.row.value | formatMoney }} TURN</span>
-          </template>
-        </el-table-column>
+            <!-- 操作地址 -->
+            <el-table-column :label="$t('blockAbout.operatorAddress')" min-width="150" v-if="type == 'block'">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <router-link class="cursor blue ellipsis adr-width" :to="getAddressUrl(scope.row.from)">{{
+                    scope.row.from
+                  }}</router-link>
+                </div>
+              </template>
+            </el-table-column>
 
-        <!-- 交易费用 -->
-        <el-table-column min-width="120">
-          <!-- :label="$t('tradeAbout.fee')" prop="actualTxCost" -->
-          <template slot="header">
-            {{ $t('tradeAbout.fee') }}
-            <span style="color: #999999">(TURN)</span>
-          </template>
-          <template slot-scope="scope">
-            {{ scope.row.actualTxCost }}
-          </template>
-        </el-table-column>
-      </el-table>
+            <!-- 块高 -->
+            <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" v-if="type != 'block'">
+              <template slot-scope="scope">
+                <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+                }}</router-link>
+              </template>
+            </el-table-column>
+
+            <!-- 确认时间 -->
+            <el-table-column :label="$t('tradeAbout.confirmTime')" v-if="type != 'block'" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.timestamp | formatTime }}</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易类型 -->
+            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+              <template slot-scope="scope">
+                <span :class="{
+                  green:
+                    scope.row.txType == '1005' ||
+                    scope.row.txType == '1006' ||
+                    scope.row.txType == '1003' ||
+                    scope.row.txType == '5000' ||
+                    scope.row.txType == '3000' ||
+                    (scope.row.txType == '0' && scope.row.from != address),
+                }" class="red  ">
+                  <!-- 接受还是发送 todo -->
+                  <template v-if="type != 'block' && scope.row.txType == '0'">{{
+                    scope.row.from == address
+                    ? $t('tradeAbout.sender2')
+                    : $t('tradeAbout.recipient2')
+                  }}</template>
+                  <template v-else>
+                    {{ $t('TxType.' + [scope.row.txType]) }}
+                  </template>
+                </span>
+              </template>
+            </el-table-column>
+
+            <!-- 价值 -->
+            <el-table-column :label="$t('tradeAbout.value')">
+              <template slot-scope="scope">
+                <span>{{ scope.row.value | formatMoney }} TURN</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易费用 -->
+            <el-table-column min-width="120">
+              <!-- :label="$t('tradeAbout.fee')" prop="actualTxCost" -->
+              <template slot="header">
+                {{ $t('tradeAbout.fee') }}
+                <span style="color: #999999">(TURN)</span>
+              </template>
+              <template slot-scope="scope">
+                {{ scope.row.actualTxCost }}
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane :label="`${$t('contract.transfers')}( ${tradeCount.transferQty})`" name="2">
+          <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
+            <!-- 交易哈希值 -->
+            <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <el-tooltip class="item" effect="dark" placement="bottom-start" v-if="scope.row.txReceiptStatus == 0">
+                    <div slot="content">
+                      <span class="title-warning">{{ $t('tradeAbout.warn') }}：</span>
+                      {{
+                        scope.row.failReason
+                        ? scope.row.failReason
+                        : $t('tradeAbout.transactionFailure')
+                      }}
+                    </div>
+                    <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
+                  </el-tooltip>
+                  <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
+                    {{ scope.row.txHash }}
+                  </router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 操作地址 -->
+            <el-table-column :label="$t('blockAbout.operatorAddress')" min-width="150" v-if="type == 'block'">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <router-link class="cursor blue ellipsis adr-width" :to="getAddressUrl(scope.row.from)">{{
+                    scope.row.from
+                  }}</router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 块高 -->
+            <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" v-if="type != 'block'">
+              <template slot-scope="scope">
+                <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+                }}</router-link>
+              </template>
+            </el-table-column>
+
+            <!-- 确认时间 -->
+            <el-table-column :label="$t('tradeAbout.confirmTime')" v-if="type != 'block'" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.timestamp | formatTime }}</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易类型 -->
+            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+              <template slot-scope="scope">
+                <span :class="{
+                  green:
+                    scope.row.txType == '1005' ||
+                    scope.row.txType == '1006' ||
+                    scope.row.txType == '1003' ||
+                    scope.row.txType == '5000' ||
+                    scope.row.txType == '3000' ||
+                    (scope.row.txType == '0' && scope.row.from != address),
+                }" class="red  ">
+                  <!-- 接受还是发送 todo -->
+                  <template v-if="type != 'block' && scope.row.txType == '0'">{{
+                    scope.row.from == address
+                    ? $t('tradeAbout.sender2')
+                    : $t('tradeAbout.recipient2')
+                  }}</template>
+                  <template v-else>
+                    {{ $t('TxType.' + [scope.row.txType]) }}
+                  </template>
+                </span>
+              </template>
+            </el-table-column>
+
+            <!-- 价值 -->
+            <el-table-column :label="$t('tradeAbout.value')">
+              <template slot-scope="scope">
+                <span>{{ scope.row.value | formatMoney }} TURN</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易费用 -->
+            <el-table-column min-width="120">
+              <!-- :label="$t('tradeAbout.fee')" prop="actualTxCost" -->
+              <template slot="header">
+                {{ $t('tradeAbout.fee') }}
+                <span style="color: #999999">(TURN)</span>
+              </template>
+              <template slot-scope="scope">
+                {{ scope.row.actualTxCost }}
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane :label="`${$t('contract.delegationsTxns')}( ${tradeCount.delegateQty})`" name="3">
+          <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
+            <!-- 交易哈希值 -->
+            <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <el-tooltip class="item" effect="dark" placement="bottom-start" v-if="scope.row.txReceiptStatus == 0">
+                    <div slot="content">
+                      <span class="title-warning">{{ $t('tradeAbout.warn') }}：</span>
+                      {{
+                        scope.row.failReason
+                        ? scope.row.failReason
+                        : $t('tradeAbout.transactionFailure')
+                      }}
+                    </div>
+                    <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
+                  </el-tooltip>
+                  <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
+                    {{ scope.row.txHash }}
+                  </router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 操作地址 -->
+            <el-table-column :label="$t('blockAbout.operatorAddress')" min-width="150" v-if="type == 'block'">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <router-link class="cursor blue ellipsis adr-width" :to="getAddressUrl(scope.row.from)">{{
+                    scope.row.from
+                  }}</router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 块高 -->
+            <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" v-if="type != 'block'">
+              <template slot-scope="scope">
+                <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+                }}</router-link>
+              </template>
+            </el-table-column>
+
+            <!-- 确认时间 -->
+            <el-table-column :label="$t('tradeAbout.confirmTime')" v-if="type != 'block'" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.timestamp | formatTime }}</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易类型 -->
+            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+              <template slot-scope="scope">
+                <span :class="{
+                  green:
+                    scope.row.txType == '1005' ||
+                    scope.row.txType == '1006' ||
+                    scope.row.txType == '1003' ||
+                    scope.row.txType == '5000' ||
+                    scope.row.txType == '3000' ||
+                    (scope.row.txType == '0' && scope.row.from != address),
+                }" class="red  ">
+                  <!-- 接受还是发送 todo -->
+                  <template v-if="type != 'block' && scope.row.txType == '0'">{{
+                    scope.row.from == address
+                    ? $t('tradeAbout.sender2')
+                    : $t('tradeAbout.recipient2')
+                  }}</template>
+                  <template v-else>
+                    {{ $t('TxType.' + [scope.row.txType]) }}
+                  </template>
+                </span>
+              </template>
+            </el-table-column>
+
+            <!-- 价值 -->
+            <el-table-column :label="$t('tradeAbout.value')">
+              <template slot-scope="scope">
+                <span>{{ scope.row.value | formatMoney }} TURN</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易费用 -->
+            <el-table-column min-width="120">
+              <!-- :label="$t('tradeAbout.fee')" prop="actualTxCost" -->
+              <template slot="header">
+                {{ $t('tradeAbout.fee') }}
+                <span style="color: #999999">(TURN)</span>
+              </template>
+              <template slot-scope="scope">
+                {{ scope.row.actualTxCost }}
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane :label="`${$t('contract.validatorTxns')}( ${tradeCount.stakingQty})`" name="4">
+          <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
+            <!-- 交易哈希值 -->
+            <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <el-tooltip class="item" effect="dark" placement="bottom-start" v-if="scope.row.txReceiptStatus == 0">
+                    <div slot="content">
+                      <span class="title-warning">{{ $t('tradeAbout.warn') }}：</span>
+                      {{
+                        scope.row.failReason
+                        ? scope.row.failReason
+                        : $t('tradeAbout.transactionFailure')
+                      }}
+                    </div>
+                    <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
+                  </el-tooltip>
+                  <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
+                    {{ scope.row.txHash }}
+                  </router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 操作地址 -->
+            <el-table-column :label="$t('blockAbout.operatorAddress')" min-width="150" v-if="type == 'block'">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <router-link class="cursor blue ellipsis adr-width" :to="getAddressUrl(scope.row.from)">{{
+                    scope.row.from
+                  }}</router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 块高 -->
+            <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" v-if="type != 'block'">
+              <template slot-scope="scope">
+                <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+                }}</router-link>
+              </template>
+            </el-table-column>
+
+            <!-- 确认时间 -->
+            <el-table-column :label="$t('tradeAbout.confirmTime')" v-if="type != 'block'" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.timestamp | formatTime }}</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易类型 -->
+            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+              <template slot-scope="scope">
+                <span :class="{
+                  green:
+                    scope.row.txType == '1005' ||
+                    scope.row.txType == '1006' ||
+                    scope.row.txType == '1003' ||
+                    scope.row.txType == '5000' ||
+                    scope.row.txType == '3000' ||
+                    (scope.row.txType == '0' && scope.row.from != address),
+                }" class="red  ">
+                  <!-- 接受还是发送 todo -->
+                  <template v-if="type != 'block' && scope.row.txType == '0'">{{
+                    scope.row.from == address
+                    ? $t('tradeAbout.sender2')
+                    : $t('tradeAbout.recipient2')
+                  }}</template>
+                  <template v-else>
+                    {{ $t('TxType.' + [scope.row.txType]) }}
+                  </template>
+                </span>
+              </template>
+            </el-table-column>
+
+            <!-- 价值 -->
+            <el-table-column :label="$t('tradeAbout.value')">
+              <template slot-scope="scope">
+                <span>{{ scope.row.value | formatMoney }} TURN</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易费用 -->
+            <el-table-column min-width="120">
+              <!-- :label="$t('tradeAbout.fee')" prop="actualTxCost" -->
+              <template slot="header">
+                {{ $t('tradeAbout.fee') }}
+                <span style="color: #999999">(TURN)</span>
+              </template>
+              <template slot-scope="scope">
+                {{ scope.row.actualTxCost }}
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane :label="`${$t('contract.governanceTxns')}( ${tradeCount.proposalQty})`" name="5">
+          <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
+            <!-- 交易哈希值 -->
+            <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <el-tooltip class="item" effect="dark" placement="bottom-start" v-if="scope.row.txReceiptStatus == 0">
+                    <div slot="content">
+                      <span class="title-warning">{{ $t('tradeAbout.warn') }}：</span>
+                      {{
+                        scope.row.failReason
+                        ? scope.row.failReason
+                        : $t('tradeAbout.transactionFailure')
+                      }}
+                    </div>
+                    <i class="iconfont iconxinxi cursor yellow">&#xe63f;</i>
+                  </el-tooltip>
+                  <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">
+                    {{ scope.row.txHash }}
+                  </router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 操作地址 -->
+            <el-table-column :label="$t('blockAbout.operatorAddress')" min-width="150" v-if="type == 'block'">
+              <template slot-scope="scope">
+                <div class="flex-special">
+                  <router-link class="cursor blue ellipsis adr-width" :to="getAddressUrl(scope.row.from)">{{
+                    scope.row.from
+                  }}</router-link>
+                </div>
+              </template>
+            </el-table-column>
+
+            <!-- 块高 -->
+            <el-table-column prop="blockHeight" :label="$t('tradeAbout.block')" v-if="type != 'block'">
+              <template slot-scope="scope">
+                <router-link class="cursor blue" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+                }}</router-link>
+              </template>
+            </el-table-column>
+
+            <!-- 确认时间 -->
+            <el-table-column :label="$t('tradeAbout.confirmTime')" v-if="type != 'block'" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.timestamp | formatTime }}</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易类型 -->
+            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+              <template slot-scope="scope">
+                <span :class="{
+                  green:
+                    scope.row.txType == '1005' ||
+                    scope.row.txType == '1006' ||
+                    scope.row.txType == '1003' ||
+                    scope.row.txType == '5000' ||
+                    scope.row.txType == '3000' ||
+                    (scope.row.txType == '0' && scope.row.from != address),
+                }" class="red  ">
+                  <!-- 接受还是发送 todo -->
+                  <template v-if="type != 'block' && scope.row.txType == '0'">{{
+                    scope.row.from == address
+                    ? $t('tradeAbout.sender2')
+                    : $t('tradeAbout.recipient2')
+                  }}</template>
+                  <template v-else>
+                    {{ $t('TxType.' + [scope.row.txType]) }}
+                  </template>
+                </span>
+              </template>
+            </el-table-column>
+
+            <!-- 价值 -->
+            <el-table-column :label="$t('tradeAbout.value')">
+              <template slot-scope="scope">
+                <span>{{ scope.row.value | formatMoney }} TURN</span>
+              </template>
+            </el-table-column>
+
+            <!-- 交易费用 -->
+            <el-table-column min-width="120">
+              <!-- :label="$t('tradeAbout.fee')" prop="actualTxCost" -->
+              <template slot="header">
+                {{ $t('tradeAbout.fee') }}
+                <span style="color: #999999">(TURN)</span>
+              </template>
+              <template slot-scope="scope">
+                {{ scope.row.actualTxCost }}
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-tab-pane>
+      </el-tabs>
+
 
       <!-- 下分页 -->
       <div class="pagination-box">
@@ -170,7 +532,7 @@ export default {
   name: '',
   data() {
     return {
-      selectIndex: 1,
+      selectIndex: "1",
       // newRecordFlag: false,
       tableData: [],
       currentPage: 1,
@@ -243,12 +605,25 @@ export default {
       this.pageSize = val;
       this.getTradeList();
     },
-    typeChange(index, type) {
-      this.selectIndex = index;
-      this.tradeType = type;
+    typeChange() {
+      switch (this.selectIndex) {
+        case 2:
+          this.tradeType = 'transfer'; break
+        case 3:
+          this.tradeType = 'delegate'; break
+        case 4:
+          this.tradeType = 'staking'; break
+        case 5:
+          this.tradeType = 'proposal'; break
+        case 1:
+        default:
+          this.tradeType = ''; break
+      }
+      // this.selectIndex = index;
+      // this.tradeType = type;
 
-      this.currentPage = 1;
-      this.getTradeList();
+      // this.currentPage = 1;
+      // this.getTradeList();
     },
     exportFn() {
       //跳转至下载页
@@ -269,6 +644,7 @@ export default {
   mounted() { },
 };
 </script>
+
 <style lang="less" scoped>
 .block-trade .common-trade.block-trade-wrap {
   padding-left: 0px;

@@ -28,8 +28,6 @@
   </div>
 </template>
 <script>
-import apiService from '@/services/API-services';
-import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
   name: 'list',
   data() {
@@ -84,9 +82,9 @@ export default {
   margin-bottom: 15px;
 
   label {
-    font-size: 13px;
-    color: #666;
-    // line-height: 15px;
+    color: rgba(#D5D8DD, .6);
+    font-size: 14px;
+    font-weight: 400;
     width: auto;
     min-width: 169px;
   }
@@ -94,6 +92,8 @@ export default {
   p {
     word-break: break-all;
     width: 85%;
+    color: rgba(#D5D8DD, .8);
+    font-size: 14px;
   }
 
   .blue:hover {
@@ -107,9 +107,9 @@ export default {
   margin-bottom: 15px;
 
   label {
-    font-size: 13px;
-    color: #666;
-    line-height: 15px;
+    color: var(--Gray-900, #D5D8DD);
+    font-size: 14px;
+    font-weight: 400;
   }
 
   p {
@@ -127,9 +127,7 @@ export default {
   margin-bottom: 10px;
 
   p {
-    width: 474px;
     min-height: 86px;
-    border: 1px solid #f5f5f5;
     word-break: break-all;
     border-radius: 1px;
     padding: 6px;
