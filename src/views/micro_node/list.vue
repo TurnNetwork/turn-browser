@@ -95,7 +95,7 @@
             </el-table-column>
           </el-table>
         </el-tab-pane>
-        <el-tab-pane :label="`${$t('nodeStatus.2')}`" name="2">
+        <el-tab-pane :label="`${$t('nodeStatus.1')}`" name="2">
           <el-table :data="tableData"
             :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'">
             <el-table-column fixed :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
@@ -160,7 +160,7 @@
             </el-table-column>
           </el-table>
         </el-tab-pane>
-        <el-tab-pane :label="`${$t('nodeStatus.1')}`" name="3">
+        <el-tab-pane :label="`${$t('nodeStatus.5')}`" name="3">
           <el-table :data="tableData"
             :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'">
             <el-table-column fixed :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
@@ -307,16 +307,16 @@ export default {
     tabChange() {
       switch (+this.tabIndex) {
         case 2:
-          this.queryStatus = 'active'; break
-        case 3:
           this.queryStatus = 'candidate'; break
+        case 3:
+          this.queryStatus = 'exited'; break
         case 1:
         default:
           this.queryStatus = 'all'; break
       }
       this.currentPage = 1;
       this.getList();
-      if (type == 'candidate') {
+      if (this.queryStatus == 'candidate') {
         this.websocket && this.websocket.close();
         return;
       }

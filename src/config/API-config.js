@@ -79,7 +79,7 @@ const BASE = process.env.VUE_APP_API_ROOT,
     rpplanDetail: `${ACCOUNT_URL}/rpplanDetail`
   },
   WS_CONFIG = {
-    root: `${TOTAL}/platon-websocket`,
+    root: `${TOTAL}/scan-websocket`,
     blockStatistic: `/topic/block/statistic/new`,
     chainStatistic: `/topic/chain/statistic/new`,
     blockList: `/topic/block/list/new`,
