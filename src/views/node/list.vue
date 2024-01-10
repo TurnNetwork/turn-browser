@@ -222,7 +222,7 @@
           </el-table-column>
           <el-table-column :label="$t('deleget.delegationsN')" min-width="120">
             <template slot-scope="scope">
-              <span> {{ scope.row.delegateValue | formatMoney }} TURNRNRNRN </span>
+              <span> {{ scope.row.delegateValue | formatMoney }} TURN </span>
             </template>
           </el-table-column>
           <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" min-width="100">
@@ -351,12 +351,12 @@
               </el-table-column>
               <el-table-column :label="$t('nodeInfo.totalStakePower')" min-width="165">
                 <template slot-scope="scope">
-                  <span>{{ scope.row.totalValue | formatMoney }} TURNRN</span>
+                  <span>{{ scope.row.totalValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
               <el-table-column :label="$t('deleget.delegationsN')" min-width="165">
                 <template slot-scope="scope">
-                  <span> {{ scope.row.delegateValue | formatMoney }} TURNRN</span>
+                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
               <!-- 委托奖励比例 -->
@@ -507,12 +507,12 @@
               </el-table-column>
               <el-table-column :label="$t('nodeInfo.totalStakePower')" min-width="165">
                 <template slot-scope="scope">
-                  <span>{{ scope.row.totalValue | formatMoney }} TURNRN</span>
+                  <span>{{ scope.row.totalValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
               <el-table-column :label="$t('deleget.delegationsN')" min-width="165">
                 <template slot-scope="scope">
-                  <span> {{ scope.row.delegateValue | formatMoney }} TURNRN</span>
+                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
               <!-- 委托奖励比例 -->
@@ -663,12 +663,12 @@
               </el-table-column>
               <el-table-column :label="$t('nodeInfo.totalStakePower')" min-width="165">
                 <template slot-scope="scope">
-                  <span>{{ scope.row.totalValue | formatMoney }} TURNRN</span>
+                  <span>{{ scope.row.totalValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
               <el-table-column :label="$t('deleget.delegationsN')" min-width="165">
                 <template slot-scope="scope">
-                  <span> {{ scope.row.delegateValue | formatMoney }} TURNRN</span>
+                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
               <!-- 委托奖励比例 -->

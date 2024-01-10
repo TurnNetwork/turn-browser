@@ -77,7 +77,7 @@
                               | formatMoney
                               | sliceFloat(1)
                             }}</span>
-                            <span class="fontSize13">&nbsp;TURNRNRN</span>
+                            <span class="fontSize13">&nbsp;TURN</span>
                           </p>
                         </Item>
 

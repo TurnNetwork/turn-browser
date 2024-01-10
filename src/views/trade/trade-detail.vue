@@ -92,7 +92,7 @@
             }}</router-link>
           </Item>
           <Item :label="$t('tradeAbout.restrictedAmount')">
-            <span>{{ detailInfo.rpnum | formatMoney }} TURNRN</span>
+            <span>{{ detailInfo.rpnum | formatMoney }} TURN</span>
           </Item>
           <Item :label="$t('tradeAbout.restrictedPlan')">
             <ul class="restricted-plan">
@@ -107,7 +107,7 @@
         </template>
         <!-- 交易手续费 -->
         <Item :label="$t('tradeAbout.transactionFee')">
-          <span>{{ detailInfo.actualTxCost | formatMoney }} TURNRNRNRNRNRNRN</span>
+          <span>{{ detailInfo.actualTxCost | formatMoney }} TURN</span>
         </Item>
       </List>
 

@@ -90,7 +90,7 @@
                 预计节点年化收益率：显示如图
 
                 -预计委托年化收益率：显示如图 -->
-              <Item v-if="!detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.totalStakePower') + ' (TURNRNRNRN)'"
+              <Item v-if="!detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.totalStakePower') + ' (TURN)'"
                 class="total-stake">
                 <p class="Gilroy-Medium" v-if="detailInfo.status != 4 && detailInfo.status != 5">
                   <span class="Gilroy-Medium black fontSize18">{{
@@ -167,7 +167,7 @@
                   <span class="fontSize13">%</span>
                 </p>
               </Item>
-              <Item :vertical="true" :label="$t('nodeInfo.totalDelegatedReward') + ' (TURNRNRNRNRN)'">
+              <Item :vertical="true" :label="$t('nodeInfo.totalDelegatedReward') + ' (TURN)'">
                 <p>
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.totalDeleReward | formatMoney | sliceFloat(0)
@@ -528,7 +528,7 @@
                       ? `${$t(
                         'actionType.' + [scope.row.type]
                       )}-扣除自有质押(${scope.row.amount
-                      }TURNRNRN)，移出验证节点列表`
+                      }TURN)，移出验证节点列表`
                       : `${$t('actionType.' + [scope.row.type])}(${scope.row.amount
                         } TURN) from self-stake, Remove the Validator List`
                     }}
