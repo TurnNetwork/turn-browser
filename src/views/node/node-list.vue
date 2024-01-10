@@ -3,9 +3,9 @@
     <div class=" content-top-black content-padding">
       <div class="page-title fontSize34">{{ $t('menu.validator') }}</div>
       <div class="node-list-header">
-        <List class="statistic-info">
+        <List class="statistic-info superBorder">
           <div class="_statistic-header-main">
-            <div class="statistic-info">
+            <div class="statistic-info ">
               <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
               <Item :label="$t('nodeInfo.totalStakePower')" :tips="$t('tips.totalStakePower')">
                 <p class="Gilroy-Medium">
@@ -13,6 +13,26 @@
                   <span class="fontSize13  " style="padding-right: 1px">TURN</span>
                 </p>
               </Item>
+
+                        <Item :label="$t('nodeInfo.totalDelegations')">
+                          <!-- <p>{{(ValidatorStatisticData.stakingDelegationValue-ValidatorStatisticData.stakingValue) | formatMoney}}<span class="fontSize13">TURN</span></p> -->
+                          <p>
+                            <span class="Gilroy-Medium">{{
+                              ValidatorStatisticData.delegationValue
+                              | formatMoney
+                              | sliceFloat(0)
+                            }}</span>
+                            <span style="font-size: 13px">{{
+                              ValidatorStatisticData.delegationValue
+                              | formatMoney
+                              | sliceFloat(1)
+                            }}</span>
+                            <span class="fontSize13 currency">&nbsp;TURN</span>
+                          </p>
+                        </Item>
+
+
+
               <Item :label="$t('nodeInfo.stakeRate')" :tips="$t('tips.stakeRate')">
                 <p>
                   <span class="Gilroy-Medium">{{
@@ -38,6 +58,56 @@
                   <span class="fontSize13">&nbsp;TURN</span>
                 </p>
               </Item>
+
+
+
+                        <Item :label="$t('nodeInfo.stakingReward')">
+                          <!-- <p>
+                          {{ValidatorStatisticData.stakingReward | formatMoney}}
+                          <span class="fontSize13">TURN</span>
+                        </p>-->
+                          <p>
+                            <span class="Gilroy-Medium">{{
+                              ValidatorStatisticData.stakingReward
+                              | formatMoney
+                              | sliceFloat(0)
+                            }}</span>
+                            <span style="font-size: 13px">{{
+                              ValidatorStatisticData.stakingReward
+                              | formatMoney
+                              | sliceFloat(1)
+                            }}</span>
+                            <span class="fontSize13">&nbsp;TURNRNRN</span>
+                          </p>
+                        </Item>
+
+                        <Item :label="$t('nodeInfo.nextRewardAdjustment')">
+
+
+                          <p>
+                            <span class="Gilroy-Medium">
+                              {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of
+                              {{
+                                ValidatorStatisticData.addIssueEnd -
+                                ValidatorStatisticData.addIssueBegin
+                              }}
+
+                            </span>
+                          </p>
+
+<!--                          <div class="next-reward-adjustment">-->
+<!--                            <span :style="{ width: getPercentage + '%' }"></span>-->
+<!--                            <span></span>-->
+<!--                            <p>-->
+<!--                              {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of-->
+<!--                              {{-->
+<!--                                ValidatorStatisticData.addIssueEnd - -->
+<!--                                ValidatorStatisticData.addIssueBegin-->
+<!--                              }}-->
+<!--                            </p>-->
+<!--                          </div>-->
+                        </Item>
+
             </div>
             <div class="next-epoch">
               <h3 class="Gilroy-Medium">{{ $t('nodeInfo.nextEpoch') }}</h3>
@@ -148,6 +218,16 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
+  .superBorder{
+    /deep/.item-wrap {
+      border-radius: 12px 12px 12px 12px;
+    }
+  }
+
+
+
+
 .node-list-header {
   margin-top: 23px;
   // margin-bottom: 20px;

@@ -3,11 +3,11 @@
     <div class="page-title fontSize34">{{ $t('menu.proposal').toUpperCase() }}</div>
     <div class="sub-title">
       <div class="fontSize14 trade-count">&nbsp;</div>
-      <div class="pagination-box1" v-if="paginationFlag">
-        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
-          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" layout="prev, pager, next"
-          :page-size="pageSize" :total="pageTotal" :pager-count="9"></el-pagination>
-      </div>
+<!--      <div class="pagination-box1" v-if="paginationFlag">-->
+<!--        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"-->
+<!--          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" layout="prev, pager, next"-->
+<!--          :page-size="pageSize" :total="pageTotal" :pager-count="9"></el-pagination>-->
+<!--      </div>-->
     </div>
 
     <div class="table" :class="{ 'no-data': !tableData.length }">

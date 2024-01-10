@@ -1449,7 +1449,7 @@ export default {
     margin-left: 20px;
     margin-top: -10px;
     height: 30px;
-    line-height: 10px;
+    line-height: 0px;
   }
 }
 </style>

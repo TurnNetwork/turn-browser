@@ -1,9 +1,9 @@
 <template>
   <div class="block-detail-wrap">
-    <div class="page-title fontSize34">{{ $t('blockAbout.blockDetail') }}</div>
+    <div class="page-title detail-title">{{ $t('blockAbout.blockDetail') }}</div>
     <div class="detail-change">
       <div class="detail-copy">
-        <div class="detail-title">Block Details</div>
+<!--        <div class="detail-title">Block Details</div>-->
         <span class="detail-layer">
           <span>Block L1</span>
           <i>#{{ detailInfo.number }}</i>
