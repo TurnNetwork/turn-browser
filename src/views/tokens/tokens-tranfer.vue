@@ -19,11 +19,11 @@
         }}</span>
       </div>
       <!-- 上部分页标签 -->
-      <div class="pagination-box1">
-        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
-          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" layout="prev, pager, next"
-          :page-size="pageSize" :total="pageTotal > 500000 ? 500000 : pageTotal" :pager-count="9"></el-pagination>
-      </div>
+<!--      <div class="pagination-box1">-->
+<!--        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"-->
+<!--          :current-page.sync="currentPage" :page-sizes="[10, 20, 50, 100]" layout="prev, pager, next"-->
+<!--          :page-size="pageSize" :total="pageTotal > 500000 ? 500000 : pageTotal" :pager-count="9"></el-pagination>-->
+<!--      </div>-->
     </div>
     <!-- 主表格区域 -->
     <div class="table">
