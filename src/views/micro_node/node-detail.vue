@@ -9,8 +9,7 @@
           <!-- <img :src="detailInfo.stakingIcon" /> -->
           <div class="node-name-wrap">
             <div class="node-name ellipsis">
-              <b>{{ detailInfo.name }}</b>
-              <i></i>
+              <span>Node ID :</span> <b>{{ detailInfo.name }}</b>
             </div>
           </div>
         </div>
@@ -41,7 +40,7 @@
               <div>
                 <Item :label="$t('nodeInfo.nodeID')">
                   <div>
-                    <span>{{ detailInfo.nodeId }}</span>
+                    <span style="word-break: break-all">{{ detailInfo.nodeId }}</span>
                     <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
                       v-clipboard:success="onCopy" v-clipboard:error="onError">
                       <p v-show="isCopy" style="width: 100%">
@@ -639,8 +638,8 @@ export default {
       }
 
       span {
-        font-size: 14px;
-        color: #999999;
+        font-size: 20px;
+        // color: #999999;
       }
 
       // i{

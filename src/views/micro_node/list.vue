@@ -323,7 +323,7 @@ export default {
     },
     clearInput(value) {
       this.currentPage = 1;
-      this.tabIndex = 1;
+      this.tabIndex = "1";
       this.queryStatus = 'all';
       this.getList();
       if (this.type != 'history' && this.type != 'zero') {
@@ -396,11 +396,9 @@ export default {
     //查询
     searchFn() {
       this.currentPage = 1;
-      this.tabIndex = 1;
+      this.tabIndex = "1";
       this.queryStatus = 'all';
       this.getList();
-      if (this.type != 'history' && this.type != 'zero') {
-      }
     },
     //进入节点详情
     getDetailUrl(nodeId) {
@@ -496,6 +494,12 @@ export default {
   background: rgba(#fff, 0.1);
   align-items: center;
   padding-left: 5px;
+
+  /deep/.el-input--mini {
+    .el-input__icon {
+      line-height: 18px;
+    }
+  }
 
   /deep/.el-btn {
     border: none;
