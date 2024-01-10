@@ -1,37 +1,15 @@
 <template>
   <div class="node-list-wrap">
-    <div class=" content-top-black content-padding">
+    <div class="micro-main">
       <div class="page-title fontSize34">{{ $t('microNode.name') }}</div>
       <div class="node-list-header">
-        <List class="statistic-info">
-          <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
-          <Item :label="$t('nodeInfo.totalStakePower')" :tips="$t('tips.totalStakePower')">
-            <p class="Gilroy-Medium">
-              {{ micro_node.stakingValue | unit }}
-              <span class="fontSize13  " style="padding-right: 1px">TURN</span>
-            </p>
-          </Item>
-        </List>
-        <!-- <List class="statistic-info">
-          <h3 class="Gilroy-Medium">
-            {{ $t('microNode.accumulatedRewards') }}
-          </h3>
-          <Item :label="$t('microNode.systemRewards')">
-            <p>
-              <span class="Gilroy-Medium">{{
-                ValidatorStatisticData.blockReward | formatMoney | sliceFloat(0)
-              }}</span>
-              <span style="font-size: 13px">{{
-                ValidatorStatisticData.blockReward | formatMoney | sliceFloat(1)
-              }}</span>
-              <span class="fontSize13">&nbsp;TURN</span>
-            </p>
-          </Item>
-
-        </List> -->
-        <div class="next-epoch">
-
-        </div>
+        <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
+        <p class="staking-info">
+          <span>Total Pledge &nbsp; </span>
+          <span>{{ ((micro_node.stakingValue || 0) | unit) }}</span>
+          <span>&nbsp; TURN</span>
+        </p>
+        <div class="next-epoch"></div>
       </div>
     </div>
     <Validator></Validator>
@@ -116,130 +94,23 @@ export default {
 </script>
 <style lang="less" scoped>
 .node-list-header {
-  margin-top: 23px;
-  // margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
+  margin-top: 50px;
 
-  .item-wrap {
-    h3 {
-      margin-bottom: 19px;
-    }
+  h3 {
+    color: var(--Gray-900, #D5D8DD);
+    font-size: 18px;
   }
 
-  label {
-    width: 160px;
-  }
-
-  .next-reward-adjustment {
+  p {
+    color: rgba(#D5D8DD, .7);
+    font-size: 14px;
     display: flex;
-    width: 188px;
-    position: relative;
 
-    span:nth-of-type(1) {
-      background: #030911;
-      color: #fff;
-      text-align: right;
-    }
-
-    span:nth-of-type(2) {
-      flex: 1;
-      background: #d5d5d5;
-      color: #fff;
-      text-align: left;
-    }
-
-    p {
-      color: #fff;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      line-height: 21px;
-    }
-  }
-
-  .next-epoch {
-    p {
-      margin: 19px 0 14px;
-      color: #666;
-    }
-
-    ul {
-      display: flex;
-
-      li {
-        width: 30px;
-        height: 38px;
-        background: #030911;
-        color: #fff;
-        margin-right: 9px;
-        border-radius: 1px;
-        font-size: 28px;
-        line-height: 38px;
-        text-align: center;
-      }
-    }
   }
 }
 
-@media (max-width: 900px) {
-  .node-list-header {
-    flex-direction: column;
-    padding: 0 10px;
-  }
-}
-
-@media (max-width: 750px) {
-  .node-list-wrap {
-    padding: 0 40px;
-
-    .node-list-header {
-      padding: 0;
-
-      .list-wrap {
-        .item-wrap {
-          .list-item {
-            padding-left: 20px;
-          }
-        }
-      }
-
-      .next-epoch {
-
-        p,
-        ul {
-          padding-left: 20px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .node-list-wrap {
-    padding: 0 20px;
-
-    .node-list-header {
-      .list-wrap {
-        .item-wrap {
-          .list-item {
-            padding-left: 10px;
-          }
-        }
-      }
-
-      .next-epoch {
-
-        p,
-        ul {
-          padding-left: 10px;
-        }
-      }
-    }
-  }
+.micro-main {
+  margin-bottom: 50px;
 }
 </style>
 <style lang="less">

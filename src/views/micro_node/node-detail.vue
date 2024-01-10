@@ -12,10 +12,6 @@
               <b>{{ detailInfo.name }}</b>
               <i></i>
             </div>
-            <!-- <p>
-              {{ $t('nodeInfo.createdat') }}:
-              {{ detailInfo.joinTime | formatTime }}
-            </p> -->
           </div>
         </div>
         <div class="node-header-right">
@@ -26,210 +22,207 @@
       </div>
       <!-- TODO 验证节点 详情 从新设计 -->
       <div class="node-static-box">
-        <div class="node-static-left-box">
-          <div class="node-statistic">
-            <List class="node-left" :inline="true">
-              <!-- 当选验证节点 -->
-              <Item :vertical="true" :label="$t('microNode.totalPledge')">
-                <p class="Gilroy-Medium fontSize18">
-                  {{ detailInfo.totalValue }} (TURN)
-                </p>
-              </Item>
-            </List>
-          </div>
-        </div>
+        <span>{{ $t('microNode.totalPledge') }}: </span>
+        <span> &nbsp;{{ detailInfo.totalValue }} (TURN)</span>
       </div>
     </div>
     <div class="content-padding">
-      <div class="tabs">
+      <!-- <div class="tabs">
         <el-button size="medium" :class="{ active: tabIndex == 1 }" @click="tabChange(1)">{{ $t('nodeInfo.nodeInfo')
         }}</el-button>
         <el-button size="medium" :class="{ active: tabIndex == 3 }" @click="tabChange(3)">{{
           $t('nodeInfo.validatorActions') }}</el-button>
-      </div>
-      <div class="node-detail-content">
-        <div v-show="tabIndex == 1" class="basicInfo">
-          <h3 class="nodeInfo">{{ $t('nodeInfo.basicInfo') }}</h3>
-          <List>
-            <Item :label="$t('nodeInfo.nodeID')">
+      </div> -->
+      <div class="node-detail-content table">
+        <el-tabs v-model="tabIndex" type="card" @tab-click="tabChange">
+          <el-tab-pane :label="`${$t('contract.all')}`" name="1">
+            <div class="basicInfo">
+              <h3 class="nodeInfo">{{ $t('nodeInfo.basicInfo') }}</h3>
               <div>
-                <span>{{ detailInfo.nodeId }}</span>
-                <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
-                  v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <p v-show="isCopy" style="width: 100%">
-                    <i class="el-icon-circle-check-outline"></i>
-                    <span>{{ copyText }}</span>
-                  </p>
-                </b>
-              </div>
-            </Item>
-            <Item :label="$t('nodeInfo.version')">
-              <div>
-                {{ detailInfo.version }}
-              </div>
-            </Item>
-            <Item :label="$t('tradeAbout.operatorAddress')">
-              <div>
-                <router-link class="blue cursor" :to="getAddressUrl(detailInfo.operationAddr, 2)">{{
-                  detailInfo.operationAddr
-                }}</router-link>
+                <Item :label="$t('nodeInfo.nodeID')">
+                  <div>
+                    <span>{{ detailInfo.nodeId }}</span>
+                    <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
+                      v-clipboard:success="onCopy" v-clipboard:error="onError">
+                      <p v-show="isCopy" style="width: 100%">
+                        <i class="el-icon-circle-check-outline"></i>
+                        <span>{{ copyText }}</span>
+                      </p>
+                    </b>
+                  </div>
+                </Item>
+                <Item :label="$t('nodeInfo.version')">
+                  <div>
+                    {{ detailInfo.version }}
+                  </div>
+                </Item>
+                <Item :label="$t('tradeAbout.operatorAddress')">
+                  <div>
+                    <router-link class="blue cursor" :to="getAddressUrl(detailInfo.operationAddr, 2)">{{
+                      detailInfo.operationAddr
+                    }}</router-link>
 
-                <b class="cursor copyicon" id="copy2" :class="{ copy: !isCopy2 }"
-                  v-clipboard:copy="detailInfo.operationAddr" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <p v-show="isCopy2" style="width: 100%">
-                    <i class="el-icon-circle-check-outline"></i>
-                    <span>{{ copyText2 }}</span>
-                  </p>
-                </b>
+                    <b class="cursor copyicon" id="copy2" :class="{ copy: !isCopy2 }"
+                      v-clipboard:copy="detailInfo.operationAddr" v-clipboard:success="onCopy"
+                      v-clipboard:error="onError">
+                      <p v-show="isCopy2" style="width: 100%">
+                        <i class="el-icon-circle-check-outline"></i>
+                        <span>{{ copyText2 }}</span>
+                      </p>
+                    </b>
+                  </div>
+                </Item>
+                <Item :label="$t('tradeAbout.rewardAddress')">
+                  <div>
+                    <router-link class="blue cursor" :to="getAddressUrl(detailInfo.beneficiary, 2)">{{
+                      detailInfo.beneficiary
+                    }}</router-link>
+                    <span class="lightgray" v-if="detailInfo.isInit">({{ $t('nodeInfo.systemBuilt') }})</span>
+                    <b class="cursor copyicon" id="copy3" :class="{ copy: !isCopy3 }"
+                      v-clipboard:copy="detailInfo.beneficiary" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                      <p v-show="isCopy3" style="width: 100%">
+                        <i class="el-icon-circle-check-outline"></i>
+                        <span>{{ copyText3 }}</span>
+                      </p>
+                    </b>
+                  </div>
+                </Item>
               </div>
-            </Item>
-            <Item :label="$t('tradeAbout.rewardAddress')">
-              <div>
-                <router-link class="blue cursor" :to="getAddressUrl(detailInfo.beneficiary, 2)">{{ detailInfo.beneficiary
-                }}</router-link>
-                <span class="lightgray" v-if="detailInfo.isInit">({{ $t('nodeInfo.systemBuilt') }})</span>
-                <b class="cursor copyicon" id="copy3" :class="{ copy: !isCopy3 }"
-                  v-clipboard:copy="detailInfo.beneficiary" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <p v-show="isCopy3" style="width: 100%">
-                    <i class="el-icon-circle-check-outline"></i>
-                    <span>{{ copyText3 }}</span>
-                  </p>
-                </b>
-              </div>
-            </Item>
-          </List>
-        </div>
-
-        <div v-show="tabIndex == 3">
-          <div class="table">
-            <el-table :data="tableOperateData" style="width: 100%" key="firstTable" size="mini"
-              v-loading="loading.operate">
-              <el-table-column :label="$t('common.time')" width="200">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.timestamp | formatTime }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('nodeInfo.actions')" min-width="180">
-                <template slot-scope="scope">
-                  <p class="percent80 no-break" v-if="scope.row.type == 1 ||
-                    scope.row.type == 3 ||
-                    scope.row.type == 10
-                    ">
-                    {{ $t('actionType.' + [scope.row.type]) }}
-                  </p>
-                  <p class="percent80 no-break" v-if="scope.row.type == 2">
-                    {{ $t('actionType.' + [scope.row.type])
-                    }}{{ $t('nodeInfo.information') }}
-                    <span v-if="!!scope.row.beforeRate">- {{ $t('nodeInfo.rewardRatio') }}
-                      {{ scope.row.beforeRate }}%
-                      {{ $t('tradeAbout.changedTo') }}
-                      {{ scope.row.afterRate }}%</span>
-                  </p>
-                  <p class="percent80 no-break" v-else-if="scope.row.type == 4 || scope.row.type == 5">
-                    <template v-if="scope.row.title">
-                      <span>
-                        {{
-                          `${$t('actionType.' + [scope.row.type])}-${scope.row.title
-                            }`
-                        }}
+            </div>
+          </el-tab-pane>
+          <el-tab-pane :label="`${$t('nodeInfo.validatorActions')}`" name="3">
+            <div>
+              <el-table :data="tableOperateData" style="width: 100%" key="firstTable" size="mini"
+                v-loading="loading.operate">
+                <el-table-column :label="$t('common.time')" width="200">
+                  <template slot-scope="scope">
+                    <span>{{ scope.row.timestamp | formatTime }}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('nodeInfo.actions')" min-width="180">
+                  <template slot-scope="scope">
+                    <p class="percent80 no-break" v-if="scope.row.type == 1 ||
+                      scope.row.type == 3 ||
+                      scope.row.type == 10
+                      ">
+                      {{ $t('actionType.' + [scope.row.type]) }}
+                    </p>
+                    <p class="percent80 no-break" v-if="scope.row.type == 2">
+                      {{ $t('actionType.' + [scope.row.type])
+                      }}{{ $t('nodeInfo.information') }}
+                      <span v-if="!!scope.row.beforeRate">- {{ $t('nodeInfo.rewardRatio') }}
+                        {{ scope.row.beforeRate }}%
+                        {{ $t('tradeAbout.changedTo') }}
+                        {{ scope.row.afterRate }}%</span>
+                    </p>
+                    <p class="percent80 no-break" v-else-if="scope.row.type == 4 || scope.row.type == 5">
+                      <template v-if="scope.row.title">
+                        <span>
+                          {{
+                            `${$t('actionType.' + [scope.row.type])}-${scope.row.title
+                              }`
+                          }}
+                          <span v-if="scope.row.type == 5">-{{ $te('voteStatus.' + scope.row.option) ? $t('voteStatus.' +
+                            scope.row.option) : $t('voteStatus.other') }}</span>
+                        </span>
+                      </template>
+                      <template v-else>
+                        <span v-if="scope.row.proposalType == 2">{{ $t('actionType.' + [scope.row.type]) }}-{{
+                          $t('tradeAbout.versionUp')
+                        }}-V {{ scope.row.version }}-{{ scope.row.id }}</span>
+                        <span v-else>{{ $t('actionType.' + [scope.row.type]) }}-{{
+                          $t('proposalOption.' + [scope.row.proposalType])
+                        }}-{{ scope.row.id }}</span>
                         <span v-if="scope.row.type == 5">-{{ $te('voteStatus.' + scope.row.option) ? $t('voteStatus.' +
                           scope.row.option) : $t('voteStatus.other') }}</span>
-                      </span>
-                    </template>
-                    <template v-else>
-                      <span v-if="scope.row.proposalType == 2">{{ $t('actionType.' + [scope.row.type]) }}-{{
-                        $t('tradeAbout.versionUp')
-                      }}-V {{ scope.row.version }}-{{ scope.row.id }}</span>
-                      <span v-else>{{ $t('actionType.' + [scope.row.type]) }}-{{
-                        $t('proposalOption.' + [scope.row.proposalType])
-                      }}-{{ scope.row.id }}</span>
-                      <span v-if="scope.row.type == 5">-{{ $te('voteStatus.' + scope.row.option) ? $t('voteStatus.' +
-                        scope.row.option) : $t('voteStatus.other') }}</span>
-                    </template>
-                  </p>
-                  <!-- <p
+                      </template>
+                    </p>
+                    <!-- <p
                     class="percent80"
                     v-else-if="scope.row.type==5"
                   >{{`${$t('actionType.'+[scope.row.type])}-${scope.row.title}-${$t('voteStatus.'+[scope.row.option])}`}}</p>-->
-                  <p class="percent80 no-break" v-else-if="scope.row.type == 6">
-                    {{
-                      lang == 'zh'
-                      ? `${$t(
-                        'actionType.' + [scope.row.type]
-                      )}-扣除自有质押${scope.row.percent * 100}%(${scope.row.amount
-                      } TURN)，移出验证节点列表`
-                      : `${$t('actionType.' + [scope.row.type])}-${scope.row.percent * 100
-                        }% of self-stake slashed (${scope.row.amount
-                        } TURN), Remove the Validator List`
-                    }}
-                  </p>
-                  <p class="percent80 no-break" v-else-if="scope.row.type == 7 && scope.row.percent == 0">
-                    {{
-                      lang == 'zh'
-                      ? `${$t(
-                        'actionType.' + [scope.row.type]
-                      )}-移出验证节点列表`
-                      : `${$t(
-                        'actionType.' + [scope.row.type]
-                      )}-Remove the Validator List`
-                    }}
-                  </p>
-                  <p class="percent80 no-break" v-else-if="scope.row.type == 7 && scope.row.percent > 0">
-                    {{
-                      lang == 'zh'
-                      ? `${$t(
-                        'actionType.' + [scope.row.type]
-                      )}-扣除自有质押(${scope.row.amount
-                      }TURN)，移出验证节点列表`
-                      : `${$t('actionType.' + [scope.row.type])}(${scope.row.amount
-                        } TURN) from self-stake, Remove the Validator List`
-                    }}
-                  </p>
-                  <p class="percent80 no-break" v-else-if="scope.row.type == 11">
-                    {{
-                      lang == 'zh'
-                      ? `${$t(
-                        'actionType.' + [scope.row.type]
-                      )}-移出零出块惩罚验证节点列表，节点恢复正常`
-                      : `${$t(
-                        'actionType.' + [scope.row.type]
-                      )}-Remove the node zero out-block Validator List，Node back to normal`
-                    }}
-                  </p>
-                  <!-- 版本声明 todo -->
-                  <p class="percent80 no-break" v-else-if="scope.row.type == 12">
-                    {{ $t('actionType.' + [scope.row.type]) }}&nbsp;&nbsp;{{ scope.row.version }}
-                  </p>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('nodeInfo.inTxHash')" min-width="180">
-                <template slot-scope="scope">
-                  <router-link class="blue cursor ellipsis hash-width" v-if="scope.row.type != 6 &&
-                    scope.row.type != 7 &&
-                    scope.row.type != 11
-                    " :to="getTradeUrl(scope.row.txHash)">
-                    {{ scope.row.txHash }}
-                  </router-link>
-                  <span class="gray" v-else>{{
-                    $t('nodeInfo.systemOperation')
-                  }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('nodeInfo.inBlock')" min-width="90">
-                <template slot-scope="scope">
-                  <router-link class="blue cursor" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
-                  }}</router-link>
-                </template>
-              </el-table-column>
-            </el-table>
-            <div class="pagination-box">
-              <el-pagination background @size-change="handleOperateSizeChange"
-                @current-change="handleOperateCurrentChange" :current-page.sync="currentPage2"
-                :page-sizes="[10, 20, 50, 100]" :page-size="pageSize2" layout="sizes,total,  prev, pager, next"
-                :total="pageTotal2" :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
+                    <p class="percent80 no-break" v-else-if="scope.row.type == 6">
+                      {{
+                        lang == 'zh'
+                        ? `${$t(
+                          'actionType.' + [scope.row.type]
+                        )}-扣除自有质押${scope.row.percent * 100}%(${scope.row.amount
+                        } TURN)，移出验证节点列表`
+                        : `${$t('actionType.' + [scope.row.type])}-${scope.row.percent * 100
+                          }% of self-stake slashed (${scope.row.amount
+                          } TURN), Remove the Validator List`
+                      }}
+                    </p>
+                    <p class="percent80 no-break" v-else-if="scope.row.type == 7 && scope.row.percent == 0">
+                      {{
+                        lang == 'zh'
+                        ? `${$t(
+                          'actionType.' + [scope.row.type]
+                        )}-移出验证节点列表`
+                        : `${$t(
+                          'actionType.' + [scope.row.type]
+                        )}-Remove the Validator List`
+                      }}
+                    </p>
+                    <p class="percent80 no-break" v-else-if="scope.row.type == 7 && scope.row.percent > 0">
+                      {{
+                        lang == 'zh'
+                        ? `${$t(
+                          'actionType.' + [scope.row.type]
+                        )}-扣除自有质押(${scope.row.amount
+                        }TURN)，移出验证节点列表`
+                        : `${$t('actionType.' + [scope.row.type])}(${scope.row.amount
+                          } TURN) from self-stake, Remove the Validator List`
+                      }}
+                    </p>
+                    <p class="percent80 no-break" v-else-if="scope.row.type == 11">
+                      {{
+                        lang == 'zh'
+                        ? `${$t(
+                          'actionType.' + [scope.row.type]
+                        )}-移出零出块惩罚验证节点列表，节点恢复正常`
+                        : `${$t(
+                          'actionType.' + [scope.row.type]
+                        )}-Remove the node zero out-block Validator List，Node back to normal`
+                      }}
+                    </p>
+                    <!-- 版本声明 todo -->
+                    <p class="percent80 no-break" v-else-if="scope.row.type == 12">
+                      {{ $t('actionType.' + [scope.row.type]) }}&nbsp;&nbsp;{{ scope.row.version }}
+                    </p>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('nodeInfo.inTxHash')" min-width="180">
+                  <template slot-scope="scope">
+                    <router-link class="blue cursor ellipsis hash-width" v-if="scope.row.type != 6 &&
+                      scope.row.type != 7 &&
+                      scope.row.type != 11
+                      " :to="getTradeUrl(scope.row.txHash)">
+                      {{ scope.row.txHash }}
+                    </router-link>
+                    <span class="gray" v-else>{{
+                      $t('nodeInfo.systemOperation')
+                    }}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('nodeInfo.inBlock')" min-width="90">
+                  <template slot-scope="scope">
+                    <router-link class="blue cursor" :to="getBlockUrl(scope.row.blockNumber)">{{ scope.row.blockNumber
+                    }}</router-link>
+                  </template>
+                </el-table-column>
+              </el-table>
+              <div class="pagination-box">
+                <el-pagination background @size-change="handleOperateSizeChange"
+                  @current-change="handleOperateCurrentChange" :current-page.sync="currentPage2"
+                  :page-sizes="[10, 20, 50, 100]" :page-size="pageSize2" layout="sizes,total,  prev, pager, next"
+                  :total="pageTotal2" :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
+              </div>
             </div>
-          </div>
-        </div>
+          </el-tab-pane>
+        </el-tabs>
+        <!-- <div v-show="tabIndex == 1" class="basicInfo"></div> -->
+        <!-- <div v-show="tabIndex == 3"> </div> -->
       </div>
     </div>
   </div>
@@ -247,7 +240,7 @@ export default {
   data() {
     return {
       address: '',
-      tabIndex: 1,
+      tabIndex: "1",
       newRecordFlag: false,
       detailInfo: {},
       cxt: null,
@@ -288,7 +281,7 @@ export default {
   },
   methods: {
     tabChange(index) {
-      this.tabIndex = index;
+      // this.tabIndex = index;
     },
     handleRewardSizeChange(size) {
       this.currentPage5 = 1;
@@ -776,6 +769,11 @@ export default {
   }
 
   .basicInfo {
+    padding: 20px;
+    border-radius: 0px 12px 12px 12px;
+    border: 1px solid var(--Gray-500, #535A65);
+    background: rgba(255, 255, 255, 0.1);
+
     .list-wrap {
       .item-wrap {
         .list-item {

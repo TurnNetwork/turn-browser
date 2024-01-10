@@ -77,6 +77,7 @@ const unit = Vue.filter("unit", value => {
   } else if (value > 1000000) {
     return (value / 1000000).toFixed(2) + "M";
   }
+  return value
 });
 
 // 截取字符串
