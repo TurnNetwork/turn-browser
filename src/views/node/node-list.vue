@@ -4,101 +4,52 @@
       <div class="page-title fontSize34">{{ $t('menu.validator') }}</div>
       <div class="node-list-header">
         <List class="statistic-info">
-          <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
-          <Item :label="$t('nodeInfo.totalStakePower')" :tips="$t('tips.totalStakePower')">
-            <p class="Gilroy-Medium">
-              {{ ValidatorStatisticData.stakingDelegationValue | unit }}
-              <span class="fontSize13  " style="padding-right: 1px">TURN</span>
-            </p>
-          </Item>
-<!--          <Item :label="$t('nodeInfo.totalDelegations')">-->
-<!--            &lt;!&ndash; <p>{{(ValidatorStatisticData.stakingDelegationValue-ValidatorStatisticData.stakingValue) | formatMoney}}<span class="fontSize13">TURN</span></p> &ndash;&gt;-->
-<!--            <p>-->
-<!--              <span class="Gilroy-Medium">{{-->
-<!--                ValidatorStatisticData.delegationValue-->
-<!--                | formatMoney-->
-<!--                | sliceFloat(0)-->
-<!--              }}</span>-->
-<!--              <span style="font-size: 13px">{{-->
-<!--                ValidatorStatisticData.delegationValue-->
-<!--                | formatMoney-->
-<!--                | sliceFloat(1)-->
-<!--              }}</span>-->
-<!--              <span class="fontSize13 currency">&nbsp;TURN</span>-->
-<!--            </p>-->
-<!--          </Item>-->
-          <Item :label="$t('nodeInfo.stakeRate')" :tips="$t('tips.stakeRate')">
-            <p>
-              <span class="Gilroy-Medium">{{
-                ValidatorStatisticData.stakingDelegationValue
-                | percentage(ValidatorStatisticData.stakingDenominator)
-              }}</span>
-              <span class="fontSize13">%</span>
-            </p>
-          </Item>
+          <div class="_statistic-header-main">
+            <div class="statistic-info">
+              <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
+              <Item :label="$t('nodeInfo.totalStakePower')" :tips="$t('tips.totalStakePower')">
+                <p class="Gilroy-Medium">
+                  {{ ValidatorStatisticData.stakingDelegationValue | unit }}
+                  <span class="fontSize13  " style="padding-right: 1px">TURN</span>
+                </p>
+              </Item>
+              <Item :label="$t('nodeInfo.stakeRate')" :tips="$t('tips.stakeRate')">
+                <p>
+                  <span class="Gilroy-Medium">{{
+                    ValidatorStatisticData.stakingDelegationValue
+                    | percentage(ValidatorStatisticData.stakingDenominator)
+                  }}</span>
+                  <span class="fontSize13">%</span>
+                </p>
+              </Item>
+            </div>
+            <div class="statistic-info">
+              <h3 class="Gilroy-Medium">
+                {{ $t('nodeInfo.currentPeriodReward') }}
+              </h3>
+              <Item :label="$t('blockAbout.blockReward')">
+                <p>
+                  <span class="Gilroy-Medium">{{
+                    ValidatorStatisticData.blockReward | formatMoney | sliceFloat(0)
+                  }}</span>
+                  <span style="font-size: 13px">{{
+                    ValidatorStatisticData.blockReward | formatMoney | sliceFloat(1)
+                  }}</span>
+                  <span class="fontSize13">&nbsp;TURN</span>
+                </p>
+              </Item>
+            </div>
+            <div class="next-epoch">
+              <h3 class="Gilroy-Medium">{{ $t('nodeInfo.nextEpoch') }}</h3>
+              <p>{{ $t('nodeInfo.updateEpoch') }}</p>
+              <ul>
+                <li v-for="(item, index) in nextSetting" :key="index">
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
         </List>
-        <List class="statistic-info">
-          <h3 class="Gilroy-Medium">
-            {{ $t('nodeInfo.currentPeriodReward') }}
-          </h3>
-          <Item :label="$t('blockAbout.blockReward')">
-            <!-- <p>
-            {{ValidatorStatisticData.blockReward | formatMoney}}
-            <span class="fontSize13">TURN</span>
-          </p>-->
-            <p>
-              <span class="Gilroy-Medium">{{
-                ValidatorStatisticData.blockReward | formatMoney | sliceFloat(0)
-              }}</span>
-              <span style="font-size: 13px">{{
-                ValidatorStatisticData.blockReward | formatMoney | sliceFloat(1)
-              }}</span>
-              <span class="fontSize13">&nbsp;TURN</span>
-            </p>
-          </Item>
-<!--          <Item :label="$t('nodeInfo.stakingReward')">-->
-<!--            &lt;!&ndash; <p>-->
-<!--            {{ValidatorStatisticData.stakingReward | formatMoney}}-->
-<!--            <span class="fontSize13">TURN</span>-->
-<!--          </p>&ndash;&gt;-->
-<!--            <p>-->
-<!--              <span class="Gilroy-Medium">{{-->
-<!--                ValidatorStatisticData.stakingReward-->
-<!--                | formatMoney-->
-<!--                | sliceFloat(0)-->
-<!--              }}</span>-->
-<!--              <span style="font-size: 13px">{{-->
-<!--                ValidatorStatisticData.stakingReward-->
-<!--                | formatMoney-->
-<!--                | sliceFloat(1)-->
-<!--              }}</span>-->
-<!--              <span class="fontSize13">&nbsp;TURNRNRN</span>-->
-<!--            </p>-->
-<!--          </Item>-->
-
-<!--          <Item :label="$t('nodeInfo.nextRewardAdjustment')">-->
-<!--            <div class="next-reward-adjustment">-->
-<!--              <span :style="{ width: getPercentage + '%' }"></span>-->
-<!--              <span></span>-->
-<!--              <p>-->
-<!--                {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of-->
-<!--                {{-->
-<!--                  ValidatorStatisticData.addIssueEnd - -->
-<!--                  ValidatorStatisticData.addIssueBegin-->
-<!--                }}-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </Item>-->
-        </List>
-        <div class="next-epoch">
-          <h3 class="Gilroy-Medium">{{ $t('nodeInfo.nextEpoch') }}</h3>
-          <p>{{ $t('nodeInfo.updateEpoch') }}</p>
-          <ul>
-            <li v-for="(item, index) in nextSetting" :key="index">
-              {{ item }}
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
     <Validator></Validator>
@@ -202,6 +153,16 @@ export default {
   // margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+
+  .statistic-info {
+    flex: 1;
+  }
+
+  ._statistic-header-main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .item-wrap {
     h3 {

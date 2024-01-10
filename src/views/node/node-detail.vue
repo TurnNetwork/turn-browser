@@ -54,7 +54,7 @@
       <div class="node-static-box">
         <div class="node-static-left-box">
           <div class="node-statistic">
-            <List class="node-left" :inline="true">
+            <List class="node-left _border" :inline="true">
               <!-- 当选验证节点 -->
               <Item :vertical="true" :label="$t('nodeInfo.electedRoundValidator')">
                 <p class="Gilroy-Medium fontSize18">
@@ -299,7 +299,7 @@
       </div>
     </div>
     <div class="content-padding">
-      <div class="tabs">
+      <!-- <div class="tabs">
         <el-button size="medium" :class="{ active: tabIndex == 1 }" @click="tabChange(1)">{{ $t('nodeInfo.nodeInfo')
         }}</el-button>
         <el-button size="medium" :class="{ active: tabIndex == 2 }" @click="tabChange(2)">{{ $t('nodeInfo.producedBlocks')
@@ -310,113 +310,113 @@
           $t('deleget.delegations') }}</el-button>
         <el-button size="medium" :class="{ active: tabIndex == 5 }" @click="tabChange(5)" v-if="!detailInfo.isInit">{{
           $t('deleget.rewardReceiveDetails') }}</el-button>
-      </div>
-      <div class="node-detail-content">
-        <div v-show="tabIndex == 1" class="basicInfo">
-          <h3 class="nodeInfo">{{ $t('nodeInfo.basicInfo') }}</h3>
-          <List>
-            <Item :label="$t('nodeInfo.nodeID')">
-              <div>
-                <span>{{ detailInfo.nodeId }}</span>
-                <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
-                  v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <p v-show="isCopy" style="width: 100%">
-                    <i class="el-icon-circle-check-outline"></i>
-                    <span>{{ copyText }}</span>
-                  </p>
-                </b>
-              </div>
-            </Item>
-            <Item :label="$t('nodeInfo.version')">
-              <div>
-                {{ detailInfo.version }}
-              </div>
-            </Item>
-            <Item :label="$t('tradeAbout.operatorAddress')">
-              <div>
-                <router-link class="blue cursor"
-                  :to="getAddressUrl(detailInfo.stakingAddr, detailInfo.stakingAddrType)">{{ detailInfo.stakingAddr
-                  }}</router-link>
-                <b class="cursor copyicon" id="copy2" :class="{ copy: !isCopy2 }"
-                  v-clipboard:copy="detailInfo.stakingAddr" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <p v-show="isCopy2" style="width: 100%">
-                    <i class="el-icon-circle-check-outline"></i>
-                    <span>{{ copyText2 }}</span>
-                  </p>
-                </b>
-              </div>
-            </Item>
-            <Item :label="$t('tradeAbout.rewardAddress')">
-              <div>
-                <router-link class="blue cursor"
-                  :to="getAddressUrl(detailInfo.denefitAddr, detailInfo.denefitAddrType)">{{ detailInfo.denefitAddr
-                  }}</router-link>
-                <span class="lightgray" v-if="detailInfo.isInit">({{ $t('nodeInfo.systemBuilt') }})</span>
-                <b class="cursor copyicon" id="copy3" :class="{ copy: !isCopy3 }"
-                  v-clipboard:copy="detailInfo.denefitAddr" v-clipboard:success="onCopy" v-clipboard:error="onError">
-                  <p v-show="isCopy3" style="width: 100%">
-                    <i class="el-icon-circle-check-outline"></i>
-                    <span>{{ copyText3 }}</span>
-                  </p>
-                </b>
-              </div>
-            </Item>
-            <Item :label="$t('tradeAbout.website')">
-              <div>
-                <a class="blue cursor" :href="detailInfo.website" v-if="detailInfo.website" target="_blank">{{
-                  detailInfo.website }}</a>
-                <span class="lightgray" v-else>Null</span>
-              </div>
-            </Item>
-            <Item>
-              <label slot="tipHeader">
-                {{ $t('nodeInfo.rewardRatio') }}
-                ：<el-tooltip placement="bottom" class="item" effect="dark">
-                  <div slot="content" class="delegate-msg">
-                    {{ $t('nodeInfo.ratioTips') }}
-                  </div>
-                  <i class="address-icon"></i>
-                </el-tooltip>
-              </label>
-              <div>
-                <span v-if="detailInfo.isInit">--</span>
-                <span v-else class="fontSize14 Gilroy-Medium">{{ detailInfo.rewardPer }} %</span>
-              </div>
-            </Item>
-            <Item v-if="detailInfo.rewardPer !== detailInfo.nextRewardPer" :label="$t('nodeInfo.nextRewardRatio')">
-              <div>
-                <span v-if="detailInfo.isInit">--</span>
-                <span v-else class="fontSize14 Gilroy-Medium">{{ detailInfo.nextRewardPer }} %</span>
-              </div>
-            </Item>
-            <Item :label="$t('tradeAbout.identity')">
-              <div>
-                <a class="blue cursor" v-if="detailInfo.externalId" :href="detailInfo.externalUrl" target="_blank">{{
-                  detailInfo.externalId }}</a>
-                <span class="lightgray" v-else>Null</span>
-              </div>
-            </Item>
-            <Item :label="$t('tradeAbout.introduction')">
-              <div>
-                <span v-if="detailInfo.details">{{ detailInfo.details }}</span>
-                <span class="lightgray" v-else>Null</span>
-              </div>
-            </Item>
-          </List>
-        </div>
-        <div v-show="tabIndex == 2">
-          <div class="address-trade-last node-last">
-            {{ $t('blockAbout.totalProduced') }}
-            <b>{{ detailInfo.blockQty | formatNumber }}</b>
-            <span style="color: #3f3f3f" v-if="newRecordFlag">{{
-              $t('contract.showingLast')
-            }}</span>
-            <el-button size="medium export-btn" @click="exportFn">{{
-              $t('common.export')
-            }}</el-button>
-          </div>
-          <div class="table">
+      </div> -->
+      <div class="node-detail-content table">
+        <el-tabs v-model="tabIndex" type="card" @tab-click="tabChange">
+          <el-tab-pane :label="`${$t('nodeInfo.nodeInfo')}`" name="1">
+            <List class="_bg">
+              <h3 class="nodeInfo">{{ $t('nodeInfo.basicInfo') }}</h3>
+              <Item :label="$t('nodeInfo.nodeID')">
+                <div>
+                  <span style="word-break: break-all;">{{ detailInfo.nodeId }}</span>
+                  <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
+                    v-clipboard:success="onCopy" v-clipboard:error="onError">
+                    <p v-show="isCopy" style="width: 100%">
+                      <i class="el-icon-circle-check-outline"></i>
+                      <span>{{ copyText }}</span>
+                    </p>
+                  </b>
+                </div>
+              </Item>
+              <Item :label="$t('nodeInfo.version')">
+                <div>
+                  {{ detailInfo.version }}
+                </div>
+              </Item>
+              <Item :label="$t('tradeAbout.operatorAddress')">
+                <div>
+                  <router-link class="blue cursor"
+                    :to="getAddressUrl(detailInfo.stakingAddr, detailInfo.stakingAddrType)">{{ detailInfo.stakingAddr
+                    }}</router-link>
+                  <b class="cursor copyicon" id="copy2" :class="{ copy: !isCopy2 }"
+                    v-clipboard:copy="detailInfo.stakingAddr" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                    <p v-show="isCopy2" style="width: 100%">
+                      <i class="el-icon-circle-check-outline"></i>
+                      <span>{{ copyText2 }}</span>
+                    </p>
+                  </b>
+                </div>
+              </Item>
+              <Item :label="$t('tradeAbout.rewardAddress')">
+                <div>
+                  <router-link class="blue cursor"
+                    :to="getAddressUrl(detailInfo.denefitAddr, detailInfo.denefitAddrType)">{{ detailInfo.denefitAddr
+                    }}</router-link>
+                  <span class="lightgray" v-if="detailInfo.isInit">({{ $t('nodeInfo.systemBuilt') }})</span>
+                  <b class="cursor copyicon" id="copy3" :class="{ copy: !isCopy3 }"
+                    v-clipboard:copy="detailInfo.denefitAddr" v-clipboard:success="onCopy" v-clipboard:error="onError">
+                    <p v-show="isCopy3" style="width: 100%">
+                      <i class="el-icon-circle-check-outline"></i>
+                      <span>{{ copyText3 }}</span>
+                    </p>
+                  </b>
+                </div>
+              </Item>
+              <Item :label="$t('tradeAbout.website')">
+                <div>
+                  <a class="blue cursor" :href="detailInfo.website" v-if="detailInfo.website" target="_blank">{{
+                    detailInfo.website }}</a>
+                  <span class="lightgray" v-else>Null</span>
+                </div>
+              </Item>
+              <Item>
+                <label slot="tipHeader">
+                  {{ $t('nodeInfo.rewardRatio') }}
+                  ：<el-tooltip placement="bottom" class="item" effect="dark">
+                    <div slot="content" class="delegate-msg">
+                      {{ $t('nodeInfo.ratioTips') }}
+                    </div>
+                    <i class="address-icon"></i>
+                  </el-tooltip>
+                </label>
+                <div>
+                  <span v-if="detailInfo.isInit">--</span>
+                  <span v-else class="fontSize14 Gilroy-Medium">{{ detailInfo.rewardPer }} %</span>
+                </div>
+              </Item>
+              <Item v-if="detailInfo.rewardPer !== detailInfo.nextRewardPer" :label="$t('nodeInfo.nextRewardRatio')">
+                <div>
+                  <span v-if="detailInfo.isInit">--</span>
+                  <span v-else class="fontSize14 Gilroy-Medium">{{ detailInfo.nextRewardPer }} %</span>
+                </div>
+              </Item>
+              <Item :label="$t('tradeAbout.identity')">
+                <div>
+                  <a class="blue cursor" v-if="detailInfo.externalId" :href="detailInfo.externalUrl" target="_blank">{{
+                    detailInfo.externalId }}</a>
+                  <span class="lightgray" v-else>Null</span>
+                </div>
+              </Item>
+              <Item :label="$t('tradeAbout.introduction')">
+                <div>
+                  <span v-if="detailInfo.details">{{ detailInfo.details }}</span>
+                  <span class="lightgray" v-else>Null</span>
+                </div>
+              </Item>
+            </List>
+          </el-tab-pane>
+          <el-tab-pane :label="`${$t('nodeInfo.producedBlocks')}`" name="2">
             <div class="node table-content">
+              <div class="address-trade-last node-last" v-show="tabIndex == 2">
+                {{ $t('blockAbout.totalProduced') }}
+                <b>{{ detailInfo.blockQty | formatNumber }}</b>
+                <span v-if="newRecordFlag">{{
+                  $t('contract.showingLast')
+                }}</span>
+                <el-button class="_el-btn" @click="exportFn">{{
+                  $t('common.export')
+                }}</el-button>
+              </div>
               <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading.block">
                 <el-table-column :label="$t('menu.block')">
                   <template slot-scope="scope">
@@ -447,10 +447,8 @@
                 layout="sizes,total,  prev, pager, next" :total="pageTotal > 5000 ? 5000 : pageTotal"
                 :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
             </div>
-          </div>
-        </div>
-        <div v-show="tabIndex == 3">
-          <div class="table">
+          </el-tab-pane>
+          <el-tab-pane :label="`${$t('nodeInfo.validatorActions')}`" name="3">
             <el-table :data="tableOperateData" style="width: 100%" key="firstTable" size="mini"
               v-loading="loading.operate">
               <el-table-column :label="$t('common.time')" width="200">
@@ -481,7 +479,8 @@
                           `${$t('actionType.' + [scope.row.type])}-${scope.row.title
                             }`
                         }}
-                        <span v-if="scope.row.type == 5">-{{ $te('voteStatus.' + scope.row.option) ? $t('voteStatus.' +
+                        <span v-if="scope.row.type == 5">-{{ $te('voteStatus.' + scope.row.option) ? $t('voteStatus.'
+                          +
                           scope.row.option) : $t('voteStatus.other') }}</span>
                       </span>
                     </template>
@@ -497,9 +496,9 @@
                     </template>
                   </p>
                   <!-- <p
-                    class="percent80"
-                    v-else-if="scope.row.type==5"
-                  >{{`${$t('actionType.'+[scope.row.type])}-${scope.row.title}-${$t('voteStatus.'+[scope.row.option])}`}}</p>-->
+                        class="percent80"
+                        v-else-if="scope.row.type==5"
+                      >{{`${$t('actionType.'+[scope.row.type])}-${scope.row.title}-${$t('voteStatus.'+[scope.row.option])}`}}</p>-->
                   <p class="percent80 no-break" v-else-if="scope.row.type == 6">
                     {{
                       lang == 'zh'
@@ -577,127 +576,131 @@
                 :page-sizes="[10, 20, 50, 100]" :page-size="pageSize2" layout="sizes,total,  prev, pager, next"
                 :total="pageTotal2" :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
             </div>
-          </div>
-        </div>
-        <div v-show="tabIndex == 4">
-          <h3 class="node-deleget-title">
-            {{
-              detailInfo.status == 4 || detailInfo.status == 5
-              ? $t('deleget.DelegateRecordWaiting')
-              : $t('deleget.DelegateRecord')
-            }}
-            <b>{{ pageTotal3 | formatNumber }}</b>
-          </h3>
-          <div class="table">
-            <el-table :data="tableDelegetData" style="width: 100%" key="firstTable" size="mini"
-              v-loading="loading.deleget">
-              <el-table-column min-width="100" :label="$t('tradeAbout.delegater')">
-                <template slot-scope="scope">
-                  <router-link class="blue cursor percent60 ellipsis adr-width"
-                    :to="getAddressUrl(scope.row.delegateAddr, scope.row.delegateAddrType)">
-                    {{ scope.row.delegateAddr }}
-                  </router-link>
-                </template>
-              </el-table-column>
-              <el-table-column min-width="200">
-                <template slot="header">
-                  {{
-                    $t('contract.delegations') + '\/' + $t('deleget.percentage')
-                  }}
-                  <el-tooltip class="item" effect="dark" placement="bottom">
-                    <div slot="content" class="delegate-msg">
-                      {{ $t('deleget.percentageMsg') }}
-                    </div>
-                    <i class="address-icon"></i>
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span>{{ scope.row.delegateValue | formatMoney }}({{
-                    scope.row.delegateValue
-                    | percentage(scope.row.delegateTotalValue)
-                  }}%)</span>
-                </template>
-              </el-table-column>
-              <!-- <el-table-column :label="$t('deleget.locked')+'\/'+$t('deleget.percentage')">
-                <template slot-scope="scope">
-                  <span>{{scope.row.delegateLocked | formatMoney}}({{scope.row.delegateLocked | percentage(scope.row.allDelegateLocked)}}%)</span>
-                </template>
-              </el-table-column>-->
-              <el-table-column min-width="120">
-                <template slot="header">
-                  {{ $t('deleget.locked') }}
-                  <el-tooltip class="item" effect="dark" placement="bottom">
-                    <div slot="content" class="delegate-msg">
-                      {{ $t('deleget.lockedMsg') }}
-                    </div>
-                    <i class="address-icon"></i>
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span>{{ scope.row.delegateLocked | formatMoney }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column min-width="160">
-                <template slot="header">
-                  {{ $t('deleget.released') }}
-                  <el-tooltip class="item" effect="dark" placement="bottom">
-                    <div slot="content" class="delegate-msg">
-                      {{ $t('deleget.releasedMsg') }}
-                    </div>
-                    <i class="address-icon"></i>
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span>{{ scope.row.delegateReleased | formatMoney }}</span>
-                </template>
-              </el-table-column>
-            </el-table>
-            <div class="pagination-box">
-              <el-pagination background @size-change="handleDelegetSizeChange"
-                @current-change="handleDelegetCurrentChange" :current-page.sync="currentPage3"
-                :page-sizes="[10, 20, 50, 100]" :page-size="pageSize3" layout="sizes,total,  prev, pager, next"
-                :total="pageTotal3" :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
+          </el-tab-pane>
+          <!-- <el-tab-pane  :label="`${$t('deleget.delegations')}`" name="4"> -->
+          <el-tab-pane v-if="!detailInfo.isInit" :label="`${$t('deleget.delegations')}`" name="4">
+            <h3 class="node-deleget-title address-trade-last">
+              {{
+                detailInfo.status == 4 || detailInfo.status == 5
+                ? $t('deleget.DelegateRecordWaiting')
+                : $t('deleget.DelegateRecord')
+              }}
+              <b>{{ pageTotal3 | formatNumber }}</b>
+            </h3>
+            <div>
+              <el-table :data="tableDelegetData" style="width: 100%" key="firstTable" size="mini"
+                v-loading="loading.deleget">
+                <el-table-column min-width="100" :label="$t('tradeAbout.delegater')">
+                  <template slot-scope="scope">
+                    <router-link class="blue cursor percent60 ellipsis adr-width"
+                      :to="getAddressUrl(scope.row.delegateAddr, scope.row.delegateAddrType)">
+                      {{ scope.row.delegateAddr }}
+                    </router-link>
+                  </template>
+                </el-table-column>
+                <el-table-column min-width="200">
+                  <template slot="header">
+                    {{
+                      $t('contract.delegations') + '\/' + $t('deleget.percentage')
+                    }}
+                    <el-tooltip class="item" effect="dark" placement="bottom">
+                      <div slot="content" class="delegate-msg">
+                        {{ $t('deleget.percentageMsg') }}
+                      </div>
+                      <i class="address-icon"></i>
+                    </el-tooltip>
+                  </template>
+                  <template slot-scope="scope">
+                    <span>{{ scope.row.delegateValue | formatMoney }}({{
+                      scope.row.delegateValue
+                      | percentage(scope.row.delegateTotalValue)
+                    }}%)</span>
+                  </template>
+                </el-table-column>
+                <!-- <el-table-column :label="$t('deleget.locked')+'\/'+$t('deleget.percentage')">
+                    <template slot-scope="scope">
+                      <span>{{scope.row.delegateLocked | formatMoney}}({{scope.row.delegateLocked | percentage(scope.row.allDelegateLocked)}}%)</span>
+                    </template>
+                  </el-table-column>-->
+                <el-table-column min-width="120">
+                  <template slot="header">
+                    {{ $t('deleget.locked') }}
+                    <el-tooltip class="item" effect="dark" placement="bottom">
+                      <div slot="content" class="delegate-msg">
+                        {{ $t('deleget.lockedMsg') }}
+                      </div>
+                      <i class="address-icon"></i>
+                    </el-tooltip>
+                  </template>
+                  <template slot-scope="scope">
+                    <span>{{ scope.row.delegateLocked | formatMoney }}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column min-width="160">
+                  <template slot="header">
+                    {{ $t('deleget.released') }}
+                    <el-tooltip class="item" effect="dark" placement="bottom">
+                      <div slot="content" class="delegate-msg">
+                        {{ $t('deleget.releasedMsg') }}
+                      </div>
+                      <i class="address-icon"></i>
+                    </el-tooltip>
+                  </template>
+                  <template slot-scope="scope">
+                    <span>{{ scope.row.delegateReleased | formatMoney }}</span>
+                  </template>
+                </el-table-column>
+              </el-table>
+              <div class="pagination-box">
+                <el-pagination background @size-change="handleDelegetSizeChange"
+                  @current-change="handleDelegetCurrentChange" :current-page.sync="currentPage3"
+                  :page-sizes="[10, 20, 50, 100]" :page-size="pageSize3" layout="sizes,total,  prev, pager, next"
+                  :total="pageTotal3" :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
+              </div>
             </div>
-          </div>
-        </div>
-        <div v-show="tabIndex == 5">
-          <div class="address-trade-last node-last">
-            {{ $t('deleget.totalReceiveReward') }}
-            <b class="limit-number" style="margin-left: 20px">{{ detailInfo.haveDeleReward | formatMoney }} TURN</b>
-          </div>
-          <div class="table">
-            <el-table :data="rewardTableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading.reward">
-              <el-table-column :label="$t('tradeAbout.hash')" :min-width="windowWidth < 750 ? 120 : ''">
-                <template slot-scope="scope">
-                  <router-link class="blue cursor ellipsis hash-width" :to="getTradeUrl(scope.row.hash)">{{ scope.row.hash
-                  }}</router-link>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('tradeAbout.delegater')" :min-width="windowWidth < 750 ? 120 : ''">
-                <template slot-scope="scope">
-                  <router-link class="blue cursor ellipsis adr-width"
-                    :to="getAddressUrl(scope.row.addr, scope.row.addrType)">{{ scope.row.addr }}</router-link>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('tradeAbout.claimTime')" show-overflow-tooltip width="180">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.time | formatTime }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('tradeAbout.delegateReward')" :min-width="windowWidth < 750 ? 120 : ''">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.reward | formatMoney }}</span>
-                </template>
-              </el-table-column>
-            </el-table>
-            <div class="pagination-box">
-              <el-pagination background @size-change="handleRewardSizeChange" @current-change="handleRewardCurrentChange"
-                :current-page.sync="currentPage5" :page-sizes="[10, 20, 50, 100]" :page-size="pageSize5"
-                layout="sizes,total,  prev, pager, next" :total="pageTotal5 > 5000 ? 5000 : pageTotal5"
-                :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
+          </el-tab-pane>
+          <!-- <el-tab-pane  :label="`${$t('deleget.rewardReceiveDetails')}`" name="5"> -->
+          <el-tab-pane v-if="!detailInfo.isInit" :label="`${$t('deleget.rewardReceiveDetails')}`" name="5">
+            <div class="address-trade-last node-last">
+              {{ $t('deleget.totalReceiveReward') }}
+              <b class="limit-number" style="margin-left: 20px">{{ detailInfo.haveDeleReward | formatMoney }} TURN</b>
             </div>
-          </div>
-        </div>
+            <div>
+              <el-table :data="rewardTableData" style="width: 100%" key="firstTable" size="mini"
+                v-loading="loading.reward">
+                <el-table-column :label="$t('tradeAbout.hash')" :min-width="windowWidth < 750 ? 120 : ''">
+                  <template slot-scope="scope">
+                    <router-link class="blue cursor ellipsis hash-width" :to="getTradeUrl(scope.row.hash)">{{
+                      scope.row.hash
+                    }}</router-link>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('tradeAbout.delegater')" :min-width="windowWidth < 750 ? 120 : ''">
+                  <template slot-scope="scope">
+                    <router-link class="blue cursor ellipsis adr-width"
+                      :to="getAddressUrl(scope.row.addr, scope.row.addrType)">{{ scope.row.addr }}</router-link>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('tradeAbout.claimTime')" show-overflow-tooltip width="180">
+                  <template slot-scope="scope">
+                    <span>{{ scope.row.time | formatTime }}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column :label="$t('tradeAbout.delegateReward')" :min-width="windowWidth < 750 ? 120 : ''">
+                  <template slot-scope="scope">
+                    <span>{{ scope.row.reward | formatMoney }}</span>
+                  </template>
+                </el-table-column>
+              </el-table>
+              <div class="pagination-box">
+                <el-pagination background @size-change="handleRewardSizeChange"
+                  @current-change="handleRewardCurrentChange" :current-page.sync="currentPage5"
+                  :page-sizes="[10, 20, 50, 100]" :page-size="pageSize5" layout="sizes,total,  prev, pager, next"
+                  :total="pageTotal5 > 5000 ? 5000 : pageTotal5" :pager-count="windowWidth < 750 ? 5 : 9"></el-pagination>
+              </div>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
       </div>
     </div>
   </div>
@@ -716,7 +719,7 @@ export default {
   data() {
     return {
       address: '',
-      tabIndex: 1,
+      tabIndex: "1",
       newRecordFlag: false,
       detailInfo: {},
       cxt: null,
@@ -771,7 +774,7 @@ export default {
   },
   methods: {
     tabChange(index) {
-      this.tabIndex = index;
+      // this.tabIndex = index;
     },
     handleRewardSizeChange(size) {
       this.currentPage5 = 1;
@@ -1037,6 +1040,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+._bg {
+  /deep/.item-wrap {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
 .contract-detail-wrap {
   padding-bottom: 1px;
 }
@@ -1153,7 +1162,7 @@ export default {
   margin: 36px 0 20px 0;
 
   .node-static-left-box {
-    width: 80%;
+    width: 100%;
   }
 
   .node-static-right-box {
@@ -1259,6 +1268,7 @@ export default {
   .basicInfo {
     .list-wrap {
       .item-wrap {
+
         .list-item {
           /deep/ &>label {
             min-width: 180px;
@@ -1266,6 +1276,12 @@ export default {
         }
       }
     }
+  }
+}
+
+._border {
+  .item-wrap {
+    border-radius: 12px;
   }
 }
 
@@ -1408,6 +1424,32 @@ export default {
         }
       }
     }
+  }
+}
+
+/deep/.el-pagination {
+  .el-select .el-input__inner {
+    background: transparent;
+  }
+}
+
+/deep/.el-tabs__content {
+  overflow: inherit;
+}
+
+.address-trade-last {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  z-index: 2;
+
+  // width: 500px;
+  ._el-btn {
+    background: transparent;
+    margin-left: 20px;
+    margin-top: -10px;
+    height: 30px;
+    line-height: 10px;
   }
 }
 </style>

@@ -1169,7 +1169,7 @@ export default {
 
   .item-wrap {
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 0 12px 12px 12px;
     border: 1px solid var(--Gray-500, #535A65);
     background: #1d2229;
   }
@@ -1238,7 +1238,6 @@ export default {
 .item-wrap {
   display: flex;
   flex-flow: column wrap;
-  // padding-left: 50px;
   padding-bottom: 15px;
 
   &.flex-inline {

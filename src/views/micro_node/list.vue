@@ -11,7 +11,7 @@
           <el-button size="medium" :class="{ active: tabIndex == 3 }" @click="tabChange(3, 'candidate')">{{
             $t('nodeStatus.1') }}</el-button>
         </div>
-        <div class="validators-search node-validators-search">
+        <dtableiv class="validators-search node-validators-search">
           <el-input :placeholder="$t('microNode.searchValidator')" clearable v-model="keyword"
             @keyup.enter.native="searchFn" @change="clearInput" size="mini"></el-input>
           <el-button type="primary" class="el-btn el-searchs" @click="searchFn">{{ $t('search.searchBtn') }}</el-button>
@@ -304,8 +304,8 @@ export default {
         ),
       ]);
     },
-    tabChange(index, type) {
-      switch (this.selectIndex) {
+    tabChange() {
+      switch (+this.tabIndex) {
         case 2:
           this.queryStatus = 'active'; break
         case 3:
