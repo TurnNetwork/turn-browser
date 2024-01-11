@@ -297,7 +297,7 @@ td {
 .box-div .line6 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   //: 1px solid #a027ad;
   //height: 480px;
   width: 100%;
@@ -308,8 +308,9 @@ td {
   display: block;
   //border: 1px solid #094296;
   //height: 480px;
-  /*width: 600px;*/
-  width: 100%;
+  width: 600px;
+  min-height: 128px;
+  /*width: 100%;*/
   //float: left;
   /*margin-right: 20px;*/
   border-radius: 10px;
@@ -622,16 +623,16 @@ td {
           <p class="tou">The Turn Network<br />Blockchain Explorer</p>
           <div class="search-container">
             <div class="changeType">
-              <span style="font-size: 16px">Layer1</span>
+<!--              <span style="font-size: 16px">Layer1</span>-->
 
-<!--              <el-tooltip placement="top" class="changeLayer">-->
-<!--                <div slot="content">-->
-<!--                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>-->
-<!--                  <br/>-->
-<!--                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>-->
-<!--                </div>-->
-<!--                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>-->
-<!--              </el-tooltip>-->
+              <el-tooltip placement="top" class="changeLayer">
+                <div slot="content">
+                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>
+                  <br/>
+                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>
+                </div>
+                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>
+              </el-tooltip>
 
               <img src="../../assets/imagesV2/Rectangle 4.png" alt="">
             </div>
@@ -839,7 +840,7 @@ td {
             </li>
           </ul>
         </div>
-        <div class="line6-1 border-kuang kuangBg" style="display: none">
+        <div class="line6-1 border-kuang kuangBg">
           <div class="tableHead">
             <span class="fontCss">Active Bubbles(L2)</span>
             <a class="viewAll" href="">View All ></a>
