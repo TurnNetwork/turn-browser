@@ -299,7 +299,7 @@ td {
   justify-content: space-between;
   align-items: center;
   //: 1px solid #a027ad;
-  height: 480px;
+  //height: 480px;
   width: 100%;
   margin-top: 24px;
 }
@@ -724,7 +724,8 @@ td {
               <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
             </tr>
             <tr>
-              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
+<!--              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>-->
+              <td class="myTd">0</td>
               <td class="myTd cursor hoverBlue">
                 <a @click="goProposal">
                   {{ blockStatisticData.doingProposalQty | formatNumber }}
