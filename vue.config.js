@@ -12,8 +12,8 @@ module.exports = {
       '/apis': {
         // target: "https://scan.doubleace.xyz/",//链
         // target: "http://8.218.229.173:11011/",//链
-        target: "https://scan.bubbonet.com/",//链
-        // target: "https://scan-test.bubbonet.com/",//链
+        // target: "https://scan.bubbonet.com/",//链
+        target: "https://scan-test.bubbonet.com/",//链
         // target: "http://192.168.31.123:40010/",//链
         secure: false,
         ws: false,

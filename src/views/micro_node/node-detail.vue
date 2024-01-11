@@ -334,7 +334,11 @@ export default {
             // if (!isNaN(dag)) {
             //   this.imgRatio = (dag * 100).toFixed(2);
             // }
-            this.getDelegetList();
+
+
+            //this.getDelegetList();
+
+
             //   // this.draw(dag);
             // } else {
             //   this.detailInfo = {};

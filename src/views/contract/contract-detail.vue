@@ -295,7 +295,8 @@ export default {
 }
 
 .money {
-  color: #030911;
+  //color: #030911;
+  color: rgba(213, 216, 221, 0.6);
 
   &.contract-create-info {
     display: flex;

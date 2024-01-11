@@ -580,7 +580,8 @@ export default {
     2005: "CancelProposal", //取消提案
     3000: "ReportValidator", //'举报验证节点',
     4000: "CreateLockup", //'创建锁仓计划'
-    5000: "ClaimRewards"
+    5000: "ClaimRewards",
+    8003: "StakingToken"
   },
 
   //合约类型
