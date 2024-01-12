@@ -192,7 +192,7 @@ class IndexService extends Ws {
             this.stompClient.subscribe(API.WS_CONFIG.stakingList, (msg) => {
                 const res = JSON.parse(msg.body)
                 const { data, code } = res
-                // debugger                              
+                // debugger
                 console.log(`updateValidatorData`, res)
                 if (code === 0) {
                     if (!data.isRefresh) {
