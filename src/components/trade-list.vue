@@ -37,7 +37,7 @@
         $t('common.export')
       }}</span>
       <el-tabs v-model="selectIndex" type="card" @tab-click="typeChange">
-        <el-tab-pane :label="`${$t('contract.all')}`" name="1">
+        <el-tab-pane :label="`${$t('contract.all')}`" name="1" >
           <el-table :data="tableData" style="width: 100%" key="firstTable" size="mini" v-loading="loading">
             <!-- 交易哈希值 -->
             <el-table-column :label="$t('tradeAbout.hash')" min-width="200">
@@ -606,7 +606,7 @@ export default {
       this.getTradeList();
     },
     typeChange() {
-      switch (this.selectIndex) {
+      switch (+this.selectIndex) {
         case 2:
           this.tradeType = 'transfer'; break
         case 3:
@@ -622,8 +622,8 @@ export default {
       // this.selectIndex = index;
       // this.tradeType = type;
 
-      // this.currentPage = 1;
-      // this.getTradeList();
+      this.currentPage = 1;
+      this.getTradeList();
     },
     exportFn() {
       //跳转至下载页

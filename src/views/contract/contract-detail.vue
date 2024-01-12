@@ -91,10 +91,11 @@
                   $t('contract.contractName')
                 }}</label>
                 <!-- 系统合约 -->
-                <div class="money" v-if="detailInfo.type == '2'">
-                  {{ detailInfo.contractName }}
-                </div>
-                <div class="money" v-else>Not Available</div>
+                <div class="money">{{ detailInfo.tokenName }}</div>
+<!--                <div class="money" v-if="detailInfo.type == '2'">-->
+<!--                  {{ detailInfo.contractName }}-->
+<!--                </div>-->
+<!--                <div class="money" v-else>Not Available</div>-->
               </li>
               <li>
                 <label class="Gilroy-Medium">{{
@@ -295,7 +296,8 @@ export default {
 }
 
 .money {
-  color: #030911;
+  //color: #030911;
+  color: rgba(213, 216, 221, 0.6);
 
   &.contract-create-info {
     display: flex;
@@ -320,6 +322,39 @@ export default {
   }
 }
 
+.overview-wrap {
+  border-radius: 12px;
+  border: 1px solid var(--Gray-500, #535A65);
+  background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+  padding: 25px 27px;
+
+  .Gilroy-Medium {
+    color: var(--Gray-900, #D5D8DD);
+    font-size: 16px;
+  }
+
+  .overview ul li {
+    border-bottom: none;
+    color: rgba(#D5D8DD, .6);
+    padding-left: 0;
+    justify-content: flex-start;
+
+    .money {
+      color: rgba(#D5D8DD, .6);
+      font-size: 14px;
+    }
+
+    .Gilroy-Medium {
+      color: rgba(#D5D8DD, .6);
+      font-size: 14px;
+    }
+
+    label {
+      width: 200px;
+    }
+  }
+}
+
 @media (max-width: 750px) {
   .detail-change {
     .detail-copy {
@@ -338,16 +373,41 @@ export default {
     }
   }
 
+  /*.overview-wrap {*/
+  /*  flex-direction: column;*/
+
+  /*  .el-col {*/
+  /*    width: 100%;*/
+  /*    float: unset;*/
+
+  /*    .money.contract-create-info {*/
+  /*      flex-wrap: wrap;*/
+  /*      line-height: 1.35;*/
+  /*    }*/
+  /*  }*/
+
+  /*  &>*+* {*/
+  /*    margin-top: 16px;*/
+  /*  }*/
+  /*}*/
+
   .overview-wrap {
     flex-direction: column;
+    border-radius: 0px var(--Number12, 12px) var(--Number12, 12px) var(--Number12, 12px);
+    border: 1px solid var(--Gray-500, #535A65);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
 
     .el-col {
       width: 100%;
       float: unset;
 
-      .money.contract-create-info {
-        flex-wrap: wrap;
-        line-height: 1.35;
+      .money {
+        word-break: break-all;
+
+        .contract-create-info {
+          flex-wrap: wrap;
+          line-height: 1.35;
+        }
       }
     }
 
@@ -355,6 +415,7 @@ export default {
       margin-top: 16px;
     }
   }
+
 
   .address-trade {
     .tabs {

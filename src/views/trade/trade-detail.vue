@@ -81,9 +81,8 @@
 
         <!-- 数额 -->
         <Item :label="$t('tradeAbout.amount')" v-if="detailInfo.txType != '4000'">{{ detailInfo.value |
-          formatMoneyTURNTURN
-        }}TTURNN
-          TURN
+          formatMoney
+        }} TURN
         </Item>
         <!-- 锁仓 -->
         <template v-if="detailInfo.txType == '4000'">
@@ -817,12 +816,16 @@ export default {
           // data.txType = 2000;
           if (code == 0) {
             this.detailInfo = data;
-
-            this.detailInfo.texasHoldemParam = this.detailInfo.texasHoldemParam.map(v => {
-              v.texasHoldemParam = true
-              return v
-            })
-            this.hashList = [...this.detailInfo.texasHoldemParam, ...this.detailInfo.blackjackParam].map(v => {
+            if (this.detailInfo.texasHoldemParam){
+              this.detailInfo.texasHoldemParam = this.detailInfo.texasHoldemParam.map(v => {
+                v.texasHoldemParam = true
+                return v
+              })
+            }
+            let texasHoldemParamNew = this.detailInfo.texasHoldemParam || {};
+            let blackjackParamNew = this.detailInfo.blackjackParam || {};
+            // this.hashList = [...this.detailInfo.texasHoldemParam, ...this.detailInfo.blackjackParam].map(v => {
+            this.hashList = [...texasHoldemParamNew, blackjackParamNew].map(v => {
               v.decOrHex = true
               return v
             })
@@ -1080,11 +1083,11 @@ export default {
     }
 
     li {
-      max-width: 140px;
+      //max-width: 140px;
       line-height: 32px;
 
       &:not(:last-child) {
-        border-bottom: 1px solid #F5F5F5;
+        //border-bottom: 1px solid #F5F5F5;
       }
 
       .token-width {
@@ -1213,7 +1216,7 @@ export default {
 }
 
 .token-width {
-  max-width: 120px;
+  //max-width: 120px;
 }
 
 

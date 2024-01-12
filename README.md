@@ -1,1 +1,1 @@
-项目启动不了  关闭ws 链接重新启动后
+The project cannot start after closing the ws link restart

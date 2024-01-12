@@ -163,7 +163,8 @@
         <el-table-column :label="$t('tokens.symbol')">
           <template slot-scope="scope">
             <router-link class="cursor normal ellipsis adr-width" :to="getTokenUrl(scope.row.contract, 'erc20')">{{
-              `${scope.row.name} (${scope.row.symbol})` }}</router-link>
+              `${scope.row.symbol}` }}</router-link>
+<!--              `${scope.row.name} (${scope.row.symbol})` }}</router-link>-->
           </template>
         </el-table-column>
       </el-table>
@@ -219,7 +220,7 @@ export default {
     address: String,
     // //为contract时，没有余额tab
     // 逻辑修改: 当为contract时，ui和处理逻辑都和address一样，只有接口的addrss字段改为contract字段
-    // 
+    //
     pageType: {
       type: String,
       default: 'address', // address, contract, contranctA(需求修改后的新字段，为防止其他修改，暂时不删除原有逻辑)
