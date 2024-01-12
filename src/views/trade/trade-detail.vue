@@ -1083,11 +1083,11 @@ export default {
     }
 
     li {
-      max-width: 140px;
+      //max-width: 140px;
       line-height: 32px;
 
       &:not(:last-child) {
-        border-bottom: 1px solid #F5F5F5;
+        //border-bottom: 1px solid #F5F5F5;
       }
 
       .token-width {
@@ -1216,7 +1216,7 @@ export default {
 }
 
 .token-width {
-  max-width: 120px;
+  //max-width: 120px;
 }
 
 
