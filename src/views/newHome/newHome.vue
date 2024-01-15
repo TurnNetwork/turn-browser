@@ -645,11 +645,11 @@ td {
           </div>
         </div>
       </div>
-      <div class="line-title" style="display: none">
+      <div class="line-title">
         <b>Utrecht Symptoom Dagboek</b>
       </div>
 
-      <div class="line2 border-kuang kuangBg" style="display: none">
+      <div class="line2 border-kuang kuangBg">
         <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
         <!--靠左新增3个框浮动左-->
         <div class="line2-1">
@@ -747,7 +747,7 @@ td {
               <th class="myTh">{{ $t('indexInfo.totalSupply') }}</th>
               <th class="myTh">{{ $t('indexInfo.circulatingSupply') }}</th>
               <th class="myTh">{{ $t('nodeInfo.stakeRate').toUpperCase() }}</th>
-<!--              <th class="myTh">Inflation Rate</th>-->
+              <th class="myTh">Inflation Rate</th>
             </tr>
 
             <tr>
@@ -763,7 +763,7 @@ td {
                 </b>
 
               </td>
-<!--              <td class="myTd">3.17%</td>-->
+              <td class="myTd">3.17%</td>
             </tr>
           </table>
         </div>
@@ -1078,15 +1078,12 @@ export default {
         });
     },
     getBubbleList() {
-      console.log("请求bubbleList接口")
       let param = {pageNo:1,pageSize:10,queryStatus:'all'};
       apiService.search
         .bubbleList(param)
         .then((res) => {
           let { errMsg, code, data } = res;
           this.bubbleList = data;
-          console.log("bubbleList是:",this.bubbleList);
-          //this.updateValidators(data);
         })
         .catch((error) => {
           this.$message.error(error);
