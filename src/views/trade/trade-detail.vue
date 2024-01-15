@@ -233,9 +233,7 @@
                 </router-link>
               </li>
               <li>
-                <img v-pic-preview class="token-pic" :src="item.innerImage
-
-                    " />
+                <img v-pic-preview class="token-pic" :src="item.innerImage" @error="setDefaultImage" />
               </li>
             </ul>
           </div>
@@ -726,7 +724,7 @@
 import List from '@/components/list/list';
 import ListTab from '@/components/list/listTab';
 import Item from '@/components/list/item';
-
+import defaultImage from '../../assets/imagesV2/Rectangle40-2.png'
 import apiService from '@/services/API-services';
 
 export default {
@@ -771,6 +769,9 @@ export default {
     ListTab
   },
   methods: {
+    setDefaultImage(e) {
+      e.target.src = defaultImage
+    },
     updateStatus(flag, index) {
       // console.log(flag, index);
       let list = JSON.parse(JSON.stringify(this.hashList))

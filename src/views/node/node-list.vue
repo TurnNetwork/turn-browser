@@ -285,6 +285,7 @@ export default {
   }
 
   .next-epoch {
+    margin-left: 15px;
     p {
       margin: 19px 0 14px;
       color: #666;
@@ -296,7 +297,8 @@ export default {
       li {
         width: 30px;
         height: 38px;
-        background: #030911;
+        /*background: #030911;*/
+        background: #87898f;
         color: #fff;
         margin-right: 9px;
         border-radius: 1px;
