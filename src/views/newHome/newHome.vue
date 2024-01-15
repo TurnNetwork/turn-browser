@@ -843,7 +843,7 @@ td {
         <div class="line6-1 border-kuang kuangBg">
           <div class="tableHead">
             <span class="fontCss">Active Bubbles(L2)</span>
-            <a class="viewAll" href="">View All ></a>
+            <a class="viewAll" href="/bubblesList">View All ></a>
           </div>
           <ul style="margin-top: 50px;padding:0 10px">
             <li class="twoLi" v-for="(item, index) in bubbleList" :key="index" >
@@ -1393,7 +1393,7 @@ export default {
     //当选验证节点
     this.getStaking();
     //bubbleList接口,等待layer2开发好
-    //this.getBubbleList();
+    this.getBubbleList();
     //统计数据
     this.getStatistic();
     //图标数据

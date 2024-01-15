@@ -9,8 +9,9 @@ import { addressDetail, restrictingInfo, frozenDelegateInfo } from './map/addres
 import { blockDetail,blockDetailV2, blockList } from './map/block'
 import {
   nodeDetail, nodeList, historyNode, zeroNode,
-  micro_node_List, micro_nodeDetail
+  micro_node_List, micro_nodeDetail,bubbleList
 } from './map/node'
+import bubblesList from './map/bubbles'
 import { proposalList, proposalDetail } from './map/proposal.js'
 import { tokensList, tokensDetail } from './map/tokens.js'
 import DownLoad from './map/download'
@@ -22,6 +23,7 @@ export default new Router({
   routes: [
     Index, // 主页
     newHome,//新主页
+    bubblesList,
     tradeList,
     tradeDetail,
     contractDetail,
