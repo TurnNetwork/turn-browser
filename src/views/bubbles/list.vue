@@ -2,7 +2,7 @@
   <div class="gray-content content-padding">
     <div class="table _default_table">
       <div class="validators-search node-validators-search">
-        <el-input :placeholder="$t('nodeInfo.searchValidator')" clearable v-model="keyword" @keyup.enter.native="searchFn"
+        <el-input placeholder="Please enter node Bubble ID to query" clearable v-model="keyword" @keyup.enter.native="searchFn"
                   @change="clearInput" size="mini"></el-input>
         <el-button type="primary" class="el-btn" @click="searchFn">{{ $t('search.searchBtn') }}</el-button>
       </div>
@@ -18,6 +18,9 @@
                 </template>
               </el-table-column>
               <el-table-column label="Status" align="center" prop="status">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.status | formatBubbleStatus }}</span>
+                </template>
               </el-table-column>
             </el-table>
           </div>
@@ -25,57 +28,54 @@
         <el-tab-pane label="Active" v-loading="tLoading" name="2">
           <div class="table-content">
             <el-table :data="tableData">
-              <div class="table-content">
-                <el-table :data="tableData">
-                  <el-table-column label="Bubble ID" align="center" prop="bubbleId">
-                  </el-table-column>
-                  <el-table-column label="createTime" min-width="165">
-                    <template slot-scope="scope">
-                      <span> {{ scope.row.createTime | formatTime }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="Status" align="center" prop="status">
-                  </el-table-column>
-                </el-table>
-              </div>
+              <el-table-column label="Bubble ID" align="center" prop="bubbleId">
+              </el-table-column>
+              <el-table-column label="createTime" min-width="165">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.createTime | formatTime }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="Status" align="center" prop="status">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.status | formatBubbleStatus }}</span>
+                </template>
+              </el-table-column>
             </el-table>
           </div>
         </el-tab-pane>
         <el-tab-pane label="To Be Released" v-loading="tLoading" name="3">
           <div class="table-content">
             <el-table :data="tableData">
-              <div class="table-content">
-                <el-table :data="tableData">
-                  <el-table-column label="Bubble ID" align="center" prop="bubbleId">
-                  </el-table-column>
-                  <el-table-column label="createTime" min-width="165">
-                    <template slot-scope="scope">
-                      <span> {{ scope.row.createTime | formatTime }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="Status" ali gn="center" prop="status">
-                  </el-table-column>
-                </el-table>
-              </div>
+              <el-table-column label="Bubble ID" align="center" prop="bubbleId">
+              </el-table-column>
+              <el-table-column label="createTime" min-width="165">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.createTime | formatTime }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="Status" align="center" prop="status">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.status | formatBubbleStatus }}</span>
+                </template>
+              </el-table-column>
             </el-table>
           </div>
         </el-tab-pane>
         <el-tab-pane label="Released" v-loading="tLoading" name="4">
           <div class="table-content">
             <el-table :data="tableData">
-              <div class="table-content">
-                <el-table :data="tableData">
-                  <el-table-column label="Bubble ID" align="center" prop="bubbleId">
-                  </el-table-column>
-                  <el-table-column label="createTime" min-width="165">
-                    <template slot-scope="scope">
-                      <span> {{ scope.row.createTime | formatTime }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="Status" align="center" prop="status">
-                  </el-table-column>
-                </el-table>
-              </div>
+              <el-table-column label="Bubble ID" align="center" prop="bubbleId">
+              </el-table-column>
+              <el-table-column label="createTime" min-width="165">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.createTime | formatTime }}</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="Status" align="center" prop="status">
+                <template slot-scope="scope">
+                  <span> {{ scope.row.status | formatBubbleStatus }}</span>
+                </template>
+              </el-table-column>
             </el-table>
           </div>
         </el-tab-pane>
@@ -158,37 +158,32 @@
       tabChange() {
         console.log(this.tabIndex);
         switch (+this.tabIndex) {
-          case 1:
-            this.queryStatus = 'active'; break
           case 2:
-            this.queryStatus = 'releasing'; break
+            this.queryStatus = 'active'; break
           case 3:
+            this.queryStatus = 'releasing'; break
+          case 4:
             this.queryStatus = 'released'; break
-          case 0:
+          case 1:
           default:
             this.queryStatus = 'all'; break
         }
         this.currentPage = 1;
         this.getBubbleList();
-        // this.getList();
-        // if (this.queryStatus == 'candidate') {
-        //   this.websocket && this.websocket.close();
-        //   return;
-        // }
-        // this.getListBywebsocket();
       },
       clearInput(value) {
         this.currentPage = 1;
         this.tabIndex = "1";
         this.queryStatus = 'all';
-        this.getList();
-        if (this.type != 'history' && this.type != 'zero') {
-          this.getListBywebsocket();
-        }
+        this.getBubbleList();
       },
       getBubbleList() {
-        console.log("请求bubbleList接口")
-        let param = {pageNo:this.currentPage,pageSize:this.pageSize,queryStatus:this.queryStatus};
+        let param = {
+          pageNo:this.currentPage,
+          pageSize:this.pageSize,
+          queryStatus:this.queryStatus,
+          bubbleId:this.keyword.trim()
+        };
         this.tLoading = true;
         this.tableData.length = 0;
         apiService.search
@@ -197,23 +192,10 @@
             let { errMsg, code, data,totalCount } = res;
             if (code == 0) {
               this.tableData = data;
-              // if (this.type == 'history' || this.type == 'zero') {
-              //   this.tableData.forEach((value, index) => {
-              //     value.ranking = index + 1;
-              //   });
-              // }
-              // console.log(this.tableData)
               this.pageTotal = totalCount;
             } else {
               this.$message.error(errMsg);
             }
-
-
-            // let { errMsg, code, data,totalCount } = res;
-            // this.bubbleList = data;
-            // this.pageTotal = totalCount;
-            // console.log("bubbleList是:",this.bubbleList);
-            //this.updateValidators(data);
           })
           .catch((error) => {
             this.$message.error(error);
@@ -225,162 +207,12 @@
           this.tLoading = false;
         });
       },
-      getList() {
-        let param = {
-          pageNo: this.currentPage,
-          pageSize: this.pageSize,
-          key: this.keyword.trim(),
-        };
-        let methodName = '';
-        if (this.type == 'history') {
-          methodName = 'historyStakingList';
-        } else if (this.type == 'zero') {
-          methodName = 'lockedStakingList';
-        } else {
-          param.queryStatus = this.queryStatus;
-          methodName = 'aliveStakingList';
-        }
-        this.tLoading = true;
-        this.tableData.length = 0;
-        apiService.node[methodName](param)
-          .then((res) => {
-            let { data, totalPages, totalCount, code, errMsg } = res;
-            if (param.queryStatus && param.queryStatus !== this.queryStatus) {
-              return;
-            }
-            if (code == 0) {
-              this.tableData = data;
-              if (this.type == 'history' || this.type == 'zero') {
-                this.tableData.forEach((value, index) => {
-                  value.ranking = index + 1;
-                });
-              }
-              // console.log(this.tableData)
-              this.pageTotal = totalCount;
-            } else {
-              this.$message.error(errMsg);
-            }
-          })
-          .catch((error) => {
-            this.$message.error(error);
-          })
-          .finally(() => {
-            if (param.queryStatus && param.queryStatus !== this.queryStatus) {
-              return;
-            }
-            this.tLoading = false;
-          });
-      },
-      //从websocket获取数据
-      getListBywebsocket() {
-        if (this.websocket) {
-          this.websocket.close();
-        }
-        let url = API.WS_CONFIG.serverWebsocket.toLowerCase();
-        const origin = window.location.origin;
-
-        let param = this.guid();
-        param += ',' + this.currentPage;
-        param += ',' + this.pageSize;
-        param += ',' + this.queryStatus;
-        param += ',' + this.keyword.trim();
-
-        if (origin.indexOf('https') != -1) {
-          // url = url.replace("https", "wss");
-          url = origin.replace('https', 'wss') + url;
-        } else if (origin.indexOf('http') != -1) {
-          // url = url.replace("http", "ws");
-          url = origin.replace('http', 'ws') + url;
-        }
-
-        if ('WebSocket' in window) {
-          this.websocket = new WebSocket(url + param);
-          this.websocket.onerror = function (e) {
-            // console.log("websocket.onerror", e)
-          };
-          this.websocket.onopen = function (e) { };
-          this.websocket.onmessage = (e) => {
-            let data = JSON.parse(e.data);
-            if (data.code == 0) {
-              // console.log("nodeList", data)
-              this.tableData = data.data;
-              this.pageTotal = data.totalCount;
-            } else {
-              this.$message.error(data.errMsg);
-            }
-          };
-        } else {
-          alert('当前浏览器 Not support websocket');
-        }
-      },
-      replace() {
-        this.$router.replace({
-          query: {
-            currentPage: this.currentPage,
-            pageSize: this.pageSize,
-          },
-        });
-      },
-      handleCurrentChange(val) {
-        this.currentPage = val;
-        this.getList();
-        if (this.type != 'history' && this.type != 'zero') {
-          this.getListBywebsocket();
-          this.replace();
-        }
-      },
-      handleSizeChange(val) {
-        this.currentPage = 1;
-        this.pageSize = val;
-        this.getList();
-        if (this.type != 'history' && this.type != 'zero') {
-          this.getListBywebsocket();
-          this.replace();
-        }
-      },
       //查询
       searchFn() {
         this.currentPage = 1;
         this.tabIndex = "1";
         this.queryStatus = 'all';
-        this.getList();
-        if (this.type != 'history' && this.type != 'zero') {
-          this.getListBywebsocket();
-        }
-      },
-      //进入节点详情
-      getDetailUrl(nodeId) {
-        return {
-          path: '/node-detail',
-          query: {
-            address: nodeId,
-            type: this.type,
-          }
-        };
-      },
-      goDetail(nodeId) {
-        this.$router.push(this.getDetailUrl(nodeId));
-      },
-      goHistory() {
-        this.$router.push({
-          path: '/history-node',
-        });
-      },
-      goZero() {
-        this.$router.push({
-          path: '/zero-node',
-        });
-      },
-      //
-      guid() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-          /[xy]/g,
-          function (c) {
-            var r = (Math.random() * 16) | 0,
-              v = c == 'x' ? r : (r & 0x3) | 0x8;
-            return v.toString(16);
-          }
-        );
+        this.getBubbleList();
       },
     },
     //生命周期函数
@@ -389,31 +221,10 @@
         this.currentPage = this.$route.query.currentPage - 0;
         this.pageSize = this.$route.query.pageSize - 0;
       }
-      //this.getList();
       this.getBubbleList();
-      // if (this.type != "history") {
-      //   this.timer = setInterval(() => {
-      //     // console.log(222)
-      //     this.getList();
-      //   }, 5000);
-      // }
     },
     mounted() {
-      // if (this.type != 'history' && this.type != 'zero') {
-      //   this.getListBywebsocket();
-      // }
-    },
-    beforeDestroy() {
-      if (this.websocket) {
-        this.websocket.close();
-        this.websocket = null;
-      }
-    },
-    destroyed() {
-      // clearInterval(this.timer);
-      if (this.websocket) {
-        this.websocket.close();
-      }
+
     },
   };
 </script>

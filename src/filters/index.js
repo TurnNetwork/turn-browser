@@ -145,7 +145,7 @@ const formatBubbleStatus = Vue.filter("formatBubbleStatus", data => {
     if (data == 1){
       return "Active";
     }else if (data == 2){
-      return "Releasing";
+      return "To Be Released";
     }else if (data == 3){
       return "Released";
     }else{

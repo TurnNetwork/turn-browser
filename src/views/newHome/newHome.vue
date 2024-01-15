@@ -861,10 +861,6 @@ td {
           </ul>
         </div>
       </div>
-
-      <!--    <div class="line-end">-->
-
-      <!--    </div>-->
       <div style="width: 100%;height: 406px">
 
       </div>
