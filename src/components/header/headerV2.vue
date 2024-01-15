@@ -5,7 +5,7 @@
         <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
       </div>
       <div class="menu">
-        <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal"
+        <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal" hide-timeout="1000"
           background-color="transparent" text-color="#999" active-text-color="#FFF">
           <el-menu-item index="/" :class="{ active: $route.path == '/' }">
             <span>{{ $t('menu.home') }}</span>
@@ -931,7 +931,7 @@ export default {
 
     .menu {
       .el-menu-demo {
-        display: none;
+        //display: none;
       }
     }
 
@@ -979,7 +979,7 @@ export default {
 
     .menu {
       .el-menu-demo {
-        display: none;
+        //display: none;
       }
     }
 
