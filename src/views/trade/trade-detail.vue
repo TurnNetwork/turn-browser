@@ -1102,6 +1102,7 @@ export default {
   margin: 10px auto;
   max-width: 210px;
   height: 100px;
+  float: left;
   // background: #fff;
 }
 
