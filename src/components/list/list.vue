@@ -48,6 +48,8 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+
+
 .list-wrap {
     &.border {
         border: 1px solid #F5F5F5;
@@ -71,7 +73,7 @@ export default {
     flex-flow: column wrap;
     // padding-left: 50px;
     padding: 24px;
-    border-radius: 0 12px 12px 12px;
+    border-radius: 0px 12px 12px 12px;
     border: 1px solid var(--Gray-500, #535A65);
     background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
 

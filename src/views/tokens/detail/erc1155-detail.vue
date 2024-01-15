@@ -220,31 +220,89 @@ export default {
   padding-bottom: 30px;
 }
 
+.overview-wrap {
+  border-radius: 12px;
+  border: 1px solid var(--Gray-500, #535A65);
+  background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+  padding: 25px 27px;
+
+  .Gilroy-Medium {
+    color: var(--Gray-900, #D5D8DD);
+    font-size: 16px;
+  }
+
+  .overview ul li {
+    border-bottom: none;
+    color: rgba(#D5D8DD, .6);
+    padding-left: 0;
+    justify-content: flex-start;
+
+    .money {
+      color: rgba(#D5D8DD, .6);
+      font-size: 14px;
+    }
+
+    .Gilroy-Medium {
+      color: rgba(#D5D8DD, .6);
+      font-size: 14px;
+    }
+
+    label {
+      width: 100px;
+    }
+  }
+}
+
 @media (max-width: 750px) {
+  /*.overview-wrap {*/
+  /*  flex-direction: column;*/
+
+  /*  .overview-gap {*/
+  /*    height: 20px;*/
+  /*  }*/
+
+  /*  .el-col {*/
+  /*    width: 100%;*/
+
+  /*    .others.overview {*/
+  /*      ul {*/
+  /*        li {*/
+  /*          .money.contract-create-info {*/
+  /*            word-break: break-all;*/
+  /*            margin-left: 20px;*/
+
+  /*            .detail-copy {*/
+  /*              min-width: 55px;*/
+  /*            }*/
+  /*          }*/
+  /*        }*/
+  /*      }*/
+  /*    }*/
+  /*  }*/
+  /*}*/
+
   .overview-wrap {
     flex-direction: column;
-
-    .overview-gap {
-      height: 20px;
-    }
+    border-radius: 0px var(--Number12, 12px) var(--Number12, 12px) var(--Number12, 12px);
+    border: 1px solid var(--Gray-500, #535A65);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
 
     .el-col {
       width: 100%;
+      float: unset;
 
-      .others.overview {
-        ul {
-          li {
-            .money.contract-create-info {
-              word-break: break-all;
-              margin-left: 20px;
+      .money {
+        word-break: break-all;
 
-              .detail-copy {
-                min-width: 55px;
-              }
-            }
-          }
+        .contract-create-info {
+          flex-wrap: wrap;
+          line-height: 1.35;
         }
       }
+    }
+
+    &>*+* {
+      margin-top: 16px;
     }
   }
 }
