@@ -286,7 +286,7 @@
                 :class="{ active: $route.path == '/tokens/tokensList/prc1155' }">
                 <router-link to="/tokens/tokensList/prc1155">{{ $t('menu.erc1155Tokens') }}</router-link>
               </el-menu-item> -->
-              <!-- 
+              <!--
               <el-menu-item index="/tokens/tokensTranfer/prc1155" @click="toggleMobileMenuOpenend" :class="{
                 active: $route.path == '/tokens/tokensTranfer/prc1155'
               }">
