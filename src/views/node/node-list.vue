@@ -219,11 +219,11 @@ export default {
 </script>
 <style lang="less" scoped>
 
-  .superBorder{
-    /deep/.item-wrap {
-      border-radius: 12px 12px 12px 12px;
-    }
+.superBorder{
+  /deep/.item-wrap {
+    border-radius: 12px 12px 12px 12px;
   }
+}
 
 
 

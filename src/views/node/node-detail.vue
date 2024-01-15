@@ -54,7 +54,7 @@
       <div class="node-static-box">
         <div class="node-static-left-box">
           <div class="node-statistic">
-            <List class="node-left _border" :inline="true">
+            <List class="node-left _border superBorder" :inline="true">
               <!-- 当选验证节点 -->
               <Item :vertical="true" :label="$t('nodeInfo.electedRoundValidator')">
                 <p class="Gilroy-Medium fontSize18">
@@ -1040,6 +1040,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.superBorder{
+  /deep/.item-wrap {
+    border-radius: 12px 12px 12px 12px;
+  }
+}
+
 ._bg {
   /deep/.item-wrap {
     background: rgba(255, 255, 255, 0.1);
