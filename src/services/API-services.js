@@ -39,6 +39,7 @@ class ApiService {
     };
     this.search = {
       query: this.post.bind(this, API.SEARCH.query),
+      queryLayerTwo: this.post.bind(this, API.SEARCH.queryLayerTwo),
       stakingOnIndex: this.post.bind(this, API.SEARCH.stakingOnIndex),
       bubbleList: this.post.bind(this, API.SEARCH.bubbleList),
       blockOnIndex: this.post.bind(this, API.SEARCH.blockOnIndex),

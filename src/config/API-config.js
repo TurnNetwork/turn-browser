@@ -52,6 +52,7 @@ const BASE = process.env.VUE_APP_API_ROOT,
   // SOUSUO
   SEARCH = {
     query: `${HOME_URL}/queryNavigation`,
+    queryLayerTwo : `${BASE}/subchain/subChainTxRecordList`,
     stakingOnIndex: `${HOME_URL}/stakingList`,
     bubbleList: `${BASE}/bubble/list`,
     blockOnIndex: `${HOME_URL}/blockList`,
