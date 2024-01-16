@@ -15,7 +15,7 @@ const routeJump = {
     //进入交易哈希详情
     getTradeUrl(hash) {
       return {
-        path: '/trade-detail',
+        path: '/tradeLayerTwo-detail',
         query: {
           txHash: hash
         }

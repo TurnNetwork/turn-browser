@@ -4,6 +4,7 @@ import Index from './map/index'
 import newHome from './map/newHome'
 import { faucet,faucetV2 } from './map/faucet'
 import { tradeList, tradeDetail } from './map/trade'
+import { tradeLayerTwoList, tradeLayerTwoDetail } from './map/tradeLayerTwo'
 import { contractDetail } from './map/contract'
 import { addressDetail, restrictingInfo, frozenDelegateInfo } from './map/address'
 import { blockDetail,blockDetailV2, blockList } from './map/block'
@@ -26,6 +27,8 @@ export default new Router({
     bubblesList,
     tradeList,
     tradeDetail,
+    tradeLayerTwoList,
+    tradeLayerTwoDetail,
     contractDetail,
     addressDetail,
     nodeDetail,

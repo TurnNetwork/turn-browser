@@ -50,10 +50,16 @@
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="/block/index">{{
                   $t('menu.block')
-                }}</el-dropdown-item>
+                }}（L1）</el-dropdown-item>
+                <el-dropdown-item command="/bubblesList">{{
+                  $t('menu.block')
+                  }}（L2）</el-dropdown-item>
                 <el-dropdown-item command="/block/trade">{{
                   $t('menu.transaction')
-                }}</el-dropdown-item>
+                }}（L1）</el-dropdown-item>
+                <el-dropdown-item command="/tradeLayerTwo">{{
+                  $t('menu.transaction')
+                  }}（L2）</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
