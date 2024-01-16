@@ -5,6 +5,7 @@
     </div>
     <div class="sub-title">
       <div class="fontSize14 trade-count">
+        <span class="title">L1 &nbsp;</span>
         <template v-if="pageTotal > 500000">
           {{ $t('tradeAbout.morethen') }}>
         </template>

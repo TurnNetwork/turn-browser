@@ -62,10 +62,12 @@ const BASE = process.env.VUE_APP_API_ROOT,
   // TRADE
   TRADE = {
     transactionList: `${TRADE_URL}/transactionList`,
+    transactionLayerTwoList: `${BASE}/subchain/subChainTxList`,
     transactionListByBlock: `${TRADE_URL}/transactionListByBlock`,
     transactionListByAddress: `${TRADE_URL}/transactionListByAddress`,
     addressTransactionDownload: `${TRADE_URL}/addressTransactionDownload`,
     transactionDetails: `${TRADE_URL}/transactionDetails`,
+    transactionLayerTwoDetails: `${BASE}/subchain/subChainTxDetails`,
     transactionDetailNavigate: `${TRADE_URL}/transactionDetailNavigate`,
     queryClaimByAddress: `${TRADE_URL}/queryClaimByAddress`
   },

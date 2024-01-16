@@ -1,10 +1,11 @@
 <template>
   <div class="trade-list-wrap">
     <div class="page-title fontSize34">
-      {{ $t('tradeAbout.transactionUp') }}123123123
+      {{ $t('tradeAbout.transactionUp') }}
     </div>
     <div class="sub-title">
       <div class="fontSize14 trade-count">
+        <span class="title">L2 &nbsp;</span>
         <template v-if="pageTotal > 500000">
           {{ $t('tradeAbout.morethen') }}>
         </template>
@@ -127,7 +128,7 @@ import apiService from '@/services/API-services';
 import { timeDiff } from '@/services/time-services';
 
 export default {
-  name: 'trade-list',
+  name: 'tradeLayerTwo-list',
   data() {
     return {
       tableData: [],
@@ -152,7 +153,7 @@ export default {
       };
       this.loading = true;
       apiService.trade
-        .transactionList(param)
+        .transactionLayerTwoList(param)
         .then((res) => {
           let {
             data,

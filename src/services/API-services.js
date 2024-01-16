@@ -48,7 +48,9 @@ class ApiService {
     };
     this.trade = {
       transactionList: this.post.bind(this, API.TRADE.transactionList),
+      transactionLayerTwoList: this.post.bind(this, API.TRADE.transactionLayerTwoList),
       transactionDetails: this.post.bind(this, API.TRADE.transactionDetails),
+      transactionLayerTwoDetails: this.post.bind(this, API.TRADE.transactionLayerTwoDetails),
       transactionListByBlock: this.post.bind(
         this,
         API.TRADE.transactionListByBlock
