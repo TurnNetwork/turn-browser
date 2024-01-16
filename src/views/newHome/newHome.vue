@@ -1028,41 +1028,77 @@ export default {
       if (!param) {
         return
       }
-      let isHEX = false;
-      if (/^(0x)[\da-f]{40}|$|^(atp|lat)[\da-f]{39}$/i.test(param)) {
-        param = param.toLowerCase()
-      }
-      // if (isAddress(param)) {
-      //   isHEX = param;
-      //   param = toBech32Address(process.env.VUE_APP_ADR_PREV, param);
-      // }
-      this.disabledBtn = true;
-      apiService.search
-        .query({ parameter: param })
-        .then((res) => {
-          this.searchKey = '';
-          let { errMsg, code, data } = res;
-          if (code == 0) {
-            //根据type不同进入不同的详情页
-            if (!data.type) {
-              this.$message.warning(this.$t('indexInfo.searchno'));
-            } else {
-              if (isHEX && data.struct.address) {
-                data.struct.address = isHEX;
+      if (this.selectLayer == "Layer1"){
+        let isHEX = false;
+        if (/^(0x)[\da-f]{40}|$|^(atp|lat)[\da-f]{39}$/i.test(param)) {
+          param = param.toLowerCase()
+        }
+        // if (isAddress(param)) {
+        //   isHEX = param;
+        //   param = toBech32Address(process.env.VUE_APP_ADR_PREV, param);
+        // }
+        this.disabledBtn = true;
+        apiService.search
+          .query({ parameter: param })
+          .then((res) => {
+            this.searchKey = '';
+            let { errMsg, code, data } = res;
+            if (code == 0) {
+              //根据type不同进入不同的详情页
+              if (!data.type) {
+                this.$message.warning(this.$t('indexInfo.searchno'));
+              } else {
+                if (isHEX && data.struct.address) {
+                  data.struct.address = isHEX;
+                }
+                this.switchFn(data.type, data.struct);
               }
-              this.switchFn(data.type, data.struct);
+            } else {
+              this.$message.warning(this.$t('indexInfo.searchno'));
             }
-          } else {
-            this.$message.warning(this.$t('indexInfo.searchno'));
-          }
-        })
-        .catch((error) => {
-          this.searchKey = '';
-          this.$message.error(error);
-        })
-        .finally(() => {
-          this.disabledBtn = false;
-        });
+          })
+          .catch((error) => {
+            this.searchKey = '';
+            this.$message.error(error);
+          })
+          .finally(() => {
+            this.disabledBtn = false;
+          });
+      }else if (this.selectLayer == "Layer2"){
+        // let isHEX = false;
+        if (/^(0x)[\da-f]{40}|$|^(atp|lat)[\da-f]{39}$/i.test(param)) {
+          param = param.toLowerCase()
+        }
+        this.disabledBtn = true;
+        apiService.search
+          .queryLayerTwo({ address: param })
+          .then((res) => {
+            this.searchKey = '';
+            let { errMsg, code, data } = res;
+            if (code == 0) {
+              //根据type不同进入不同的详情页
+              if (!data) {
+                this.$message.warning(this.$t('indexInfo.searchno'));
+              } else {
+                // if (isHEX && data.struct.address) {
+                //   data.struct.address = isHEX;
+                // }
+                this.switchFn("transaction", data);
+              }
+            } else {
+              this.$message.warning(this.$t('indexInfo.searchno'));
+            }
+          })
+          .catch((error) => {
+            this.searchKey = '';
+            this.$message.error(error);
+          })
+          .finally(() => {
+            this.disabledBtn = false;
+          });
+      }else{
+        return;
+      }
     },
     //
     getStaking() {
