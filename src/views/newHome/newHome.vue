@@ -374,7 +374,7 @@ td {
   display: flex;
   align-items: center;
   gap: var(--Number20, 20px);
-  /*background-color: black;*/
+  background-color: black !important;
   color: var(--Gray-500, #535A65);
   /* P2 */
   font-family: Montserrat;
@@ -391,6 +391,7 @@ td {
 .search-icon {
   position: absolute;
   right: 1%;
+  top: 25%;
   /* 根据需要调整图标位置 */
   //top:10px;
   cursor: pointer;
@@ -581,6 +582,7 @@ td {
   /*float: left;*/
   position: absolute;
   left: 2%;
+  top: 30%;
 
   .changeLayer{
     color: var(--Gray-900, white);
