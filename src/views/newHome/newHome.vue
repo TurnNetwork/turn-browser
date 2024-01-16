@@ -366,7 +366,8 @@ td {
 .search-input {
   width: 100%;
   /* 根据需要调整宽度 */
-  padding-right: 30px;
+  /*padding-right: 30px;*/
+  padding-right: 12%;
   padding-left: 75px;
   /* 为图标留出空间 */
   height: 60px;
