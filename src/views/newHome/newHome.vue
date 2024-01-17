@@ -39,7 +39,7 @@
   font-family: Montserrat-SemiBold;
   font-size: 64px;
   font-style: normal;
-  /*font-weight: 700;*/
+  //font-weight: 700;
   line-height: 98.437%;
   /* 63px */
   letter-spacing: -2.56px;
@@ -131,7 +131,7 @@
   width: 100%;
   float: left;
   color: #C1C6CD;
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 26px;
   font-style: normal;
   line-height: normal;
@@ -267,7 +267,7 @@ td {
 .tableHead .fontCss {
   color: var(--Gray-900, #D5D8DD);
   /* P1S */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -282,7 +282,7 @@ td {
   color: var(--Blue-600, #0075FF);
 
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -297,7 +297,7 @@ td {
 .box-div .line6 {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   //: 1px solid #a027ad;
   //height: 480px;
   width: 100%;
@@ -308,9 +308,8 @@ td {
   display: block;
   //border: 1px solid #094296;
   //height: 480px;
-  width: 600px;
-  min-height: 128px;
-  /*width: 100%;*/
+  /*width: 600px;*/
+  width: 100%;
   //float: left;
   /*margin-right: 20px;*/
   border-radius: 10px;
@@ -378,7 +377,7 @@ td {
   background-color: black !important;
   color: var(--Gray-500, #535A65);
   /* P2 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -427,7 +426,7 @@ td {
 .myTh {
   color: var(--Gray-700, #9AA1AC);
   /* P2 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -450,7 +449,7 @@ td {
 .tableTh1 {
   color: var(--Gray-900, #D5D8DD);
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -535,7 +534,7 @@ td {
   display: block;
   color: var(--Gray-1000, #F1F2F4);
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   /*font-weight: 400;*/
@@ -547,7 +546,7 @@ td {
   color: var(--Gray-700, #9AA1AC);
   /*text-align: right;*/
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   /*font-weight: 400;*/
@@ -588,7 +587,7 @@ td {
   .changeLayer{
     color: var(--Gray-900, white);
     /* P2 */
-    font-family: Montserrat;
+    font-family: Montserrat-SemiBold;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -626,16 +625,16 @@ td {
           <p class="tou">The Turn Network<br />Blockchain Explorer</p>
           <div class="search-container">
             <div class="changeType">
-<!--              <span style="font-size: 16px">Layer1</span>-->
+              <span style="font-size: 16px">Layer1</span>
 
-              <el-tooltip placement="top" class="changeLayer">
-                <div slot="content">
-                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>
-                  <br/>
-                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>
-                </div>
-                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>
-              </el-tooltip>
+<!--              <el-tooltip placement="top" class="changeLayer">-->
+<!--                <div slot="content">-->
+<!--                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>-->
+<!--                  <br/>-->
+<!--                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>-->
+<!--                </div>-->
+<!--                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>-->
+<!--              </el-tooltip>-->
 
               <img src="../../assets/imagesV2/Rectangle 4.png" alt="">
             </div>
