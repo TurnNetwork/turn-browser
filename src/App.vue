@@ -7,7 +7,7 @@
     'is-ie11': isIE11,
   }" style="-webkit-tap-highlight-color: transparent">
     <com-header></com-header>
-    <div class="content-area" v-if="isRouterAlive" :class="{
+    <div class="content-area" style="width: 100vw" v-if="isRouterAlive" :class="{
       'index-area': $route.path == '/' || $route.path == '/add-to-extension',
       'content-bg': $route.path == '/',
       'content-top': $route.path !== '/',
