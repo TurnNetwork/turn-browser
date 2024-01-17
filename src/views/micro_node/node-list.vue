@@ -6,7 +6,7 @@
         <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
         <p class="staking-info">
           <span>Total Pledge &nbsp; </span>
-          <span>{{ ((micro_node.stakingValue || 0) | unit) }}</span>
+          <span>{{ micro_node.stakingValue  | unitScoped}}</span>
           <span>&nbsp; TURN</span>
         </p>
         <div class="next-epoch"></div>
@@ -24,6 +24,7 @@ import { mapState, mapActions, mapGetters, mapMutations } from 'vuex';
 import List from '@/components/list/list';
 import Item from '@/components/list/item';
 import Validator from './list';
+import Vue from "vue";
 
 let indexService = null;
 export default {
@@ -32,6 +33,20 @@ export default {
     return {};
   },
   props: {},
+  filters:{
+    //超过1k,以K为单位，超过1000K，单位M，小数点2位
+    unitScoped : function (value) {
+      if (!value) return "";
+      if (value < 1000) {
+        return value;
+      } else if (1000 < value && value < 1000000) {
+        return (value / 1000).toFixed(2) + "K";
+      } else if (value > 1000000) {
+        return (value / 1000000).toFixed(2) + "M";
+      }
+      return value
+    }
+  },
   computed: {
     ...mapGetters(['micro_node']),
     nextSetting() {

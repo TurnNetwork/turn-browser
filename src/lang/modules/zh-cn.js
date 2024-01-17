@@ -385,6 +385,7 @@ export default {
     block: "区块",
     blocks: "区块",
     Block: "区块",
+    electedBlock: "当选的区块",
     interval: "间隔",
     blockReward: "出块奖励",
     size: "区块大小",
@@ -578,6 +579,8 @@ export default {
     3000: "举报验证节点",
     4000: "创建锁仓计划",
     5000: "领取奖励",
+    7000:"节点质押",//节点质押
+    7003:"节点解质押",//节点解质押
     8003: "质押令牌"
   },
 

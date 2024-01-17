@@ -198,11 +198,12 @@ export default {
     margin-right: 10px;
   }
 
-  border: 1px solid #0798de;
+  border: 1px solid #9AA1AC;
   border-radius: 2px;
   padding: 8px 7px;
   font-size: 14px;
-  color: #0798de;
+  font-family: Montserrat-Regular;
+  color: #9AA1AC;
   letter-spacing: 0;
   cursor: pointer;
   white-space: nowrap;
