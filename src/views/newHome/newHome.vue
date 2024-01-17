@@ -36,10 +36,10 @@
 .tou {
   text-shadow: 0px 4px 13.3px var(--Blue-100, #030911);
   /* H1 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 64px;
   font-style: normal;
-  font-weight: 700;
+  //font-weight: 700;
   line-height: 98.437%;
   /* 63px */
   letter-spacing: -2.56px;
@@ -131,7 +131,7 @@
   width: 100%;
   float: left;
   color: #C1C6CD;
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 26px;
   font-style: normal;
   line-height: normal;
@@ -267,7 +267,7 @@ td {
 .tableHead .fontCss {
   color: var(--Gray-900, #D5D8DD);
   /* P1S */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -282,7 +282,7 @@ td {
   color: var(--Blue-600, #0075FF);
 
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -377,7 +377,7 @@ td {
   background-color: black !important;
   color: var(--Gray-500, #535A65);
   /* P2 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -426,7 +426,7 @@ td {
 .myTh {
   color: var(--Gray-700, #9AA1AC);
   /* P2 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -449,7 +449,7 @@ td {
 .tableTh1 {
   color: var(--Gray-900, #D5D8DD);
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -534,7 +534,7 @@ td {
   display: block;
   color: var(--Gray-1000, #F1F2F4);
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   /*font-weight: 400;*/
@@ -546,7 +546,7 @@ td {
   color: var(--Gray-700, #9AA1AC);
   /*text-align: right;*/
   /* P3 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   /*font-weight: 400;*/
@@ -587,7 +587,7 @@ td {
   .changeLayer{
     color: var(--Gray-900, white);
     /* P2 */
-    font-family: Montserrat;
+    font-family: Montserrat-SemiBold;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -647,11 +647,13 @@ td {
           </div>
         </div>
       </div>
-      <div class="line-title" style="display: none">
+<!--      <div class="line-title" style="display: none">-->
+      <div class="line-title">
         <b>Utrecht Symptoom Dagboek</b>
       </div>
 
-      <div class="line2 border-kuang kuangBg" style="display: none">
+<!--      <div class="line2 border-kuang kuangBg" style="display: none">-->
+      <div class="line2 border-kuang kuangBg">
         <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
         <!--靠左新增3个框浮动左-->
         <div class="line2-1">
