@@ -385,6 +385,7 @@ export default {
     block: "区块",
     blocks: "区块",
     Block: "区块",
+    electedBlock: "当选的区块",
     interval: "间隔",
     blockReward: "出块奖励",
     size: "区块大小",

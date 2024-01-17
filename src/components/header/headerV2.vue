@@ -304,7 +304,8 @@ export default {
       options: [
         {
           value: 'test',
-          label: 'Bubble Test',
+          // label: 'Bubble Test',
+          label: 'TURN TEST',
         },
         // {
         //   value: 'main',
@@ -598,7 +599,7 @@ export default {
   top: 0;
   right: 0;
   left: 0;
-  height: 102px;
+  height: 90px;
   width: 100%;
   z-index: 2000;
   user-select: none;

@@ -387,6 +387,7 @@ export default {
     block: "block",
     blocks: "blocks",
     Block: "Blocks",
+    electedBlock: "Elected Blocks",
     interval: "Age",
     blockReward: "Block Reward",
     size: "Size",

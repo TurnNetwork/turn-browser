@@ -9,6 +9,14 @@
   }
 }
 
+.tdBorderBottom{
+  border-bottom: 1px solid #333;
+}
+
+.line5 .line5-1 table tr:last-child{
+  border-bottom: none; /* 不显示下边框 */
+}
+
 .box-div {
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +32,8 @@
     display: block;
     width: 1660px;
     height: 721px;
-    background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;
+    /*background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;*/
+    background: url(./../../assets/imagesV2/Footerimg2.png) no-repeat;
     background-size: 100%;
     bottom: 0px;
     left:calc(50% - 830px);
@@ -34,7 +43,7 @@
 }
 
 .tou {
-  text-shadow: 0px 4px 13.3px var(--Blue-100, #030911);
+  //text-shadow: 0px 4px 13.3px var(--Blue-100, #030911);
   /* H1 */
   font-family: Montserrat-SemiBold;
   font-size: 64px;
@@ -42,7 +51,7 @@
   //font-weight: 700;
   line-height: 98.437%;
   /* 63px */
-  letter-spacing: -2.56px;
+  letter-spacing: 0.44px;
   background: linear-gradient(117deg, #CCE3FF 24.62%, #414A56 66.88%);
   /*background-clip: text;*/
   -webkit-background-clip: text;
@@ -53,8 +62,8 @@
 
 .box-div .line1 {
   float: top;
-  margin-left: 10px;
-  margin-top: 10%;
+  //margin-left: 10px;
+  margin-top: 18%;
   //border: 2px solid #0D6CDA;
   height: 500px;
   width: 60%;
@@ -172,7 +181,7 @@
 .box-div .line3 .line3-1 {
   display: block;
   //border: 1px solid #0D6CDA;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 302px;
   width: 600px;
   float: left;
@@ -219,7 +228,7 @@ td {
 .box-div .line4 .line4-1 {
   display: block;
   //border: 1px solid #0D6CDA;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 156px;
   width: 100%;
   float: bottom;
@@ -241,7 +250,7 @@ td {
 .box-div .line5 .line5-1 {
   display: block;
   //border: 1px solid #0D6CDA;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 650px;
   width: 100%;
   float: bottom;
@@ -260,8 +269,9 @@ td {
 
   border-radius: var(--Number20, 20px) var(--Number20, 20px) 0px 0px;
   border-bottom: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
-  /*background: var(--Transparency-100, rgba(255, 255, 255, 0.03));*/
-  background-color: #18191a;
+  background: var(--Transparency-100, rgba(255, 255, 255, 0.03));
+  /*background-color: #FFFFFF;*/
+  /*opacity: 0.03;*/
 }
 
 .tableHead .fontCss {
@@ -275,14 +285,14 @@ td {
   text-align: center;
   float: left;
   margin-top: 20px;
-  padding-left: 10px;
+  padding-left: 24px;
 }
 
 .tableHead .viewAll {
   color: var(--Blue-600, #0075FF);
 
   /* P3 */
-  font-family: Montserrat-SemiBold;
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -290,8 +300,8 @@ td {
   /* 19.6px */
   text-align: center;
   float: right;
-  margin-top: 20px;
-  padding-right: 10px;
+  margin-top: 24px;
+  padding-right: 24px;
 }
 
 .box-div .line6 {
@@ -312,7 +322,7 @@ td {
   width: 100%;
   //float: left;
   /*margin-right: 20px;*/
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   padding-top: 50px;
   color: white;
@@ -328,7 +338,7 @@ td {
 .box-div .line1 .searchBtn {
   display: block;
   border: 1px solid #00ff00;
-  border-radius: 10px;
+  border-radius: 20px;
   width: 300px;
   height: 40px;
   opacity: 0.5;
@@ -338,7 +348,7 @@ td {
 .search-container {
   position: relative;
   margin-top: 40px;
-
+  margin-left:2px;
   /*border-radius: var(--Number8, 8px);*/
   /*border: 1px solid var(--Gray-600, #0e5bdb);*/
   /*background: var(--Transparency-100, rgba(255, 255, 255, 0.03));*/
@@ -368,7 +378,8 @@ td {
   /* 根据需要调整宽度 */
   /*padding-right: 30px;*/
   padding-right: 12%;
-  padding-left: 75px;
+  padding-left: 20px;
+  /*padding-left: 75px;*/
   /* 为图标留出空间 */
   height: 60px;
   display: flex;
@@ -449,7 +460,7 @@ td {
 .tableTh1 {
   color: var(--Gray-900, #D5D8DD);
   /* P3 */
-  font-family: Montserrat-SemiBold;
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -497,7 +508,7 @@ td {
   height: 44px;
   text-align: right;
   line-height: 2;
-  padding-right: 2%;
+  padding-right: 14px;
 }
 
 .activeBubble-1-right {
@@ -529,16 +540,22 @@ td {
   border-bottom: 1px solid #333;
   width: 100%;
   height: 64px;
+
+  &:last-child{
+    border-bottom: none; /* 不显示下边框 */
+    margin-bottom: 0;
+  }
 }
 
 .activeBubbleFont-1 {
   display: block;
   color: var(--Gray-1000, #F1F2F4);
   /* P3 */
-  font-family: Montserrat-SemiBold;
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
-  /*font-weight: 400;*/
+  padding-bottom: 2px;
+  font-weight: 400 !important;
   /*line-height: 140%; !* 19.6px *!*/
 }
 
@@ -547,17 +564,18 @@ td {
   color: var(--Gray-700, #9AA1AC);
   /*text-align: right;*/
   /* P3 */
-  font-family: Montserrat-SemiBold;
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
-  /*font-weight: 400;*/
+  padding-top: 2px;
+  font-weight: 400 !important;
   /*line-height: 140%; !* 19.6px *!*/
 }
 
 .line1-div {
   width: 100%;
   height: 660px;
-  background: url("../../assets/imagesV2/bg_icon.png") no-repeat;
+  //background: url("../../assets/imagesV2/bg_icon.png") no-repeat;
 }
 
 .box_content{
@@ -625,7 +643,7 @@ td {
         <div class="line1">
           <p class="tou">The Turn Network<br />Blockchain Explorer</p>
           <div class="search-container">
-            <div class="changeType">
+            <div class="changeType" style="display: none">
               <span style="font-size: 16px">Layer1</span>
 
 <!--              <el-tooltip placement="top" class="changeLayer">-->
@@ -640,8 +658,9 @@ td {
               <img src="../../assets/imagesV2/Rectangle 4.png" alt="">
             </div>
 
-            <input type="text" class="search-input" v-model="searchKey" placeholder="The Turn Network Blockchain Explorer"
-                   @keyup.enter.native="searchFn">
+            <input type="text" class="search-input" v-model="searchKey" placeholder="Search by Address/BlockHeight/BlockHash/TxHash"
+                   @keyup.enter="searchFn"
+            />
             <div class="search-icon" aria-hidden="true" v-model="searchKey" @click="searchFn">
               <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
             </div>
@@ -690,7 +709,7 @@ td {
         </div>
       </div>
       <div class="line-title">
-        <b>Epilepsieregistratie ILAE 2017 classificatie</b>
+        <b>Network Activity</b>
       </div>
       <div class="line3">
         <div class="line3-1 border-kuang kuangBg">
@@ -705,18 +724,15 @@ td {
 <!--              <td class="myTd">1.0032</td>-->
               <td class="myTd">{{ tooltipData.time }}s</td>
             </tr>
-            <tr>
-              <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
-              <th class="myTh">Total number of L1 transactions</th>
-            </tr>
-            <tr>
-              <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
-              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
-            </tr>
-          </table>
-        </div>
-        <div class="line3-1 border-kuang kuangBg">
-          <table>
+<!--            <tr>-->
+<!--              <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>-->
+<!--              <th class="myTh">Total number of L1 transactions</th>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>-->
+<!--              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>-->
+<!--            </tr>-->
+
             <tr>
               <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</th>
               <th class="myTh">{{ $t('blockAbout.producer').toUpperCase() }}</th>
@@ -725,6 +741,26 @@ td {
               <td class="myTd cursor hoverBlue" @click="$router.push('/trade')">{{ tooltipData.txs }}</td>
               <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>
             </tr>
+          </table>
+        </div>
+        <div class="line3-1 border-kuang kuangBg">
+          <table>
+            <tr>
+              <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
+              <th class="myTh">Total number of L1 transactions</th>
+            </tr>
+            <tr>
+              <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
+              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
+            </tr>
+<!--            <tr>-->
+<!--              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</th>-->
+<!--              <th class="myTh">{{ $t('blockAbout.producer').toUpperCase() }}</th>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td class="myTd cursor hoverBlue" @click="$router.push('/trade')">{{ tooltipData.txs }}</td>-->
+<!--              <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>-->
+<!--            </tr>-->
             <tr>
               <th class="myTh">Total Number Of L2 Transactions</th>
               <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
@@ -743,7 +779,7 @@ td {
         </div>
       </div>
       <div class="line-title">
-        <b>Catherine Bergego Schaal</b>
+        <b>About TURN</b>
       </div>
       <div class="line4 border-kuang kuangBg">
         <div class="line4-1">
@@ -774,16 +810,16 @@ td {
         </div>
       </div>
       <div class="line-title">
-        <b>Catherine Bergego Schaal</b>
+        <b>Transaction Blocks</b>
       </div>
       <div class="line5 border-kuang kuangBg">
         <div class="tableHead">
-          <span class="fontCss">{{ $t('blockAbout.Block') }}</span>
+          <span class="fontCss">{{ $t('blockAbout.electedBlock') }}</span>
           <a class="viewAll" href="/block">View All ></a>
         </div>
         <div class="line5-1">
           <table>
-            <tr>
+            <tr class="tdBorderBottom">
               <th class="tableTh1"></th>
               <th class="tableTh1">Block</th>
               <th class="tableTh1">Producer</th>
@@ -792,7 +828,7 @@ td {
               <th class="tableTh1">Age</th>
             </tr>
 
-            <tr v-for="(item, index) in blockData" :key="index">
+            <tr v-for="(item, index) in blockData" :key="index" class="tdBorderBottom">
               <td>
                 <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
               </td>
@@ -832,7 +868,7 @@ td {
           <ul style="margin-top: 50px;padding:0 10px">
             <li class="twoLi cursor" v-for="(item, index) in ValidatorData.dataList" :key="index" @click="goNodeDetail(item.nodeId)">
               <div>
-                <img class="activeBubble-1" src="../../assets/imagesV2/Box.png" alt="" />
+                <img class="activeBubble-1" src="../../assets/imagesV2/aa.png" alt="" />
               </div>
               <div class="activeBubble-2">
                 <span class="activeBubbleFont-1 hoverBlue">{{ item.nodeName }}</span>
@@ -997,7 +1033,7 @@ export default {
   },
   watch: {
     chartData(val) {
-      this.updateChart(val);
+      // this.updateChart(val);
     },
     chainId(val) {
       indexService.disconnect();
@@ -1226,102 +1262,102 @@ export default {
       });
       this.updateBarColor();
     },
-    initBlockTimeChart() {
-      let r = this.$refs;
-      // console.log(r);
-
-      blockTimeChart.init(r.blockTimeChart, blockTimeChart.blockTimeOption);
-      blockTimeChart.chart.on('mouseover', (e) => {
-        this.handleBarHover(e);
-      });
-      blockTimeChart.chart.on('mouseout', () => {
-        // indexService.getChartData();
-        this.updateBarIsMove(true);
-        this.handleBarMouseout();
-      });
-    },
-    initBlockTradeChart() {
-      let r = this.$refs;
-      blockTradeChart.init(r.blockTradeChart, blockTradeChart.blockTradeOption);
-      blockTradeChart.chart.on('mouseover', (e) => {
-        this.handleBarHover(e);
-      });
-      blockTradeChart.chart.on('mouseout', () => {
-        // indexService.getChartData();
-        this.updateBarIsMove(true);
-        this.handleBarMouseout();
-      });
-    },
-    updateChart(data) {
-      // console.warn('data>>>>>>',typeof data,data.length)
-      //遍历data  得到 x轴  双 y轴
-      let xList = [],
-        yListTime = [],
-        yListNum = [];
-      // this.chartMove = true;
-      // setTimeout(()=>{
-      //     this.chartMove = false;
-      // },500)
-      if (data) {
-        xList = data.x;
-        yListTime = data.ya;
-        yListNum = data.yb;
-      }
-      blockTimeChart.update({
-        xAxis: [
-          {
-            data: xList,
-          },
-        ],
-        series: [
-          {
-            data: yListTime,
-          },
-        ],
-      });
-      blockTradeChart.update({
-        xAxis: [
-          {
-            data: xList,
-          },
-        ],
-        series: [
-          {
-            data: yListNum,
-          },
-        ],
-      });
-    },
-    updateBarColor() {
-      blockTimeChart.update({
-        series: [
-          {
-            itemStyle: {
-              normal: {
-                //通过数组下标选择颜色
-                color: (params) => {
-                  return this.barColorList[params.dataIndex];
-                },
-              },
-            },
-          },
-        ],
-      });
-      blockTradeChart.update({
-        series: [
-          {
-            itemStyle: {
-              normal: {
-                //通过数组下标选择颜色
-                color: (params) => {
-                  return this.barColorList[params.dataIndex];
-                },
-              },
-            },
-          },
-        ],
-      });
-    },
+    // initBlockTimeChart() {
+    //   let r = this.$refs;
+    //   // console.log(r);
+    //
+    //   blockTimeChart.init(r.blockTimeChart, blockTimeChart.blockTimeOption);
+    //   blockTimeChart.chart.on('mouseover', (e) => {
+    //     this.handleBarHover(e);
+    //   });
+    //   blockTimeChart.chart.on('mouseout', () => {
+    //     // indexService.getChartData();
+    //     this.updateBarIsMove(true);
+    //     this.handleBarMouseout();
+    //   });
+    // // },
+    // initBlockTradeChart() {
+    //   let r = this.$refs;
+    //   blockTradeChart.init(r.blockTradeChart, blockTradeChart.blockTradeOption);
+    //   blockTradeChart.chart.on('mouseover', (e) => {
+    //     this.handleBarHover(e);
+    //   });
+    //   blockTradeChart.chart.on('mouseout', () => {
+    //     // indexService.getChartData();
+    //     this.updateBarIsMove(true);
+    //     this.handleBarMouseout();
+    //   });
+    // },
+    // updateChart(data) {
+    //   // console.warn('data>>>>>>',typeof data,data.length)
+    //   //遍历data  得到 x轴  双 y轴
+    //   let xList = [],
+    //     yListTime = [],
+    //     yListNum = [];
+    //   // this.chartMove = true;
+    //   // setTimeout(()=>{
+    //   //     this.chartMove = false;
+    //   // },500)
+    //   if (data) {
+    //     xList = data.x;
+    //     yListTime = data.ya;
+    //     yListNum = data.yb;
+    //   }
+    //   blockTimeChart.update({
+    //     xAxis: [
+    //       {
+    //         data: xList,
+    //       },
+    //     ],
+    //     series: [
+    //       {
+    //         data: yListTime,
+    //       },
+    //     ],
+    //   });
+    //   blockTradeChart.update({
+    //     xAxis: [
+    //       {
+    //         data: xList,
+    //       },
+    //     ],
+    //     series: [
+    //       {
+    //         data: yListNum,
+    //       },
+    //     ],
+    //   });
+    // },
+    // updateBarColor() {
+    //   blockTimeChart.update({
+    //     series: [
+    //       {
+    //         itemStyle: {
+    //           normal: {
+    //             //通过数组下标选择颜色
+    //             color: (params) => {
+    //               return this.barColorList[params.dataIndex];
+    //             },
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   });
+    //   blockTradeChart.update({
+    //     series: [
+    //       {
+    //         itemStyle: {
+    //           normal: {
+    //             //通过数组下标选择颜色
+    //             color: (params) => {
+    //               return this.barColorList[params.dataIndex];
+    //             },
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   });
+    // },
     timeDiffFn(beginTime, endTime) {
       return timeDiff(beginTime, endTime);
     },
@@ -1419,40 +1455,40 @@ export default {
       (document.documentElement.clientHeight || document.body.clientHeight) -
       100;
 
-    this.initBlockTimeChart();
-    this.initBlockTradeChart();
-    echarts.connect([blockTimeChart.chart, blockTradeChart.chart]);
-
-    window.onresize = function () {
-      blockTimeChart.chart.resize();
-      blockTradeChart.chart.resize();
-    };
+    // this.initBlockTimeChart();
+    // this.initBlockTradeChart();
+    // echarts.connect([blockTimeChart.chart, blockTradeChart.chart]);
+    //
+    // window.onresize = function () {
+    //   blockTimeChart.chart.resize();
+    //   blockTradeChart.chart.resize();
+    // };
 
     this.scrollHandle(); //处理从其他页面返回首页搜索框隐藏的问题
     window.addEventListener('scroll', this.scrollHandle, false);
 
-    const block1 = document.getElementById('zhezhao');
-    const block2 = document.getElementById('blocks-ul-new2');
-    this.tooltipEl = document.getElementsByClassName('bar-tooltip');
-    block2.addEventListener(
-      'transitionend',
-      () => {
-        // this.isMove2 = true;
-        this.updateIsMove2(true);
-      },
-      false
-    );
-    block1.addEventListener(
-      'transitionend',
-      () => {
-        // console.log("cccc", this.isMove);
-        this.updateIsMove(false);
-
-        // this.isMove2 = false;
-        this.updateIsMove2(false);
-      },
-      false
-    );
+    // const block1 = document.getElementById('zhezhao');
+    // const block2 = document.getElementById('blocks-ul-new2');
+    // this.tooltipEl = document.getElementsByClassName('bar-tooltip');
+    // block2.addEventListener(
+    //   'transitionend',
+    //   () => {
+    //     // this.isMove2 = true;
+    //     this.updateIsMove2(true);
+    //   },
+    //   false
+    // );
+    // block1.addEventListener(
+    //   'transitionend',
+    //   () => {
+    //     // console.log("cccc", this.isMove);
+    //     this.updateIsMove(false);
+    //
+    //     // this.isMove2 = false;
+    //     this.updateIsMove2(false);
+    //   },
+    //   false
+    // );
   },
   beforeDestroy() {
     // indexService.disconnect();

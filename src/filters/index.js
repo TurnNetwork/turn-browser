@@ -70,6 +70,7 @@ const percentage = Vue.filter("percentage", (a, b) => {
 });
 //超过1k,以K为单位，超过1000K，单位M，小数点2位
 const unit = Vue.filter("unit", value => {
+  if (!value) return "";
   if (value < 1000) {
     return value;
   } else if (1000 < value && value < 1000000) {
