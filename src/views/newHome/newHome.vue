@@ -378,8 +378,8 @@ td {
   /* 根据需要调整宽度 */
   /*padding-right: 30px;*/
   padding-right: 12%;
-  padding-left: 20px;
-  /*padding-left: 75px;*/
+  /*padding-left: 20px;*/
+  padding-left: 75px;
   /* 为图标留出空间 */
   height: 60px;
   display: flex;
@@ -643,17 +643,17 @@ td {
         <div class="line1">
           <p class="tou">The Turn Network<br />Blockchain Explorer</p>
           <div class="search-container">
-            <div class="changeType" style="display: none">
-              <span style="font-size: 16px">Layer1</span>
+            <div class="changeType" >
+<!--              <span style="font-size: 16px">Layer1</span>-->
 
-<!--              <el-tooltip placement="top" class="changeLayer">-->
-<!--                <div slot="content">-->
-<!--                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>-->
-<!--                  <br/>-->
-<!--                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>-->
-<!--                </div>-->
-<!--                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>-->
-<!--              </el-tooltip>-->
+              <el-tooltip placement="top" class="changeLayer">
+                <div slot="content">
+                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>
+                  <br/>
+                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>
+                </div>
+                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>
+              </el-tooltip>
 
               <img src="../../assets/imagesV2/Rectangle 4.png" alt="">
             </div>
