@@ -6,15 +6,15 @@
     <div class="sub-title">
       <div class="fontSize14 trade-count">
         <span class="title">L2 &nbsp;</span>
-        <template v-if="pageTotal > 500000">
+        <template v-if="displayTotalCount > 500000">
           {{ $t('tradeAbout.morethen') }}>
         </template>
         <template v-else>
           {{ $t('tradeAbout.morethen2') }}
         </template>
-        <b class="black">{{ pageTotal }}</b>
+        <b class="black">{{ displayTotalCount }}</b>
         {{ $t('tradeAbout.foundTransactions') }}
-        <span v-if="pageTotal > 500000">{{
+        <span v-if="displayTotalCount > 500000">{{
           $t('tradeAbout.showingLast')
         }}</span>
       </div>
