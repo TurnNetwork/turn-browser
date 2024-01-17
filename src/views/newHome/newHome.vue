@@ -297,7 +297,7 @@ td {
 .box-div .line6 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   //: 1px solid #a027ad;
   //height: 480px;
   width: 100%;
@@ -821,7 +821,7 @@ td {
       </div>
 
       <div class="line6">
-        <div class="line6-1 border-kuang kuangBg">
+        <div class="line6-1 border-kuang kuangBg" style="margin-right: 24px">
           <div class="tableHead">
             <span class="fontCss">{{ $t('indexInfo.currentValidators') }}</span>
             <a class="viewAll" href="/node">View All ></a>
