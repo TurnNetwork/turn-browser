@@ -497,6 +497,7 @@ td {
   height: 44px;
   text-align: right;
   line-height: 2;
+  padding-right: 2%;
 }
 
 .activeBubble-1-right {
@@ -647,13 +648,13 @@ td {
           </div>
         </div>
       </div>
-<!--      <div class="line-title" style="display: none">-->
-      <div class="line-title">
+      <div class="line-title" style="display: none">
+<!--      <div class="line-title">-->
         <b>Utrecht Symptoom Dagboek</b>
       </div>
 
-<!--      <div class="line2 border-kuang kuangBg" style="display: none">-->
-      <div class="line2 border-kuang kuangBg">
+      <div class="line2 border-kuang kuangBg" style="display: none">
+<!--      <div class="line2 border-kuang kuangBg">-->
         <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
         <!--靠左新增3个框浮动左-->
         <div class="line2-1">

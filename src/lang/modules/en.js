@@ -581,7 +581,9 @@ export default {
     3000: "ReportValidator", //'举报验证节点',
     4000: "CreateLockup", //'创建锁仓计划'
     5000: "ClaimRewards",
-    8003: "StakingToken"
+    7000:"NodeStaking",//节点质押
+    7003:"NodeWithdrewStaking",//节点解质押
+    8003: "StakingToken"//质押令牌
   },
 
   //合约类型
