@@ -36,10 +36,10 @@
 .tou {
   text-shadow: 0px 4px 13.3px var(--Blue-100, #030911);
   /* H1 */
-  font-family: Montserrat;
+  font-family: Montserrat-SemiBold;
   font-size: 64px;
   font-style: normal;
-  font-weight: 700;
+  /*font-weight: 700;*/
   line-height: 98.437%;
   /* 63px */
   letter-spacing: -2.56px;
