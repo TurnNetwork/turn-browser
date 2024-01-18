@@ -14,25 +14,22 @@
                 </p>
               </Item>
 
-              <Item :label="$t('nodeInfo.totalDelegations')">
-                <!-- <p>{{(ValidatorStatisticData.stakingDelegationValue-ValidatorStatisticData.stakingValue) | formatMoney}}<span class="fontSize13">TURN</span></p> -->
-                <p>
-                  <span class="Gilroy-Medium">{{
-                    ValidatorStatisticData.delegationValue
-                    | formatMoney
-                    | sliceFloat(0)
-                  }}</span>
-                  <span style="font-size: 13px">{{
-                    ValidatorStatisticData.delegationValue
-                    | formatMoney
-                    | sliceFloat(1)
-                  }}</span>
-                  <span class="fontSize13 currency">&nbsp;TURN</span>
-                </p>
-              </Item>
-
-
-
+<!--              <Item :label="$t('nodeInfo.totalDelegations')">-->
+<!--                &lt;!&ndash; <p>{{(ValidatorStatisticData.stakingDelegationValue-ValidatorStatisticData.stakingValue) | formatMoney}}<span class="fontSize13">TURN</span></p> &ndash;&gt;-->
+<!--                <p>-->
+<!--                  <span class="Gilroy-Medium">{{-->
+<!--                    ValidatorStatisticData.delegationValue-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(0)-->
+<!--                  }}</span>-->
+<!--                  <span style="font-size: 13px">{{-->
+<!--                    ValidatorStatisticData.delegationValue-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(1)-->
+<!--                  }}</span>-->
+<!--                  <span class="fontSize13 currency">&nbsp;TURN</span>-->
+<!--                </p>-->
+<!--              </Item>-->
               <Item :label="$t('nodeInfo.stakeRate')" :tips="$t('tips.stakeRate')">
                 <p>
                   <span class="Gilroy-Medium">{{
@@ -59,40 +56,34 @@
                 </p>
               </Item>
 
+<!--              <Item :label="$t('nodeInfo.stakingReward')">-->
+<!--                <p>-->
+<!--                  <span class="Gilroy-Medium">{{-->
+<!--                    ValidatorStatisticData.stakingReward-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(0)-->
+<!--                  }}</span>-->
+<!--                  <span style="font-size: 13px">{{-->
+<!--                    ValidatorStatisticData.stakingReward-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(1)-->
+<!--                  }}</span>-->
+<!--                  <span class="fontSize13">&nbsp;TURN</span>-->
+<!--                </p>-->
+<!--              </Item>-->
 
+<!--              <Item :label="$t('nodeInfo.nextRewardAdjustment')">-->
+<!--                <p>-->
+<!--                  <span class="Gilroy-Medium">-->
+<!--                    {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of-->
+<!--                    {{-->
+<!--                      ValidatorStatisticData.addIssueEnd - -->
+<!--                      ValidatorStatisticData.addIssueBegin-->
+<!--                    }}-->
 
-              <Item :label="$t('nodeInfo.stakingReward')">
-                <!-- <p>
-                {{ValidatorStatisticData.stakingReward | formatMoney}}
-                <span class="fontSize13">TURN</span>
-              </p>-->
-                <p>
-                  <span class="Gilroy-Medium">{{
-                    ValidatorStatisticData.stakingReward
-                    | formatMoney
-                    | sliceFloat(0)
-                  }}</span>
-                  <span style="font-size: 13px">{{
-                    ValidatorStatisticData.stakingReward
-                    | formatMoney
-                    | sliceFloat(1)
-                  }}</span>
-                  <span class="fontSize13">&nbsp;TURN</span>
-                </p>
-              </Item>
-
-              <Item :label="$t('nodeInfo.nextRewardAdjustment')">
-                <p>
-                  <span class="Gilroy-Medium">
-                    {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of
-                    {{
-                      ValidatorStatisticData.addIssueEnd -
-                      ValidatorStatisticData.addIssueBegin
-                    }}
-
-                  </span>
-                </p>
-              </Item>
+<!--                  </span>-->
+<!--                </p>-->
+<!--              </Item>-->
 
             </div>
             <div class="next-epoch">

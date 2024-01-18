@@ -491,7 +491,8 @@ export default {
   border-radius: 4px;
   display: flex;
   margin-left: 30px;
-  background: rgba(#fff, 0.1);
+  /*background: rgba(#fff, 0.1);*/
+  background: rgba(255, 255, 255, 0.03);
   align-items: center;
   padding-left: 5px;
 
