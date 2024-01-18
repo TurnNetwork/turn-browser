@@ -33,12 +33,13 @@
     width: 1660px;
     height: 721px;
     /*background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;*/
-    background: url(./../../assets/imagesV2/Footerimg2.png) no-repeat;
+    background: url(./../../assets/imagesV2/Footerimg2-1.jpg) no-repeat;
     background-size: 100%;
-    bottom: -107px;
+    bottom: -98px;
     left:calc(50% - 830px);
     //z-index: 1;
     opacity:1;
+    z-index: 1;
   }
 }
 
@@ -416,7 +417,7 @@ td {
   border: 1px solid #4b3350;
   height: 200px;
   width: 100%;
-  background: url("../../assets/imagesV2/Footer img.png") repeat center;
+  background: url("../../assets/imagesV2/Footerimg.png") repeat center;
   background-size: 100%;
   opacity: 0.4;
   margin-top: 30px;
@@ -429,7 +430,7 @@ td {
   border: 1px solid #4b3350;
   height: 200px;
   width: 100%;
-  background: url("../../assets/imagesV2/Footer img.png") repeat center;
+  background: url("../../assets/imagesV2/Footerimg.png") repeat center;
   background-size: 100%;
   opacity: 0.4;
 }
@@ -625,6 +626,11 @@ td {
     right: 0;
     bottom: 0;
   }
+}
+
+.footerGezi{
+  background: url("../../assets/imagesV2/BG.svg") no-repeat;
+  background-size: 100%;
 }
 
   /deep/.selectLayerHover{
@@ -910,7 +916,7 @@ td {
       <!--    <div class="line-end">-->
 
       <!--    </div>-->
-      <div style="width: 100%;height: 406px">
+      <div class="footerGezi" style="width: 100%;height: 406px">
 
       </div>
     </div>
