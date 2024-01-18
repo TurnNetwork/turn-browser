@@ -15547,7 +15547,8 @@
   .el-table--hidden {
     visibility: hidden; }
   .el-table__fixed, .el-table__fixed-right {
-    background-color: #1d2229;
+    /*background-color: #1d2229;*/
+    background-color: black;
     position: absolute;
     top: 0;
     left: 0;

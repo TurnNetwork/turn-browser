@@ -331,7 +331,7 @@ td {
 
 .box-div .line6 .twoLi img {
   margin-left: 14px;
-  margin-right: 10px;
+  margin-right: 4px;
 }
 
 
@@ -464,21 +464,24 @@ td {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  width: 20%;
+  //width: 20%;
   //line-height: 140%; /* 19.6px */
 }
 
-/*.line5-1 table tr th:first-child {*/
-/*  width: 130px;*/
-/*}*/
+.line5-1 table tr th:first-child {
+  width: 64px;
+}
 
-/*.line5-1 table tr th:nth-child(2) {*/
-/*  text-align: left;*/
-/*}*/
+.line5-1 table tr th:nth-child(2) {
+  width: 160px;
+  text-align: left;
+  padding-left: 50px;
+}
 
-/*.line5-1 table tr td:nth-child(2) {*/
-/*  text-align: left;*/
-/*}*/
+.line5-1 table tr td:nth-child(2) {
+  text-align: left;
+  padding-left: 48px;
+}
 
 
 .fangIcon {
@@ -497,14 +500,15 @@ td {
 }
 
 .activeBubble-2 {
-  width: 327px;
+  width: 40%;
   height: 44px;
   text-align: left;
   line-height: 2;
+  margin-left: 4px;
 }
 
 .activeBubble-3 {
-  width: 30%;
+  width: 60%;
   height: 44px;
   text-align: right;
   line-height: 2;
@@ -535,7 +539,7 @@ td {
 
 .twoLi {
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   margin-bottom: 15px;
   border-bottom: 1px solid #333;
   width: 100%;

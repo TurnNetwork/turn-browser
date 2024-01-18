@@ -33,7 +33,7 @@
         <el-tab-pane :label="`${$t('contract.all')}`" name="1">
           <el-table :data="tableData"
             :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'">
-            <el-table-column fixed :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
+            <el-table-column :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
             </el-table-column>
             <el-table-column>
               <template slot="header">
@@ -98,7 +98,7 @@
         <el-tab-pane :label="`${$t('nodeStatus.1')}`" name="2">
           <el-table :data="tableData"
             :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'">
-            <el-table-column fixed :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
+            <el-table-column :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
             </el-table-column>
             <el-table-column>
               <template slot="header">
@@ -163,7 +163,7 @@
         <el-tab-pane :label="`${$t('nodeStatus.5')}`" name="3">
           <el-table :data="tableData"
             :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'">
-            <el-table-column fixed :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
+            <el-table-column :label="$t('common.serialnumber')" :width="50" align="center" prop="ranking">
             </el-table-column>
             <el-table-column>
               <template slot="header">
