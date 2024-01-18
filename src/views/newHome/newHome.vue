@@ -35,10 +35,10 @@
     /*background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;*/
     background: url(./../../assets/imagesV2/Footerimg2.png) no-repeat;
     background-size: 100%;
-    bottom: 0px;
+    bottom: -107px;
     left:calc(50% - 830px);
-    z-index: 1;
-    opacity:0.3;
+    //z-index: 1;
+    opacity:1;
   }
 }
 
@@ -63,7 +63,7 @@
 .box-div .line1 {
   float: top;
   //margin-left: 10px;
-  margin-top: 18%;
+  margin-top: 21%;
   //border: 2px solid #0D6CDA;
   height: 500px;
   width: 60%;
@@ -449,7 +449,7 @@ td {
   color: var(--Blue-1000, #CCE3FF);
 
   /* NumberL */
-  font-family: Bebas Neue;
+  font-family: BebasNeue-Regular;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -712,7 +712,7 @@ td {
           <br />
         </div>
       </div>
-      <div class="line-title">
+      <div class="line-title" style="margin-top: 100px">
         <b>Network Activity</b>
       </div>
       <div class="line3">
