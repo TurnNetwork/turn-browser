@@ -1,38 +1,35 @@
 <template>
   <div class="node-list-wrap">
     <div class=" content-top-black content-padding">
-      <div class="page-title fontSize34">{{ $t('menu.validator') }}</div>
+      <div class="page-title fontSize34 nodeTitle">{{ $t('menu.validator') }}</div>
       <div class="node-list-header">
         <List class="statistic-info superBorder">
           <div class="_statistic-header-main">
             <div class="statistic-info ">
-              <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
+              <h3 class="Gilroy-Medium nodeTitle2">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
               <Item :label="$t('nodeInfo.totalStakePower')" :tips="$t('tips.totalStakePower')">
                 <p class="Gilroy-Medium">
                   {{ ValidatorStatisticData.stakingDelegationValue | unit }}
-                  <span class="fontSize13  " style="padding-right: 1px">TURN</span>
+                  <span class="fontSize13" style="padding-right: 1px">TURN</span>
                 </p>
               </Item>
 
-                        <Item :label="$t('nodeInfo.totalDelegations')">
-                          <!-- <p>{{(ValidatorStatisticData.stakingDelegationValue-ValidatorStatisticData.stakingValue) | formatMoney}}<span class="fontSize13">TURN</span></p> -->
-                          <p>
-                            <span class="Gilroy-Medium">{{
-                              ValidatorStatisticData.delegationValue
-                              | formatMoney
-                              | sliceFloat(0)
-                            }}</span>
-                            <span style="font-size: 13px">{{
-                              ValidatorStatisticData.delegationValue
-                              | formatMoney
-                              | sliceFloat(1)
-                            }}</span>
-                            <span class="fontSize13 currency">&nbsp;TURN</span>
-                          </p>
-                        </Item>
-
-
-
+<!--              <Item :label="$t('nodeInfo.totalDelegations')">-->
+<!--                &lt;!&ndash; <p>{{(ValidatorStatisticData.stakingDelegationValue-ValidatorStatisticData.stakingValue) | formatMoney}}<span class="fontSize13">TURN</span></p> &ndash;&gt;-->
+<!--                <p>-->
+<!--                  <span class="Gilroy-Medium">{{-->
+<!--                    ValidatorStatisticData.delegationValue-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(0)-->
+<!--                  }}</span>-->
+<!--                  <span style="font-size: 13px">{{-->
+<!--                    ValidatorStatisticData.delegationValue-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(1)-->
+<!--                  }}</span>-->
+<!--                  <span class="fontSize13 currency">&nbsp;TURN</span>-->
+<!--                </p>-->
+<!--              </Item>-->
               <Item :label="$t('nodeInfo.stakeRate')" :tips="$t('tips.stakeRate')">
                 <p>
                   <span class="Gilroy-Medium">{{
@@ -44,7 +41,7 @@
               </Item>
             </div>
             <div class="statistic-info">
-              <h3 class="Gilroy-Medium">
+              <h3 class="Gilroy-Medium nodeTitle2">
                 {{ $t('nodeInfo.currentPeriodReward') }}
               </h3>
               <Item :label="$t('blockAbout.blockReward')">
@@ -59,58 +56,38 @@
                 </p>
               </Item>
 
+<!--              <Item :label="$t('nodeInfo.stakingReward')">-->
+<!--                <p>-->
+<!--                  <span class="Gilroy-Medium">{{-->
+<!--                    ValidatorStatisticData.stakingReward-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(0)-->
+<!--                  }}</span>-->
+<!--                  <span style="font-size: 13px">{{-->
+<!--                    ValidatorStatisticData.stakingReward-->
+<!--                    | formatMoney-->
+<!--                    | sliceFloat(1)-->
+<!--                  }}</span>-->
+<!--                  <span class="fontSize13">&nbsp;TURN</span>-->
+<!--                </p>-->
+<!--              </Item>-->
 
+<!--              <Item :label="$t('nodeInfo.nextRewardAdjustment')">-->
+<!--                <p>-->
+<!--                  <span class="Gilroy-Medium">-->
+<!--                    {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of-->
+<!--                    {{-->
+<!--                      ValidatorStatisticData.addIssueEnd - -->
+<!--                      ValidatorStatisticData.addIssueBegin-->
+<!--                    }}-->
 
-                        <Item :label="$t('nodeInfo.stakingReward')">
-                          <!-- <p>
-                          {{ValidatorStatisticData.stakingReward | formatMoney}}
-                          <span class="fontSize13">TURN</span>
-                        </p>-->
-                          <p>
-                            <span class="Gilroy-Medium">{{
-                              ValidatorStatisticData.stakingReward
-                              | formatMoney
-                              | sliceFloat(0)
-                            }}</span>
-                            <span style="font-size: 13px">{{
-                              ValidatorStatisticData.stakingReward
-                              | formatMoney
-                              | sliceFloat(1)
-                            }}</span>
-                            <span class="fontSize13">&nbsp;TURN</span>
-                          </p>
-                        </Item>
-
-                        <Item :label="$t('nodeInfo.nextRewardAdjustment')">
-
-
-                          <p>
-                            <span class="Gilroy-Medium">
-                              {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of
-                              {{
-                                ValidatorStatisticData.addIssueEnd -
-                                ValidatorStatisticData.addIssueBegin
-                              }}
-
-                            </span>
-                          </p>
-
-<!--                          <div class="next-reward-adjustment">-->
-<!--                            <span :style="{ width: getPercentage + '%' }"></span>-->
-<!--                            <span></span>-->
-<!--                            <p>-->
-<!--                              {{ $t('tradeAbout.block') }}&nbsp;{{ getPercentage }}% of-->
-<!--                              {{-->
-<!--                                ValidatorStatisticData.addIssueEnd - -->
-<!--                                ValidatorStatisticData.addIssueBegin-->
-<!--                              }}-->
-<!--                            </p>-->
-<!--                          </div>-->
-                        </Item>
+<!--                  </span>-->
+<!--                </p>-->
+<!--              </Item>-->
 
             </div>
             <div class="next-epoch">
-              <h3 class="Gilroy-Medium">{{ $t('nodeInfo.nextEpoch') }}</h3>
+              <h3 class="Gilroy-Medium nodeTitle2">{{ $t('nodeInfo.nextEpoch') }}</h3>
               <p>{{ $t('nodeInfo.updateEpoch') }}</p>
               <ul>
                 <li v-for="(item, index) in nextSetting" :key="index">
@@ -225,7 +202,37 @@ export default {
   }
 }
 
+.nodeTitle{
+  color: var(--Gray-900, #D5D8DD);
+  text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+  /* H2 */
+  font-family: Montserrat-SemiBold;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 98.437%; /* 47.25px */
+  letter-spacing: -1.92px;
+}
 
+.nodeTitle2{
+  color: var(--Gray-900, #D5D8DD);
+  /* P1S */
+  font-family: Montserrat-Regular;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.nodeTitle2-detail{
+  /*color: var(--Gray-900, #D5D8DD);*/
+  /*!* P3 *!*/
+  /*font-family: Montserrat-Regular;*/
+  /*font-size: 14px;*/
+  /*font-style: normal;*/
+  /*font-weight: 400;*/
+  /*line-height: 140%; !* 19.6px *!*/
+}
 
 
 .node-list-header {
@@ -298,7 +305,7 @@ export default {
         width: 30px;
         height: 38px;
         /*background: #030911;*/
-        background: #87898f;
+        background: #22252b;
         color: #fff;
         margin-right: 9px;
         border-radius: 1px;

@@ -33,12 +33,13 @@
     width: 1660px;
     height: 721px;
     /*background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;*/
-    background: url(./../../assets/imagesV2/Footerimg2.png) no-repeat;
+    background: url(./../../assets/imagesV2/Footerimg2-1.jpg) no-repeat;
     background-size: 100%;
-    bottom: 0px;
+    bottom: -98px;
     left:calc(50% - 830px);
+    //z-index: 1;
+    opacity:1;
     z-index: 1;
-    opacity:0.3;
   }
 }
 
@@ -63,7 +64,7 @@
 .box-div .line1 {
   float: top;
   //margin-left: 10px;
-  margin-top: 18%;
+  margin-top: 21%;
   //border: 2px solid #0D6CDA;
   height: 500px;
   width: 60%;
@@ -331,7 +332,7 @@ td {
 
 .box-div .line6 .twoLi img {
   margin-left: 14px;
-  margin-right: 10px;
+  margin-right: 4px;
 }
 
 
@@ -416,7 +417,7 @@ td {
   border: 1px solid #4b3350;
   height: 200px;
   width: 100%;
-  background: url("../../assets/imagesV2/Footer img.png") repeat center;
+  background: url("../../assets/imagesV2/Footerimg.png") repeat center;
   background-size: 100%;
   opacity: 0.4;
   margin-top: 30px;
@@ -429,7 +430,7 @@ td {
   border: 1px solid #4b3350;
   height: 200px;
   width: 100%;
-  background: url("../../assets/imagesV2/Footer img.png") repeat center;
+  background: url("../../assets/imagesV2/Footerimg.png") repeat center;
   background-size: 100%;
   opacity: 0.4;
 }
@@ -449,7 +450,7 @@ td {
   color: var(--Blue-1000, #CCE3FF);
 
   /* NumberL */
-  font-family: Bebas Neue;
+  font-family: BebasNeue-Regular;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -464,21 +465,24 @@ td {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  width: 20%;
+  //width: 20%;
   //line-height: 140%; /* 19.6px */
 }
 
-/*.line5-1 table tr th:first-child {*/
-/*  width: 130px;*/
-/*}*/
+.line5-1 table tr th:first-child {
+  width: 64px;
+}
 
-/*.line5-1 table tr th:nth-child(2) {*/
-/*  text-align: left;*/
-/*}*/
+.line5-1 table tr th:nth-child(2) {
+  width: 160px;
+  text-align: left;
+  padding-left: 50px;
+}
 
-/*.line5-1 table tr td:nth-child(2) {*/
-/*  text-align: left;*/
-/*}*/
+.line5-1 table tr td:nth-child(2) {
+  text-align: left;
+  padding-left: 48px;
+}
 
 
 .fangIcon {
@@ -497,14 +501,15 @@ td {
 }
 
 .activeBubble-2 {
-  width: 327px;
+  width: 40%;
   height: 44px;
   text-align: left;
   line-height: 2;
+  margin-left: 4px;
 }
 
 .activeBubble-3 {
-  width: 30%;
+  width: 60%;
   height: 44px;
   text-align: right;
   line-height: 2;
@@ -535,7 +540,7 @@ td {
 
 .twoLi {
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   margin-bottom: 15px;
   border-bottom: 1px solid #333;
   width: 100%;
@@ -623,6 +628,11 @@ td {
   }
 }
 
+.footerGezi{
+  background: url("../../assets/imagesV2/BG.svg") no-repeat;
+  background-size: 100%;
+}
+
   /deep/.selectLayerHover{
   font-size: 16px;
 
@@ -706,7 +716,7 @@ td {
           <br />
         </div>
       </div>
-      <div class="line-title">
+      <div class="line-title" style="margin-top: 100px">
         <b>Network Activity</b>
       </div>
       <div class="line3">
@@ -900,7 +910,11 @@ td {
           </ul>
         </div>
       </div>
-      <div style="width: 100%;height: 406px">
+
+      <!--    <div class="line-end">-->
+
+      <!--    </div>-->
+      <div class="footerGezi" style="width: 100%;height: 406px">
 
       </div>
     </div>

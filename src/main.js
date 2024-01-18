@@ -30,6 +30,7 @@ import '../public/static/css/reset.css';
 import '../public/static/css/element-ui.css';
 import '../public/static/css/iconfont.css';
 import '../public/static/css/Montserrat.css';
+import '../public/static/css/BebasNeue.css';
 // less
 import '@/less/index.less';
 

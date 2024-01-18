@@ -100,7 +100,7 @@ export default {
 <style lang="less" scoped>
 .index-area {
   // background: #030911;
-  overflow: hidden;
+  // overflow: hidden;
 
   @media (max-width: 750px) {
     padding: 0 40px;
@@ -113,10 +113,10 @@ export default {
 
 @media (max-width: 750px) {
   .content-area {
-    padding-top: 152px;
+    // padding-top: 152px;
 
     &.index-area {
-      padding-top: 122px;
+      // padding-top: 122px;
     }
   }
 }

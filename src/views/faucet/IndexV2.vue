@@ -199,15 +199,15 @@ export default {
 
   &::after {
     width: 100%;
-    height: 100%;
+    height: 767px;
     content: ' ';
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 0;
     background: url("../../assets/imagesV2/Frame98.png") no-repeat;
     background-size: 100% 115%;
     z-index: 0;
-    opacity: .8;
+    opacity: 0.3;
   }
 
   &::before {
@@ -239,7 +239,7 @@ export default {
 
 ._faucet_form {
   border: 1px solid #999;
-  border-radius: 4px;
+  border-radius: 6px;
   width: 380px;
 
   /deep/.el-select-dropdown {
