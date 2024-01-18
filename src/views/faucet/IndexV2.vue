@@ -199,7 +199,7 @@ export default {
 
   &::after {
     width: 100%;
-    height: 100%;
+    height: 767px;
     content: ' ';
     position: absolute;
     top: 30px;

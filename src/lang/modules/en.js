@@ -583,7 +583,9 @@ export default {
     4000: "CreateLockup", //'创建锁仓计划'
     5000: "ClaimRewards",
     7000:"NodeStaking",//节点质押
+    7001:"UpdateNodeStaking",//更新节点信息
     7003:"NodeWithdrewStaking",//节点解质押
+    8002: "ReleaseBubble",//释放Bubble
     8003: "StakingToken"//质押令牌
   },
 
