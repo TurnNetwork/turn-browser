@@ -390,7 +390,7 @@ td {
   color: var(--Gray-500, #535A65);
   /* P2 */
   font-family: Montserrat-SemiBold;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -598,27 +598,41 @@ td {
   color: blue;
 }
 
+
+
 .changeType{
-  /*display: inline-block;*/
+  /*display: inline-flex;*/
+  //padding: 4px 0px;
+  /*justify-content: center;*/
+  /*align-items: center;*/
   width: 55px;
   height: 24px;
-  /*border: 1px solid #cf326e;*/
-  /*float: left;*/
   position: absolute;
   left: 2%;
   top: 30%;
 
-  .changeLayer{
-    color: var(--Gray-900, white);
-    /* P2 */
+  .currentLayer{
+    background: transparent;
+    border: none;
+    color: var(--Gray-900, #D5D8DD);
+    /* P3 */
     font-family: Montserrat-SemiBold;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.32px;
-    width: 50px;
+    line-height: 140%; /* 19.6px */
+
   }
+
+  /*.changeLayer{*/
+  /*  color: var(--Gray-900, #D5D8DD);*/
+  /*  !* P3 *!*/
+  /*  font-family: Montserrat-SemiBold;*/
+  /*  font-size: 14px;*/
+  /*  font-style: normal;*/
+  /*  font-weight: 400;*/
+  /*  line-height: 140%; !* 19.6px *!*/
+  /*}*/
   img{
     width: 5px;
     height: 5px;
@@ -634,10 +648,8 @@ td {
 }
 
 /deep/.selectLayerHover{
-  /*color: var(--Blue-600, #0075FF);*/
   color: var(--Blue-600, #0075FF);
-  /* P2 */
-  font-family: Montserrat;
+  font-family: Montserrat-Regular;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -645,8 +657,6 @@ td {
   letter-spacing: -0.32px;
 
   &:hover{
-    /*color: #cf326e;*/
-
     color: var(--Gray-900, #D5D8DD);
     border-radius: var(--Number4, 4px);
     border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));
@@ -655,28 +665,20 @@ td {
 }
 
 .myTooltip{
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-direction: column;
   width: 252px;
   height: 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border-radius: var(--Number8, 8px);
   border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
   background: var(--Gray-200, #15191E);
-  /*margin-left: 12px;*/
-
   .myTooltipSelect{
     width: 232px;
     height: 36px;
-    display: flex;
     padding: var(--Number8, 8px) 12px;
-    align-items: center;
-    gap: 2px;
-    align-self: stretch;
     border-radius: var(--Number4, 4px);
-
-    /* P2 */
     font-family: Montserrat-Regular;
     font-size: 16px;
     font-style: normal;
@@ -688,7 +690,13 @@ td {
 }
 
 </style>
-
+<style>
+  ._tooltipChangePosition{
+    margin-top: 26px !important;
+    /*margin-left: 265px;*/
+    /*left: 260px !important;*/
+  }
+</style>
 <template>
   <!--写一个大框，定义长宽高-->
   <div class="box-div">
@@ -702,18 +710,18 @@ td {
             <div class="changeType" >
 <!--              <span style="font-size: 16px">Layer1</span>-->
 
-              <el-tooltip placement="bottom" class="changeLayer">
+              <el-tooltip :offset="260" placement="bottom-end" popper-class="_tooltipChangePosition">
                 <div slot="content">
                   <div class="myTooltip">
-                    <div class="myTooltipSelect selectLayerHover">
-                      <span @click="selectLayerInput(1)">Layer1</span>
+                    <div class="myTooltipSelect selectLayerHover" @click="selectLayerInput(1)">
+                      <span>Layer1</span>
                     </div>
-                    <div class="myTooltipSelect selectLayerHover">
-                      <span @click="selectLayerInput(2)">Layer2</span>
+                    <div class="myTooltipSelect selectLayerHover" @click="selectLayerInput(2)">
+                      <span>Layer2</span>
                     </div>
                   </div>
                 </div>
-                <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>
+                <el-button class="currentLayer"  >{{selectLayer}}</el-button>
               </el-tooltip>
 
               <img src="../../assets/imagesV2/Rectangle 4.png" alt="">
