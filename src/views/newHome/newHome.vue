@@ -677,7 +677,7 @@ td {
           </div>
         </div>
       </div>
-      <div class="line-title">
+      <div class="line-title" style="margin-top: 100px">
         <b>Utrecht Symptoom Dagboek</b>
       </div>
 
@@ -716,7 +716,7 @@ td {
           <br />
         </div>
       </div>
-      <div class="line-title" style="margin-top: 100px">
+      <div class="line-title">
         <b>Network Activity</b>
       </div>
       <div class="line3">
