@@ -33,9 +33,9 @@
     width: 1660px;
     height: 721px;
     /*background: url(./../../assets/imagesV2/Footer_img.png) no-repeat;*/
-    background: url(./../../assets/imagesV2/Footerimg2-1.jpg) no-repeat;
-    background-size: 100%;
-    bottom: -98px;
+    background: url(./../../assets/imagesV2/FooterimgRsult2.jpg) no-repeat;
+    background-size: 100% 100%;
+    bottom: 0px;
     left:calc(50% - 830px);
     //z-index: 1;
     opacity:1;
@@ -755,7 +755,7 @@ td {
           <table>
             <tr>
               <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
-              <th class="myTh">Total number of L1 transactions</th>
+              <th class="myTh">TOTAL NUMBER TRANSACTIONS</th>
             </tr>
             <tr>
               <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
@@ -770,12 +770,11 @@ td {
 <!--              <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>-->
 <!--            </tr>-->
             <tr>
-              <th class="myTh">Total Number Of L2 Transactions</th>
+<!--              <th class="myTh">Total Number Of L2 Transactions</th>-->
               <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
             </tr>
             <tr>
-<!--              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>-->
-              <td class="myTd">0</td>
+<!--              <td class="myTd">0</td>-->
               <td class="myTd cursor hoverBlue">
                 <a @click="goProposal">
                   {{ blockStatisticData.doingProposalQty | formatNumber }}
@@ -914,7 +913,7 @@ td {
       <!--    <div class="line-end">-->
 
       <!--    </div>-->
-      <div class="footerGezi" style="width: 100%;height: 406px">
+      <div style="width: 100%;height: 406px">
 
       </div>
     </div>

@@ -579,11 +579,12 @@ export default {
     3000: "举报验证节点",
     4000: "创建锁仓计划",
     5000: "领取奖励",
-    7000:"节点质押",//节点质押
+    7000:"质押节点",//节点质押
     7001:"更新节点信息",
-    7003:"节点解质押",//节点解质押
+    7003:"解质押节点",//节点解质押
+    8000: '质押Token',
     8002: "释放Bubble",//释放Bubble
-    8003: "质押令牌"
+    8003: "解质押Token"
   },
 
   //合约类型
@@ -693,11 +694,11 @@ export default {
     总发行量 = <img style="display:inline-block; height: 14px;" src="/static/images/total-supply.svg" /><br />
     其中 W为初始发行100亿，n为当前增发周期序号，创世区块开始序号为1，a%为增发比例，当前为2.5%`,
     totalStakePower: `参与Staking的Token数，包含节点质押金和接收的委托。<br />
-    总质押 =  Staking合约地址余额（lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzsjx8h7）`,
+    总质押 =  Staking合约地址余额（0x2000000000000000000000000000000000000001）`,
     stakeRate: `参与Staking的Token占总可质押Token的比例，其中可质押Token包含锁仓合约锁定的Token。<br />
     质押率 = 总质押 / （总发行量 - Staking相关系统合约余额 - 基金会账户余额和锁仓余额）<br />
     Staking相关系统合约包含<br />
-    RewardManagerPool（lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqrdyjj2v），DelegateRewardPool（lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqxlcypcy）`,
+    RewardManagerPool（0x1000000000000000000000000000000000000003），DelegateRewardPool（0x1000000000000000000000000000000000000006）`,
     validatorYield: `基于最近4个结算周期，节点每份额自有质押金净收益折合成的年化收益率，仅供参考不构成任何建议。<br />
     假设最近4个结算周期，每个结算周期节点实际获得的收益（区块奖励+质押奖励+所出区块内的交易手续费）W1、W2、W3、W4；最近4个结算周期，每个结算周期节点实际自有质押的token数C1、C2、C3、C4。<br />
     节点年化收益率 = [(W1+W2+W3+W4)/(C1+C2+C3+C4)]*(当前增发周期的结算周期数)*100%`,

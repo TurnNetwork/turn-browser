@@ -3,7 +3,8 @@
     <div class="page-title">{{ $t('tradeAbout.tradeDetail') }}</div>
     <div class="detail-change">
       <div class="detail-copy">
-        <span class="title">L1 {{ $t('tradeAbout.transactions') }}</span>
+<!--        <span class="title">L1 {{ $t('tradeAbout.transactions') }}</span>-->
+        <span class="title">{{ $t('tradeAbout.transactions') }}</span>
         <i>#{{ detailInfo.txHash }}</i>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.txHash" v-clipboard:success="onCopy"
           v-clipboard:error="onError">

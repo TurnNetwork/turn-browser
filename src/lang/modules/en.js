@@ -582,11 +582,12 @@ export default {
     3000: "ReportValidator", //'举报验证节点',
     4000: "CreateLockup", //'创建锁仓计划'
     5000: "ClaimRewards",
-    7000:"NodeStaking",//节点质押
+    7000: 'stakingNode',
     7001:"UpdateNodeStaking",//更新节点信息
-    7003:"NodeWithdrewStaking",//节点解质押
+    7003: 'unStakingNode',
+    8000: 'stakingToken',
     8002: "ReleaseBubble",//释放Bubble
-    8003: "StakingToken"//质押令牌
+    8003: 'unTakingToken',
   },
 
   //合约类型
@@ -699,10 +700,10 @@ export default {
     Total Supply = <img style="display:inline-block; height: 14px;" src="/static/images/total-supply.svg" /><br />
     Where W is the initial issued amount of 10 billion, n is the serial number of the current issuance cycle, 1 is the starting serial number of the genesis block, and a% is the additional issuance ratio, which is at 2.5% currently.`,
     totalStakePower: `The number of tokens staked, including the tokens staked by nodes and total delegations.<br />
-    Total Stakes = Balance of the Staking Contract Address (lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzsjx8h7)`,
+    Total Stakes = Balance of the Staking Contract Address (0x2000000000000000000000000000000000000001)`,
     stakeRate: `The proportion of tokens staked to the total tokens that can be staked, the latter including the tokens locked in the lockup contract.<br />
     Stake Rate = Total Stakes / (Total Supply - Balance of Staking-related System Contracts - LatticeX Foundation Account Balance and Lockup Balance)<br />
-    The staking-related system contracts include RewardManagerPool (lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqrdyjj2v) and DelegateRewardPool (lat1zqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqxlcypcy)`,
+    The staking-related system contracts include RewardManagerPool (0x1000000000000000000000000000000000000003) and DelegateRewardPool (0x1000000000000000000000000000000000000006)`,
     validatorYield: `The APY (Annual Percentage Yield) converted from the net income per share of the node’s stakes, based on the last 4 epochs. It is for reference only, and does not constitute any recommendation. <br />
     Assuming the actual income of the node in each of the last 4 epochs (block reward + staking reward + block transaction fee) is respectively W1, W2, W3, and W4; the number of tokens staked by the node in each of the last 4 epochs is respectively C1, C2, C3, and C4.<br />
     Validator Yield = [(W1+W2+W3+W4)/(C1+C2+C3+C4)]*(the number of epochs of the current issuance cycle)*100%`,
