@@ -757,7 +757,7 @@ td {
           <table>
             <tr>
               <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
-              <th class="myTh">Total number of L1 transactions</th>
+              <th class="myTh">Total number transactions</th>
             </tr>
             <tr>
               <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
@@ -772,12 +772,11 @@ td {
 <!--              <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>-->
 <!--            </tr>-->
             <tr>
-              <th class="myTh">Total Number Of L2 Transactions</th>
+<!--              <th class="myTh">Total Number Of L2 Transactions</th>-->
               <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
             </tr>
             <tr>
-<!--              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>-->
-              <td class="myTd">0</td>
+<!--              <td class="myTd">0</td>-->
               <td class="myTd cursor hoverBlue">
                 <a @click="goProposal">
                   {{ blockStatisticData.doingProposalQty | formatNumber }}
