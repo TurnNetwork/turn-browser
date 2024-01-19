@@ -757,7 +757,7 @@ td {
           <table>
             <tr>
               <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
-              <th class="myTh">Total number transactions</th>
+              <th class="myTh">TOTAL NUMBER TRANSACTIONS</th>
             </tr>
             <tr>
               <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
