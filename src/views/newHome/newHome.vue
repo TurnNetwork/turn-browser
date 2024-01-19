@@ -759,7 +759,7 @@ td {
             </tr>
             <tr>
               <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
-              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
+              <td class="myTd">{{ blockStatisticData.txQty | unit }}</td>
             </tr>
 <!--            <tr>-->
 <!--              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</th>-->
