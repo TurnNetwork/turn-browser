@@ -633,12 +633,58 @@ td {
   background-size: 100%;
 }
 
-  /deep/.selectLayerHover{
+/deep/.selectLayerHover{
+  /*color: var(--Blue-600, #0075FF);*/
+  color: var(--Blue-600, #0075FF);
+  /* P2 */
+  font-family: Montserrat;
   font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
 
   &:hover{
-    color: #cf326e;
+    /*color: #cf326e;*/
+
+    color: var(--Gray-900, #D5D8DD);
+    border-radius: var(--Number4, 4px);
+    border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));
+    background: var(--Gray-300, #22252B);
   }
+}
+
+.myTooltip{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  width: 252px;
+  height: 94px;
+  border-radius: var(--Number8, 8px);
+  border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+  background: var(--Gray-200, #15191E);
+  /*margin-left: 12px;*/
+
+  .myTooltipSelect{
+    width: 232px;
+    height: 36px;
+    display: flex;
+    padding: var(--Number8, 8px) 12px;
+    align-items: center;
+    gap: 2px;
+    align-self: stretch;
+    border-radius: var(--Number4, 4px);
+
+    /* P2 */
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+  }
+
 }
 
 </style>
@@ -656,11 +702,16 @@ td {
             <div class="changeType" >
 <!--              <span style="font-size: 16px">Layer1</span>-->
 
-              <el-tooltip placement="top" class="changeLayer">
+              <el-tooltip placement="bottom" class="changeLayer">
                 <div slot="content">
-                  <span class="selectLayerHover" @click="selectLayerInput(1)">Layer1</span>
-                  <br/>
-                  <span class="selectLayerHover" @click="selectLayerInput(2)">Layer2</span>
+                  <div class="myTooltip">
+                    <div class="myTooltipSelect selectLayerHover">
+                      <span @click="selectLayerInput(1)">Layer1</span>
+                    </div>
+                    <div class="myTooltipSelect selectLayerHover">
+                      <span @click="selectLayerInput(2)">Layer2</span>
+                    </div>
+                  </div>
                 </div>
                 <el-button style="background-color: black;border:none" >{{selectLayer}}</el-button>
               </el-tooltip>
