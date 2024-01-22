@@ -112,7 +112,7 @@
                 <el-dropdown-item command="/tokens/tokensTranfer/prc20">{{
                   $t('menu.erc20Transfer')
                 }}</el-dropdown-item>
-                <div class="dividing-line"></div>
+<!--                <div class="dividing-line"></div>-->
                 <el-dropdown-item command="/tokens/tokensTranfer/prc721">{{
                   $t('menu.erc721Transfer')
                 }}</el-dropdown-item>
@@ -635,7 +635,7 @@ export default {
   align-items: center;
   width: 310px;
   height: 120px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
   background: var(--Gray-200, #15191E);
   color: #FFFFFF;
@@ -812,7 +812,7 @@ export default {
 }
 
 .el-dropdown-menu {
-  background: #fff;
+  //background: #fff;
   padding: 0 0 0 0;
 
   .el-dropdown-menu__item {
