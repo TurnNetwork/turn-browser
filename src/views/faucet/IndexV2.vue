@@ -2,7 +2,7 @@
   <div class="faucet-wrap" v-loading.fullscreen="loading">
     <div class="faucet-main">
       <h2>Turn Network Faucet</h2>
-      <span class="title-em">
+      <span class="title-em" style="visibility: hidden">
         Drops are limited to 1 request in 24 hours / Token .
       </span>
       <el-form>
@@ -16,7 +16,7 @@
           <el-input class="_faucet_form" placeholder="Enter your wallet address(0x...)" v-model="address"> </el-input>
         </el-form-item>
       </el-form>
-      <button class="_request" @click="request">Request</button>
+      <button class="_request" @click="request">Claim</button>
     </div>
     <el-dialog title=" " :visible.sync="centerDialogVisible" width="494px" center>
       <template>
@@ -44,17 +44,17 @@ export default {
       tHash: '',
       tokenList: [
         {
-          label: '50 TURN',
+          label: '300 TURN',
           type: 'FAUCET_SYMBOL'
         },
-        {
-          label: '20 USDT',
-          type: 'FAUCET_USDT'
-        },
-        {
-          label: '20 USDC',
-          type: 'FAUCET_USDC'
-        }
+        // {
+        //   label: '20 USDT',
+        //   type: 'FAUCET_USDT'
+        // },
+        // {
+        //   label: '20 USDC',
+        //   type: 'FAUCET_USDC'
+        // }
       ]
     };
   },
