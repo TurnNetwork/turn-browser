@@ -33,8 +33,6 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
-
-
           <el-menu-item class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="blockDropdownChangHandle">
@@ -49,12 +47,7 @@
                   arrowUp: blockDropdownShow == true,
                 }" class="arrow el-icon-arrow-down arrowUp"></i>
               </span>
-
-
-
-
               <el-dropdown-menu >
-
                 <div class="navibarBlockChain">
                   <div class="navibarContent ">
                     <div>L1:</div>
@@ -89,8 +82,6 @@
 <!--                <el-dropdown-item command="/tradeLayerTwo">{{-->
 <!--                  $t('menu.transaction')-->
 <!--                  }}（L2）</el-dropdown-item>-->
-
-
 
               </el-dropdown-menu>
             </el-dropdown>
@@ -438,7 +429,7 @@ export default {
       }
     },
     LangVisibleChange(boolean) {
-      // this.langDropdownShow = boolean;
+      this.langDropdownShow = boolean;
     },
     getNetObj(id) {
       console.warn('首次id》》》', id);

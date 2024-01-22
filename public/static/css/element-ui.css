@@ -7142,10 +7142,12 @@
   .el-menu-item * {
     vertical-align: middle; }
   .el-menu-item i {
-    color: #909399; }
+    color: #909399;
+  }
   .el-menu-item:hover, .el-menu-item:focus {
     outline: none;
-    background-color: #0444A1; }
+    background-color: #0444A1;
+  }
   .el-menu-item.is-disabled {
     opacity: 0.25;
     cursor: not-allowed;
