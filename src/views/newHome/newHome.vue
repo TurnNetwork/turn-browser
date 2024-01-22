@@ -659,7 +659,7 @@ td {
   &:hover{
     color: var(--Gray-900, #D5D8DD);
     border-radius: var(--Number4, 4px);
-    border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));
+    //border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));
     background: var(--Gray-300, #22252B);
   }
 }

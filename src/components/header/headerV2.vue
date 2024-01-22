@@ -33,6 +33,8 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
+
+
           <el-menu-item class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="blockDropdownChangHandle">
@@ -47,22 +49,54 @@
                   arrowUp: blockDropdownShow == true,
                 }" class="arrow el-icon-arrow-down arrowUp"></i>
               </span>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="/block/index">{{
-                  $t('menu.block')
-                }}（L1）</el-dropdown-item>
-                <el-dropdown-item command="/bubblesList">{{
-                  $t('menu.block')
-                  }}（L2）</el-dropdown-item>
-                <el-dropdown-item command="/block/trade">{{
-                  $t('menu.transaction')
-                }}（L1）</el-dropdown-item>
-                <el-dropdown-item command="/tradeLayerTwo">{{
-                  $t('menu.transaction')
-                  }}（L2）</el-dropdown-item>
+
+
+
+
+              <el-dropdown-menu >
+
+                <div class="navibarBlockChain">
+                  <div class="navibarContent ">
+                    <div>L1:</div>
+                    <div class="selectNavibarHover">
+                      <router-link to="/block/index" class="navibarFont">{{$t('menu.block')}}</router-link>
+                    </div>
+                    <div class="selectNavibarHover">
+                      <router-link to="/block/trade" class="navibarFont">{{$t('menu.transaction')}}</router-link>
+                    </div>
+                  </div>
+                  <div class="navibarContent">
+                    <div>L2(Bubbles):</div>
+                    <div class="selectNavibarHover">
+                      <router-link to="/bubblesList" class="navibarFont">{{$t('menu.block')}}</router-link>
+                    </div>
+                    <div class="selectNavibarHover">
+                      <router-link to="/tradeLayerTwo" class="navibarFont">{{$t('menu.transaction')}}</router-link>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!--                <el-dropdown-item command="/block/index">{{-->
+<!--                  $t('menu.block')-->
+<!--                }}（L1）</el-dropdown-item>-->
+<!--                <el-dropdown-item command="/bubblesList">{{-->
+<!--                  $t('menu.block')-->
+<!--                  }}（L2）</el-dropdown-item>-->
+<!--                <el-dropdown-item command="/block/trade">{{-->
+<!--                  $t('menu.transaction')-->
+<!--                }}（L1）</el-dropdown-item>-->
+<!--                <el-dropdown-item command="/tradeLayerTwo">{{-->
+<!--                  $t('menu.transaction')-->
+<!--                  }}（L2）</el-dropdown-item>-->
+
+
+
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
+
+
           <el-menu-item class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="tokensDropdownChangHandle">
@@ -595,6 +629,60 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.navibarBlockChain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 310px;
+  height: 120px;
+  border-radius: 2px;
+  border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+  background: var(--Gray-200, #15191E);
+  color: #FFFFFF;
+  margin: 0 0 0 0 !important;
+
+  .navibarContent{
+    //background-color: #cf326e;
+    width: 145px;
+    height: 100%;
+    margin: 0 0 0 0 !important;
+    padding: 0px 10px;
+    border-radius: var(--Number4, 4px);
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #FFFFFF !important;
+  }
+}
+
+.selectNavibarHover{
+  /*color: var(--Blue-600, #0075FF);*/
+  font-family: Montserrat-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
+  margin-top: 10px;
+  padding: 5px 0px;
+
+  &:hover{
+    //color: var(--Gray-900, #D5D8DD);
+    border-radius: var(--Number4, 4px);
+    //border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));
+    background: var(--Gray-300, #22252B);
+    padding: 5px 0px;
+  }
+}
+
+.navibarFont{
+  color: #7f868d;
+  font-family: Montserrat-Regular;
+
+}
+
+
+
+
 .text-size {
   font-size: 20px;
   margin-left: 20px;
