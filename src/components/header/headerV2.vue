@@ -624,10 +624,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 310px;
-  height: 120px;
+  width: 280px;
+  height: 110px;
   border-radius: 4px;
-  border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
+  //border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
   background: var(--Gray-200, #15191E);
   color: #FFFFFF;
   margin: 0 0 0 0 !important;

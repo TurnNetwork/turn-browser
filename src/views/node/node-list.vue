@@ -312,6 +312,7 @@ export default {
         font-size: 28px;
         line-height: 38px;
         text-align: center;
+        font-family: BebasNeue-Regular;
       }
     }
   }
