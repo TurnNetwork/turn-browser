@@ -854,7 +854,7 @@ td {
               <th class="myTh">{{ $t('indexInfo.totalSupply') }}</th>
               <th class="myTh">{{ $t('indexInfo.circulatingSupply') }}</th>
               <th class="myTh">{{ $t('nodeInfo.stakeRate').toUpperCase() }}</th>
-              <th class="myTh">Inflation Rate</th>
+              <th class="myTh">INFLATION RATE</th>
             </tr>
 
             <tr>
