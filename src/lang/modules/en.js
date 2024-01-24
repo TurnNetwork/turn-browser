@@ -737,7 +737,7 @@ export default {
     systemRewards: "System Rewards",
     searchValidator: "Search by Validator Name/node ID / BubbleID查询",
     microDetails: "Micro Node Details ",
-    totalPledge: "Total Pledge",
+    totalPledge: "Total Stakes",
     accumulatedSystemRewards: "Accumulated System Rewards",
   }
 };

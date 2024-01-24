@@ -72,7 +72,7 @@
                 <el-dropdown-item command="/tokens/tokensTranfer/prc20">{{
                   $t('menu.erc20Transfer')
                 }}</el-dropdown-item>
-                <div class="dividing-line"></div>
+<!--                <div class="dividing-line"></div>-->
                 <el-dropdown-item command="/tokens/tokensTranfer/prc721">{{
                   $t('menu.erc721Transfer')
                 }}</el-dropdown-item>
