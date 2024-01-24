@@ -121,6 +121,17 @@
     watch: {},
     components: {},
     methods: {
+      handleCurrentChange(val) {
+        this.currentPage = val;
+        this.getTradeList();
+        this.replace();
+      },
+      handleSizeChange(val) {
+        this.currentPage = 1;
+        this.pageSize = val;
+        this.getTradeList();
+        this.replace();
+      },
       renderHeader(h, { column, $index }) {
         let tooltipsInfo = '';
         if (column.labelClassName == 'yield3') {
