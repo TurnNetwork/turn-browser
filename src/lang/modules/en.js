@@ -10,10 +10,10 @@ export default {
     microNode: "Micro Node",
     proposal: "PROPOSALS",
     tokens: "TOKENS",
-    erc20Tokens: "AARC20 HOT TOKENS",
-    erc20Transfer: "AARC20 TRANSFERS",
-    erc721Tokens: "AARC721 HOT TOKENS",
-    erc721Transfer: "AARC721 TRANSFERS",
+    erc20Tokens: "TURNRC20 HOT TOKENS",
+    erc20Transfer: "TURNRC20 TRANSFERS",
+    erc721Tokens: "TURNRC721 HOT TOKENS",
+    erc721Transfer: "TURNRC721 TRANSFERS",
     erc1155Tokens: "1155 HOT TOKENS",
     erc1155Transfer: "1155 TRANSFERS",
     tokenList: "TOKEN LIST",
@@ -358,12 +358,12 @@ export default {
     released: "Invalid delegations",
     delegationAmount: "Delegation Amount",
     locked: "Locked",
-    unlockedMsg: "Delegated AAs to be locked",
-    releasedMsg: "Undelegated AAs, ready to withdraw",
+    unlockedMsg: "Delegated TURNs to be locked",
+    releasedMsg: "Undelegated TURNs, ready to withdraw",
     delegationAmountMsg:
       "Total amount delegated to the node, which is the sum of the amount of locked and unlocked delegates",
     lockedMsg:
-      "Delegated and locked AAs, the amount of delegates that effectively contribute to the node",
+      "Delegated and locked TURNs, the amount of delegates that effectively contribute to the node",
     percentageMsg:
       "Total amount delegated to the node and the share of the total delegations",
     historicalDelegator: "Historical Delegator",
@@ -379,7 +379,7 @@ export default {
     rewardReceiveDetails: "Reward Details",
     totalReceiveReward: "Total claimed reward",
     unclaimedReward: "Unclaimed Reward",
-    unclaimedRewardMsg: "Delegated AAs，Receivable rewards."
+    unclaimedRewardMsg: "Delegated TURNs，Receivable rewards."
   },
   blockAbout: {
     morethen: "Total ",
@@ -641,7 +641,7 @@ export default {
     addToExtension: "Add to Extension",
     foundationAddress: 'Foundation Address',
     governableParameter: "GOVERNABLE PARAMETER",
-    stakeThreshold: "Minimum stake AAs required to create validator.",
+    stakeThreshold: "Minimum stake TURNs required to create validator.",
     operatingThreshold: "Minimum TURN for delegation or withdrawal.",
     maxValidators: "Number of alternative validators (ie active).",
     unStakeFreezeDuration:
