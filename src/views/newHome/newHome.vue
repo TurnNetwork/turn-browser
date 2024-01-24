@@ -705,7 +705,7 @@ td {
       <!--定义个框，左边是文字，右边是图片，同一行-->
       <div class="line1-div">
         <div class="line1">
-          <p class="tou">Turn Network<br />Blockchain Explorer</p>
+          <p class="tou">TURN Network<br />Blockchain Explorer</p>
           <div class="search-container">
             <div class="changeType" >
 <!--              <span style="font-size: 16px">Layer1</span>-->

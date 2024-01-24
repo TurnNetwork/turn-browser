@@ -5,7 +5,7 @@
       <div class="node-list-header">
         <h3 class="Gilroy-Medium">{{ $t('nodeInfo.liveStakingInfo') }}</h3>
         <p class="staking-info">
-          <span>Total Pledge &nbsp; </span>
+          <span>Total Stakes &nbsp; </span>
           <span>{{ micro_node.stakingValue  | unitScoped}}</span>
           <span>&nbsp; TURN</span>
         </p>

@@ -7,10 +7,10 @@
       <el-row class="footer-flex">
         <el-col :span="12">
           <p class="relates-info">
-            Powered by Turn Network
+            Powered by TURN Network
           </p>
           <p class="relates-info">
-            ©2023 TurnScan.All rights reserved.
+            ©2023 TURNScan.All rights reserved.
           </p>
         </el-col>
         <el-col :span="12" style="display:flex;flex-direction:column;align-items: flex-end;">
@@ -19,7 +19,7 @@
           </div>
           <div class="download-btn" @click="connect">
             <img src="./../../assets/images/metamask.png" width="24px" />
-            Add Turn Network
+            Add TURN Network
           </div>
         </el-col>
       </el-row>
