@@ -44,7 +44,7 @@
 </template>
 <script>
   import { faucetApi } from '@/services/API-services'
-  const countdownSendCode = 5;//发送验证码倒计时秒数
+  const countdownSendCode = 60;//发送验证码倒计时秒数
   export default {
     name: 'faucet',
     data() {
@@ -165,7 +165,7 @@
 
           case 'address':
             return this.$router.push({
-              path: '/address-detail',
+              path: '/address-det                                                                                                                                                                                                       ail',
               query: {
                 address: str,
               },
