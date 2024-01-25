@@ -20,8 +20,8 @@
           <el-input @blur="checkEmail" @input="checkEmail" class="_faucet_form" placeholder="Enter your Email" v-model="email"> </el-input>
         </el-form-item>
 
-        <el-form-item label="Verification Code:">
-          <el-input    maxlength="12" class="_faucet_form" placeholder="Enter Verification Code" v-model="verificationCode">
+        <el-form-item label="Verification Code:" required :error="verifyCodeError">
+          <el-input @blur="checkVerifyCode" @input="checkVerifyCode" maxlength="12" class="_faucet_form" placeholder="Enter Verification Code" v-model="verificationCode">
           </el-input>
           <button class="sendCode" :disabled="isSending" @click="sendCode">{{sendCodeStr}}</button>
         </el-form-item>
@@ -44,14 +44,16 @@
 </template>
 <script>
   import { faucetApi } from '@/services/API-services'
+  const countdownSendCode = 5;//发送验证码倒计时秒数
   export default {
     name: 'faucet',
     data() {
       return {
         // 显示非表单校验的内容
         emailError: '',
+        verifyCodeError:'',
         isSending:false,
-        countdown: null,// 用于倒计时
+        countdown: countdownSendCode,// 用于倒计时
         sendCodeStr:"Send Verification Code",
         loading: false,
         centerDialogVisible: false,
@@ -81,19 +83,19 @@
     computed: {},
     watch: {},
     components: {},
-    beforeDestroy() {
-      if (this.countdown) {
-        clearTimeout(this.countdown); // 在组件销毁前清除计时器，避免内存泄漏
-      }
-    },
+    // beforeDestroy() {
+    //   if (this.countdown) {
+    //     clearTimeout(this.countdown); // 在组件销毁前清除计时器，避免内存泄漏
+    //   }
+    // },
     methods: {
-      // 2、非表单校验
+      // 校验邮箱
       checkEmail() {
         let reg = new RegExp("[a-zA-Z0-9]+[\\.]{0,1}[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]+");
         //校验
         let emailInput = this.email;
-        if (emailInput == null) {
-          this.emailError = '非表单校验不能为空'
+        if (!emailInput) {
+          this.emailError = '邮箱地址不能为空'
           return false;
         }
         if (!reg.exec(emailInput)) {
@@ -102,20 +104,33 @@
         }
         this.emailError = '';
         return true;
-      }
-      ,
+      },
+      checkVerifyCode(){
+        if (!this.verificationCode){
+          this.verifyCodeError = '验证码不能为空';
+          return false;
+        }else{
+          this.verifyCodeError = '';
+          return true;
+        }
+      },
       sendCode() {
-        this.sendCodeStr = "验证码已发送,5秒内不得重复发送";
-        this.isSending = true; // 禁用按钮
-        // 在这里发送验证码的逻辑，例如调用API发送验证码
-        // 假设异步操作需要30秒完成，你可以使用setTimeout函数来实现倒计时
-        this.countdown = setTimeout(() => {
-          this.isSending = false; // 重新启用按钮
-          this.sendCodeStr = "Send Verification Code";
-        }, 5000); // 30秒后重新启用按钮
+        this.isSending = true; // 禁用按钮并开始倒计时
+        let countdownInterval = setInterval(() => {
+          this.countdown--; // 倒计时递减
+          if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
+            this.sendCodeStr = "验证码已发送，"+this.countdown+"秒后可重试";
+          } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
+            clearInterval(countdownInterval);
+            this.isSending = false; // 重新启用按钮并结束倒计时
+            this.sendCodeStr = '重新发送';
+            this.countdown = countdownSendCode;
+          }
+        }, 1000); // 每秒更新一次倒计时秒数
       },
       request() {
-
+        this.checkEmail();
+        this.checkVerifyCode();
         if (!this.address) return this.$message.error('Sorry address error')
         this.loading = true
         faucetApi(this.token, { address: this.address }).then(res => {
