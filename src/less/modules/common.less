@@ -44,8 +44,9 @@ body {
 }
 
 .content-bg{
-  background: url("../../assets/imagesV2/BG.svg") no-repeat;
-  background-size:100%;
+  background: url("../../assets/imagesV2/BG.svg");
+  background-size:1640px 1060px;
+  background-repeat: repeat-x;
 
   &::after{
     content: "";
@@ -1178,7 +1179,8 @@ table {
       .el-tabs__item.is-active {
         border-bottom: 1px solid #1d2229;
         color: #fff;
-        background: rgba(255, 255, 255, 0.1);
+        //background: rgba(255, 255, 255, 0.1);
+        background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
       }
     }
 

@@ -277,14 +277,14 @@
     </div>
 
     <div v-else class="table _default_table">
-      <div class="_link">
-        <router-link type="text" class="historical-btn" to='/zero-node'>{{
-          $t('nodeInfo.zeroProduceValidators')
-        }}</router-link>
-        <router-link type="text" class="historical-btn" to='/history-node'>{{
-          $t('nodeInfo.historicalValidators')
-        }}</router-link>
-      </div>
+<!--      <div class="_link">-->
+<!--        <router-link type="text" class="historical-btn" to='/zero-node'>{{-->
+<!--          $t('nodeInfo.zeroProduceValidators')-->
+<!--        }}</router-link>-->
+<!--        <router-link type="text" class="historical-btn" to='/history-node'>{{-->
+<!--          $t('nodeInfo.historicalValidators')-->
+<!--        }}</router-link>-->
+<!--      </div>-->
       <div class="validators-search node-validators-search">
         <el-input :placeholder="$t('nodeInfo.searchValidator')" clearable v-model="keyword" @keyup.enter.native="searchFn"
           @change="clearInput" size="mini"></el-input>

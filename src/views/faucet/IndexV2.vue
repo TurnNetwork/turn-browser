@@ -1,7 +1,8 @@
 <template>
   <div class="faucet-wrap" v-loading.fullscreen="loading">
     <div class="faucet-main">
-      <h2>Turn Network Faucet</h2>
+      <H3 class="faucetTitle">Turn Network Faucet</H3>
+<!--      <h2>Turn Network Faucet</h2>-->
       <!--      <span class="title-em" style="visibility: hidden">-->
       <!--        Drops are limited to 1 request in 24 hours / Token .-->
       <!--      </span>-->
@@ -12,8 +13,8 @@
             <el-option v-for="item in tokenList" :key="item.type" :value="item.type" :label="item.label"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="Wallet:">
-          <el-input class="_faucet_form" placeholder="Enter your wallet address(0x...)" v-model="address"> </el-input>
+        <el-form-item label="Wallet:" required :error="addressError">
+          <el-input @blur="checkAddress" @input="checkAddress" class="_faucet_form" placeholder="Enter your wallet address(0x...)" v-model="address"> </el-input>
         </el-form-item>
 
         <el-form-item label="Email:" required :error="emailError">
@@ -22,7 +23,7 @@
         </el-form-item>
 
         <el-form-item label="Verification Code:" required :error="verifyCodeError">
-          <el-input @blur="checkVerifyCode" @input="checkVerifyCode" maxlength="12" class="_faucet_form"
+          <el-input @blur="checkVerifyCode" @input="checkVerifyCode" :maxlength="6" class="_faucet_form"
             placeholder="Enter Verification Code" v-model="verificationCode">
             <span class="sendCode" slot="suffix"><el-button :disabled="isSending" @click="sendCode">{{ sendCodeStr
             }}</el-button></span>
@@ -56,6 +57,7 @@ export default {
       // 显示非表单校验的内容
       emailError: '',
       verifyCodeError: '',
+      addressError:'',
       isSending: false,
       countdown: countdownSendCode,// 用于倒计时
       sendCodeStr: "Send Verification Code",
@@ -73,14 +75,14 @@ export default {
           label: '300 TURN',
           type: 'FAUCET_SYMBOL'
         },
-        // {
-        //   label: '20 USDT',
-        //   type: 'FAUCET_USDT'
-        // },
-        // {
-        //   label: '20 USDC',
-        //   type: 'FAUCET_USDC'
-        // }
+        {
+          label: '20 USDT',
+          type: 'FAUCET_USDT'
+        },
+        {
+          label: '20 USDC',
+          type: 'FAUCET_USDC'
+        }
       ],
     };
   },
@@ -94,17 +96,27 @@ export default {
   //   }
   // },
   methods: {
+    //检验地址
+    checkAddress(){
+      if (!this.address){
+        this.addressError = 'Wallet can not be empty'
+        return false;
+      }else{
+        this.addressError = '';
+        return true;
+      }
+    },
     // 校验邮箱
     checkEmail() {
       let reg = new RegExp("[a-zA-Z0-9]+[\\.]{0,1}[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]+");
       //校验
       let emailInput = this.email;
       if (!emailInput) {
-        this.emailError = '邮箱地址不能为空'
+        this.emailError = 'Email can not be empty'
         return false;
       }
       if (!reg.exec(emailInput)) {
-        this.emailError = '请输入有效的邮箱地址'
+        this.emailError = 'The email format is wrong'
         return false;
       }
       this.emailError = '';
@@ -112,7 +124,7 @@ export default {
     },
     checkVerifyCode() {
       if (!this.verificationCode) {
-        this.verifyCodeError = '验证码不能为空';
+        this.verifyCodeError = 'Verification code can not be empty';
         return false;
       } else {
         this.verifyCodeError = '';
@@ -120,46 +132,42 @@ export default {
       }
     },
     sendCode() {
-      debugger
-      console.log(this.email)
-      console.log(this.address)
-      faucetSendEmailApi(this.sendEmailToken, { email: this.email, address: this.address }).then(res => {
-        const data = res.data
-      });
-
-
-      // if(!this.isSending){
-      //   this.loading = true
-      //   faucetSendEmailApi(this.sendEmailToken, { email: this.email }).then(res => {
-      //     const data = res.data
-      //     // this.loading = false
-      //     // if (data?.code == 0) {
-      //     //   this.isSending = true; // 禁用按钮并开始倒计时
-      //     //   let countdownInterval = setInterval(() => {
-      //     //     this.countdown--; // 倒计时递减
-      //     //     if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
-      //     //       this.sendCodeStr = "验证码已发送，"+this.countdown+"秒后可重试";
-      //     //     } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
-      //     //       clearInterval(countdownInterval);
-      //     //       this.isSending = false; // 重新启用按钮并结束倒计时
-      //     //       this.sendCodeStr = '重新发送';
-      //     //       this.countdown = countdownSendCode;
-      //     //     }
-      //     //   }, 1000); // 每秒更新一次倒计时秒数
-      //     //   return;
-      //     // }
-      //   }).catch(err => {
-      //     this.loading = false
-      //     console.log(err);
-      //   })
-      // }
+      if (!this.checkEmail() || !this.checkAddress()){
+        return;
+      }
+      if(!this.isSending){
+        this.loading = true
+        faucetSendEmailApi(this.sendEmailToken, { email: this.email, address: this.address }).then(res => {
+          const data = res.data
+          this.loading = false
+          if (data?.code == 0) {
+            this.isSending = true; // 禁用按钮并开始倒计时
+            let countdownInterval = setInterval(() => {
+              this.countdown--; // 倒计时递减
+              if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
+                this.sendCodeStr = "验证码已发送，"+this.countdown+"秒后可重试";
+              } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
+                clearInterval(countdownInterval);
+                this.isSending = false; // 重新启用按钮并结束倒计时
+                this.sendCodeStr = '重新发送';
+                this.countdown = countdownSendCode;
+              }
+            }, 1000); // 每秒更新一次倒计时秒数
+            return;
+          }
+        }).catch(err => {
+          this.loading = false
+          console.log(err);
+        })
+      }
     },
     request() {
-      this.checkEmail();
-      this.checkVerifyCode();
-      if (!this.address) return this.$message.error('Sorry address error')
+      if (!this.checkAddress() || !this.checkEmail() || !this.checkVerifyCode()){
+        return ;
+      }
+      // if (!this.address) return this.$message.error('Sorry address error')
       this.loading = true
-      faucetApi(this.token, { address: this.address }).then(res => {
+      faucetApi(this.token, { address: this.address,email:this.email,code:this.verificationCode }).then(res => {
         const data = res.data
         this.loading = false
         if (data?.code == 0) {
@@ -239,7 +247,18 @@ export default {
   position: relative;
 
   /deep/.el-form-item__label {
-    color: rgba(#F1F2F4, .6);
+    /*color: rgba(#F1F2F4, .6);*/
+    /*font-size: 16px;*/
+    color: var(--Gray-1000, #F1F2F4);
+    /* P2 */
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 
   /deep/.el-form {
@@ -255,7 +274,8 @@ export default {
         background: transparent;
 
         input {
-          color: rgba(#F1F2F4, .8);
+          /*color: rgba(#F1F2F4, .8);*/
+          color: var(--Gray-1000, #F1F2F4);
           background: transparent;
         }
 
@@ -332,12 +352,18 @@ export default {
 ._faucet_form {
   border: 1px solid #999;
   border-radius: 6px;
-  width: 380px;
+  width: 320px;
+  height: 40px;
 
   /deep/.el-select-dropdown {
-    width: 380px;
+    width: 320px;
+    /*height: 40px;*/
     background: rgba(21, 25, 30, .9);
     margin-left: -5px;
+    border-radius: 6px;
+    /*padding: 10px 8px 10px 14px;*/
+    /*align-items: center;*/
+    /*gap: 4px;*/
   }
 }
 
@@ -364,18 +390,39 @@ export default {
 
 
 ._request {
+  /*margin-top: 30px;*/
+  /*width: 380px;*/
+  /*padding: 10px 20px;*/
+  /*font-size: 16px;*/
+  /*font-weight: 600;*/
+  /*cursor: pointer;*/
+  /*color: var(--Gray-900, #D5D8DD);*/
+  /*border-radius: var(--Number6, 6px);*/
+  /*border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));*/
+  /*background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), var(--Blue-600, #0075FF);*/
+  /*box-shadow: 0px 3px 6px 0px var(--Blue-300, #002F66);*/
+
   margin-top: 30px;
-  width: 380px;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  color: var(--Gray-900, #D5D8DD);
+  width: 318px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   border-radius: var(--Number6, 6px);
   border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), var(--Blue-600, #0075FF);
   box-shadow: 0px 3px 6px 0px var(--Blue-300, #002F66);
 
+  color: var(--Gray-900, #D5D8DD);
+  text-align: center;
+  /* P2-S */
+  font-family: Montserrat-SemiBold;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.32px;
   &:hover {
     color: #fff;
   }
@@ -421,12 +468,31 @@ export default {
   button {
     background: transparent;
     border: none;
-
+    padding-right: 0px;
+    color: rgba(241, 242, 244, 0.8);
+    font-family: Montserrat-SemiBold;
     &:hover {
       background: transparent !important;
       border: none !important;
     }
+    &:focus{
+      color: rgba(241, 242, 244, 0.8);
+    }
   }
 }
+
+  .faucetTitle{
+    width: 833px;
+    color: var(--Blue-1000, #CCE3FF);
+    text-align: center;
+    text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+    /* H3 */
+    font-family: Montserrat-Bold;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.28px;
+  }
 </style>
 

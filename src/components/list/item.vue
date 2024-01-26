@@ -82,11 +82,18 @@ export default {
   margin-bottom: 15px;
 
   label {
-    color: rgba(#D5D8DD, .6);
+    color: var(--Gray-900, #D5D8DD);
+    /* P3 */
+    font-family: Montserrat-Regular;
     font-size: 14px;
+    font-style: normal;
     font-weight: 400;
-    width: auto;
-    min-width: 169px;
+    line-height: 140%; /* 19.6px */
+    /*color: rgba(#D5D8DD, .6);*/
+    /*font-size: 14px;*/
+    /*font-weight: 400;*/
+    //width: auto;
+    //min-width: 169px;
   }
 
   p {

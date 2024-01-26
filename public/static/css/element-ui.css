@@ -11421,10 +11421,14 @@
 
 .el-select-dropdown__list {
   list-style: none;
-  padding: 6px 0;
+  padding: 5px 5px;
   margin: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid var(--Transparency-500, rgba(255, 255, 255, 0.19));
+    background: rgba(21, 25, 30, 0.80);
+}
 
 /* BEM support Func
  -------------------------- */
