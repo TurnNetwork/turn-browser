@@ -43,7 +43,7 @@
   </div>
 </template>
 <script>
-  import { faucetApi } from '@/services/API-services'
+  import { faucetApi,faucetSendEmailApi } from '@/services/API-services'
   const countdownSendCode = 60;//发送验证码倒计时秒数
   export default {
     name: 'faucet',
@@ -58,6 +58,7 @@
         loading: false,
         centerDialogVisible: false,
         token: 'FAUCET_SYMBOL',
+        sendEmailToken: 'FAUCET_SEND_EMAIL',
         address: '',
         email: '',
         verificationCode:'',
@@ -115,18 +116,39 @@
         }
       },
       sendCode() {
-        this.isSending = true; // 禁用按钮并开始倒计时
-        let countdownInterval = setInterval(() => {
-          this.countdown--; // 倒计时递减
-          if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
-            this.sendCodeStr = "验证码已发送，"+this.countdown+"秒后可重试";
-          } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
-            clearInterval(countdownInterval);
-            this.isSending = false; // 重新启用按钮并结束倒计时
-            this.sendCodeStr = '重新发送';
-            this.countdown = countdownSendCode;
-          }
-        }, 1000); // 每秒更新一次倒计时秒数
+        debugger
+        console.log(this.email)
+        console.log(this.address)
+        faucetSendEmailApi(this.sendEmailToken, { email: this.email,address:this.address }).then(res => {
+          const data = res.data
+        });
+
+
+        // if(!this.isSending){
+        //   this.loading = true
+        //   faucetSendEmailApi(this.sendEmailToken, { email: this.email }).then(res => {
+        //     const data = res.data
+        //     // this.loading = false
+        //     // if (data?.code == 0) {
+        //     //   this.isSending = true; // 禁用按钮并开始倒计时
+        //     //   let countdownInterval = setInterval(() => {
+        //     //     this.countdown--; // 倒计时递减
+        //     //     if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
+        //     //       this.sendCodeStr = "验证码已发送，"+this.countdown+"秒后可重试";
+        //     //     } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
+        //     //       clearInterval(countdownInterval);
+        //     //       this.isSending = false; // 重新启用按钮并结束倒计时
+        //     //       this.sendCodeStr = '重新发送';
+        //     //       this.countdown = countdownSendCode;
+        //     //     }
+        //     //   }, 1000); // 每秒更新一次倒计时秒数
+        //     //   return;
+        //     // }
+        //   }).catch(err => {
+        //     this.loading = false
+        //     console.log(err);
+        //   })
+        // }
       },
       request() {
         this.checkEmail();

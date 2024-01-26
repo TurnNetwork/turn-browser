@@ -272,3 +272,8 @@ export default new ApiService();
 export const faucetApi = (type, data) => {
   return Http.post(API[type], data)
 }
+
+
+export const faucetSendEmailApi = (type, data) => {
+  return Http.post(API[type], data)
+}
