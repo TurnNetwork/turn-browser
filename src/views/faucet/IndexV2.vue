@@ -24,7 +24,8 @@
 
         <el-form-item label="Verification Code:" required :error="verifyCodeError">
           <el-input @blur="checkVerifyCode" @input="checkVerifyCode" :maxlength="6" class="_faucet_form"
-            placeholder="Enter Verification Code" v-model="verificationCode">
+            placeholder="Verification Code"
+                    v-model="verificationCode">
             <span class="sendCode" slot="suffix"><el-button :disabled="isSending" @click="sendCode">{{ sendCodeStr
             }}</el-button></span>
           </el-input>
@@ -75,14 +76,14 @@ export default {
           label: '300 TURN',
           type: 'FAUCET_SYMBOL'
         },
-        {
-          label: '20 USDT',
-          type: 'FAUCET_USDT'
-        },
-        {
-          label: '20 USDC',
-          type: 'FAUCET_USDC'
-        }
+        // {
+        //   label: '20 USDT',
+        //   type: 'FAUCET_USDT'
+        // },
+        // {
+        //   label: '20 USDC',
+        //   type: 'FAUCET_USDC'
+        // }
       ],
     };
   },
@@ -145,11 +146,11 @@ export default {
             let countdownInterval = setInterval(() => {
               this.countdown--; // 倒计时递减
               if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
-                this.sendCodeStr = "验证码已发送，"+this.countdown+"秒后可重试";
+                this.sendCodeStr = "Send it in "+this.countdown+" seconds";
               } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
                 clearInterval(countdownInterval);
                 this.isSending = false; // 重新启用按钮并结束倒计时
-                this.sendCodeStr = '重新发送';
+                this.sendCodeStr = 'Send Again';
                 this.countdown = countdownSendCode;
               }
             }, 1000); // 每秒更新一次倒计时秒数
@@ -361,9 +362,11 @@ export default {
     background: rgba(21, 25, 30, .9);
     margin-left: -5px;
     border-radius: 6px;
+    border: 1px solid #ffffff30;
     /*padding: 10px 8px 10px 14px;*/
     /*align-items: center;*/
     /*gap: 4px;*/
+
   }
 }
 
@@ -470,7 +473,8 @@ export default {
     border: none;
     padding-right: 0px;
     color: rgba(241, 242, 244, 0.8);
-    font-family: Montserrat-SemiBold;
+    font-family: Montserrat-Regular;
+    font-size: 12px;
     &:hover {
       background: transparent !important;
       border: none !important;

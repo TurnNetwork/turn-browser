@@ -11426,7 +11426,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
     border-radius: 6px;
-    border: 1px solid var(--Transparency-500, rgba(255, 255, 255, 0.19));
+    /*border: 1px solid var(--Transparency-500, rgba(255, 255, 255, 0.19));*/
     background: rgba(21, 25, 30, 0.80);
 }
 
