@@ -142,7 +142,7 @@
             </List>
           </div>
           <div class="node-statistic" v-if="!detailInfo.isInit">
-            <List class="node-left" :inline="true">
+            <List class="node-left superBorder" :inline="true">
               <Item :vertical="true" :label="$t('nodeInfo.stability')">
                 <div class="stability-wrap">
                   <div style="margin-right: 10px" class="self-tooltip">
@@ -195,7 +195,7 @@
             </List>
           </div>
           <div class="node-statistic" v-if="!detailInfo.isInit">
-            <List class="node-left" :inline="true">
+            <List class="node-left superBorder" :inline="true">
               <Item v-if="detailInfo.status == 4 || detailInfo.status == 5" :vertical="true"
                 :label="$t('nodeInfo.delegatorNum')">
                 <p>--</p>
