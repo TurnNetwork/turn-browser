@@ -817,16 +817,13 @@ export default {
   }
 
   .el-dropdown-menu__item:hover {
-    /*background: #eaeaea;*/
-    /*color: #0798de;*/
-    //border-radius: var(--Number4, 4px);
     background: var(--Gray-300, #22252B);
-    //padding: 5px 0px;
   }
 
   .el-dropdown-menu__item:focus {
-    /*background-color: #0f83cd;*/
+
   }
+
 
   :first-child {
     margin: 9px 0 0 0;
