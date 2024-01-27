@@ -13,8 +13,8 @@ module.exports = {
         // target: "https://scan.doubleace.xyz/",//链
         // target: "http://8.218.229.173:11011/",//链
         // target: "https://scan.bubbonet.com/",//链
-        // target: "https://scan-test.bubbonet.com/",//链
-        target: "http://192.168.31.123:40010/",//链
+        target: "https://scan-test.bubbonet.com/",//链
+        // target: "http://192.168.31.123:40010/",//链
         secure: false,
         ws: false,
         changeOrigin: true,
@@ -24,10 +24,11 @@ module.exports = {
       },
       '/faucetApis': {
         // target: "https://www.dev-faucet.com",
-        target: "https://faucet.bubbonet.com/",//测试服务
+        // target: "https://faucet.bubbonet.com/",//测试服务
+        target: "https://faucet-test.bubbonet.com/",//测试服务
         // target: "http://192.168.31.209:3081",//开发服务
-        secure: false,
-        ws: true,
+        // secure: false,
+        // ws: true,
         changeOrigin: true,
         pathRewrite: {
           '^/faucetApis': '/faucetApis'

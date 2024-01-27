@@ -277,14 +277,14 @@
     </div>
 
     <div v-else class="table _default_table">
-      <div class="_link">
-        <router-link type="text" class="historical-btn" to='/zero-node'>{{
-          $t('nodeInfo.zeroProduceValidators')
-        }}</router-link>
-        <router-link type="text" class="historical-btn" to='/history-node'>{{
-          $t('nodeInfo.historicalValidators')
-        }}</router-link>
-      </div>
+<!--      <div class="_link">-->
+<!--        <router-link type="text" class="historical-btn" to='/zero-node'>{{-->
+<!--          $t('nodeInfo.zeroProduceValidators')-->
+<!--        }}</router-link>-->
+<!--        <router-link type="text" class="historical-btn" to='/history-node'>{{-->
+<!--          $t('nodeInfo.historicalValidators')-->
+<!--        }}</router-link>-->
+<!--      </div>-->
       <div class="validators-search node-validators-search">
         <el-input :placeholder="$t('nodeInfo.searchValidator')" clearable v-model="keyword" @keyup.enter.native="searchFn"
           @change="clearInput" size="mini"></el-input>
@@ -295,7 +295,7 @@
           <div class="table-content">
             <el-table :data="tableData">
               <!--          :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'"-->
-              <el-table-column fixed :label="$t('nodeInfo.rank')" :width="50" align="center" prop="ranking">
+              <el-table-column fixed :label="$t('nodeInfo.rank')" :width="70" align="center" prop="ranking">
               </el-table-column>
               <el-table-column :min-width="issafariBrowser ? 158 : 180">
                 <template slot="header">
@@ -340,7 +340,7 @@
                   </div>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('tradeAbout.status')" width="100">
+              <el-table-column :label="$t('tradeAbout.status')" width="150">
                 <template slot-scope="scope">
                   <span class=" " :class="{
                     green: scope.row.status == 2 || scope.row.status == 6,
@@ -360,16 +360,16 @@
                 </template>
               </el-table-column>
               <!-- 委托奖励比例 -->
-              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="180">
+              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">
               </el-table-column>
-              <el-table-column :label="$t('deleget.delegators')" width="100">
+              <el-table-column :label="$t('deleget.delegators')" width="110">
                 <template slot-scope="scope">
                   <span>
                     {{ scope.row.delegateQty | formatNumber }}
                   </span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="110">
+              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="140">
                 <template slot-scope="scope">
                   <div class="node-stability flex-special">
                     <el-tooltip placement="top">
@@ -414,7 +414,7 @@
                 </template>
               </el-table-column>
               <!-- T预计委托年化率 -->
-              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="150">
+              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle">
                     {{ $t('nodeInfo.delegatedYield') }}</span>
@@ -430,7 +430,7 @@
                 </template>
               </el-table-column>
               <!-- 出块率 -->
-              <el-table-column prop="genBlocksRate" min-width="150">
+              <el-table-column prop="genBlocksRate" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle">
                     {{ $t('nodeInfo.gBlockRate') }}</span>
@@ -442,7 +442,7 @@
                 </template>
               </el-table-column>
               <!-- 版本号 -->
-              <el-table-column :label="$t('nodeInfo.version')" prop="version">
+              <el-table-column :label="$t('nodeInfo.version')" prop="version" min-width="80">
               </el-table-column>
             </el-table>
           </div>
@@ -451,7 +451,7 @@
           <div class="table-content">
             <el-table :data="tableData">
               <!--          :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'"-->
-              <el-table-column fixed :label="$t('nodeInfo.rank')" :width="50" align="center" prop="ranking">
+              <el-table-column fixed :label="$t('nodeInfo.rank')" :width="70" align="center" prop="ranking">
               </el-table-column>
               <el-table-column :min-width="issafariBrowser ? 158 : 180">
                 <template slot="header">
@@ -496,7 +496,7 @@
                   </div>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('tradeAbout.status')" width="100">
+              <el-table-column :label="$t('tradeAbout.status')" width="150">
                 <template slot-scope="scope">
                   <span class=" " :class="{
                     green: scope.row.status == 2 || scope.row.status == 6,
@@ -516,16 +516,16 @@
                 </template>
               </el-table-column>
               <!-- 委托奖励比例 -->
-              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="180">
+              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">
               </el-table-column>
-              <el-table-column :label="$t('deleget.delegators')" width="100">
+              <el-table-column :label="$t('deleget.delegators')" width="140">
                 <template slot-scope="scope">
                   <span>
                     {{ scope.row.delegateQty | formatNumber }}
                   </span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="110">
+              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="120">
                 <template slot-scope="scope">
                   <div class="node-stability flex-special">
                     <el-tooltip placement="top">
@@ -549,13 +549,13 @@
                   </div>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('nodeInfo.producedBlock')" width="120">
+              <el-table-column :label="$t('nodeInfo.producedBlock')" width="150">
                 <template slot-scope="scope">
                   <span>{{ scope.row.blockQty | formatNumber }}</span>
                 </template>
               </el-table-column>
               <!-- 预计年化收益率 -->
-              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="150">
+              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle"> {{ $t('nodeInfo.yield3') }}</span>
                   <el-tooltip placement="bottom" :hide-after="0">
@@ -570,7 +570,7 @@
                 </template>
               </el-table-column>
               <!-- T预计委托年化率 -->
-              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="150">
+              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle">
                     {{ $t('nodeInfo.delegatedYield') }}</span>
@@ -586,7 +586,7 @@
                 </template>
               </el-table-column>
               <!-- 出块率 -->
-              <el-table-column prop="genBlocksRate" min-width="150">
+              <el-table-column prop="genBlocksRate" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle">
                     {{ $t('nodeInfo.gBlockRate') }}</span>
@@ -598,7 +598,7 @@
                 </template>
               </el-table-column>
               <!-- 版本号 -->
-              <el-table-column :label="$t('nodeInfo.version')" prop="version">
+              <el-table-column :label="$t('nodeInfo.version')" prop="version" min-width="80">
               </el-table-column>
             </el-table>
           </div>
@@ -607,7 +607,7 @@
           <div class="table-content">
             <el-table :data="tableData">
               <!--          :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'"-->
-              <el-table-column fixed :label="$t('nodeInfo.rank')" :width="50" align="center" prop="ranking">
+              <el-table-column fixed :label="$t('nodeInfo.rank')" :width="70" align="center" prop="ranking">
               </el-table-column>
               <el-table-column :min-width="issafariBrowser ? 158 : 180">
                 <template slot="header">
@@ -652,7 +652,7 @@
                   </div>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('tradeAbout.status')" width="100">
+              <el-table-column :label="$t('tradeAbout.status')" width="150">
                 <template slot-scope="scope">
                   <span class=" " :class="{
                     green: scope.row.status == 2 || scope.row.status == 6,
@@ -672,16 +672,16 @@
                 </template>
               </el-table-column>
               <!-- 委托奖励比例 -->
-              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="180">
+              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">
               </el-table-column>
-              <el-table-column :label="$t('deleget.delegators')" width="100">
+              <el-table-column :label="$t('deleget.delegators')" width="140">
                 <template slot-scope="scope">
                   <span>
                     {{ scope.row.delegateQty | formatNumber }}
                   </span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="110">
+              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="120">
                 <template slot-scope="scope">
                   <div class="node-stability flex-special">
                     <el-tooltip placement="top">
@@ -705,13 +705,13 @@
                   </div>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('nodeInfo.producedBlock')" width="120">
+              <el-table-column :label="$t('nodeInfo.producedBlock')" width="150">
                 <template slot-scope="scope">
                   <span>{{ scope.row.blockQty | formatNumber }}</span>
                 </template>
               </el-table-column>
               <!-- 预计年化收益率 -->
-              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="150">
+              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle"> {{ $t('nodeInfo.yield3') }}</span>
                   <el-tooltip placement="bottom" :hide-after="0">
@@ -726,7 +726,7 @@
                 </template>
               </el-table-column>
               <!-- T预计委托年化率 -->
-              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="150">
+              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle">
                     {{ $t('nodeInfo.delegatedYield') }}</span>
@@ -742,7 +742,7 @@
                 </template>
               </el-table-column>
               <!-- 出块率 -->
-              <el-table-column prop="genBlocksRate" min-width="150">
+              <el-table-column prop="genBlocksRate" min-width="180">
                 <template slot="header">
                   <span class="tipsTitle">
                     {{ $t('nodeInfo.gBlockRate') }}</span>
@@ -754,7 +754,7 @@
                 </template>
               </el-table-column>
               <!-- 版本号 -->
-              <el-table-column :label="$t('nodeInfo.version')" prop="version">
+              <el-table-column :label="$t('nodeInfo.version')" prop="version" min-width="80">
               </el-table-column>
             </el-table>
           </div>

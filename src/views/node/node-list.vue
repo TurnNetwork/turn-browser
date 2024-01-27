@@ -46,13 +46,16 @@
               </h3>
               <Item :label="$t('blockAbout.blockReward')">
                 <p>
-                  <span class="Gilroy-Medium">{{
-                    ValidatorStatisticData.blockReward | formatMoney | sliceFloat(0)
-                  }}</span>
-                  <span style="font-size: 13px">{{
-                    ValidatorStatisticData.blockReward | formatMoney | sliceFloat(1)
-                  }}</span>
-                  <span class="fontSize13">&nbsp;TURN</span>
+                  <span class="Gilroy-Medium">
+                    {{ValidatorStatisticData.blockReward | formatMoney}} TURN
+                  </span>
+<!--                  <span class="Gilroy-Medium">{{-->
+<!--                    ValidatorStatisticData.blockReward | formatMoney | sliceFloat(0)-->
+<!--                  }}</span>-->
+<!--                  <span style="font-size: 13px">{{-->
+<!--                    ValidatorStatisticData.blockReward | formatMoney | sliceFloat(1)-->
+<!--                  }}</span>-->
+<!--                  <span class="fontSize13">&nbsp;TURN</span>-->
                 </p>
               </Item>
 
@@ -255,6 +258,15 @@ export default {
     h3 {
       margin-bottom: 19px;
     }
+    p {
+      color: var(--Gray-900, #D5D8DD);
+      /* P3 */
+      font-family: Montserrat-Regular;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+    }
   }
 
   label {
@@ -294,8 +306,16 @@ export default {
   .next-epoch {
     margin-left: 15px;
     p {
-      margin: 19px 0 14px;
-      color: #666;
+      /*margin: 19px 0 14px;*/
+      /*color: #666;*/
+      color: var(--Gray-900, #D5D8DD);
+      /* P3 */
+      font-family: Montserrat-Regular;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+      margin-bottom: 12px;
     }
 
     ul {
@@ -381,7 +401,7 @@ export default {
     line-height: 24px;
 
     label {
-      width: 171px;
+      width: 120px;
       line-height: 21px;
       font-size: 14px;
     }

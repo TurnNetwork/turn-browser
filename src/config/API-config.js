@@ -20,6 +20,7 @@ const BASE = process.env.VUE_APP_API_ROOT,
   MORE_URL = `${TOTAL}/extra`,
   TOKEN_URL = `${TOTAL}/token`,
   FAUCET_SYMBOL = `${FAUCET_BASE}/sendSymbol`,
+  FAUCET_SEND_EMAIL = `${FAUCET_BASE}/sendEmil`,
   FAUCET_USDT = `${FAUCET_BASE}/sendUsdt`,
   FAUCET_USDC = `${FAUCET_BASE}/sendUsdc`,
   //NODE
@@ -146,4 +147,5 @@ export default {
   FAUCET_USDT,
   FAUCET_USDC,
   MICRO_NODE,
+  FAUCET_SEND_EMAIL
 };

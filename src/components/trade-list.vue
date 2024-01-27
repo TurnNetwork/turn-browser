@@ -88,7 +88,7 @@
             </el-table-column>
 
             <!-- 交易类型 -->
-            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+            <el-table-column :label="$t('tradeAbout.type')" min-width="150">
               <template slot-scope="scope">
                 <span :class="{
                   green:
@@ -183,7 +183,7 @@
             </el-table-column>
 
             <!-- 交易类型 -->
-            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+            <el-table-column :label="$t('tradeAbout.type')" min-width="150">
               <template slot-scope="scope">
                 <span :class="{
                   green:
@@ -278,7 +278,7 @@
             </el-table-column>
 
             <!-- 交易类型 -->
-            <el-table-column :label="$t('tradeAbout.type')" min-width="100">
+            <el-table-column :label="$t('tradeAbout.type')" min-width="150">
               <template slot-scope="scope">
                 <span :class="{
                   green:

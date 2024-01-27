@@ -5,7 +5,8 @@
       <div class="detail-copy">
 <!--        <div class="detail-title">Block Details</div>-->
         <span class="detail-layer">
-          <span>Block L1</span>
+<!--          <span>Block L1</span>-->
+          <span>Block</span>
           <i>#{{ detailInfo.number }}</i>
         </span>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.number" v-clipboard:success="onCopy"
@@ -205,6 +206,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+  /deep/.item-wrap{
+    border-radius: 12px 12px 12px 12px;
+  }
+
 .detail-title {
   color: var(--Gray-900, #D5D8DD);
   text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
