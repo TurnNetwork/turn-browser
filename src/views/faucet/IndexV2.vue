@@ -146,11 +146,11 @@ export default {
             let countdownInterval = setInterval(() => {
               this.countdown--; // 倒计时递减
               if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
-                this.sendCodeStr = "Send it in "+this.countdown+" seconds";
+                this.sendCodeStr = this.countdown+" s";
               } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
                 clearInterval(countdownInterval);
                 this.isSending = false; // 重新启用按钮并结束倒计时
-                this.sendCodeStr = 'Send Again';
+                this.sendCodeStr = 'Send Verification Code';
                 this.countdown = countdownSendCode;
               }
             }, 1000); // 每秒更新一次倒计时秒数

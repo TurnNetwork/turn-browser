@@ -205,6 +205,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+  /deep/.item-wrap{
+    border-radius: 12px 12px 12px 12px;
+  }
+
 .detail-title {
   color: var(--Gray-900, #D5D8DD);
   text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);

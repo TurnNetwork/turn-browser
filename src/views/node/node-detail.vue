@@ -1048,7 +1048,7 @@ export default {
 
 ._bg {
   /deep/.item-wrap {
-    background: rgba(255, 255, 255, 0.1);
+    background: #0b1118;
   }
 }
 

@@ -1175,9 +1175,13 @@ export default {
 
   .item-wrap {
     padding: 25px;
-    border-radius: 0 12px 12px 12px;
+    border-radius: 0px 12px 12px 12px;
     border: 1px solid var(--Gray-500, #535A65);
-    background: #1d2229;
+    background: #0b1118;
+
+    &:nth-child(2){
+      border-radius: 12px 12px 12px 12px;
+    }
   }
 }
 
