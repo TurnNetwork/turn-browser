@@ -398,7 +398,7 @@ export default {
       }
     },
     LangVisibleChange(boolean) {
-      // this.langDropdownShow = boolean;
+      this.langDropdownShow = boolean;
     },
     getNetObj(id) {
       console.warn('首次id》》》', id);
@@ -718,24 +718,24 @@ export default {
 }
 
 .el-dropdown-menu {
-  background: #fff;
   padding: 0 0 0 0;
 
   .el-dropdown-menu__item {
-    color: #222;
-    background-color: #fff;
+    color: #7f868d;
+    background-color: var(--Gray-200, #15191E);
+    font-family: Montserrat-Regular;
     letter-spacing: 0;
     border-radius: 4px;
   }
 
   .el-dropdown-menu__item:hover {
-    background: #eaeaea;
-    color: #0798de;
+    background: var(--Gray-300, #22252B);
   }
 
   .el-dropdown-menu__item:focus {
-    background-color: #0f83cd;
+
   }
+
 
   :first-child {
     margin: 9px 0 0 0;

@@ -32,6 +32,13 @@ body {
   height: 100%;
 }
 
+.el-dropdown-menu {
+  .el-dropdown-menu__item:not(.is-disabled):hover, .el-dropdown-menu__item:focus {
+    color: var(--Gray-700, #9AA1AC) !important;
+    font-family: Montserrat-Regular;
+  }
+}
+
 .content-area {
   position: relative;
   box-sizing: border-box;
@@ -937,11 +944,13 @@ body {
   animation: rotateDown 0.2s linear;
   transform-origin: center center;
   transform: rotateZ(180deg);
+  color: white !important;
 }
 .arrowDown {
   animation: rotateUp 0.2s linear;
   transform-origin: center center;
   transform: rotateZ(0deg);
+  color: #7d848b !important;
 }
 
 @keyframes rotateUp {
