@@ -239,6 +239,12 @@ export default {
   width: 50%;
 }
 
+/deep/.el-input {
+  .el-input__inner {
+    padding: 10px 14px;
+  }
+}
+
 .faucet-wrap {
   color: white;
   min-height: calc(100vh - 102px);
@@ -257,17 +263,21 @@ export default {
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.32px;
-    padding-top: 6px;
+    //padding-top: 6px;
     padding-bottom: 6px;
   }
 
   /deep/.el-form {
-    padding-top: 20px;
+    margin-top: 44px;
 
     .el-form-item {
-      &:first-child {
-        margin-bottom: 12px;
+      margin-bottom: 18px;
+      &:last-child{
+        margin-bottom: 0px;
       }
+      /*&:first-child {*/
+      /*  margin-bottom: 12px;*/
+      /*}*/
 
       .el-input,
       .el-select {
@@ -300,7 +310,7 @@ export default {
   }
 
   .faucet-main {
-    padding-top: 190px;
+    padding-top: 230px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,16 +320,20 @@ export default {
   }
 
   &::after {
+    /*width: 100%;*/
+    /*height: 767px;*/
     width: 100%;
-    height: 767px;
+    height: 100%;
     content: ' ';
     position: absolute;
     top: 30px;
     left: 0;
-    background: url("../../assets/imagesV2/Frame98.png") no-repeat;
-    background-size: 100% 115%;
+    /*background: url("../../assets/imagesV2/Frame98.png") no-repeat;*/
+    background: url("../../assets/imagesV2/facutBg.png") no-repeat;
+    /*background-size: 100% 100%;*/
+    background-size: 1240px 857px;
     z-index: 0;
-    opacity: 0.3;
+    //opacity: 0.3;
   }
 
   &::before {
