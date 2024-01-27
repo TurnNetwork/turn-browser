@@ -874,7 +874,7 @@ td {
             <span class="fontCss">{{ $t('indexInfo.currentValidators') }}</span>
             <a class="viewAll" href="/node">View All ></a>
           </div>
-          <ul style="margin-top: 50px;padding:0 10px">
+          <ul style="margin-top: 50px;padding:0 10px;min-height: 150px">
             <li class="twoLi cursor" v-for="(item, index) in ValidatorData.dataList" :key="index" @click="goNodeDetail(item.nodeId)">
               <div>
                 <img class="activeBubble-1" src="../../assets/imagesV2/aa.png" alt="" />
