@@ -26,7 +26,7 @@
           <el-input @blur="checkVerifyCode" @input="checkVerifyCode" :maxlength="6" class="_faucet_form"
             placeholder="Verification Code"
                     v-model="verificationCode">
-            <span class="sendCode" slot="suffix"><el-button :disabled="isSending" @click="sendCode">{{ sendCodeStr
+            <span class="sendCode" :class="{ hasSendCode : isSending}" slot="suffix"><el-button :disabled="isSending" @click="sendCode">{{ sendCodeStr
             }}</el-button></span>
           </el-input>
           <!-- <button class="sendCode" :disabled="isSending" @click="sendCode">{{sendCodeStr}}</button> -->
@@ -60,6 +60,7 @@ export default {
       verifyCodeError: '',
       addressError:'',
       isSending: false,
+      isSendingCss:'',
       countdown: countdownSendCode,// 用于倒计时
       sendCodeStr: "Send Verification Code",
       loading: false,
@@ -89,13 +90,9 @@ export default {
   },
   props: {},
   computed: {},
-  watch: {},
+  watch: {
+  },
   components: {},
-  // beforeDestroy() {
-  //   if (this.countdown) {
-  //     clearTimeout(this.countdown); // 在组件销毁前清除计时器，避免内存泄漏
-  //   }
-  // },
   methods: {
     //检验地址
     checkAddress(){
@@ -146,7 +143,7 @@ export default {
             let countdownInterval = setInterval(() => {
               this.countdown--; // 倒计时递减
               if (this.countdown > 0) { // 如果倒计时大于0，则更新显示倒计时秒数
-                this.sendCodeStr = this.countdown+" s";
+                this.sendCodeStr = this.countdown+" s ";
               } else { // 倒计时结束，清除定时器并重新启用按钮，显示“重新发送”的提示信息
                 clearInterval(countdownInterval);
                 this.isSending = false; // 重新启用按钮并结束倒计时
@@ -155,6 +152,8 @@ export default {
               }
             }, 1000); // 每秒更新一次倒计时秒数
             return;
+          }else{
+            this.$message.error(data?.msg || 'fail')
           }
         }).catch(err => {
           this.loading = false
@@ -353,11 +352,11 @@ export default {
 ._faucet_form {
   border: 1px solid #999;
   border-radius: 6px;
-  width: 320px;
+  width: 344px;
   height: 40px;
 
   /deep/.el-select-dropdown {
-    width: 320px;
+    width: 344px;
     /*height: 40px;*/
     background: rgba(21, 25, 30, .9);
     margin-left: -5px;
@@ -407,7 +406,7 @@ export default {
 
   margin-top: 30px;
   cursor: pointer;
-  width: 318px;
+  width: 344px;
   padding: 10px 20px;
   justify-content: center;
   align-items: center;
@@ -463,6 +462,12 @@ export default {
   text-align: end;
 }
 
+.hasSendCode{
+  button {
+    color: var(--Gray-500, #535A65) !important;
+  }
+}
+
 .sendCode {
   cursor: pointer;
   color: rgba(241, 242, 244, 0.8);
@@ -472,31 +477,32 @@ export default {
     background: transparent;
     border: none;
     padding-right: 0px;
-    color: rgba(241, 242, 244, 0.8);
+    color: var(--Blue-600, #0075FF);
     font-family: Montserrat-Regular;
-    font-size: 12px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
     &:hover {
       background: transparent !important;
       border: none !important;
     }
     &:focus{
-      color: rgba(241, 242, 244, 0.8);
+      color: var(--Blue-600, #0075FF);
     }
   }
 }
 
   .faucetTitle{
-    width: 833px;
+    width: 805px;
     color: var(--Blue-1000, #CCE3FF);
     text-align: center;
     text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
-    /* H3 */
     font-family: Montserrat-Bold;
-    font-size: 32px;
+    font-size: 48px;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
-    letter-spacing: -1.28px;
+    line-height: 98.437%; /* 47.25px */
+    letter-spacing: -1.92px;
   }
 </style>
 

@@ -5,7 +5,8 @@
       <div class="detail-copy">
 <!--        <div class="detail-title">Block Details</div>-->
         <span class="detail-layer">
-          <span>Block L1</span>
+<!--          <span>Block L1</span>-->
+          <span>Block</span>
           <i>#{{ detailInfo.number }}</i>
         </span>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.number" v-clipboard:success="onCopy"
