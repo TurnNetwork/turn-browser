@@ -24,10 +24,12 @@ module.exports = {
       },
       '/faucetApis': {
         // target: "https://www.dev-faucet.com",
-        target: "https://faucet.bubbonet.com/",//测试服务
+        // target: "https://faucet.bubbonet.com/",//测试服务
+        // target: "https://faucet-test.bubbonet.com/",//测试服务
         // target: "http://192.168.31.209:3081",//开发服务
-        secure: false,
-        ws: true,
+        target: "http://192.168.31.248:3081",//开发服务
+        // secure: false,
+        // ws: true,
         changeOrigin: true,
         pathRewrite: {
           '^/faucetApis': '/faucetApis'
