@@ -398,6 +398,13 @@ td {
   border-radius: var(--Number8, 8px);
   border: 1px solid var(--Gray-600, #6C7584);
   background: var(--Transparency-100, rgba(255, 255, 255, 0.03));
+
+  &:focus-visible{
+    outline:none;
+    outline:0;
+    border: 1px solid #FFFFFF;
+  }
+
 }
 
 .search-icon {
