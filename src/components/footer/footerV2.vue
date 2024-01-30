@@ -2,7 +2,7 @@
   <div class="footer-wrap">
     <div class="footer-main">
       <div class="footer-main-top">
-        <img src="./../../assets/imagesV2/Logo-Black.png" />
+        <img src="./../../assets/imagesV2/Fullname-horizontal.png" />
       </div>
       <el-row class="footer-flex">
         <el-col :span="12">
@@ -184,9 +184,17 @@ export default {
 }
 
 .relates-info {
-  font-size: 14px;
+  /*font-size: 14px;*/
+  /*font-weight: 400;*/
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  color: var(--Gray-700, #9AA1AC);
+  /* P2 */
+  font-family: Montserrat-Regular;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: normal;
+  letter-spacing: -0.32px;
 }
 
 .download-btn {
@@ -198,16 +206,22 @@ export default {
     margin-right: 10px;
   }
 
-  border: 1px solid #9AA1AC;
-  border-radius: 2px;
+  /*border: 1px solid #9AA1AC;*/
+  /*border-radius: 2px;*/
   padding: 8px 7px;
   font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
   font-family: Montserrat-Regular;
-  color: #9AA1AC;
+  color: var(--Gray-700, #9AA1AC);
   letter-spacing: 0;
   cursor: pointer;
   white-space: nowrap;
-  height: 37px;
+  height: 42px;
+  gap: 7px;
+  border-radius: var(--Number6, 6px);
+  border: 1px solid var(--Gray-700, #9AA1AC);
 
   &:hover {
     color: #5cb2db;

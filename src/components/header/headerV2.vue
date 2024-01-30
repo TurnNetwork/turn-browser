@@ -2,13 +2,13 @@
   <div class="header-wrap" :style="{ background: scrollTop > 80 ? '#030911' : 'transparent' }">
     <div class="header-main">
       <div class="logo cursor">
-        <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
+        <img style="width: 120px;" src="@/assets/imagesV2/Fullname-horizontal.png" />
       </div>
       <div class="menu">
         <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal" hide-timeout="1000"
           background-color="transparent" text-color="#999" active-text-color="#FFF">
-          <el-menu-item index="/" :class="{ active: $route.path == '/' }">
-            <span>{{ $t('menu.home') }}</span>
+          <el-menu-item index="/" >
+            <span :class="{ active: $route.path == '/' }">{{ $t('menu.home') }}</span>
           </el-menu-item>
           <el-menu-item class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
@@ -105,8 +105,12 @@
             </el-dropdown>
           </el-menu-item>
 
-          <el-menu-item index="/faucet" :class="{ active: $route.path.indexOf('faucet') > -1 }">
-            <router-link to="/faucet">FAUCET</router-link>
+          <el-menu-item index="/faucet">
+               <span :class="{
+                  active: $route.path.indexOf('faucet') > -1,
+                }">
+                FAUCET
+              </span>
           </el-menu-item>
           <el-menu-item class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="handleCommandLangage"
@@ -155,8 +159,11 @@
         <div class="mobile-menu-content">
           <el-menu :default-active="$route.pth" :router="true" class="mobile-menu" background-color="#FFF"
             text-color="#121f38" active-text-color="#121f38">
-            <el-menu-item @click="toggleMobileMenuOpenend" index="/" :class="{ active: $route.path == '/' }">
-              <router-link to="/">{{ $t('menu.home') }}</router-link>
+            <el-menu-item @click="toggleMobileMenuOpenend" index="/">
+              <span :class="{ active: $route.path == '/' }">
+                {{ $t('menu.home') }}
+              </span>
+<!--              <router-link to="/">{{ $t('menu.home') }}</router-link>-->
             </el-menu-item>
             <el-submenu index="/nodes">
               <template slot="title">
@@ -242,10 +249,18 @@
                 </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="/faucet" :class="{
+<!--            <el-menu-item index="/faucet" :class="{-->
+<!--                  active: $route.path.indexOf('faucet') > -1,-->
+<!--                }">-->
+<!--              <router-link to="/faucet">FAUCET</router-link>-->
+<!--            </el-menu-item>-->
+
+            <el-menu-item index="/faucet">
+               <span :class="{
                   active: $route.path.indexOf('faucet') > -1,
                 }">
-              <router-link to="/faucet">FAUCET</router-link>
+                FAUCET
+              </span>
             </el-menu-item>
           </el-menu>
 
@@ -621,6 +636,19 @@ export default {
 
     .active {
       color: #fff !important;
+      padding-bottom: 10px !important;
+      border-bottom: 1px solid var(--Gray-1000, #F1F2F4) !important;
+      /*span{*/
+      /*  padding-bottom: 10px !important;*/
+      /*  border-bottom: 1px solid var(--Gray-1000, #F1F2F4) !important;*/
+      /*}*/
+
+      /*div{*/
+      /*  span{*/
+      /*    padding-bottom: 10px !important;*/
+      /*    border-bottom: 1px solid var(--Gray-1000, #F1F2F4) !important;*/
+      /*  }*/
+      /*}*/
 
     }
   }
@@ -718,14 +746,20 @@ export default {
 }
 
 .el-dropdown-menu {
-  padding: 0 0 0 0;
+  /*padding: 0 0 0 0;*/
+  padding: 10px !important;
+  background-color: black;
+  border-radius: 6px;
 
   .el-dropdown-menu__item {
     color: #7f868d;
-    background-color: var(--Gray-200, #15191E);
+    /*background-color: var(--Gray-200, #15191E);*/
+    background-color: black;
     font-family: Montserrat-Regular;
     letter-spacing: 0;
     border-radius: 4px;
+    line-height: 40px;
+    padding: 0 10px;
   }
 
   .el-dropdown-menu__item:hover {
@@ -1030,7 +1064,7 @@ export default {
     background: transparent !important;
 
     &:hover {
-      color: #fff !important;
+      color: var(--Gray-1000, #F1F2F4) !important;
       // background: transparent !important;
     }
   }

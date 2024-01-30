@@ -146,8 +146,8 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: -1.04px;
-  margin-top: 40px;
-  margin-bottom: 32px;
+  margin-top: 56px;
+  margin-bottom: 24px;
   /*margin-top: 100px;*/
 }
 
@@ -177,6 +177,12 @@
   height: 302px;
   width: 100%;
   //margin-top:-100px
+}
+
+.line6Table{
+  margin-top: 64px;
+  padding: 16px 24px;
+  min-height: 150px;
 }
 
 .box-div .line3 .line3-1 {
@@ -209,7 +215,7 @@ table {
 }
 
 th {
-  height: 70px;
+  height: 64px;
 }
 
 td {
@@ -245,6 +251,7 @@ td {
   //border: 1px solid #a027ad;
   //height: 579px;
   width: 100%;
+  height: 675px;
   //margin-top:-100px
 }
 
@@ -252,11 +259,22 @@ td {
   display: block;
   //border: 1px solid #0D6CDA;
   border-radius: 20px;
-  height: 650px;
+  height: 611px;
   width: 100%;
   float: bottom;
+  padding: 16px 24px;
+  margin-top: 64px;
   /*overflow: auto;*/
   //margin-top:-100px
+
+  table{
+    tr {
+      height: 64px;
+    }
+    td {
+      height: 64px;
+    }
+  }
 }
 
 .tableHead {
@@ -285,7 +303,7 @@ td {
   line-height: normal;
   text-align: center;
   float: left;
-  margin-top: 20px;
+  margin-top: 23px;
   padding-left: 24px;
 }
 
@@ -331,7 +349,7 @@ td {
 }
 
 .box-div .line6 .twoLi img {
-  margin-left: 14px;
+  /*margin-left: 14px;*/
   margin-right: 4px;
 }
 
@@ -375,7 +393,8 @@ td {
 }
 
 .search-input {
-  width: 100%;
+  /*width: 100%;*/
+  width: 508px;
   /* 根据需要调整宽度 */
   /*padding-right: 30px;*/
   padding-right: 12%;
@@ -399,18 +418,38 @@ td {
   border: 1px solid var(--Gray-600, #6C7584);
   background: var(--Transparency-100, rgba(255, 255, 255, 0.03));
 
+  &::placeholder {
+    color: var(--Gray-500, #535A65);
+    /* P2 */
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+  }
+
   &:focus-visible{
     outline:none;
     outline:0;
-    border: 1px solid #FFFFFF;
-  }
 
+    border-radius: var(--Number8, 8px);
+    border: 1px solid var(--Blue-400, #004699);
+    background: var(--Blue-100, #000C1A);
+    box-shadow: 0px 2px 16px 0px #002F66, 0px 1px 5.6px 0px var(--Gray-100, #030911);
+  }
 }
+
+/*.search-input::placeholder {*/
+/*  color: #ff0000; !* 设置占位符文本颜色为红色 *!*/
+/*  font-size: 14px; !* 设置占位符文本大小 *!*/
+/*  opacity: 1; !* 设置占位符文本不透明度 *!*/
+/*}*/
 
 .search-icon {
   position: absolute;
-  right: 1%;
-  top: 25%;
+  right: 3%;
+  top: 30%;
   /* 根据需要调整图标位置 */
   //top:10px;
   cursor: pointer;
@@ -466,9 +505,9 @@ td {
 }
 
 .tableTh1 {
-  color: var(--Gray-900, #D5D8DD);
+  color: var(--Gray-600, #F1F2F4);
   /* P3 */
-  font-family: Montserrat-Regular;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -483,12 +522,12 @@ td {
 .line5-1 table tr th:nth-child(2) {
   width: 160px;
   text-align: left;
-  padding-left: 50px;
+  padding-left: 25px;
 }
 
 .line5-1 table tr td:nth-child(2) {
   text-align: left;
-  padding-left: 48px;
+  padding-left: 24px;
 }
 
 
@@ -497,7 +536,7 @@ td {
   height: 64px;
   max-width: 100%;
   max-height: 100%;
-  margin-left: 24px;
+  /*margin-left: 24px;*/
 }
 
 .activeBubble-1 {
@@ -548,7 +587,7 @@ td {
 .twoLi {
   display: flex;
   //justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #333;
   width: 100%;
   height: 64px;
@@ -563,7 +602,7 @@ td {
   display: block;
   color: var(--Gray-1000, #F1F2F4);
   /* P3 */
-  font-family: Montserrat-Regular;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   padding-bottom: 2px;
@@ -576,7 +615,7 @@ td {
   color: var(--Gray-700, #9AA1AC);
   /*text-align: right;*/
   /* P3 */
-  font-family: Montserrat-Regular;
+  font-family: Montserrat-SemiBold;
   font-size: 14px;
   font-style: normal;
   padding-top: 2px;
@@ -679,7 +718,8 @@ td {
                    @keyup.enter="searchFn"
             />
             <div class="search-icon" aria-hidden="true" v-model="searchKey" @click="searchFn">
-              <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.png" alt="">
+<!--              <img style="max-height: 60%;max-width: 60%" src="../../assets/imagesV2/search.svg" alt="">-->
+              <img  src="../../assets/imagesV2/search.svg" alt="">
             </div>
           </div>
         </div>
@@ -881,7 +921,7 @@ td {
             <span class="fontCss">{{ $t('indexInfo.currentValidators') }}</span>
             <a class="viewAll" href="/node">View All ></a>
           </div>
-          <ul style="margin-top: 50px;padding:0 10px;min-height: 150px">
+          <ul class="line6Table">
             <li class="twoLi cursor" v-for="(item, index) in ValidatorData.dataList" :key="index" @click="goNodeDetail(item.nodeId)">
               <div>
                 <img class="activeBubble-1" src="../../assets/imagesV2/aa.png" alt="" />
