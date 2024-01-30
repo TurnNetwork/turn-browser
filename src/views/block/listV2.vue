@@ -1,7 +1,7 @@
 <template>
   <div class="trade-list-wrap">
     <div class="page-title fontSize34">
-      {{ $t('menu.block').toUpperCase() }}
+      {{ $t('menu.block') }}
     </div>
     <div class="sub-title">
       <div class="fontSize14 trade-count">

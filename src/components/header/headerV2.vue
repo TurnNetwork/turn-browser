@@ -109,7 +109,7 @@
                <span :class="{
                   active: $route.path.indexOf('faucet') > -1,
                 }">
-                FAUCET
+                Faucet
               </span>
           </el-menu-item>
           <el-menu-item class="more-item">
@@ -259,7 +259,7 @@
                <span :class="{
                   active: $route.path.indexOf('faucet') > -1,
                 }">
-                FAUCET
+                Faucet
               </span>
             </el-menu-item>
           </el-menu>
@@ -320,7 +320,7 @@ export default {
         {
           value: 'test',
           // label: 'Bubble Test',
-          label: 'TURN TEST',
+          label: 'Turn Test',
         },
         // {
         //   value: 'main',
@@ -328,7 +328,7 @@ export default {
         // },
       ],
       networkObj: {
-        'test': 'TURN TEST',
+        'test': 'Turn Test',
         // 'main': 'Bubble Mainnet',
       },
       // options: [

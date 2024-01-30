@@ -227,7 +227,7 @@ td {
   justify-content: space-between;
   align-items: center;
   //border: 1px solid #a027ad;
-  height: 150px;
+  height: 156px;
   width: 100%;
   //margin-top:-100px
 }
