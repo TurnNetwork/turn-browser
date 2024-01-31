@@ -15421,7 +15421,7 @@
     .el-table thead.is-group th {
       background: #1B1F45; }
   .el-table th, .el-table td {
-    padding: 12px 0;
+    /*padding: 12px 0;*/
     min-width: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;

@@ -245,7 +245,7 @@ export default {
   justify-content: space-between;
 
   .statistic-info {
-    flex: 1;
+    //flex: 1;
   }
 
   ._statistic-header-main {
@@ -304,7 +304,7 @@ export default {
   }
 
   .next-epoch {
-    margin-left: 15px;
+    /*margin-left: 15px;*/
     p {
       /*margin: 19px 0 14px;*/
       /*color: #666;*/
@@ -322,17 +322,20 @@ export default {
       display: flex;
 
       li {
-        width: 30px;
-        height: 38px;
-        /*background: #030911;*/
-        background: #22252b;
-        color: #fff;
+        width: 50px;
+        height: 52px;
+        border-radius: var(--Number4, 4px);
+        background: var(--Gray-300, #22252B);
         margin-right: 9px;
-        border-radius: 1px;
-        font-size: 28px;
-        line-height: 38px;
+        line-height: 52px;
         text-align: center;
         font-family: BebasNeue-Regular;
+        color: var(--Gray-900, #D5D8DD);
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.8px;
       }
     }
   }

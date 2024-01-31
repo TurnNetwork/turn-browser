@@ -71,11 +71,11 @@ export default {
 .item-wrap {
     display: flex;
     flex-flow: column wrap;
-    // padding-left: 50px;
     padding: 24px;
-    border-radius: 0px 12px 12px 12px;
-    border: 1px solid var(--Gray-500, #535A65);
-    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+    width: 1224px;
+    /*border-radius: 0px 12px 12px 12px;*/
+    /*border: 1px solid var(--Gray-500, #535A65);*/
+    /*background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);*/
 
     &.flex-inline {
         flex-flow: row wrap;

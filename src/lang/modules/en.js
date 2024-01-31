@@ -493,9 +493,9 @@ export default {
     inBlock: "Block",
     inTxHash: "TxHash",
 
-    liveStakingInfo: "LIVE STAKING INFO",
-    currentPeriodReward: "CURRENT PERIOD REWARD",
-    nextEpoch: "NEXT EPOCH",
+    liveStakingInfo: "Live Staking Info",
+    currentPeriodReward: "Current Period Reward",
+    nextEpoch: "Next Epoch",
     totalDelegations: "Total Delegations",
     stakeRate: "Stake Rate",
     stakingReward: "Staking reward",
