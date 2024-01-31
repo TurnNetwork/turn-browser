@@ -318,14 +318,16 @@
               <h3 class="nodeInfo">{{ $t('nodeInfo.basicInfo') }}</h3>
               <Item :label="$t('nodeInfo.nodeID')">
                 <div>
-                  <span style="word-break: break-all;">{{ detailInfo.nodeId }}</span>
-                  <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
-                    v-clipboard:success="onCopy" v-clipboard:error="onError">
-                    <p v-show="isCopy" style="width: 100%">
-                      <i class="el-icon-circle-check-outline"></i>
-                      <span>{{ copyText }}</span>
-                    </p>
-                  </b>
+                  <div class="nodeIdCss">
+                    <span>{{ detailInfo.nodeId }}</span>
+                    <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.nodeId"
+                       v-clipboard:success="onCopy" v-clipboard:error="onError">
+                      <p v-show="isCopy" style="width: 100%">
+                        <i class="el-icon-circle-check-outline"></i>
+                        <span>{{ copyText }}</span>
+                      </p>
+                    </b>
+                  </div>
                 </div>
               </Item>
               <Item :label="$t('nodeInfo.version')">
@@ -424,17 +426,17 @@
                     }}</router-link>
                   </template>
                 </el-table-column>
-                <el-table-column :label="$t('common.time')" width="180">
+                <el-table-column :label="$t('common.time')" width="300">
                   <template slot-scope="scope">
                     <span>{{ scope.row.timestamp | formatTime }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column :label="$t('indexInfo.txn')" show-overflow-tooltip>
+                <el-table-column :label="$t('indexInfo.txn')" show-overflow-tooltip min-width="100">
                   <template slot-scope="scope">
                     <span>{{ scope.row.statTxQty | formatNumber }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column :label="$t('blockAbout.blockReward')" min-width="150">
+                <el-table-column :label="$t('blockAbout.blockReward')">
                   <template slot-scope="scope">
                     <span>{{ scope.row.blockReward | formatMoney }} TURN</span>
                   </template>
@@ -1040,11 +1042,41 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
+
+/*/deep/.gray-area {*/
+/*  .table {*/
+/*    .el-table td {*/
+/*      &:nth-child(2) {*/
+/*        div {*/
+/*          padding: 0px 0px !important;*/
+/*        }*/
+/*      }*/
+/*    }*/
+/*  }*/
+/*}*/
+
 .superBorder{
   /deep/.item-wrap {
     border-radius: 12px 12px 12px 12px;
   }
 }
+
+/deep/.item-wrap {
+  /*display: flex;*/
+  /*flex-flow: column wrap;*/
+  /*padding: 24px;*/
+  /*width: 1224px;*/
+  border-radius: 0px 12px 12px 12px;
+  border: 1px solid var(--Gray-500, #535A65);
+  background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+
+  /*&.flex-inline {*/
+  /*  flex-flow: row wrap;*/
+  /*}*/
+}
+
+
 
 ._bg {
   /deep/.item-wrap {
@@ -1537,5 +1569,9 @@ export default {
 .node.table-content {
   width: 100%;
   overflow-x: auto;
+}
+.nodeIdCss{
+  width: 954px;
+  word-break: break-all;
 }
 </style>

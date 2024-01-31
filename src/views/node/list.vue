@@ -265,10 +265,6 @@
       </div>
       <el-tabs v-model="tabIndex" type="card" @tab-click="tabChange">
         <el-tab-pane :label="`${$t('contract.all')}`" v-loading="tLoading" name="1">
-
-
-
-
           <div class="table-content">
             <el-table :data="tableData">
               <!--          :height="(windowWidth < 750 || windowWidth > 1800 || pageTotal.length < 10) ? null : 'calc(100vh - 280px)'"-->
@@ -979,6 +975,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
 .table {
   position: relative;
 }

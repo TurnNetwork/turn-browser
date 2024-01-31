@@ -76,6 +76,19 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
+  /*/deep/.gray-area {*/
+  /*  .table {*/
+  /*    .el-table td {*/
+  /*      &:nth-child(2) {*/
+  /*        div {*/
+  /*          padding: 0px 0px !important;*/
+  /*        }*/
+  /*      }*/
+  /*    }*/
+  /*  }*/
+  /*}*/
+
 .list-item {
   display: flex;
   flex-flow: row nowrap;
@@ -89,6 +102,7 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: 140%; /* 19.6px */
+    width: 220px;
     /*color: rgba(#D5D8DD, .6);*/
     /*font-size: 14px;*/
     /*font-weight: 400;*/
