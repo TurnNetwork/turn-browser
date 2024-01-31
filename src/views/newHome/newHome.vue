@@ -5,7 +5,7 @@
 }
 .hoverBlue{
   &:hover {
-    color: #66b7de;
+    color: #66b7de !important;
   }
 }
 
@@ -185,20 +185,46 @@
   min-height: 150px;
 }
 
-.box-div .line3 .line3-1 {
-  display: block;
-  //border: 1px solid #0D6CDA;
-  border-radius: 20px;
-  height: 302px;
-  width: 600px;
-  float: left;
-  //margin-top:-100px
-
+.box-div .line3 .line3-div {
   display: flex;
-  /*width: 600px;*/
-  /*height: 302px;*/
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 600px;
+  height: 100%;
+  text-align: left;
+  padding: 47px 80.75px;
+  flex-wrap: wrap;
+  .line3-div-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex: 0 0 50%;
+    max-width: 187.25px;
+    height: 88px;
+    .span-title{
+      height: 40px;
+      display: block;
+      color: var(--Gray-700, #9AA1AC);
+      font-family: Montserrat-Regular;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.32px;
+    }
+    .span-content{
+      height: 48px;
+      display: block;
+      color: var(--Blue-1000, #CCE3FF);
+      font-family: BebasNeue-Regular;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.8px;
+    }
+  }
 }
 
 table,
@@ -226,10 +252,47 @@ td {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-self: stretch;
   //border: 1px solid #a027ad;
   height: 156px;
   width: 100%;
+  padding: 0 80px;
   //margin-top:-100px
+}
+
+.box-div .line4 .line4-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 50px;
+  height: 100%;
+  text-align: left;
+  .span-title{
+    display: block;
+    color: var(--Gray-700, #9AA1AC);
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    margin-bottom: 4px;
+    /*width: 218px;*/
+    height: 40px;
+  }
+  .span-content{
+    display: block;
+    color: var(--Blue-1000, #CCE3FF);
+    font-family: BebasNeue-Regular;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    /*width: 218px;*/
+    height: 48px;
+  }
 }
 
 .box-div .line4 .line4-1 {
@@ -504,15 +567,41 @@ td {
   letter-spacing: -0.8px;
 }
 
-.tableTh1 {
-  color: var(--Gray-600, #F1F2F4);
-  /* P3 */
-  font-family: Montserrat-SemiBold;
+.blockHui{
+  color: var(--Gray-600, #6C7584);
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 !important;
+  line-height: 140%; /* 19.6px */
+}
+
+.tableTh1 {
+  /*color: var(--Gray-600, #F1F2F4);*/
+  /*!* P3 *!*/
+  /*font-family: Montserrat-Regular;*/
+  /*font-size: 14px;*/
+  /*font-style: normal;*/
+  /*font-weight: 400 !important;*/
   //width: 20%;
   //line-height: 140%; /* 19.6px */
+
+  color: var(--Gray-900, #D5D8DD);
+  /* P3 */
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 140%; /* 19.6px */
+}
+
+.tableTd1{
+  color: var(--Gray-1000, #F1F2F4);
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 140%; /* 19.6px */
 }
 
 .line5-1 table tr th:first-child {
@@ -602,7 +691,7 @@ td {
   display: block;
   color: var(--Gray-1000, #F1F2F4);
   /* P3 */
-  font-family: Montserrat-SemiBold;
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
   padding-bottom: 2px;
@@ -615,7 +704,7 @@ td {
   color: var(--Gray-700, #9AA1AC);
   /*text-align: right;*/
   /* P3 */
-  font-family: Montserrat-SemiBold;
+  font-family: Montserrat-Regular;
   font-size: 14px;
   font-style: normal;
   padding-top: 2px;
@@ -677,6 +766,16 @@ td {
 .footerGezi{
   background: url("../../assets/imagesV2/BG.svg") no-repeat;
   background-size: 100%;
+}
+
+.tip{
+  color: var(--Blue-1000, #CCE3FF);
+  font-family: BebasNeue-Regular;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.24px;
 }
 
   /deep/.selectLayerHover{
@@ -769,101 +868,110 @@ td {
         <b>Network Activity</b>
       </div>
       <div class="line3">
-        <div class="line3-1 border-kuang kuangBg">
-          <table>
-            <tr>
-              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKHEIGHT') }}</th>
-              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTIME') }}</th>
-            </tr>
-            <tr>
-              <td class="myTd"><a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">{{ blockStatisticData.currentNumber
-                }}</a></td>
-<!--              <td class="myTd">1.0032</td>-->
-              <td class="myTd">{{ tooltipData.time }}s</td>
-            </tr>
-<!--            <tr>-->
-<!--              <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>-->
-<!--              <th class="myTh">Total number of L1 transactions</th>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>-->
-<!--              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>-->
-<!--            </tr>-->
+        <div class="line3-div kuangBg">
+          <div class="line3-div-content">
+            <span class="span-title">{{ $t('indexInfo.LIVEBLOCKHEIGHT') }}</span>
+            <span class="span-content">
+            <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">{{ blockStatisticData.currentNumber
+                }}</a>
+            </span>
+          </div>
 
-            <tr>
-              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</th>
-              <th class="myTh">{{ $t('blockAbout.producer').toUpperCase() }}</th>
-            </tr>
-            <tr>
-              <td class="myTd cursor hoverBlue" @click="$router.push('/trade')">{{ tooltipData.txs }}</td>
-              <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>
-            </tr>
-          </table>
+          <div class="line3-div-content">
+            <span class="span-title">{{ $t('indexInfo.LIVEBLOCKTIME') }}</span>
+            <span class="span-content">
+              {{ tooltipData.time }}s
+            </span>
+          </div>
+
+          <div class="line3-div-content">
+            <span class="span-title">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</span>
+            <span class="span-content cursor hoverBlue" @click="$router.push('/trade')">
+                {{ tooltipData.txs }}
+            </span>
+          </div>
+
+          <div class="line3-div-content">
+            <span class="span-title">{{ $t('blockAbout.producer').toUpperCase() }}</span>
+            <span class="span-content cursor hoverBlue">
+              <a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a>
+            </span>
+          </div>
         </div>
-        <div class="line3-1 border-kuang kuangBg">
-          <table>
-            <tr>
-              <th class="myTh">{{ $t('indexInfo.LIVEADDRESS') }}</th>
-              <th class="myTh">TOTAL NUMBER TRANSACTIONS</th>
-            </tr>
-            <tr>
-              <td class="myTd">{{ blockStatisticData.addressQty | formatNumber }}</td>
-              <td class="myTd">{{blockStatisticData.txQty | unit}}</td>
-            </tr>
-<!--            <tr>-->
-<!--              <th class="myTh">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</th>-->
-<!--              <th class="myTh">{{ $t('blockAbout.producer').toUpperCase() }}</th>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <td class="myTd cursor hoverBlue" @click="$router.push('/trade')">{{ tooltipData.txs }}</td>-->
-<!--              <td class="myTd"><a class="cursor hoverBlue" @click="goNodeDetail(blockStatisticData.nodeId)">{{ blockStatisticData.nodeName }}</a></td>-->
-<!--            </tr>-->
-            <tr>
-<!--              <th class="myTh">Total Number Of L2 Transactions</th>-->
-              <th class="myTh">{{ $t('indexInfo.PENDINGTOTAL') }}</th>
-            </tr>
-            <tr>
-<!--              <td class="myTd">0</td>-->
-              <td class="myTd cursor hoverBlue">
-                <a @click="goProposal">
+        <div class="line3-div kuangBg">
+          <div class="line3-div-content">
+            <span class="span-title">{{ $t('indexInfo.LIVEADDRESS') }}</span>
+            <span class="span-content">{{ blockStatisticData.addressQty | formatNumber }}</span>
+          </div>
+
+          <div class="line3-div-content">
+            <span class="span-title">Total Number Transactions</span>
+            <span class="span-content">{{blockStatisticData.txQty | unit}}</span>
+          </div>
+
+          <div class="line3-div-content">
+            <span class="span-title">{{ $t('indexInfo.PENDINGTOTAL') }}</span>
+            <span class="span-content cursor hoverBlue">
+              <a @click="goProposal">
                   {{ blockStatisticData.doingProposalQty | formatNumber }}
                   <span>/ {{ blockStatisticData.proposalQty | formatNumber }}</span>
                 </a>
-              </td>
-            </tr>
-          </table>
+            </span>
+          </div>
         </div>
       </div>
       <div class="line-title">
         <b>About TURN</b>
       </div>
-      <div class="line4 border-kuang kuangBg">
-        <div class="line4-1">
-          <table>
-            <tr>
-              <th class="myTh">{{ $t('indexInfo.totalSupply') }}</th>
-              <th class="myTh">{{ $t('indexInfo.circulatingSupply') }}</th>
-              <th class="myTh">{{ $t('nodeInfo.stakeRate').toUpperCase() }}</th>
-<!--              <th class="myTh">Inflation Rate</th>-->
-            </tr>
+      <div class="line4 kuangBg">
 
-            <tr>
-              <td class="myTd">{{ blockStatisticData.issueValue | unit }}</td>
-              <td class="myTd">{{ blockStatisticData.turnValue | unit }}</td>
-              <td class="myTd">
+        <div class="line4-div">
+          <span class="span-title">{{ $t('indexInfo.totalSupply') }}</span>
+          <span class="span-content">{{ blockStatisticData.issueValue | unit }}</span>
+        </div>
+        <div class="line4-div">
+          <span class="span-title">{{ $t('indexInfo.circulatingSupply') }}</span>
+          <span class="span-content">{{ blockStatisticData.turnValue | unit }}</span>
+        </div>
+        <div class="line4-div">
+          <span class="span-title">{{ $t('nodeInfo.stakeRate') }}</span>
+          <span class="span-content">
                 {{
                 blockStatisticData.stakingDelegationValue
                 | percentage(blockStatisticData.stakingDenominator)
                 }}%&nbsp;
                 <b class="tip">
                   ({{ blockStatisticData.stakingDelegationValue | formatNumber }})
-                </b>
-
-              </td>
-<!--              <td class="myTd">3.17%</td>-->
-            </tr>
-          </table>
+                </b></span>
         </div>
+
+
+<!--        <div class="line4-1">-->
+<!--          <table>-->
+<!--            <tr>-->
+<!--              <th class="myTh">{{ $t('indexInfo.totalSupply') }}</th>-->
+<!--              <th class="myTh">{{ $t('indexInfo.circulatingSupply') }}</th>-->
+<!--              <th class="myTh">{{ $t('nodeInfo.stakeRate').toUpperCase() }}</th>-->
+<!--&lt;!&ndash;              <th class="myTh">Inflation Rate</th>&ndash;&gt;-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--              <td class="myTd">{{ blockStatisticData.issueValue | unit }}</td>-->
+<!--              <td class="myTd">{{ blockStatisticData.turnValue | unit }}</td>-->
+<!--              <td class="myTd">-->
+<!--                {{-->
+<!--                blockStatisticData.stakingDelegationValue-->
+<!--                | percentage(blockStatisticData.stakingDenominator)-->
+<!--                }}%&nbsp;-->
+<!--                <b class="tip">-->
+<!--                  ({{ blockStatisticData.stakingDelegationValue | formatNumber }})-->
+<!--                </b>-->
+
+<!--              </td>-->
+<!--&lt;!&ndash;              <td class="myTd">3.17%</td>&ndash;&gt;-->
+<!--            </tr>-->
+<!--          </table>-->
+<!--        </div>-->
       </div>
       <div class="line-title">
         <b>Transaction Blocks</b>
@@ -889,11 +997,11 @@ td {
                 <img class="fangIcon" src="../../assets/imagesV2/Box.png" alt="" />
               </td>
 <!--              <td class="tableTh1 cursor hoverTd">-->
-                <td class="tableTh1 hoverBlue"><span class="item-number cursor" @click="goBlockDetail(item.number)">{{ item.number }}</span>
+                <td class="tableTd1 hoverBlue"><span class="item-number cursor" @click="goBlockDetail(item.number)">{{ item.number }}</span>
 <!--                <a href="#" target="_blank"></a>-->
 <!--                18466814-->
               </td>
-              <td class="tableTh1">
+              <td class="tableTd1">
                 <p>
                   {{ $t('blockAbout.producer') }}
                   <a class="cursor hoverBlue" @click="goNodeDetail(item.nodeId)">{{
@@ -901,12 +1009,12 @@ td {
                     }}</a>
                 </p>
               </td>
-              <td class="tableTh1">
-                <span class="item-txns">{{ item.statTxQty }}&nbsp;{{ $t('indexInfo.txns') }}</span>
+              <td class="tableTd1">
+                <span class="item-txns blockHui">{{ item.statTxQty }}&nbsp;{{ $t('indexInfo.txns') }}</span>
               </td>
 <!--              <td class="tableTh1">4.483294189788</td>-->
-              <td class="tableTh1">
-                <span class="item-time">{{ timeDiffFn(item.serverTime, item.timestamp) }}&nbsp;{{
+              <td class="tableTd1">
+                <span class="item-time blockHui">{{ timeDiffFn(item.serverTime, item.timestamp) }}&nbsp;{{
                   $t('tradeAbout.before')
                 }}</span>
               </td>
