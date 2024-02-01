@@ -281,6 +281,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+/deep/.detail-change{
+  /*margin-top: 0;*/
+  margin-bottom: 32px;
+}
+
+
 .restricted {
   font-size: 12px;
   color: #999;

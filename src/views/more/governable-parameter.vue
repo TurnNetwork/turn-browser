@@ -1231,9 +1231,8 @@ export default {
 }
 
 .green {
-
   font-size: 13px;
-  color: #3bb012;
+  color: var(--Green-600, #00F0C5);
   letter-spacing: 0;
 }
 

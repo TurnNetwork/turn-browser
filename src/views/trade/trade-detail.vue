@@ -1028,7 +1028,7 @@ export default {
 }
 
 .status-icon-success {
-  color: #3bb012;
+  color: var(--Green-600, #00F0C5);
 }
 
 .status-icon-warning {
