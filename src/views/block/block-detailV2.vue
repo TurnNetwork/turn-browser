@@ -208,6 +208,8 @@ export default {
 <style lang="less" scoped>
   /deep/.item-wrap{
     border-radius: 12px 12px 12px 12px;
+    border: 1px solid var(--Gray-500, #535A65);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
   }
 
 .detail-title {

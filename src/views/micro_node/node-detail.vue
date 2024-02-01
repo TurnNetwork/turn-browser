@@ -721,7 +721,7 @@ export default {
   .stability-wrap {
     display: flex;
     width: 85%;
-    margin-top: 16px;
+    margin-top: 10px;
 
     .self-tooltip p {
       font-size: 12px;

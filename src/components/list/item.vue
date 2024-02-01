@@ -15,16 +15,30 @@
       <label v-else> {{ label }}</label>
 
     </template>
-    <p v-if="prop || prop == 0" :class="{
+    <div :class="{nodeIdCss : tableAligning}">
+      <p v-if="prop || prop == 0" :class="{
       red: type == 'fail',
       blue: type == 'link',
       green: type == 'success'
     }">
-      {{ prop }}
-    </p>
-    <slot name="tipsDate"></slot>
-    <slot name="tipHeader"> </slot>
-    <slot></slot>
+        {{ prop }}
+      </p>
+      <slot name="tipsDate"></slot>
+      <slot name="tipHeader"> </slot>
+      <slot></slot>
+    </div>
+<!--    <div v-else>-->
+<!--      <p v-if="prop || prop == 0" :class="{-->
+<!--      red: type == 'fail',-->
+<!--      blue: type == 'link',-->
+<!--      green: type == 'success'-->
+<!--    }">-->
+<!--        {{ prop }}-->
+<!--      </p>-->
+<!--      <slot name="tipsDate"></slot>-->
+<!--      <slot name="tipHeader"> </slot>-->
+<!--      <slot></slot>-->
+<!--    </div>-->
   </div>
 </template>
 <script>
@@ -34,6 +48,10 @@ export default {
     return {};
   },
   props: {
+    tableAligning:{
+      type: Boolean,
+      default: true
+    },
     prop: [String, Number],
     vertical: {
       type: Boolean,
@@ -76,7 +94,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-
+  .nodeIdCss{
+    width: 954px;
+    word-break: break-all;
+  }
   /*/deep/.gray-area {*/
   /*  .table {*/
   /*    .el-table td {*/
@@ -118,7 +139,8 @@ export default {
   }
 
   .blue:hover {
-    color: #0e52ac;
+    /*color: #0e52ac;*/
+    color: var(--Blue-600, #0075FF);
   }
 }
 
@@ -128,9 +150,15 @@ export default {
   margin-bottom: 15px;
 
   label {
-    color: var(--Gray-900, #D5D8DD);
+    /*color: var(--Gray-900, #D5D8DD);*/
+    /*font-size: 14px;*/
+    /*font-weight: 400;*/
+    color: var(--Gray-700, #9AA1AC);
+    font-family: Montserrat-Regular;
     font-size: 14px;
+    font-style: normal;
     font-weight: 400;
+    line-height: 20px; /* 19.6px */
   }
 
   p {
@@ -139,7 +167,8 @@ export default {
   }
 
   .blue:hover {
-    color: #0e52ac;
+    /*color: #0e52ac;*/
+    color: var(--Blue-600, #0075FF);
   }
 }
 </style>
@@ -151,7 +180,7 @@ export default {
     min-height: 86px;
     word-break: break-all;
     border-radius: 1px;
-    padding: 6px;
+    /*padding: 6px;*/
   }
 }
 

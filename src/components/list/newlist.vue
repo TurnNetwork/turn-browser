@@ -73,7 +73,8 @@ export default {
   }
 
   .blue:hover {
-    color: #0e52ac;
+    /*color: #0e52ac;*/
+    color: var(--Blue-600, #0075FF);
   }
 }
 </style>

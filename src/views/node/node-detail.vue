@@ -56,19 +56,19 @@
           <div class="node-statistic">
             <List class="node-left _border superBorder" :inline="true">
               <!-- 当选验证节点 -->
-              <Item :vertical="true" :label="$t('nodeInfo.electedRoundValidator')">
+              <Item :vertical="true" :label="$t('nodeInfo.electedRoundValidator')" :tableAligning="false">
                 <p class="Gilroy-Medium fontSize18">
                   {{ detailInfo.verifierTime }}
                 </p>
               </Item>
               <!-- 累计出块 -->
-              <Item :vertical="true" :label="$t('nodeInfo.blocks')">
+              <Item :vertical="true" :label="$t('nodeInfo.blocks')" :tableAligning="false">
                 <p class="Gilroy-Medium fontSize18">
                   {{ detailInfo.blockQty | formatNumber }}
                 </p>
               </Item>
               <!-- 累计系统奖励 -->
-              <Item v-if="!detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.totalNodeReward') + ' (TURN)'">
+              <Item v-if="!detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.totalNodeReward') + ' (TURN)'" :tableAligning="false">
                 <p>
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.rewardValue | formatMoney | sliceFloat(0)
@@ -91,7 +91,7 @@
 
                 -预计委托年化收益率：显示如图 -->
               <Item v-if="!detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.totalStakePower') + ' (TURN)'"
-                class="total-stake">
+                class="total-stake" :tableAligning="false">
                 <p class="Gilroy-Medium" v-if="detailInfo.status != 4 && detailInfo.status != 5">
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.totalValue | formatMoney | sliceFloat(0)
@@ -104,7 +104,7 @@
                 <p v-else class="Gilroy-Medium">--</p>
               </Item>
               <!-- 稳定性 -->
-              <Item v-if="detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.stability')">
+              <Item v-if="detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.stability')" :tableAligning="false">
                 <div class="stability-wrap">
                   <div style="margin-right: 10px" class="self-tooltip">
                     <i class="icon-low-block cursor"></i>
@@ -126,7 +126,7 @@
               </Item>
               <!-- 自有质押 -->
               <Item v-if="detailInfo.isInit" :vertical="true" :label="$t('nodeInfo.selfstake') + ' (TURN)'"
-                class="total-stake">
+                class="total-stake" :tableAligning="false">
                 <p class="Gilroy-Medium">
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.stakingValue | formatMoney | sliceFloat(0)
@@ -143,7 +143,7 @@
           </div>
           <div class="node-statistic" v-if="!detailInfo.isInit">
             <List class="node-left superBorder" :inline="true">
-              <Item :vertical="true" :label="$t('nodeInfo.stability')">
+              <Item :vertical="true" :label="$t('nodeInfo.stability')" :tableAligning="false">
                 <div class="stability-wrap">
                   <div style="margin-right: 10px" class="self-tooltip">
                     <i class="icon-low-block cursor"></i>
@@ -159,7 +159,7 @@
                   </div>
                 </div>
               </Item>
-              <Item :vertical="true" :label="$t('nodeInfo.blockRate')">
+              <Item :vertical="true" :label="$t('nodeInfo.blockRate')" :tableAligning="false">
                 <p>
                   <span class="Gilroy-Medium fontSize18">{{
                     detailInfo.blockQty | percentage(detailInfo.expectBlockQty)
@@ -167,7 +167,7 @@
                   <span class="fontSize13">%</span>
                 </p>
               </Item>
-              <Item :vertical="true" :label="$t('nodeInfo.totalDelegatedReward') + ' (TURN)'">
+              <Item :vertical="true" :label="$t('nodeInfo.totalDelegatedReward') + ' (TURN)'" :tableAligning="false">
                 <p>
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.totalDeleReward | formatMoney | sliceFloat(0)
@@ -179,7 +179,7 @@
                 </p>
               </Item>
               <!-- TODO 需要在未退回到验证节点账户时，显示没有返还到节点钱 显示带解锁 此处需要一个状态 -->
-              <Item :vertical="true" :label="$t('nodeInfo.selfstake') + ' (TURN)'" class="total-stake">
+              <Item :vertical="true" :label="$t('nodeInfo.selfstake') + ' (TURN)'" class="total-stake" :tableAligning="false">
                 <p class="Gilroy-Medium">
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.stakingValue | formatMoney | sliceFloat(0)
@@ -197,15 +197,15 @@
           <div class="node-statistic" v-if="!detailInfo.isInit">
             <List class="node-left superBorder" :inline="true">
               <Item v-if="detailInfo.status == 4 || detailInfo.status == 5" :vertical="true"
-                :label="$t('nodeInfo.delegatorNum')">
+                :label="$t('nodeInfo.delegatorNum')" :tableAligning="false">
                 <p>--</p>
               </Item>
-              <Item v-else :vertical="true" :label="$t('nodeInfo.delegatorNum')">
+              <Item v-else :vertical="true" :label="$t('nodeInfo.delegatorNum')" :tableAligning="false">
                 <p class="Gilroy-Medium fontSize18">
                   {{ detailInfo.delegateQty }}
                 </p>
               </Item>
-              <Item :vertical="true">
+              <Item :vertical="true" :tableAligning="false">
                 <div slot="tipHeader">
                   <label>
                     {{ $t('nodeInfo.blockRate24h') }}
@@ -222,7 +222,7 @@
                   }}</span>
                 </p>
               </Item>
-              <Item :vertical="true" :label="$t('contract.unclaimedReward') + ' (TURN)'">
+              <Item :vertical="true" :label="$t('contract.unclaimedReward') + ' (TURN)'" :tableAligning="false">
                 <p>
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.deleRewardRed | formatMoney | sliceFloat(0)
@@ -235,7 +235,7 @@
               </Item>
               <!-- TODO 此处历史节点显示另外一个数据 -->
               <Item :vertical="true" :label="$t('deleget.acceptDelegations') + ' (TURN)'"
-                v-if="detailInfo.status != 4 && detailInfo.status != 5">
+                v-if="detailInfo.status != 4 && detailInfo.status != 5" :tableAligning="false">
                 <p>
                   <span class="Gilroy-Medium black fontSize18" style="font-size: 18px">{{
                     detailInfo.delegateValue | formatMoney | sliceFloat(0)
@@ -246,7 +246,7 @@
                   <span class="fontSize13 lat-mini"></span>
                 </p>
               </Item>
-              <Item v-else :vertical="true" :label="$t('nodeInfo.pendingDelegations') + ' (TURN)'">
+              <Item v-else :vertical="true" :label="$t('nodeInfo.pendingDelegations') + ' (TURN)'" :tableAligning="false">
                 <p>
                   <span class="Gilroy-Medium black fontSize18">{{
                     detailInfo.statDelegateReduction
@@ -381,7 +381,7 @@
                     <i class="address-icon"></i>
                   </el-tooltip>
                 </label>
-                <div>
+                <div style="display: inline-block;padding-left: 15px">
                   <span v-if="detailInfo.isInit">--</span>
                   <span v-else class="fontSize14 Gilroy-Medium">{{ detailInfo.rewardPer }} %</span>
                 </div>
@@ -1095,14 +1095,29 @@ export default {
     vertical-align: middle;
   }
 }
-
+.green{
+  color: var(--Green-600, #00F0C5);
+}
 .vote-status {
   // opacity: 0.15;
-  background: rgba(59, 176, 18, 0.15);
-  border-radius: 2px;
+  /*background: rgba(59, 176, 18, 0.15);*/
+  /*border-radius: 2px;*/
   line-height: 26px;
-  padding: 7px 10px;
+  padding: 10px;
   margin-left: 73px;
+  border-radius: var(--Number6, 6px);
+  background: var(--Green-200, #003027);
+
+  /*color: var(--Green-600, #00F0C5);*/
+  text-align: right;
+
+  /* H4 */
+  font-family: Montserrat-Regular;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.04px;
 
   @media screen and (max-width: 750px) {
     min-width: 64px;
@@ -1253,7 +1268,7 @@ export default {
   .stability-wrap {
     display: flex;
     width: 85%;
-    margin-top: 16px;
+    margin-top: 10px;
 
     .self-tooltip p {
       font-size: 12px;
@@ -1381,7 +1396,9 @@ export default {
 }
 
 // 粗字体
-.node-header-right {}
+.node-header-right {
+  display: flex;
+}
 
 // 饼图百分比
 .imgRatio {
