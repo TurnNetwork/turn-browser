@@ -821,13 +821,13 @@ export default {
 .el-dropdown-menu {
   /*padding: 0 0 0 0;*/
   padding: 10px !important;
-  background-color: black;
+  /*background-color: black;*/
+  background-color: var(--Gray-200, #15191E);
   border-radius: 6px;
 
   .el-dropdown-menu__item {
     color: #7f868d;
-    /*background-color: var(--Gray-200, #15191E);*/
-    background-color: black;
+    background-color: var(--Gray-200, #15191E);
     font-family: Montserrat-Regular;
     letter-spacing: 0;
     border-radius: 4px;
@@ -1208,6 +1208,8 @@ export default {
   &.search-btn-active {
     /*color: #fff;*/
     /*border-left: 1px solid #666;*/
+    border-left: none !important;
+    color: var(--Blue-600, #0075FF) !important;
   }
 
   &:hover {

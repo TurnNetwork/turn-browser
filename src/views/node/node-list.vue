@@ -327,7 +327,7 @@ export default {
         border-radius: var(--Number4, 4px);
         background: var(--Gray-300, #22252B);
         margin-right: 9px;
-        line-height: 52px;
+        line-height: 52px !important;
         text-align: center;
         font-family: BebasNeue-Regular;
         color: var(--Gray-900, #D5D8DD);

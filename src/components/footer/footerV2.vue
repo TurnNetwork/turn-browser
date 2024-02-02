@@ -6,7 +6,7 @@
       </div>
       <el-row class="footer-flex">
         <el-col :span="12">
-          <p class="relates-info">
+          <p class="relates-info" style="margin-bottom: 12px">
             Powered by TURN Network
           </p>
           <p class="relates-info">
@@ -208,7 +208,7 @@ export default {
 
   /*border: 1px solid #9AA1AC;*/
   /*border-radius: 2px;*/
-  padding: 8px 7px;
+  padding: 8px 16px;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
