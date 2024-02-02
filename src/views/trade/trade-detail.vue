@@ -5,7 +5,7 @@
       <div class="detail-copy">
 <!--        <span class="title">L1 {{ $t('tradeAbout.transactions') }}</span>-->
         <span class="title">{{ $t('tradeAbout.transactions') }}</span>
-        <i>#{{ detailInfo.txHash }}</i>
+        <i>#{{ detailInfo.txHash  | sliceStr(20) }}</i>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.txHash" v-clipboard:success="onCopy"
           v-clipboard:error="onError">
           <p v-show="isCopy">

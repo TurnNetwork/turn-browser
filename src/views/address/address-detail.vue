@@ -10,7 +10,7 @@
         <div class="detail-copy">
           <div>
             <span class="title">{{ $t('contract.address') }}</span>
-            <i>#{{ showAdr }}</i>
+            <i>#{{ showAdr | sliceStr(20)}}</i>
             <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="showAdr" v-clipboard:success="onCopy"
               v-clipboard:error="onError">
               <p v-show="isCopy">
@@ -281,6 +281,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+  /deep/.el-button--medium{
+    padding: 8px 0;
+  }
+
 /deep/.detail-change{
   /*margin-top: 0;*/
   margin-bottom: 32px;
@@ -426,7 +430,7 @@ export default {
   }
 
   .active {
-    color: #F1F2F4;
+    color: var(--Gray-1000, #F1F2F4);
     border-radius: var(--Number4, 4px);
     border: 1px solid var(--Transparency-200, rgba(255, 255, 255, 0.06));
     background: var(--Gray-400, #32373E) !important;

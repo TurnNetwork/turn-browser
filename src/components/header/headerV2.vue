@@ -7,10 +7,10 @@
       <div class="menu">
         <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal" hide-timeout="1000"
           background-color="transparent" text-color="#999" active-text-color="#FFF">
-          <el-menu-item index="/" >
+          <el-menu-item @click="cancelSearch" index="/" >
             <span :class="{ active: $route.path == '/' }">{{ $t('menu.home') }}</span>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="nodeDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -33,7 +33,7 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="blockDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -57,7 +57,7 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="tokensDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -79,7 +79,7 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="moreDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -105,14 +105,14 @@
             </el-dropdown>
           </el-menu-item>
 
-          <el-menu-item index="/faucet">
+          <el-menu-item @click="cancelSearch" index="/faucet">
                <span :class="{
                   active: $route.path.indexOf('faucet') > -1,
                 }">
                 Faucet
               </span>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="handleCommandLangage"
               @visible-change="LangVisibleChange">
               <span class="el-dropdown-link _dropdown-link-active">
@@ -129,19 +129,21 @@
             </el-dropdown>
           </el-menu-item>
         </el-menu>
-        <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch"
-          @mousemove="searchShow = false">
+        <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch">
           <!-- @mouseleave="searchShow = true" -->
-          <span v-show="searchShow" class="el-icon-search text-size"></span>
+          <span @click="showSearch" class="text-size cursor">
+            <img  src="../../assets/imagesV2/search.svg" alt="">
+          </span>
           <!-- v-else -->
-          <div @mousemove="searchShow = false" @mouseleave="searchShow = true" v-show="!searchShow"
+          <div v-show="searchShow"
             class="search search-header" :class="{
               'search-active': isFocus
-            }" :style="{ width: searchShow ? '0px' : '50vw' }">
+            }" :style="{ width: !searchShow ? '0px' : '50vw' }">
+
             <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
               v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
             <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
-              @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
+              @click="cancelSearch" >Cancel</el-button>
           </div>
         </div>
       </div>
@@ -152,7 +154,7 @@
         <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
           v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
         <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
-          @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
+          @click="cancelSearch" :disabled="disabledBtn">Cancel</el-button>
       </div>
       <div :class="{ mobileMenuWrapper: true, opened: mobileMenuOpenend }" v-if="windowWidth < 750">
         <div class="mobile-menu-back" @click="toggleMobileMenuOpenend"></div>
@@ -296,7 +298,7 @@ export default {
   data() {
     return {
       scrollTop: 0,
-      searchShow: true,
+      searchShow: false,
       mobileMenuOpenend: false,
       netDropdownShow: false,
       langDropdownShow: false,
@@ -386,6 +388,7 @@ export default {
     },
     toggleMobileMenuOpenend() {
       this.mobileMenuOpenend = !this.mobileMenuOpenend;
+      this.cancelSearch();
     },
     netVisibleChange(boolean) {
       this.netDropdownShow = boolean;
@@ -471,6 +474,17 @@ export default {
       // }
       // this.$i18n.locale = localStorage.getItem('i18nLocale')
     },
+
+    showSearch(){
+      console.log("11xxx")
+      this.searchShow = true;
+    },
+
+    cancelSearch(){
+      console.log("xxx")
+      this.searchShow = false;
+    },
+
     //查询
     searchFn() {
       let param = this.searchKey.trim();
@@ -512,6 +526,7 @@ export default {
         })
         .finally(() => {
           this.disabledBtn = false;
+          this.cancelSearch();
         });
     },
     switchFn(type, struct) {
@@ -604,7 +619,65 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+  /deep/.search .el-button.el-searchs{
+    /*font-size: 14px;*/
+    color: var(--Blue-600, #0075FF);
+    background: var(--Gray-200, #15191E);;
+    border: none;
+    border-left: 0px;
+    /*border-left: 1px solid #333333;*/
+    /*border-radius: 0px 4px 4px 0px;*/
+    height: 100%;
+  }
+
+  /deep/.search .el-button.el-searchs.btn-header:hover{
+    color: var(--Blue-600, #0075FF);
+    border-left: 0px;
+  }
+
+  /deep/.search {
+    border-radius: 6px;
+    .el-input input{
+      color: var(--Font-Scence-, #D5D8DD) !important;
+      font-family: Montserrat-Regular;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+
+
+      background: var(--Gray-200, #15191E);
+      font-size: 14px;
+      &::placeholder {
+        color: var(--Font-Scence-, #6C7584);
+        font-family: Montserrat-Regular;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 19.6px */
+      }
+      /*&:focus{*/
+      /*  color: var(--Font-Scence-, #D5D8DD) !important;*/
+      /*  font-family: Montserrat-Regular;*/
+      /*  font-size: 14px;*/
+      /*  font-style: normal;*/
+      /*  font-weight: 400;*/
+      /*  line-height: 140%; !* 19.6px *!*/
+      /*}*/
+    }
+  }
+
+.searchV2{
+  display: flex;
+  width: 485px;
+  height: 40px;
+  fill: var(--Gray-200, #15191E);
+  stroke-width: 1px;
+  stroke: var(--Transparency-300, rgba(255, 255, 255, 0.10));
+}
+
 .text-size {
+  display: flex;
   font-size: 20px;
   margin-left: 20px;
 }
@@ -670,10 +743,10 @@ export default {
 
     .search-header {
       position: absolute;
-      // left: 0;
       transition: 3s;
       right: 0px;
-      top: -20px;
+      top: 35px;
+      width: 485px !important;
     }
   }
 }
@@ -1133,14 +1206,14 @@ export default {
 
 .search .el-button.el-searchs.btn-header {
   &.search-btn-active {
-    color: #fff;
-    border-left: 1px solid #666;
+    /*color: #fff;*/
+    /*border-left: 1px solid #666;*/
   }
 
   &:hover {
     color: #0798de;
-    background: #030911 !important;
-    border-left: 1px solid #333;
+    background: #15191E !important;
+    border-left: none !important;
   }
 
   &:active {
