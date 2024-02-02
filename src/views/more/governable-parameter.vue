@@ -3,14 +3,14 @@
     <h2 class="title">{{ $t('more.governableParameter') }}</h2>
     <!-- staking -->
     <div class="section" v-if="lis.staking">
-      <div class="sub-title">staking</div>
+      <div class="sub-title">Staking</div>
       <div class="cont-row">
         <!-- 内容分割1 -->
         <div class="cont-box">
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>stakeThreshold</div>
+              <div>StakeThreshold</div>
               <span>{{ $t('more.stakeThreshold') }}</span>
             </div>
 
@@ -62,7 +62,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>operatingThreshold</div>
+              <div>OperatingThreshold</div>
               <span>{{ $t('more.operatingThreshold') }}</span>
             </div>
 
@@ -115,7 +115,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>maxValidators</div>
+              <div>MaxValidators</div>
               <span>{{ $t('more.maxValidators') }}</span>
             </div>
 
@@ -166,7 +166,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>unStakeFreezeDuration</div>
+              <div>UnStakeFreezeDuration</div>
               <span>{{ $t('more.unStakeFreezeDuration') }}</span>
             </div>
 
@@ -229,7 +229,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>unDelegateFreezeDuration</div>
+              <div>UnDelegateFreezeDuration</div>
               <span>{{ $t('more.unDelegateFreezeDuration') }}</span>
             </div>
 
@@ -292,7 +292,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>rewardPerMaxChangeRange</div>
+              <div>RewardPerMaxChangeRange</div>
               <span>{{ $t('more.rewardPerMaxChangeRange') }}</span>
             </div>
 
@@ -355,7 +355,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>rewardPerChangeInterval</div>
+              <div>RewardPerChangeInterval</div>
               <span>{{ $t('more.rewardPerChangeInterval') }}</span>
             </div>
 
@@ -419,13 +419,13 @@
     </div>
     <!-- slashing -->
     <div class="section" v-if="lis.slashing">
-      <div class="sub-title">slashing</div>
+      <div class="sub-title">Slashing</div>
       <div class="cont-row">
         <div class="cont-box">
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>slashBlocksReward</div>
+              <div>SlashBlocksReward</div>
               <span>{{ $t('more.slashBlocksReward') }}</span>
             </div>
 
@@ -481,7 +481,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>slashFractionDuplicateSign</div>
+              <div>SlashFractionDuplicateSign</div>
               <span>{{ $t('more.slashFractionDuplicateSign') }}</span>
             </div>
 
@@ -537,7 +537,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>duplicateSignReportReward</div>
+              <div>DuplicateSignReportReward</div>
               <span>{{ $t('more.duplicateSignReportReward') }}</span>
             </div>
 
@@ -592,7 +592,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>maxEvidenceAge</div>
+              <div>MaxEvidenceAge</div>
               <span>{{ $t('more.maxEvidenceAge') }}</span>
             </div>
 
@@ -646,7 +646,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>zeroProduceCumulativeTime</div>
+              <div>ZeroProduceCumulativeTime</div>
               <span>{{ $t('more.zeroProduceCumulativeTime') }}</span>
             </div>
 
@@ -682,7 +682,7 @@
               <!-- 底部数字 -->
               <div class="bottom">
                 <div>
-                  <span class="regular">zeroProduceNumberThreshold</span>
+                  <span class="regular">ZeroProduceNumberThreshold</span>
                 </div>
                 <div>
                 <span class="regular">{{
@@ -699,7 +699,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>zeroProduceNumberThreshold</div>
+              <div>ZeroProduceNumberThreshold</div>
               <span>{{ $t('more.zeroProduceNumberThreshold') }}</span>
             </div>
 
@@ -740,7 +740,7 @@
                 }}</span>
                 </div>
                 <div>
-                  <span class="regular">zeroProduceCumulativeTime </span>
+                  <span class="regular">ZeroProduceCumulativeTime </span>
                 </div>
               </div>
             </div>
@@ -752,7 +752,7 @@
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>zeroProduceFreezeDuration</div>
+              <div>ZeroProduceFreezeDuration</div>
               <span>{{ $t('more.zeroProduceFreezeDuration') }}</span>
             </div>
 
@@ -793,7 +793,7 @@
                 }}</span>
                 </div>
                 <div>
-                  <span class="regular">unStakeFreezeDuration</span>
+                  <span class="regular">UnStakeFreezeDuration</span>
                 </div>
               </div>
             </div>
@@ -804,14 +804,14 @@
     <!-- block -->
     <div class="section" v-if="lis.block">
 <!--      <h3 class="h3">block</h3>-->
-      <div class="sub-title">block</div>
+      <div class="sub-title">Block</div>
       <div class="cont-row">
 
         <div class="cont-box">
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>stakeThreshold</div>
+              <div>StakeThreshold</div>
               <span>{{ $t('more.stakeThreshold') }}</span>
             </div>
 
@@ -864,14 +864,14 @@
     <!-- reward -->
     <div class="section" v-if="lis.reward">
 <!--      <h3 class="h3">reward</h3>-->
-      <div class="sub-title">reward</div>
+      <div class="sub-title">Reward</div>
       <div class="cont-row">
 
         <div class="cont-box">
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>increaseIssuanceRatio</div>
+              <div>IncreaseIssuanceRatio</div>
               <span>{{ $t('more.increaseIssuanceRatio') }}</span>
             </div>
 
@@ -926,13 +926,13 @@
     <!-- restricting -->
     <div class="section" v-if="lis.restricting">
 <!--      <h3 class="h3">restricting</h3>-->
-      <div class="sub-title">restricting</div>
+      <div class="sub-title">Restricting</div>
       <div class="cont-row">
         <div class="cont-box">
           <!-- 有背景内容块 -->
           <div class="cont-block">
             <div class="subTitleDsc">
-              <div>minimumRelease</div>
+              <div>MinimumRelease</div>
               <span>{{ $t('more.minimumRelease') }}</span>
             </div>
 

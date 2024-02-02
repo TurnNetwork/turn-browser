@@ -950,6 +950,7 @@ export default {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
+  font-family: Montserrat-SemiBold;
 }
 
 .detail-copy {

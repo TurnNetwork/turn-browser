@@ -638,7 +638,7 @@ export default {
     12: "DeclareVersion",
   },
   more: {
-    addToExtension: "Add To Extension",
+    addToExtension: "Add to Extension",
     foundationAddress: 'Foundation Address',
     governableParameter: "Governable Parameter",
     stakeThreshold: "Minimum stake TURNs required to create validator.",

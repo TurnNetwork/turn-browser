@@ -637,7 +637,7 @@ td {
 
 .activeBubble-2 {
   width: 40%;
-  height: 44px;
+  /*height: 44px;*/
   text-align: left;
   line-height: 2;
   margin-left: 4px;
@@ -645,7 +645,7 @@ td {
 
 .activeBubble-3 {
   width: 60%;
-  height: 44px;
+  /*height: 44px;*/
   text-align: right;
   line-height: 2;
   padding-right: 14px;
