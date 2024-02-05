@@ -668,6 +668,10 @@ export default {
   }
 }
 
+/deep/.table .download-btn{
+  z-index: 2;
+}
+
 .download-btn {
   border: 1px solid #0798de;
   border-radius: 2px;
