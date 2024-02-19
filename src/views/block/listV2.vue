@@ -1,17 +1,17 @@
 <template>
   <div class="trade-list-wrap">
     <div class="page-title fontSize34">
-      {{ $t('menu.block').toUpperCase() }}
+      {{ $t('menu.block') }}
     </div>
     <div class="sub-title">
-      <div class="fontSize14 trade-count">
+      <div class="subTitleCss trade-count">
         <template v-if="pageTotal > 500000">
           {{ $t('tradeAbout.morethen') }}>
         </template>
         <template v-else>
           {{ $t('tradeAbout.morethen2') }}
         </template>
-        <b class="black">{{ pageTotal }}</b>
+        <b>{{ pageTotal }}</b>
         {{ $t('blockAbout.blocks') }}
         <span v-if="pageTotal > 500000">{{
           $t('tradeAbout.showingLast')
@@ -200,6 +200,20 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+  /*/deep/.el-table__row tr:hover{*/
+  /*  border-radius: var(--Number6, 6px);*/
+  /*  border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));*/
+  /*  background: var(--Transparency-300, rgba(255, 255, 255, 0.10));*/
+  /*}*/
+
+.blue{
+  color: var(--Blue-600, #0075FF);
+  font-family: Montserrat-Regular;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 19.6px */
+}
 .sub-title {
   display: flex;
   justify-content: space-between;
@@ -214,6 +228,17 @@ export default {
   overflow-x: auto;
   border: 1px solid #030911;
   border-radius: 10px;
+}
+
+.subTitleCss{
+  color: var(--Gray-900, #D5D8DD);
+  text-shadow: 0px 4px 13.3px var(--Blue-100, #000C1A);
+  font-family: Montserrat-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
 }
 </style>
 

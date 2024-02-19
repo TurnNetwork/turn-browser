@@ -2,15 +2,15 @@
   <div class="header-wrap" :style="{ background: scrollTop > 80 ? '#030911' : 'transparent' }">
     <div class="header-main">
       <div class="logo cursor">
-        <img style="width: 120px;" src="@/assets/imagesV2/Logo-Black.png" />
+        <img style="width: 120px;" src="@/assets/imagesV2/Fullname-horizontal.png" />
       </div>
       <div class="menu">
         <el-menu :default-active="$route.path" :router="true" class="el-menu-demo" mode="horizontal" hide-timeout="1000"
           background-color="transparent" text-color="#999" active-text-color="#FFF">
-          <el-menu-item index="/" :class="{ active: $route.path == '/' }">
-            <span>{{ $t('menu.home') }}</span>
+          <el-menu-item @click="cancelSearch" index="/" >
+            <span :class="{ active: $route.path == '/' }">{{ $t('menu.home') }}</span>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="nodeDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -33,7 +33,7 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="blockDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -69,26 +69,18 @@
                   </div>
 
                 </div>
-
-                <!--                <el-dropdown-item command="/block/index">{{-->
+              </el-dropdown-menu>
+<!--              <el-dropdown-menu slot="dropdown">-->
+<!--                <el-dropdown-item command="/block/index">{{-->
 <!--                  $t('menu.block')-->
-<!--                }}（L1）</el-dropdown-item>-->
-<!--                <el-dropdown-item command="/bubblesList">{{-->
-<!--                  $t('menu.block')-->
-<!--                  }}（L2）</el-dropdown-item>-->
+<!--                }}</el-dropdown-item>-->
 <!--                <el-dropdown-item command="/block/trade">{{-->
 <!--                  $t('menu.transaction')-->
-<!--                }}（L1）</el-dropdown-item>-->
-<!--                <el-dropdown-item command="/tradeLayerTwo">{{-->
-<!--                  $t('menu.transaction')-->
-<!--                  }}（L2）</el-dropdown-item>-->
-
-              </el-dropdown-menu>
+<!--                }}</el-dropdown-item>-->
+<!--              </el-dropdown-menu>-->
             </el-dropdown>
           </el-menu-item>
-
-
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="tokensDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -110,7 +102,7 @@
               </el-dropdown-menu>
             </el-dropdown>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="dropdownCommand"
               @visible-change="moreDropdownChangHandle">
               <span class="el-dropdown-link more-title" :class="{
@@ -136,10 +128,14 @@
             </el-dropdown>
           </el-menu-item>
 
-          <el-menu-item index="/faucet" :class="{ active: $route.path.indexOf('faucet') > -1 }">
-            <router-link to="/faucet">FAUCET</router-link>
+          <el-menu-item @click="cancelSearch" index="/faucet">
+               <span :class="{
+                  active: $route.path.indexOf('faucet') > -1,
+                }">
+                Faucet
+              </span>
           </el-menu-item>
-          <el-menu-item class="more-item">
+          <el-menu-item @click="cancelSearch" class="more-item">
             <el-dropdown placement="bottom-start" class="more-dropdown" @command="handleCommandLangage"
               @visible-change="LangVisibleChange">
               <span class="el-dropdown-link _dropdown-link-active">
@@ -156,19 +152,21 @@
             </el-dropdown>
           </el-menu-item>
         </el-menu>
-        <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch"
-          @mousemove="searchShow = false">
+        <div class="search-wrap" v-if="windowWidth >= 750 && $route.path != '/' && hideSearch">
           <!-- @mouseleave="searchShow = true" -->
-          <span v-show="searchShow" class="el-icon-search text-size"></span>
+          <span @click="showSearch" class="text-size cursor">
+            <img  src="../../assets/imagesV2/search.svg" alt="">
+          </span>
           <!-- v-else -->
-          <div @mousemove="searchShow = false" @mouseleave="searchShow = true" v-show="!searchShow"
+          <div v-show="searchShow"
             class="search search-header" :class="{
               'search-active': isFocus
-            }" :style="{ width: searchShow ? '0px' : '50vw' }">
+            }" :style="{ width: !searchShow ? '0px' : '50vw' }">
+
             <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
               v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
             <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
-              @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
+              @click="cancelSearch" >Cancel</el-button>
           </div>
         </div>
       </div>
@@ -179,15 +177,18 @@
         <el-input :placeholder="$t('search.placeHolder')" @focus="isFocus = true" @blur="isFocus = false"
           v-model="searchKey" @keyup.enter.native="searchFn" size="mini"></el-input>
         <el-button type="primary" class="btn-header el-searchs" :class="{ 'search-btn-active': isFocus }"
-          @click="searchFn" :disabled="disabledBtn">{{ $t('search.searchBtn') }}</el-button>
+          @click="cancelSearch" :disabled="disabledBtn">Cancel</el-button>
       </div>
       <div :class="{ mobileMenuWrapper: true, opened: mobileMenuOpenend }" v-if="windowWidth < 750">
         <div class="mobile-menu-back" @click="toggleMobileMenuOpenend"></div>
         <div class="mobile-menu-content">
           <el-menu :default-active="$route.pth" :router="true" class="mobile-menu" background-color="#FFF"
             text-color="#121f38" active-text-color="#121f38">
-            <el-menu-item @click="toggleMobileMenuOpenend" index="/" :class="{ active: $route.path == '/' }">
-              <router-link to="/">{{ $t('menu.home') }}</router-link>
+            <el-menu-item @click="toggleMobileMenuOpenend" index="/">
+              <span :class="{ active: $route.path == '/' }">
+                {{ $t('menu.home') }}
+              </span>
+<!--              <router-link to="/">{{ $t('menu.home') }}</router-link>-->
             </el-menu-item>
             <el-submenu index="/nodes">
               <template slot="title">
@@ -273,10 +274,18 @@
                 </el-menu-item>
               </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="/faucet" :class="{
+<!--            <el-menu-item index="/faucet" :class="{-->
+<!--                  active: $route.path.indexOf('faucet') > -1,-->
+<!--                }">-->
+<!--              <router-link to="/faucet">FAUCET</router-link>-->
+<!--            </el-menu-item>-->
+
+            <el-menu-item index="/faucet">
+               <span :class="{
                   active: $route.path.indexOf('faucet') > -1,
                 }">
-              <router-link to="/faucet">FAUCET</router-link>
+                Faucet
+              </span>
             </el-menu-item>
           </el-menu>
 
@@ -312,7 +321,7 @@ export default {
   data() {
     return {
       scrollTop: 0,
-      searchShow: true,
+      searchShow: false,
       mobileMenuOpenend: false,
       netDropdownShow: false,
       langDropdownShow: false,
@@ -336,7 +345,7 @@ export default {
         {
           value: 'test',
           // label: 'Bubble Test',
-          label: 'TURN TEST',
+          label: 'Turn Test',
         },
         // {
         //   value: 'main',
@@ -344,7 +353,7 @@ export default {
         // },
       ],
       networkObj: {
-        'test': 'TURN TEST',
+        'test': 'Turn Test',
         // 'main': 'Bubble Mainnet',
       },
       // options: [
@@ -402,6 +411,7 @@ export default {
     },
     toggleMobileMenuOpenend() {
       this.mobileMenuOpenend = !this.mobileMenuOpenend;
+      this.cancelSearch();
     },
     netVisibleChange(boolean) {
       this.netDropdownShow = boolean;
@@ -487,6 +497,17 @@ export default {
       // }
       // this.$i18n.locale = localStorage.getItem('i18nLocale')
     },
+
+    showSearch(){
+      console.log("11xxx")
+      this.searchShow = true;
+    },
+
+    cancelSearch(){
+      console.log("xxx")
+      this.searchShow = false;
+    },
+
     //查询
     searchFn() {
       let param = this.searchKey.trim();
@@ -528,6 +549,7 @@ export default {
         })
         .finally(() => {
           this.disabledBtn = false;
+          this.cancelSearch();
         });
     },
     switchFn(type, struct) {
@@ -674,7 +696,65 @@ export default {
 
 
 
+  /deep/.search .el-button.el-searchs{
+    /*font-size: 14px;*/
+    color: var(--Blue-600, #0075FF);
+    background: var(--Gray-200, #15191E);;
+    border: none;
+    border-left: 0px;
+    /*border-left: 1px solid #333333;*/
+    /*border-radius: 0px 4px 4px 0px;*/
+    height: 100%;
+  }
+
+  /deep/.search .el-button.el-searchs.btn-header:hover{
+    color: var(--Blue-600, #0075FF);
+    border-left: 0px;
+  }
+
+  /deep/.search {
+    border-radius: 6px;
+    .el-input input{
+      color: var(--Font-Scence-, #D5D8DD) !important;
+      font-family: Montserrat-Regular;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+
+
+      background: var(--Gray-200, #15191E);
+      font-size: 14px;
+      &::placeholder {
+        color: var(--Font-Scence-, #6C7584);
+        font-family: Montserrat-Regular;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 19.6px */
+      }
+      /*&:focus{*/
+      /*  color: var(--Font-Scence-, #D5D8DD) !important;*/
+      /*  font-family: Montserrat-Regular;*/
+      /*  font-size: 14px;*/
+      /*  font-style: normal;*/
+      /*  font-weight: 400;*/
+      /*  line-height: 140%; !* 19.6px *!*/
+      /*}*/
+    }
+  }
+
+.searchV2{
+  display: flex;
+  width: 485px;
+  height: 40px;
+  fill: var(--Gray-200, #15191E);
+  stroke-width: 1px;
+  stroke: var(--Transparency-300, rgba(255, 255, 255, 0.10));
+}
+
 .text-size {
+  display: flex;
   font-size: 20px;
   margin-left: 20px;
 }
@@ -706,6 +786,19 @@ export default {
 
     .active {
       color: #fff !important;
+      padding-bottom: 10px !important;
+      border-bottom: 1px solid var(--Gray-1000, #F1F2F4) !important;
+      /*span{*/
+      /*  padding-bottom: 10px !important;*/
+      /*  border-bottom: 1px solid var(--Gray-1000, #F1F2F4) !important;*/
+      /*}*/
+
+      /*div{*/
+      /*  span{*/
+      /*    padding-bottom: 10px !important;*/
+      /*    border-bottom: 1px solid var(--Gray-1000, #F1F2F4) !important;*/
+      /*  }*/
+      /*}*/
 
     }
   }
@@ -727,10 +820,10 @@ export default {
 
     .search-header {
       position: absolute;
-      // left: 0;
       transition: 3s;
       right: 0px;
-      top: -20px;
+      top: 35px;
+      width: 485px !important;
     }
   }
 }
@@ -803,17 +896,20 @@ export default {
 }
 
 .el-dropdown-menu {
-  //background: #fff;
-  padding: 0 0 0 0;
+  /*padding: 0 0 0 0;*/
+  padding: 10px !important;
+  /*background-color: black;*/
+  background-color: var(--Gray-200, #15191E);
+  border-radius: 6px;
 
   .el-dropdown-menu__item {
-    /*color: #222;*/
-    /*background-color: #fff;*/
     color: #7f868d;
     background-color: var(--Gray-200, #15191E);
     font-family: Montserrat-Regular;
     letter-spacing: 0;
     border-radius: 4px;
+    line-height: 40px;
+    padding: 0 10px;
   }
 
   .el-dropdown-menu__item:hover {
@@ -1118,7 +1214,7 @@ export default {
     background: transparent !important;
 
     &:hover {
-      color: #fff !important;
+      color: var(--Gray-1000, #F1F2F4) !important;
       // background: transparent !important;
     }
   }
@@ -1187,14 +1283,16 @@ export default {
 
 .search .el-button.el-searchs.btn-header {
   &.search-btn-active {
-    color: #fff;
-    border-left: 1px solid #666;
+    /*color: #fff;*/
+    /*border-left: 1px solid #666;*/
+    border-left: none !important;
+    color: var(--Blue-600, #0075FF) !important;
   }
 
   &:hover {
     color: #0798de;
-    background: #030911 !important;
-    border-left: 1px solid #333;
+    background: #15191E !important;
+    border-left: none !important;
   }
 
   &:active {

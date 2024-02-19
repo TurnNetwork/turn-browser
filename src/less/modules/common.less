@@ -160,9 +160,10 @@ body {
 }
 
 .blue {
-  color: @blue;
-
+  //color: @blue;
+  color: var(--Blue-600, #0075FF);
 }
+
 
 .black {
   color: #D5D8DD;
@@ -180,7 +181,8 @@ body {
 }
 
 .green {
-  color: @green;
+  //color: @green;
+  color: var(--Green-600, #00F0C5);
 }
 
 .yellow {
@@ -206,7 +208,8 @@ body {
 
 .blue:hover,
 .normal:hover {
-  color: #0e52ac;
+  //color: #0e52ac;
+  color: var(--Blue-600, #0075FF);
 }
 
 // 字体相关
@@ -544,7 +547,9 @@ body {
 .detail-change {
   display: flex;
   justify-content: space-between;
-  margin: 22px 0;
+  //margin: 22px 0;
+  margin-top: 12px;
+  margin-bottom: 56px;
 }
 
 .detail-copy {
@@ -822,7 +827,7 @@ body {
 // safari兼容
 .is-safari {
   .search .el-input {
-    padding: 13px 0 !important;
+    //padding: 13px 0 !important;
 
     .el-input__inner {
       line-height: 14px !important;
@@ -1163,16 +1168,16 @@ table {
   position: relative;
   .el-table{
     th{
-      padding-left: 24px;
-      &:nth-last-child(2){
-        padding-left: 0px;
-      }
+      //padding-left: 24px;
+      //&:nth-last-child(2){
+      //  padding-left: 0px;
+      //}
     }
     td{
-      padding-left: 24px;
-      &:last-child{
-        padding-left: 0px;
-      }
+      //padding-left: 24px;
+      //&:last-child{
+      //  padding-left: 0px;
+      //}
     }
   }
 
@@ -1206,7 +1211,7 @@ table {
 
       }
       .el-tabs__item.is-active {
-        border-bottom: 1px solid #1d2229;
+        border-bottom: 1px solid transparent;
         color: #fff;
         //background: rgba(255, 255, 255, 0.1);
         background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
@@ -1225,6 +1230,7 @@ table {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
+  font-family: Montserrat-SemiBold;
 }
 
 .detail-copy {

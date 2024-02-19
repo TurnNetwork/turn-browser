@@ -5,7 +5,7 @@
       <div class="detail-copy">
 <!--        <span class="title">L1 {{ $t('tradeAbout.transactions') }}</span>-->
         <span class="title">{{ $t('tradeAbout.transactions') }}</span>
-        <i>#{{ detailInfo.txHash }}</i>
+        <i>#{{ detailInfo.txHash  | sliceStr(20) }}</i>
         <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.txHash" v-clipboard:success="onCopy"
           v-clipboard:error="onError">
           <p v-show="isCopy">
@@ -950,6 +950,7 @@ export default {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
+  font-family: Montserrat-SemiBold;
 }
 
 .detail-copy {
@@ -1028,7 +1029,7 @@ export default {
 }
 
 .status-icon-success {
-  color: #3bb012;
+  color: var(--Green-600, #00F0C5);
 }
 
 .status-icon-warning {

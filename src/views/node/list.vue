@@ -14,40 +14,13 @@
       </el-col>
       <el-col :span="12" class="historical-validators">
         <div class="validators-search history-validators-search">
+<!--          <img src="../../assets/imagesV2/search.svg" alt="">-->
           <el-input :placeholder="$t('nodeInfo.searchValidator')" clearable v-model="keyword"
             @keyup.enter.native="searchFn" @change="clearInput" size="mini"></el-input>
           <el-button type="primary" class="el-btn" @click="searchFn">{{ $t('search.searchBtn') }}</el-button>
         </div>
       </el-col>
     </el-row>
-    <!-- 验证节点表头 -->
-    <!-- <el-row v-else> -->
-    <!-- <el-col :lg="16" :md="18" :sm="24" :xs="24" class="validators-tab"> -->
-    <!-- <div class="tabs">
-          <el-button size="medium" :class="{ active: tabIndex == 1 }" @click="tabChange(1, 'all')">{{ $t('contract.all')
-          }}</el-button>
-          <el-button size="medium" :class="{ active: tabIndex == 2 }" @click="tabChange(2, 'active')">{{
-            $t('nodeStatus.2') }}</el-button>
-          <el-button size="medium" :class="{ active: tabIndex == 3 }" @click="tabChange(3, 'candidate')">{{
-            $t('nodeStatus.1') }}</el-button>
-        </div> -->
-    <!-- <div class="validators-search node-validators-search">
-          <el-input :placeholder="$t('nodeInfo.searchValidator')" clearable v-model="keyword"
-            @keyup.enter.native="searchFn" @change="clearInput" size="mini"></el-input>
-          <el-button type="primary" class="el-btn el-searchs" @click="searchFn">{{ $t('search.searchBtn') }}</el-button>
-        </div> -->
-    <!-- </el-col>
-      <el-col :lg="8" class="historical-validators">
-        <router-link type="text" class="historical-btn" to='/zero-node'>{{
-          $t('nodeInfo.zeroProduceValidators')
-        }}</router-link>
-        <router-link type="text" class="historical-btn" to='/history-node'>{{
-          $t('nodeInfo.historicalValidators')
-        }}</router-link>
-      </el-col>
-    </el-row> -->
-    <!-- 历史验证节点、零出块惩罚验证节点 表头 -->
-
     <!-- 历史验证节点 -->
     <div class="table node-table" v-if="type == 'history'" v-loading="tLoading">
       <div class="table-content">
@@ -277,15 +250,8 @@
     </div>
 
     <div v-else class="table _default_table">
-<!--      <div class="_link">-->
-<!--        <router-link type="text" class="historical-btn" to='/zero-node'>{{-->
-<!--          $t('nodeInfo.zeroProduceValidators')-->
-<!--        }}</router-link>-->
-<!--        <router-link type="text" class="historical-btn" to='/history-node'>{{-->
-<!--          $t('nodeInfo.historicalValidators')-->
-<!--        }}</router-link>-->
-<!--      </div>-->
       <div class="validators-search node-validators-search">
+        <span class="el-icon-search text-size"></span>
         <el-input :placeholder="$t('nodeInfo.searchValidator')" clearable v-model="keyword" @keyup.enter.native="searchFn"
           @change="clearInput" size="mini"></el-input>
         <el-button type="primary" class="el-btn" @click="searchFn">{{ $t('search.searchBtn') }}</el-button>
@@ -313,13 +279,11 @@
                       <img src="../../assets/images/icon-remark.svg" class="icon-remark cursor" />
                     </el-tooltip>
                     <el-tooltip class="item" effect="dark" placement="bottom" v-if="scope.row.isInit">
-                      <!-- v-if='scope.row.isInit' -->
                       <div slot="content">
                         <span class="title-warning">{{
                           $t('nodeInfo.nodeMsg')
                         }}</span>
                       </div>
-                      <!-- <i class="  iconxinxi cursor" style="margin-left:8px;color:#D5D5D5;font-size:12px;">&#xe63f;</i> -->
                       <i class="el-icon-info cursor" style="
                           color: #d5d5d5;
                           font-size: 12px;
@@ -327,13 +291,6 @@
                         "></i>
                     </el-tooltip>
                     <img :src="scope.row.stakingIcon" v-if="scope.row.stakingIcon" class="node-avtor" alt />
-                    <!-- <img
-                      src="../../assets/images/node-avtor.svg"
-                      class="node-avtor"
-                      v-if="!scope.row.stakingIcon"
-                      alt
-                    /> -->
-
                     <router-link class="cursor normal ellipsis percent60 fontSize15" :to="getDetailUrl(scope.row.nodeId)">
                       {{ scope.row.nodeName ? scope.row.nodeName : '------' }}
                     </router-link>
@@ -352,21 +309,6 @@
               <el-table-column :label="$t('nodeInfo.totalStakePower')" min-width="165">
                 <template slot-scope="scope">
                   <span>{{ scope.row.totalValue | formatMoney }} TURN</span>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('deleget.delegationsN')" min-width="165">
-                <template slot-scope="scope">
-                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>
-                </template>
-              </el-table-column>
-              <!-- 委托奖励比例 -->
-              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">
-              </el-table-column>
-              <el-table-column :label="$t('deleget.delegators')" width="110">
-                <template slot-scope="scope">
-                  <span>
-                    {{ scope.row.delegateQty | formatNumber }}
-                  </span>
                 </template>
               </el-table-column>
               <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="140">
@@ -398,37 +340,6 @@
                   <span>{{ scope.row.blockQty | formatNumber }}</span>
                 </template>
               </el-table-column>
-              <!-- 预计年化收益率 -->
-              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="150">
-                <template slot="header">
-                  <span class="tipsTitle"> {{ $t('nodeInfo.yield3') }}</span>
-                  <el-tooltip placement="bottom" :hide-after="0">
-                    <div slot="content" class="long-tips" v-html="$t('tips.validatorYield')">
-                    </div>
-                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.expectedIncome }}%</span>
-                  <span class="Gilroy-Medium" v-else>--</span>
-                </template>
-              </el-table-column>
-              <!-- T预计委托年化率 -->
-              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">
-                <template slot="header">
-                  <span class="tipsTitle">
-                    {{ $t('nodeInfo.delegatedYield') }}</span>
-                  <el-tooltip placement="bottom">
-                    <div slot="content" class="long-tips" v-html="$t('tips.delegatedYield')">
-                    </div>
-                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.deleAnnualizedRate }}%</span>
-                  <span class="Gilroy-Medium" v-else>--</span>
-                </template>
-              </el-table-column>
               <!-- 出块率 -->
               <el-table-column prop="genBlocksRate" min-width="180">
                 <template slot="header">
@@ -447,6 +358,8 @@
             </el-table>
           </div>
         </el-tab-pane>
+
+
         <el-tab-pane :label="`${$t('nodeStatus.2')}`" v-loading="tLoading" name="2">
           <div class="table-content">
             <el-table :data="tableData">
@@ -510,22 +423,22 @@
                   <span>{{ scope.row.totalValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('deleget.delegationsN')" min-width="165">
-                <template slot-scope="scope">
-                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>
-                </template>
-              </el-table-column>
-              <!-- 委托奖励比例 -->
-              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">
-              </el-table-column>
-              <el-table-column :label="$t('deleget.delegators')" width="140">
-                <template slot-scope="scope">
-                  <span>
-                    {{ scope.row.delegateQty | formatNumber }}
-                  </span>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="120">
+<!--              <el-table-column :label="$t('deleget.delegationsN')" min-width="165">-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
+<!--              &lt;!&ndash; 委托奖励比例 &ndash;&gt;-->
+<!--              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">-->
+<!--              </el-table-column>-->
+<!--              <el-table-column :label="$t('deleget.delegators')" width="140">-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span>-->
+<!--                    {{ scope.row.delegateQty | formatNumber }}-->
+<!--                  </span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
+              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="140">
                 <template slot-scope="scope">
                   <div class="node-stability flex-special">
                     <el-tooltip placement="top">
@@ -570,33 +483,33 @@
                 </template>
               </el-table-column>
               <!-- T预计委托年化率 -->
-              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">
-                <template slot="header">
-                  <span class="tipsTitle">
-                    {{ $t('nodeInfo.delegatedYield') }}</span>
-                  <el-tooltip placement="bottom">
-                    <div slot="content" class="long-tips" v-html="$t('tips.delegatedYield')">
-                    </div>
-                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.deleAnnualizedRate }}%</span>
-                  <span class="Gilroy-Medium" v-else>--</span>
-                </template>
-              </el-table-column>
-              <!-- 出块率 -->
-              <el-table-column prop="genBlocksRate" min-width="180">
-                <template slot="header">
-                  <span class="tipsTitle">
-                    {{ $t('nodeInfo.gBlockRate') }}</span>
-                  <el-tooltip placement="bottom">
-                    <div slot="content" class="long-tips" v-html="$t('tips.blockRate24h')">
-                    </div>
-                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />
-                  </el-tooltip>
-                </template>
-              </el-table-column>
+<!--              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">-->
+<!--                <template slot="header">-->
+<!--                  <span class="tipsTitle">-->
+<!--                    {{ $t('nodeInfo.delegatedYield') }}</span>-->
+<!--                  <el-tooltip placement="bottom">-->
+<!--                    <div slot="content" class="long-tips" v-html="$t('tips.delegatedYield')">-->
+<!--                    </div>-->
+<!--                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />-->
+<!--                  </el-tooltip>-->
+<!--                </template>-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.deleAnnualizedRate }}%</span>-->
+<!--                  <span class="Gilroy-Medium" v-else>&#45;&#45;</span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
+<!--              &lt;!&ndash; 出块率 &ndash;&gt;-->
+<!--              <el-table-column prop="genBlocksRate" min-width="180">-->
+<!--                <template slot="header">-->
+<!--                  <span class="tipsTitle">-->
+<!--                    {{ $t('nodeInfo.gBlockRate') }}</span>-->
+<!--                  <el-tooltip placement="bottom">-->
+<!--                    <div slot="content" class="long-tips" v-html="$t('tips.blockRate24h')">-->
+<!--                    </div>-->
+<!--                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />-->
+<!--                  </el-tooltip>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
               <!-- 版本号 -->
               <el-table-column :label="$t('nodeInfo.version')" prop="version" min-width="80">
               </el-table-column>
@@ -666,22 +579,22 @@
                   <span>{{ scope.row.totalValue | formatMoney }} TURN</span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('deleget.delegationsN')" min-width="165">
-                <template slot-scope="scope">
-                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>
-                </template>
-              </el-table-column>
-              <!-- 委托奖励比例 -->
-              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">
-              </el-table-column>
-              <el-table-column :label="$t('deleget.delegators')" width="140">
-                <template slot-scope="scope">
-                  <span>
-                    {{ scope.row.delegateQty | formatNumber }}
-                  </span>
-                </template>
-              </el-table-column>
-              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="120">
+<!--              <el-table-column :label="$t('deleget.delegationsN')" min-width="165">-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span> {{ scope.row.delegateValue | formatMoney }} TURN</span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
+<!--              &lt;!&ndash; 委托奖励比例 &ndash;&gt;-->
+<!--              <el-table-column :label="$t('tradeAbout.rewardRatio')" prop="delegatedRewardRatio" width="200">-->
+<!--              </el-table-column>-->
+<!--              <el-table-column :label="$t('deleget.delegators')" width="140">-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span>-->
+<!--                    {{ scope.row.delegateQty | formatNumber }}-->
+<!--                  </span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
+              <el-table-column :label="$t('nodeInfo.stability')" class="stability-cell" width="140">
                 <template slot-scope="scope">
                   <div class="node-stability flex-special">
                     <el-tooltip placement="top">
@@ -711,36 +624,36 @@
                 </template>
               </el-table-column>
               <!-- 预计年化收益率 -->
-              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="180">
-                <template slot="header">
-                  <span class="tipsTitle"> {{ $t('nodeInfo.yield3') }}</span>
-                  <el-tooltip placement="bottom" :hide-after="0">
-                    <div slot="content" class="long-tips" v-html="$t('tips.validatorYield')">
-                    </div>
-                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.expectedIncome }}%</span>
-                  <span class="Gilroy-Medium" v-else>--</span>
-                </template>
-              </el-table-column>
-              <!-- T预计委托年化率 -->
-              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">
-                <template slot="header">
-                  <span class="tipsTitle">
-                    {{ $t('nodeInfo.delegatedYield') }}</span>
-                  <el-tooltip placement="bottom">
-                    <div slot="content" class="long-tips" v-html="$t('tips.delegatedYield')">
-                    </div>
-                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />
-                  </el-tooltip>
-                </template>
-                <template slot-scope="scope">
-                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.deleAnnualizedRate }}%</span>
-                  <span class="Gilroy-Medium" v-else>--</span>
-                </template>
-              </el-table-column>
+<!--              <el-table-column :label="$t('nodeInfo.yield3')" label-class-name="yield3" min-width="180">-->
+<!--                <template slot="header">-->
+<!--                  <span class="tipsTitle"> {{ $t('nodeInfo.yield3') }}</span>-->
+<!--                  <el-tooltip placement="bottom" :hide-after="0">-->
+<!--                    <div slot="content" class="long-tips" v-html="$t('tips.validatorYield')">-->
+<!--                    </div>-->
+<!--                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />-->
+<!--                  </el-tooltip>-->
+<!--                </template>-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.expectedIncome }}%</span>-->
+<!--                  <span class="Gilroy-Medium" v-else>&#45;&#45;</span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
+<!--              &lt;!&ndash; T预计委托年化率 &ndash;&gt;-->
+<!--              <el-table-column :label="$t('nodeInfo.delegatedYield')" label-class-name="delegatedYield" min-width="180">-->
+<!--                <template slot="header">-->
+<!--                  <span class="tipsTitle">-->
+<!--                    {{ $t('nodeInfo.delegatedYield') }}</span>-->
+<!--                  <el-tooltip placement="bottom">-->
+<!--                    <div slot="content" class="long-tips" v-html="$t('tips.delegatedYield')">-->
+<!--                    </div>-->
+<!--                    <img class="tipsImg" src="@/assets/images/icon-quest.svg" alt="tips" />-->
+<!--                  </el-tooltip>-->
+<!--                </template>-->
+<!--                <template slot-scope="scope">-->
+<!--                  <span class="Gilroy-Medium" v-if="!scope.row.isInit">{{ scope.row.deleAnnualizedRate }}%</span>-->
+<!--                  <span class="Gilroy-Medium" v-else>&#45;&#45;</span>-->
+<!--                </template>-->
+<!--              </el-table-column>-->
               <!-- 出块率 -->
               <el-table-column prop="genBlocksRate" min-width="180">
                 <template slot="header">
@@ -1055,6 +968,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
 .table {
   position: relative;
 }
@@ -1070,16 +984,27 @@ export default {
 }
 
 .validators-search {
-  width: 400px;
-  height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 4px;
-  display: flex;
-  margin-left: 30px;
+  /*width: 392px;*/
+  /*height: 40px;*/
+  /*padding: 10px 12px;*/
+  /*gap: 4px;*/
+  /*align-items: center;*/
+  /*border-radius: var(--Number6, 6px);*/
+  /*border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));*/
+  /*background: var(--Transparency-200, rgba(255, 255, 255, 0.06));*/
+
+
+
+  /*width: 400px;*/
+  /*height: 42px;*/
+  /*border: 1px solid rgba(255, 255, 255, 0.03);*/
+  /*border-radius: 4px;*/
+  /*display: flex;*/
+  /*margin-left: 30px;*/
   /*background: rgba(#fff, 0.1);*/
-  background: rgba(255, 255, 255, 0.03);
-  align-items: center;
-  padding-left: 5px;
+  /*background: rgba(255, 255, 255, 0.03);*/
+  /*align-items: center;*/
+  /*padding-left: 5px;*/
 
   /deep/.el-input--mini {
     .el-input__icon {
@@ -1154,7 +1079,7 @@ export default {
   .validators-search {
     position: absolute;
     right: 0;
-    top: 45px;
+    top: 51px;
     z-index: 2;
   }
 
@@ -1192,12 +1117,21 @@ export default {
 }
 
 .validators-search {
-  width: 400px;
-  height: 44px;
-  // border: 1px solid #e6e6e6;
-  border-radius: 4px;
+  /*width: 400px;*/
+  /*height: 44px;*/
+  /*border-radius: 4px;*/
+  /*display: flex;*/
+  /*margin-left: 30px;*/
+
   display: flex;
-  margin-left: 30px;
+  width: 392px;
+  height: 40px;
+  padding: 10px 12px;
+  gap: 4px;
+  align-items: center;
+  border-radius: var(--Number6, 6px);
+  border: 1px solid var(--Transparency-100, rgba(255, 255, 255, 0.03));
+  background: var(--Transparency-200, rgba(255, 255, 255, 0.06));
 
   .el-searchs {
     font-size: 14px;
@@ -1304,6 +1238,7 @@ export default {
 
 .el-table {
 
+
   .tipsTitle,
   .tipsImg {
     display: inline;
@@ -1324,5 +1259,10 @@ export default {
   .el-table__header-wrapper {
     /*overflow: visible;*/
   }
+}
+
+.table-content-padding{
+  width: 1224px;
+  padding: 0 12px;
 }
 </style>

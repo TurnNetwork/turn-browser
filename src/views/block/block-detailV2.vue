@@ -9,8 +9,7 @@
           <span>Block</span>
           <i>#{{ detailInfo.number }}</i>
         </span>
-        <b class="cursor" :class="{ copy: !isCopy }" v-clipboard:copy="detailInfo.number" v-clipboard:success="onCopy"
-          v-clipboard:error="onError">
+        <b class="cursor copyicon" id="copy1" :class="{ copy: !isCopy }" @click="onCopy(detailInfo.number)">
           <p v-show="isCopy">
             <i class="el-icon-circle-check-outline"></i><span>{{ copyText }}</span>
           </p>
@@ -149,18 +148,19 @@ export default {
     timeDiffFn(beginTime, endTime) {
       return timeDiff(beginTime, endTime);
     },
-    onCopy() {
-      console.log(123123);
-
-      this.copyText = this.$t('modalInfo.copysuccess');
-      this.isCopy = true;
-      setTimeout(() => {
-        this.isCopy = false;
-        this.copyText = '';
-      }, 2000);
+    onCopy(copyStr) {
+      let self = this;
+      self.$copyText(copyStr.toString()).then(function (e) {
+        self.isCopy = true;
+        setTimeout(() => {
+          self.isCopy = false;
+          self.copyText = '';
+        }, 2000);
+      }, function (e) {
+        self.onError()
+      })
     },
     onError() {
-      console.log(121233123);
       this.copyText = this.$t('modalInfo.copyfail');
       this.isCopy = true;
       setTimeout(() => {
@@ -208,6 +208,16 @@ export default {
 <style lang="less" scoped>
   /deep/.item-wrap{
     border-radius: 12px 12px 12px 12px;
+    border: 1px solid var(--Gray-500, #535A65);
+    background: linear-gradient(0deg, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 0%, var(--Transparency-100, rgba(255, 255, 255, 0.03)) 100%), var(--Gray-100, #030911);
+  }
+
+  /deep/.list-wrap .title{
+    padding: 0 0 18px 0;
+  }
+
+  /deep/.table{
+    margin-top: 0px;
   }
 
 .detail-title {
@@ -240,14 +250,22 @@ export default {
 }
 
 .block-trade {
-  margin: 31px 0 50px;
+  /*margin: 31px 0 50px;*/
 
   .block-trade-title {
-    font-size: 20px;
-    color: #fff;
-    line-height: 24px;
-    padding: 9px 20px;
-    margin-bottom: 20px;
+    /*font-size: 20px;*/
+    /*color: #fff;*/
+    /*line-height: 24px;*/
+    padding: 32px 0 18px 0;
+    /*margin-bottom: 20px;*/
+
+    color: var(--Gray-900, #D5D8DD);
+    font-family: Montserrat-Regular;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1.04px;
 
   }
 

@@ -1,4 +1,5 @@
-@font-face {font-family: 'BebasNeue-Regular';src: url('../fonts/BebasNeue-Regular.ttf');}
+/*@font-face {font-family: 'BebasNeue-Regular';src: url('../fonts/BebasNeue-Regular.ttf');}*/
+@font-face {font-family: 'BebasNeue-Regular';src: url('../fonts/BebasNeue.ttf');}
 
 .Montserrat-Regular{
     font-family: BebasNeue-Regular;

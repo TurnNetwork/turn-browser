@@ -1,7 +1,7 @@
 <template>
   <div class="trade-list-wrap">
     <div class="page-title fontSize34">
-      {{ $t('tradeAbout.proposalDetail').toUpperCase() }}
+      {{ $t('tradeAbout.proposalDetail') }}
     </div>
     <el-row class="row-info">
       <el-col :span="18">

@@ -333,7 +333,7 @@ export default {
     /*background-size: 100% 100%;*/
     background-size: 1240px 857px;
     z-index: 0;
-    //opacity: 0.3;
+    opacity: 0.3;
   }
 
   &::before {
