@@ -98,6 +98,13 @@
   height: 243px;
   width: 100%;
   //margin-top:200px
+  .dataContent{
+    width: 722px;
+    height: 111px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+  }
 }
 
 .kuangBg {
@@ -161,12 +168,16 @@
   display: block;
   //border: 1px solid #094296;
   height: 243px;
-  width: 17%;
+  //width: 17%;
   float: left;
-  margin-right: 20px;
+  margin-right: 34px;
   text-align: center;
   padding-top: 66px;
-  padding-left: 80px;
+
+
+  &:first-child{
+    padding-left: 80px;
+  }
 
   .line2-1-div-content{
     display: flex;
@@ -921,32 +932,37 @@ td {
 
       <div class="line2 kuangBg">
         <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
-        <!--靠左新增3个框浮动左-->
-        <div class="line2-1">
 
-          <div class="line2-1-div-content">
-            <span class="span-title">Active Bubbles</span>
-            <span class="span-content">
+        <div class="dataContent">
+
+          <!--靠左新增3个框浮动左-->
+          <div class="line2-1">
+            <div class="line2-1-div-content">
+              <span class="span-title">Active Bubbles</span>
+              <span class="span-content">
             <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">1.11K</a>
             </span>
+            </div>
           </div>
-        </div>
-        <div class="line2-1">
-          <div class="line2-1-div-content">
-            <span class="span-title">Active Micro-Nodes</span>
-            <span class="span-content">
+          <div class="line2-1">
+            <div class="line2-1-div-content">
+              <span class="span-title">Active Micro-Nodes</span>
+              <span class="span-content">
             <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">50.12K</a>
             </span>
+            </div>
           </div>
-        </div>
-        <div class="line2-1">
-          <div class="line2-1-div-content">
-            <span class="span-title">L1/L2 Peak Instantaneous TPS</span>
-            <span class="span-content">
+          <div class="line2-1">
+            <div class="line2-1-div-content">
+              <span class="span-title">L1/L2 Peak Instantaneous TPS</span>
+              <span class="span-content">
             <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">110/300</a>
             </span>
+            </div>
           </div>
+
         </div>
+
       </div>
       <div class="line-title">
         <b>Network Activity</b>
