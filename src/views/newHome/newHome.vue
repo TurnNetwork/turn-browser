@@ -400,8 +400,8 @@ td {
   display: block;
   //border: 1px solid #094296;
   //height: 480px;
-  /*width: 600px;*/
-  width: 100%;
+  width: 600px;
+  /*width: 100%;*/
   //float: left;
   /*margin-right: 20px;*/
   border-radius: 20px;
@@ -461,8 +461,8 @@ td {
   /* 根据需要调整宽度 */
   /*padding-right: 30px;*/
   padding-right: 12%;
-  padding-left: 20px;
-  /*padding-left: 75px;*/
+  /*padding-left: 20px;*/
+  padding-left: 75px;
   /* 为图标留出空间 */
   height: 60px;
   display: flex;
@@ -810,7 +810,7 @@ td {
 }
 
 .myTooltip{
-  width: 252px;
+  width: 96px;
   height: 94px;
   display: flex;
   justify-content: center;
@@ -820,7 +820,7 @@ td {
   border: 1px solid var(--Transparency-300, rgba(255, 255, 255, 0.10));
   background: var(--Gray-200, #15191E);
   .myTooltipSelect{
-    width: 232px;
+    width: 76px;
     height: 36px;
     padding: var(--Number8, 8px) 12px;
     border-radius: var(--Number4, 4px);
@@ -855,7 +855,7 @@ td {
             <div class="changeType" >
 <!--              <span style="font-size: 16px">Layer1</span>-->
 
-              <el-tooltip :offset="260" placement="bottom-end" popper-class="_tooltipChangePosition">
+              <el-tooltip :offset="50" placement="bottom-end" popper-class="_tooltipChangePosition">
                 <div slot="content">
                   <div class="myTooltip">
                     <div class="myTooltipSelect selectLayerHover" @click="selectLayerInput(1)">
@@ -921,7 +921,7 @@ td {
           <br />
         </div>
       </div>
-      <div class="line-title" style="margin-top: 100px">
+      <div class="line-title">
         <b>Network Activity</b>
       </div>
       <div class="line3">
