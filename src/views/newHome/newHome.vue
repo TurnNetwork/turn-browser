@@ -165,7 +165,40 @@
   float: left;
   margin-right: 20px;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 66px;
+  padding-left: 80px;
+
+  .line2-1-div-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex: 0 0 50%;
+    width: 218px;
+    height: 88px;
+    .span-title{
+      height: 40px;
+      display: block;
+      color: var(--Gray-700, #9AA1AC);
+      font-family: Montserrat-Regular;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.32px;
+    }
+    .span-content{
+      height: 48px;
+      display: block;
+      color: var(--Blue-1000, #CCE3FF);
+      font-family: BebasNeue-Regular;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.8px;
+    }
+  }
 }
 
 
@@ -886,39 +919,33 @@ td {
         <b>Utrecht Symptoom Dagboek</b>
       </div>
 
-      <div class="line2 border-kuang kuangBg">
+      <div class="line2 kuangBg">
         <img class="rightImgBg" src="../../assets/imagesV2/div.GridItem_asset___ix8N.png" alt="" />
         <!--靠左新增3个框浮动左-->
         <div class="line2-1">
-          <table>
-            <tr>
-              <th class="myTh">Active Bubbles</th>
-            </tr>
-            <tr>
-              <td class="myTd">1.11K</td>
-            </tr>
-          </table>
+
+          <div class="line2-1-div-content">
+            <span class="span-title">Active Bubbles</span>
+            <span class="span-content">
+            <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">1.11K</a>
+            </span>
+          </div>
         </div>
         <div class="line2-1">
-          <table>
-            <tr>
-              <th class="myTh">Active Micro-Nodes</th>
-            </tr>
-            <tr>
-              <td class="myTd">50.12K</td>
-            </tr>
-          </table>
+          <div class="line2-1-div-content">
+            <span class="span-title">Active Micro-Nodes</span>
+            <span class="span-content">
+            <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">50.12K</a>
+            </span>
+          </div>
         </div>
         <div class="line2-1">
-          <table>
-            <tr>
-              <th class="myTh">L1/L2 Peak Instantaneous TPS</th>
-            </tr>
-            <tr>
-              <td class="myTd">110/300</td>
-            </tr>
-          </table>
-          <br />
+          <div class="line2-1-div-content">
+            <span class="span-title">L1/L2 Peak Instantaneous TPS</span>
+            <span class="span-content">
+            <a class="cursor hoverBlue" @click="goBlockDetail(blockStatisticData.currentNumber)">110/300</a>
+            </span>
+          </div>
         </div>
       </div>
       <div class="line-title">
