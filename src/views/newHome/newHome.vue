@@ -487,16 +487,6 @@ td {
   align-items: center;
   gap: 10px;
 
-  /*&::before{*/
-  /*  display: inline-block;*/
-  /*  border: 1px solid #0000ff;*/
-  /*  position: relative;*/
-  /*  width: 55px;*/
-  /*  height: 20px;*/
-  /*  top: 0;*/
-  /*  right: 0;*/
-  /*  background: url("../../assets/imagesV2/Rectangle 4.png") no-repeat;*/
-  /*}*/
 }
 
 .search-input {
@@ -621,15 +611,6 @@ td {
 }
 
 .tableTh1 {
-  /*color: var(--Gray-600, #F1F2F4);*/
-  /*!* P3 *!*/
-  /*font-family: Montserrat-Regular;*/
-  /*font-size: 14px;*/
-  /*font-style: normal;*/
-  /*font-weight: 400 !important;*/
-  //width: 20%;
-  //line-height: 140%; /* 19.6px */
-
   color: var(--Gray-900, #D5D8DD);
   /* P3 */
   font-family: Montserrat-Regular;
@@ -780,10 +761,6 @@ td {
 
 
 .changeType{
-  /*display: inline-flex;*/
-  //padding: 4px 0px;
-  /*justify-content: center;*/
-  /*align-items: center;*/
   width: 55px;
   height: 24px;
   position: absolute;
@@ -803,15 +780,6 @@ td {
 
   }
 
-  /*.changeLayer{*/
-  /*  color: var(--Gray-900, #D5D8DD);*/
-  /*  !* P3 *!*/
-  /*  font-family: Montserrat-SemiBold;*/
-  /*  font-size: 14px;*/
-  /*  font-style: normal;*/
-  /*  font-weight: 400;*/
-  /*  line-height: 140%; !* 19.6px *!*/
-  /*}*/
   img{
     width: 5px;
     height: 5px;
@@ -1044,34 +1012,6 @@ td {
                   ({{ blockStatisticData.stakingDelegationValue | formatNumber }})
                 </b></span>
         </div>
-
-
-<!--        <div class="line4-1">-->
-<!--          <table>-->
-<!--            <tr>-->
-<!--              <th class="myTh">{{ $t('indexInfo.totalSupply') }}</th>-->
-<!--              <th class="myTh">{{ $t('indexInfo.circulatingSupply') }}</th>-->
-<!--              <th class="myTh">{{ $t('nodeInfo.stakeRate').toUpperCase() }}</th>-->
-<!--&lt;!&ndash;              <th class="myTh">Inflation Rate</th>&ndash;&gt;-->
-<!--            </tr>-->
-
-<!--            <tr>-->
-<!--              <td class="myTd">{{ blockStatisticData.issueValue | unit }}</td>-->
-<!--              <td class="myTd">{{ blockStatisticData.turnValue | unit }}</td>-->
-<!--              <td class="myTd">-->
-<!--                {{-->
-<!--                blockStatisticData.stakingDelegationValue-->
-<!--                | percentage(blockStatisticData.stakingDenominator)-->
-<!--                }}%&nbsp;-->
-<!--                <b class="tip">-->
-<!--                  ({{ blockStatisticData.stakingDelegationValue | formatNumber }})-->
-<!--                </b>-->
-
-<!--              </td>-->
-<!--&lt;!&ndash;              <td class="myTd">3.17%</td>&ndash;&gt;-->
-<!--            </tr>-->
-<!--          </table>-->
-<!--        </div>-->
       </div>
       <div class="line-title">
         <b>Transaction Blocks</b>
@@ -1559,112 +1499,9 @@ export default {
       });
       this.updateBarColor();
     },
-    // initBlockTimeChart() {
-    //   let r = this.$refs;
-    //   // console.log(r);
-    //
-    //   blockTimeChart.init(r.blockTimeChart, blockTimeChart.blockTimeOption);
-    //   blockTimeChart.chart.on('mouseover', (e) => {
-    //     this.handleBarHover(e);
-    //   });
-    //   blockTimeChart.chart.on('mouseout', () => {
-    //     // indexService.getChartData();
-    //     this.updateBarIsMove(true);
-    //     this.handleBarMouseout();
-    //   });
-    // // },
-    // initBlockTradeChart() {
-    //   let r = this.$refs;
-    //   blockTradeChart.init(r.blockTradeChart, blockTradeChart.blockTradeOption);
-    //   blockTradeChart.chart.on('mouseover', (e) => {
-    //     this.handleBarHover(e);
-    //   });
-    //   blockTradeChart.chart.on('mouseout', () => {
-    //     // indexService.getChartData();
-    //     this.updateBarIsMove(true);
-    //     this.handleBarMouseout();
-    //   });
-    // },
-    // updateChart(data) {
-    //   // console.warn('data>>>>>>',typeof data,data.length)
-    //   //遍历data  得到 x轴  双 y轴
-    //   let xList = [],
-    //     yListTime = [],
-    //     yListNum = [];
-    //   // this.chartMove = true;
-    //   // setTimeout(()=>{
-    //   //     this.chartMove = false;
-    //   // },500)
-    //   if (data) {
-    //     xList = data.x;
-    //     yListTime = data.ya;
-    //     yListNum = data.yb;
-    //   }
-    //   blockTimeChart.update({
-    //     xAxis: [
-    //       {
-    //         data: xList,
-    //       },
-    //     ],
-    //     series: [
-    //       {
-    //         data: yListTime,
-    //       },
-    //     ],
-    //   });
-    //   blockTradeChart.update({
-    //     xAxis: [
-    //       {
-    //         data: xList,
-    //       },
-    //     ],
-    //     series: [
-    //       {
-    //         data: yListNum,
-    //       },
-    //     ],
-    //   });
-    // },
-    // updateBarColor() {
-    //   blockTimeChart.update({
-    //     series: [
-    //       {
-    //         itemStyle: {
-    //           normal: {
-    //             //通过数组下标选择颜色
-    //             color: (params) => {
-    //               return this.barColorList[params.dataIndex];
-    //             },
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   });
-    //   blockTradeChart.update({
-    //     series: [
-    //       {
-    //         itemStyle: {
-    //           normal: {
-    //             //通过数组下标选择颜色
-    //             color: (params) => {
-    //               return this.barColorList[params.dataIndex];
-    //             },
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   });
-    // },
     timeDiffFn(beginTime, endTime) {
       return timeDiff(beginTime, endTime);
     },
-    // percentage(a,b){
-    //     console.log(a/b*100)
-    //     if(a&&b){
-    //         return (a/b*100).toFixed(2);
-    //     }
-    //     return 0;
-    // },
     scrollHandle() {
       const windowH =
         document.documentElement.clientHeight || document.body.clientHeight;
