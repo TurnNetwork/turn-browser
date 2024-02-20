@@ -9,6 +9,14 @@
   }
 }
 
+
+/deep/.el-button--default {
+  &:hover {
+    border: none !important;
+  }
+}
+
+
 .tdBorderBottom{
   border-bottom: 1px solid #333;
 }
