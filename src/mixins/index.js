@@ -15,12 +15,23 @@ const routeJump = {
     //进入交易哈希详情
     getTradeUrl(hash) {
       return {
+        path: '/trade-detail',
+        query: {
+          txHash: hash
+        }
+      };
+    },
+
+    //进入交易哈希详情
+    getTradeUrlL2(hash) {
+      return {
         path: '/tradeLayerTwo-detail',
         query: {
           txHash: hash
         }
       };
     },
+
     goTradeDetail(hash) {
       this.$router.push(this.getTradeUrl(hash));
     },

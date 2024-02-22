@@ -50,7 +50,7 @@
               </el-tooltip>-->
 
               <!-- 交易hash: 显示0x+18 -->
-              <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrl(scope.row.txHash)">{{
+              <router-link class="cursor normal ellipsis hash-width" :to="getTradeUrlL2(scope.row.txHash)">{{
                 scope.row.txHash }}</router-link>
             </div>
             <!-- <span class='cursor normal' @click='goTradeDetail(scope.$index,scope.row)'>{{scope.row.txHash}}</span> -->
