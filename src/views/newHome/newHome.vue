@@ -888,7 +888,8 @@ td {
           <div class="line3-div-content">
             <span class="span-title">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</span>
             <span class="span-content cursor hoverBlue" @click="$router.push('/trade')">
-              {{ blockStatisticData.currentTps | formatNumber }}
+<!--              {{ blockStatisticData.currentTps | formatNumber }}-->
+              {{ testNum }}
             </span>
           </div>
 
@@ -1098,6 +1099,7 @@ export default {
   name: 'newHome',
   data() {
     return {
+      testNum:1,
       bubbleList:null,
       selectLayer:'Layer1',//默认选中的layer
       searchLayer:null,//1 Layer1 ;2 Layer2
@@ -1213,6 +1215,11 @@ export default {
     comHeader,
   },
   methods: {
+    createNum(){
+      //随机数
+      let randomNumber = Math.floor(Math.random() * 20) + 1;
+      this.testNum = randomNumber;
+    },
     selectLayerInput(type){
       if (type == 1){
         this.searchLayer = 1;
@@ -1612,6 +1619,8 @@ export default {
     // indexService.getBlockData();
   },
   mounted() {
+    //生成随机数
+    this.createNum();
     // console.log('aaaa',document.styleSheets);
     // this.styleEle = document.styleSheets[0];
     this.createStyle();
