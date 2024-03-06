@@ -880,14 +880,15 @@ td {
           <div class="line3-div-content">
             <span class="span-title">{{ $t('indexInfo.LIVEBLOCKTIME') }}</span>
             <span class="span-content">
-              {{ tooltipData.time }}s
+              0.5s
+<!--              {{ tooltipData.time }}s-->
             </span>
           </div>
 
           <div class="line3-div-content">
             <span class="span-title">{{ $t('indexInfo.LIVEBLOCKTRANSACTIONS') }}</span>
             <span class="span-content cursor hoverBlue" @click="$router.push('/trade')">
-                {{ tooltipData.txs }}
+              {{ blockStatisticData.currentTps | formatNumber }}
             </span>
           </div>
 
